@@ -31,6 +31,7 @@ Method **v2** (integer versions; amendments are logged in `CHANGELOG.md`). Cards
 | 1 | building A (synthetic, calibration) | 2.167 vs 2.169 / 2.562 | no gain |
 | 2 | building B′ (synthetic, calibration) | 1.365 vs 1.530 / 1.860 | beats baselines |
 | 3 | Tennessee Eastman, first 120 days ([card](docs/CARD_tennessee_eastman_v1.md)) | 3.033 vs 3.171 / 3.410 | beats baselines |
+| 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.851 vs 3.826 / 3.905 | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it) |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire

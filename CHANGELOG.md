@@ -161,3 +161,9 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Tie tolerance made relative (1e-4 of the total bits): HAI HT_PS and ST_PS emit identical events under two schemes
   (all thresholds equal) and differed by 0.003 bits of solver noise, which would have forced a third pass. The
   pass-1 HT_PS entry was set to what the rule yields (unchanged).
+- Dataset 4 carded (docs/CARD_hai_v2.md): HAI 21.03 at 1-minute means, entity process (5.033 vs 6.220), 57 roles
+  (22 q20/50/80, 5 q10/90, 23 turning points, 7 silent), 2,096 fragments; library 3.851 vs triviality 3.826 vs best
+  baseline 3.905 -> no gain; recovery 7/15. The alternation baseline found 188 pairs, 99 cross-role (command ->
+  position, co-stepping setpoints): it carries the plant's deterministic couplings, so the library adds nothing
+  beyond them. Admitted provisionally (15.3 days, no period). Open item: whether 3.11 should absorb cross-variable
+  couplings — to settle before dataset 5.
