@@ -1,0 +1,79 @@
+{
+ "mechanisms": [
+  {
+   "cause": "D_valve",
+   "effect": "D_feed",
+   "note": "XMV(1) sets stream 2 flow"
+  },
+  {
+   "cause": "E_valve",
+   "effect": "E_feed",
+   "note": "XMV(2) sets stream 3 flow"
+  },
+  {
+   "cause": "A_valve",
+   "effect": "A_feed",
+   "note": "XMV(3) sets stream 1 flow"
+  },
+  {
+   "cause": "AC_valve",
+   "effect": "AC_feed",
+   "note": "XMV(4) sets stream 4 flow"
+  },
+  {
+   "cause": "purge_valve",
+   "effect": "purge",
+   "note": "XMV(6) sets stream 9 flow"
+  },
+  {
+   "cause": "underflow_valve",
+   "effect": "underflow",
+   "note": "XMV(7)/XMV(8) set streams 10/11 (per vessel)"
+  },
+  {
+   "cause": "cw_flow",
+   "effect": "cw_out",
+   "note": "cooling water flow -> its outlet temperature (reactor, separator)"
+  },
+  {
+   "cause": "cw_flow",
+   "effect": "T",
+   "note": "cooling water flow -> vessel temperature (reactor, separator)"
+  },
+  {
+   "cause": "steam",
+   "effect": "T",
+   "note": "stripper steam -> stripper temperature"
+  },
+  {
+   "cause": "underflow",
+   "effect": "L",
+   "note": "underflow -> level (separator, stripper)"
+  }
+ ],
+ "note": "actuator -> measurement pairs true by construction (Downs & Vogel variable table); role names, any lag class; flow loops respond within one 3-min sample and are expected to be invisible to strictly-positive-gap contexts",
+ "faults": {
+  "0": "normal",
+  "1": "A/C feed ratio step (stream 4)",
+  "2": "B composition step (stream 4)",
+  "3": "D feed temperature step",
+  "4": "reactor cooling water inlet temperature step",
+  "5": "condenser cooling water inlet temperature step",
+  "6": "A feed loss (stream 1)",
+  "7": "C header pressure loss",
+  "8": "A,B,C feed composition random variation",
+  "9": "D feed temperature random variation",
+  "10": "C feed temperature random variation",
+  "11": "reactor cooling water inlet temperature random variation",
+  "12": "condenser cooling water inlet temperature random variation",
+  "13": "reaction kinetics slow drift",
+  "14": "reactor cooling water valve sticking",
+  "15": "condenser cooling water valve sticking",
+  "16": "unknown",
+  "17": "unknown",
+  "18": "unknown",
+  "19": "unknown",
+  "20": "unknown"
+ },
+ "match": "role_prefix"
+}

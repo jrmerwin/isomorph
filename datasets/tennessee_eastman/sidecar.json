@@ -1,0 +1,1043 @@
+{
+ "time_unit": "minute",
+ "entity_key": "vessel",
+ "period": "auto",
+ "system_wide_types": [
+  "AC_feed:downq20",
+  "AC_feed:downq50",
+  "AC_feed:downq80",
+  "AC_feed:upq20",
+  "AC_feed:upq50",
+  "AC_feed:upq80",
+  "AC_valve:downq20",
+  "AC_valve:downq50",
+  "AC_valve:downq80",
+  "AC_valve:upq20",
+  "AC_valve:upq50",
+  "AC_valve:upq80",
+  "A_feed:downq20",
+  "A_feed:downq50",
+  "A_feed:downq80",
+  "A_feed:upq20",
+  "A_feed:upq50",
+  "A_feed:upq80",
+  "A_valve:downq20",
+  "A_valve:downq50",
+  "A_valve:downq80",
+  "A_valve:upq20",
+  "A_valve:upq50",
+  "A_valve:upq80",
+  "D_feed:peak",
+  "D_feed:trough",
+  "D_valve:downq20",
+  "D_valve:downq50",
+  "D_valve:downq80",
+  "D_valve:upq20",
+  "D_valve:upq50",
+  "D_valve:upq80",
+  "E_feed:peak",
+  "E_feed:trough",
+  "E_valve:downq20",
+  "E_valve:downq50",
+  "E_valve:downq80",
+  "E_valve:upq20",
+  "E_valve:upq50",
+  "E_valve:upq80",
+  "compressor:downq20",
+  "compressor:downq50",
+  "compressor:downq80",
+  "compressor:upq20",
+  "compressor:upq50",
+  "compressor:upq80",
+  "feed_A:downq20",
+  "feed_A:downq50",
+  "feed_A:downq80",
+  "feed_A:upq20",
+  "feed_A:upq50",
+  "feed_A:upq80",
+  "feed_B:downq20",
+  "feed_B:downq50",
+  "feed_B:downq80",
+  "feed_B:upq20",
+  "feed_B:upq50",
+  "feed_B:upq80",
+  "feed_C:downq20",
+  "feed_C:downq50",
+  "feed_C:downq80",
+  "feed_C:upq20",
+  "feed_C:upq50",
+  "feed_C:upq80",
+  "feed_D:peak",
+  "feed_D:trough",
+  "feed_E:downq20",
+  "feed_E:downq50",
+  "feed_E:downq80",
+  "feed_E:upq20",
+  "feed_E:upq50",
+  "feed_E:upq80",
+  "feed_F:downq20",
+  "feed_F:downq50",
+  "feed_F:downq80",
+  "feed_F:upq20",
+  "feed_F:upq50",
+  "feed_F:upq80",
+  "prod_D:peak",
+  "prod_D:trough",
+  "prod_E:downq20",
+  "prod_E:downq50",
+  "prod_E:downq80",
+  "prod_E:upq20",
+  "prod_E:upq50",
+  "prod_E:upq80",
+  "prod_F:peak",
+  "prod_F:trough",
+  "prod_G:peak",
+  "prod_G:trough",
+  "prod_H:peak",
+  "prod_H:trough",
+  "purge:peak",
+  "purge:trough",
+  "purge_A:downq20",
+  "purge_A:downq50",
+  "purge_A:downq80",
+  "purge_A:upq20",
+  "purge_A:upq50",
+  "purge_A:upq80",
+  "purge_B:downq20",
+  "purge_B:downq50",
+  "purge_B:downq80",
+  "purge_B:upq20",
+  "purge_B:upq50",
+  "purge_B:upq80",
+  "purge_C:downq20",
+  "purge_C:downq50",
+  "purge_C:downq80",
+  "purge_C:upq20",
+  "purge_C:upq50",
+  "purge_C:upq80",
+  "purge_D:peak",
+  "purge_D:trough",
+  "purge_E:downq20",
+  "purge_E:downq50",
+  "purge_E:downq80",
+  "purge_E:upq20",
+  "purge_E:upq50",
+  "purge_E:upq80",
+  "purge_F:downq20",
+  "purge_F:downq50",
+  "purge_F:downq80",
+  "purge_F:upq20",
+  "purge_F:upq50",
+  "purge_F:upq80",
+  "purge_G:downq20",
+  "purge_G:downq50",
+  "purge_G:downq80",
+  "purge_G:upq20",
+  "purge_G:upq50",
+  "purge_G:upq80",
+  "purge_H:downq20",
+  "purge_H:downq50",
+  "purge_H:downq80",
+  "purge_H:upq20",
+  "purge_H:upq50",
+  "purge_H:upq80",
+  "purge_valve:peak",
+  "purge_valve:trough",
+  "recycle:downq20",
+  "recycle:downq50",
+  "recycle:downq80",
+  "recycle:upq20",
+  "recycle:upq50",
+  "recycle:upq80"
+ ],
+ "tie_rule": "canonical",
+ "kind": "simulated plant (Tennessee Eastman)",
+ "origin": "scripts/ingest_tep.py",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "AC_feed": "q20_50_80",
+   "AC_valve": "q20_50_80",
+   "A_feed": "q20_50_80",
+   "A_valve": "q20_50_80",
+   "D_feed": "dsign",
+   "D_valve": "q20_50_80",
+   "E_feed": "dsign",
+   "E_valve": "q20_50_80",
+   "L": "dsign",
+   "P": "q20_50_80",
+   "T": "q20_50_80",
+   "compressor": "q20_50_80",
+   "cw_flow": "q20_50_80",
+   "cw_out": "q20_50_80",
+   "feed": "q20_50_80",
+   "feed_A": "q20_50_80",
+   "feed_B": "q20_50_80",
+   "feed_C": "q20_50_80",
+   "feed_D": "dsign",
+   "feed_E": "q20_50_80",
+   "feed_F": "q20_50_80",
+   "prod_D": "dsign",
+   "prod_E": "q20_50_80",
+   "prod_F": "dsign",
+   "prod_G": "dsign",
+   "prod_H": "dsign",
+   "purge": "dsign",
+   "purge_A": "q20_50_80",
+   "purge_B": "q20_50_80",
+   "purge_C": "q20_50_80",
+   "purge_D": "dsign",
+   "purge_E": "q20_50_80",
+   "purge_F": "q20_50_80",
+   "purge_G": "q20_50_80",
+   "purge_H": "q20_50_80",
+   "purge_valve": "dsign",
+   "recycle": "q20_50_80",
+   "steam": null,
+   "underflow": "dsign",
+   "underflow_valve": "q20_50_80"
+  },
+  "thresholds": {
+   "AC_feed": {
+    "XMEAS(4)": [
+     9.211,
+     9.235,
+     9.258
+    ]
+   },
+   "AC_valve": {
+    "XMV(4)": [
+     60.43,
+     60.566,
+     60.703
+    ]
+   },
+   "A_feed": {
+    "XMEAS(1)": [
+     0.263,
+     0.266,
+     0.269
+    ]
+   },
+   "A_valve": {
+    "XMV(3)": [
+     25.877,
+     26.125,
+     26.387
+    ]
+   },
+   "D_valve": {
+    "XMV(1)": [
+     62.891,
+     62.922,
+     62.952
+    ]
+   },
+   "E_valve": {
+    "XMV(2)": [
+     53.166,
+     53.194,
+     53.222
+    ]
+   },
+   "P": {
+    "XMEAS(7)": [
+     2798.8,
+     2800.0,
+     2801.3
+    ],
+    "XMEAS(13)": [
+     2703.1,
+     2704.4,
+     2705.6
+    ],
+    "XMEAS(16)": [
+     3330.5,
+     3332.1,
+     3333.5
+    ]
+   },
+   "T": {
+    "XMEAS(9)": [
+     122.899,
+     122.9,
+     122.901
+    ],
+    "XMEAS(11)": [
+     91.709,
+     91.767,
+     91.826
+    ],
+    "XMEAS(18)": [
+     66.289,
+     66.344,
+     66.405
+    ]
+   },
+   "compressor": {
+    "XMEAS(20)": [
+     270.78,
+     271.06,
+     271.35
+    ]
+   },
+   "cw_flow": {
+    "XMV(10)": [
+     35.835,
+     35.896,
+     35.978
+    ],
+    "XMV(11)": [
+     12.451,
+     12.529,
+     12.635
+    ]
+   },
+   "cw_out": {
+    "XMEAS(21)": [
+     102.481,
+     102.492,
+     102.502
+    ],
+    "XMEAS(22)": [
+     91.784,
+     91.889,
+     91.989
+    ]
+   },
+   "feed": {
+    "XMEAS(6)": [
+     47.33,
+     47.392,
+     47.456
+    ]
+   },
+   "feed_A": {
+    "XMEAS(23)": [
+     31.638,
+     31.845,
+     32.079
+    ]
+   },
+   "feed_B": {
+    "XMEAS(24)": [
+     14.954,
+     15.051,
+     15.136
+    ]
+   },
+   "feed_C": {
+    "XMEAS(25)": [
+     18.558,
+     18.742,
+     18.924
+    ]
+   },
+   "feed_E": {
+    "XMEAS(27)": [
+     16.783,
+     16.934,
+     17.074
+    ]
+   },
+   "feed_F": {
+    "XMEAS(28)": [
+     4.043,
+     4.074,
+     4.101
+    ]
+   },
+   "prod_E": {
+    "XMEAS(38)": [
+     0.586,
+     0.597,
+     0.608
+    ]
+   },
+   "purge_A": {
+    "XMEAS(29)": [
+     31.949,
+     32.202,
+     32.485
+    ]
+   },
+   "purge_B": {
+    "XMEAS(30)": [
+     21.889,
+     22.01,
+     22.115
+    ]
+   },
+   "purge_C": {
+    "XMEAS(31)": [
+     12.886,
+     13.098,
+     13.313
+    ]
+   },
+   "purge_E": {
+    "XMEAS(33)": [
+     16.312,
+     16.494,
+     16.663
+    ]
+   },
+   "purge_F": {
+    "XMEAS(34)": [
+     5.396,
+     5.429,
+     5.457
+    ]
+   },
+   "purge_G": {
+    "XMEAS(35)": [
+     6.581,
+     6.616,
+     6.652
+    ]
+   },
+   "purge_H": {
+    "XMEAS(36)": [
+     3.205,
+     3.229,
+     3.255
+    ]
+   },
+   "recycle": {
+    "XMEAS(5)": [
+     32.14,
+     32.201,
+     32.261
+    ]
+   },
+   "underflow_valve": {
+    "XMV(7)": [
+     37.296,
+     37.334,
+     37.366
+    ],
+    "XMV(8)": [
+     46.433,
+     46.455,
+     46.475
+    ]
+   }
+  },
+  "noise_windows": {
+   "XMEAS(4)": 6,
+   "XMV(4)": 1,
+   "XMEAS(1)": 1,
+   "XMV(3)": 1,
+   "XMEAS(2)": 105,
+   "XMV(1)": 1,
+   "XMEAS(3)": 92,
+   "XMV(2)": 1,
+   "XMEAS(8)": 58,
+   "XMEAS(12)": 18,
+   "XMEAS(15)": 2,
+   "XMEAS(7)": 1,
+   "XMEAS(13)": 1,
+   "XMEAS(16)": 1,
+   "XMEAS(9)": 136,
+   "XMEAS(11)": 2,
+   "XMEAS(18)": 1,
+   "XMEAS(20)": 1,
+   "XMV(10)": 4,
+   "XMV(11)": 342,
+   "XMEAS(21)": 15,
+   "XMEAS(22)": 2,
+   "XMEAS(6)": 13,
+   "XMEAS(23)": 2,
+   "XMEAS(24)": 2,
+   "XMEAS(25)": 3,
+   "XMEAS(26)": 15,
+   "XMEAS(27)": 6,
+   "XMEAS(28)": 1,
+   "XMEAS(37)": 5,
+   "XMEAS(38)": 1,
+   "XMEAS(39)": 4,
+   "XMEAS(40)": 5,
+   "XMEAS(41)": 5,
+   "XMEAS(10)": 1,
+   "XMEAS(29)": 1,
+   "XMEAS(30)": 1,
+   "XMEAS(31)": 2,
+   "XMEAS(32)": 18,
+   "XMEAS(33)": 4,
+   "XMEAS(34)": 1,
+   "XMEAS(35)": 4,
+   "XMEAS(36)": 8,
+   "XMV(6)": 1,
+   "XMEAS(5)": 12,
+   "XMEAS(14)": 16,
+   "XMEAS(17)": 134,
+   "XMV(7)": 1,
+   "XMV(8)": 1
+  }
+ },
+ "sample_minutes": 3.0,
+ "regimes": [
+  {
+   "start": 0.0,
+   "end": 2742.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 2742.0,
+   "end": 4758.0,
+   "fault": 20,
+   "label": "unknown"
+  },
+  {
+   "start": 4758.0,
+   "end": 7284.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 7284.0,
+   "end": 8874.0,
+   "fault": 1,
+   "label": "A/C feed ratio step (stream 4)"
+  },
+  {
+   "start": 8874.0,
+   "end": 11634.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 11634.0,
+   "end": 14238.0,
+   "fault": 15,
+   "label": "condenser cooling water valve sticking"
+  },
+  {
+   "start": 14238.0,
+   "end": 16425.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 16425.0,
+   "end": 18063.0,
+   "fault": 7,
+   "label": "C header pressure loss"
+  },
+  {
+   "start": 18063.0,
+   "end": 20139.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 20139.0,
+   "end": 22869.0,
+   "fault": 14,
+   "label": "reactor cooling water valve sticking"
+  },
+  {
+   "start": 22869.0,
+   "end": 24804.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 24804.0,
+   "end": 27504.0,
+   "fault": 5,
+   "label": "condenser cooling water inlet temperature step"
+  },
+  {
+   "start": 27504.0,
+   "end": 30327.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 30327.0,
+   "end": 32652.0,
+   "fault": 10,
+   "label": "C feed temperature random variation"
+  },
+  {
+   "start": 32652.0,
+   "end": 34263.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 34263.0,
+   "end": 36861.0,
+   "fault": 12,
+   "label": "condenser cooling water inlet temperature random variation"
+  },
+  {
+   "start": 36861.0,
+   "end": 37047.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 37047.0,
+   "end": 38580.0,
+   "fault": 20,
+   "label": "unknown"
+  },
+  {
+   "start": 38580.0,
+   "end": 40431.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 40431.0,
+   "end": 42882.0,
+   "fault": 4,
+   "label": "reactor cooling water inlet temperature step"
+  },
+  {
+   "start": 42882.0,
+   "end": 45714.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 45714.0,
+   "end": 47913.0,
+   "fault": 15,
+   "label": "condenser cooling water valve sticking"
+  },
+  {
+   "start": 47913.0,
+   "end": 50535.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 50535.0,
+   "end": 52122.0,
+   "fault": 11,
+   "label": "reactor cooling water inlet temperature random variation"
+  },
+  {
+   "start": 52122.0,
+   "end": 53799.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 53799.0,
+   "end": 55887.0,
+   "fault": 13,
+   "label": "reaction kinetics slow drift"
+  },
+  {
+   "start": 55887.0,
+   "end": 58605.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 58605.0,
+   "end": 61485.0,
+   "fault": 4,
+   "label": "reactor cooling water inlet temperature step"
+  },
+  {
+   "start": 61485.0,
+   "end": 62934.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 62934.0,
+   "end": 64785.0,
+   "fault": 20,
+   "label": "unknown"
+  },
+  {
+   "start": 64785.0,
+   "end": 66429.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 66429.0,
+   "end": 68442.0,
+   "fault": 3,
+   "label": "D feed temperature step"
+  },
+  {
+   "start": 68442.0,
+   "end": 70635.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 70635.0,
+   "end": 73248.0,
+   "fault": 4,
+   "label": "reactor cooling water inlet temperature step"
+  },
+  {
+   "start": 73248.0,
+   "end": 75171.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 75171.0,
+   "end": 77175.0,
+   "fault": 4,
+   "label": "reactor cooling water inlet temperature step"
+  },
+  {
+   "start": 77175.0,
+   "end": 78645.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 78645.0,
+   "end": 80244.0,
+   "fault": 10,
+   "label": "C feed temperature random variation"
+  },
+  {
+   "start": 80244.0,
+   "end": 82983.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 82983.0,
+   "end": 85539.0,
+   "fault": 10,
+   "label": "C feed temperature random variation"
+  },
+  {
+   "start": 85539.0,
+   "end": 87429.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 87429.0,
+   "end": 89229.0,
+   "fault": 20,
+   "label": "unknown"
+  },
+  {
+   "start": 89229.0,
+   "end": 91680.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 91680.0,
+   "end": 93969.0,
+   "fault": 18,
+   "label": "unknown"
+  },
+  {
+   "start": 93969.0,
+   "end": 96030.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 96030.0,
+   "end": 98130.0,
+   "fault": 14,
+   "label": "reactor cooling water valve sticking"
+  },
+  {
+   "start": 98130.0,
+   "end": 100425.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 100425.0,
+   "end": 101910.0,
+   "fault": 1,
+   "label": "A/C feed ratio step (stream 4)"
+  },
+  {
+   "start": 101910.0,
+   "end": 102156.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 102156.0,
+   "end": 103758.0,
+   "fault": 2,
+   "label": "B composition step (stream 4)"
+  },
+  {
+   "start": 103758.0,
+   "end": 106386.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 106386.0,
+   "end": 108945.0,
+   "fault": 14,
+   "label": "reactor cooling water valve sticking"
+  },
+  {
+   "start": 108945.0,
+   "end": 110520.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 110520.0,
+   "end": 112929.0,
+   "fault": 10,
+   "label": "C feed temperature random variation"
+  },
+  {
+   "start": 112929.0,
+   "end": 115086.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 115086.0,
+   "end": 117309.0,
+   "fault": 12,
+   "label": "condenser cooling water inlet temperature random variation"
+  },
+  {
+   "start": 117309.0,
+   "end": 119625.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 119625.0,
+   "end": 121329.0,
+   "fault": 18,
+   "label": "unknown"
+  },
+  {
+   "start": 121329.0,
+   "end": 123171.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 123171.0,
+   "end": 125706.0,
+   "fault": 19,
+   "label": "unknown"
+  },
+  {
+   "start": 125706.0,
+   "end": 128031.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 128031.0,
+   "end": 130218.0,
+   "fault": 13,
+   "label": "reaction kinetics slow drift"
+  },
+  {
+   "start": 130218.0,
+   "end": 132519.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 132519.0,
+   "end": 134766.0,
+   "fault": 7,
+   "label": "C header pressure loss"
+  },
+  {
+   "start": 134766.0,
+   "end": 137253.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 137253.0,
+   "end": 138744.0,
+   "fault": 3,
+   "label": "D feed temperature step"
+  },
+  {
+   "start": 138744.0,
+   "end": 140934.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 140934.0,
+   "end": 142641.0,
+   "fault": 15,
+   "label": "condenser cooling water valve sticking"
+  },
+  {
+   "start": 142641.0,
+   "end": 144894.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 144894.0,
+   "end": 146736.0,
+   "fault": 8,
+   "label": "A,B,C feed composition random variation"
+  },
+  {
+   "start": 146736.0,
+   "end": 148728.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 148728.0,
+   "end": 151446.0,
+   "fault": 18,
+   "label": "unknown"
+  },
+  {
+   "start": 151446.0,
+   "end": 153303.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 153303.0,
+   "end": 155607.0,
+   "fault": 1,
+   "label": "A/C feed ratio step (stream 4)"
+  },
+  {
+   "start": 155607.0,
+   "end": 158400.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 158400.0,
+   "end": 161043.0,
+   "fault": 11,
+   "label": "reactor cooling water inlet temperature random variation"
+  },
+  {
+   "start": 161043.0,
+   "end": 163893.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 163893.0,
+   "end": 166341.0,
+   "fault": 20,
+   "label": "unknown"
+  },
+  {
+   "start": 166341.0,
+   "end": 169200.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 169200.0,
+   "end": 171189.0,
+   "fault": 3,
+   "label": "D feed temperature step"
+  },
+  {
+   "start": 171189.0,
+   "end": 171387.0,
+   "fault": 0,
+   "label": "normal"
+  },
+  {
+   "start": 171387.0,
+   "end": 173013.0,
+   "fault": 18,
+   "label": "unknown"
+  }
+ ],
+ "regime_note": "STATUS fault label per episode (IDV 0..20); not an observed variable, not in the events",
+ "source": "https://github.com/anasouzac/new_tep_datasets matlab_data_1year.csv (Souza, de Souza & da Silva 2023), Ricker revised TEP model",
+ "span_note": "first 120 days of a 365-day run; days 120-365 held as a continuation",
+ "omitted_columns": [
+  "XMV(5)",
+  "XMV(9)",
+  "STATUS"
+ ],
+ "variables": {
+  "vessels": {
+   "reactor": {
+    "P": "XMEAS(7)",
+    "L": "XMEAS(8)",
+    "T": "XMEAS(9)",
+    "cw_out": "XMEAS(21)",
+    "cw_flow": "XMV(10)",
+    "feed": "XMEAS(6)"
+   },
+   "separator": {
+    "P": "XMEAS(13)",
+    "L": "XMEAS(12)",
+    "T": "XMEAS(11)",
+    "cw_out": "XMEAS(22)",
+    "cw_flow": "XMV(11)",
+    "underflow": "XMEAS(14)",
+    "underflow_valve": "XMV(7)"
+   },
+   "stripper": {
+    "P": "XMEAS(16)",
+    "L": "XMEAS(15)",
+    "T": "XMEAS(18)",
+    "underflow": "XMEAS(17)",
+    "underflow_valve": "XMV(8)",
+    "steam": "XMEAS(19)"
+   }
+  },
+  "system": {
+   "A_feed": "XMEAS(1)",
+   "D_feed": "XMEAS(2)",
+   "E_feed": "XMEAS(3)",
+   "AC_feed": "XMEAS(4)",
+   "recycle": "XMEAS(5)",
+   "purge": "XMEAS(10)",
+   "compressor": "XMEAS(20)",
+   "D_valve": "XMV(1)",
+   "E_valve": "XMV(2)",
+   "A_valve": "XMV(3)",
+   "AC_valve": "XMV(4)",
+   "purge_valve": "XMV(6)",
+   "feed_A": "XMEAS(23)",
+   "feed_B": "XMEAS(24)",
+   "feed_C": "XMEAS(25)",
+   "feed_D": "XMEAS(26)",
+   "feed_E": "XMEAS(27)",
+   "feed_F": "XMEAS(28)",
+   "purge_A": "XMEAS(29)",
+   "purge_B": "XMEAS(30)",
+   "purge_C": "XMEAS(31)",
+   "purge_D": "XMEAS(32)",
+   "purge_E": "XMEAS(33)",
+   "purge_F": "XMEAS(34)",
+   "purge_G": "XMEAS(35)",
+   "purge_H": "XMEAS(36)",
+   "prod_D": "XMEAS(37)",
+   "prod_E": "XMEAS(38)",
+   "prod_F": "XMEAS(39)",
+   "prod_G": "XMEAS(40)",
+   "prod_H": "XMEAS(41)"
+  }
+ }
+}

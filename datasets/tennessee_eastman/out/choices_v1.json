@@ -1,0 +1,718 @@
+{
+ "days": 120,
+ "choice": {
+  "AC_feed": "q20_50_80",
+  "AC_valve": "q20_50_80",
+  "A_feed": "q20_50_80",
+  "A_valve": "q20_50_80",
+  "D_feed": "dsign",
+  "D_valve": "q20_50_80",
+  "E_feed": "dsign",
+  "E_valve": "q20_50_80",
+  "L": "dsign",
+  "P": "q20_50_80",
+  "T": "q20_50_80",
+  "compressor": "q20_50_80",
+  "cw_flow": "q20_50_80",
+  "cw_out": "q20_50_80",
+  "feed": "q20_50_80",
+  "feed_A": "q20_50_80",
+  "feed_B": "q20_50_80",
+  "feed_C": "q20_50_80",
+  "feed_D": "dsign",
+  "feed_E": "q20_50_80",
+  "feed_F": "q20_50_80",
+  "prod_D": "dsign",
+  "prod_E": "q20_50_80",
+  "prod_F": "dsign",
+  "prod_G": "dsign",
+  "prod_H": "dsign",
+  "purge": "dsign",
+  "purge_A": "q20_50_80",
+  "purge_B": "q20_50_80",
+  "purge_C": "q20_50_80",
+  "purge_D": "dsign",
+  "purge_E": "q20_50_80",
+  "purge_F": "q20_50_80",
+  "purge_G": "q20_50_80",
+  "purge_H": "q20_50_80",
+  "purge_valve": "dsign",
+  "recycle": "q20_50_80",
+  "steam": null,
+  "underflow": "dsign",
+  "underflow_valve": "q20_50_80"
+ },
+ "thresholds": {
+  "AC_feed": {
+   "XMEAS(4)": [
+    9.211,
+    9.235,
+    9.258
+   ]
+  },
+  "AC_valve": {
+   "XMV(4)": [
+    60.43,
+    60.566,
+    60.703
+   ]
+  },
+  "A_feed": {
+   "XMEAS(1)": [
+    0.263,
+    0.266,
+    0.269
+   ]
+  },
+  "A_valve": {
+   "XMV(3)": [
+    25.877,
+    26.125,
+    26.387
+   ]
+  },
+  "D_valve": {
+   "XMV(1)": [
+    62.891,
+    62.922,
+    62.952
+   ]
+  },
+  "E_valve": {
+   "XMV(2)": [
+    53.166,
+    53.194,
+    53.222
+   ]
+  },
+  "P": {
+   "XMEAS(7)": [
+    2798.8,
+    2800.0,
+    2801.3
+   ],
+   "XMEAS(13)": [
+    2703.1,
+    2704.4,
+    2705.6
+   ],
+   "XMEAS(16)": [
+    3330.5,
+    3332.1,
+    3333.5
+   ]
+  },
+  "T": {
+   "XMEAS(9)": [
+    122.899,
+    122.9,
+    122.901
+   ],
+   "XMEAS(11)": [
+    91.709,
+    91.767,
+    91.826
+   ],
+   "XMEAS(18)": [
+    66.289,
+    66.344,
+    66.405
+   ]
+  },
+  "compressor": {
+   "XMEAS(20)": [
+    270.78,
+    271.06,
+    271.35
+   ]
+  },
+  "cw_flow": {
+   "XMV(10)": [
+    35.835,
+    35.896,
+    35.978
+   ],
+   "XMV(11)": [
+    12.451,
+    12.529,
+    12.635
+   ]
+  },
+  "cw_out": {
+   "XMEAS(21)": [
+    102.481,
+    102.492,
+    102.502
+   ],
+   "XMEAS(22)": [
+    91.784,
+    91.889,
+    91.989
+   ]
+  },
+  "feed": {
+   "XMEAS(6)": [
+    47.33,
+    47.392,
+    47.456
+   ]
+  },
+  "feed_A": {
+   "XMEAS(23)": [
+    31.638,
+    31.845,
+    32.079
+   ]
+  },
+  "feed_B": {
+   "XMEAS(24)": [
+    14.954,
+    15.051,
+    15.136
+   ]
+  },
+  "feed_C": {
+   "XMEAS(25)": [
+    18.558,
+    18.742,
+    18.924
+   ]
+  },
+  "feed_E": {
+   "XMEAS(27)": [
+    16.783,
+    16.934,
+    17.074
+   ]
+  },
+  "feed_F": {
+   "XMEAS(28)": [
+    4.043,
+    4.074,
+    4.101
+   ]
+  },
+  "prod_E": {
+   "XMEAS(38)": [
+    0.586,
+    0.597,
+    0.608
+   ]
+  },
+  "purge_A": {
+   "XMEAS(29)": [
+    31.949,
+    32.202,
+    32.485
+   ]
+  },
+  "purge_B": {
+   "XMEAS(30)": [
+    21.889,
+    22.01,
+    22.115
+   ]
+  },
+  "purge_C": {
+   "XMEAS(31)": [
+    12.886,
+    13.098,
+    13.313
+   ]
+  },
+  "purge_E": {
+   "XMEAS(33)": [
+    16.312,
+    16.494,
+    16.663
+   ]
+  },
+  "purge_F": {
+   "XMEAS(34)": [
+    5.396,
+    5.429,
+    5.457
+   ]
+  },
+  "purge_G": {
+   "XMEAS(35)": [
+    6.581,
+    6.616,
+    6.652
+   ]
+  },
+  "purge_H": {
+   "XMEAS(36)": [
+    3.205,
+    3.229,
+    3.255
+   ]
+  },
+  "recycle": {
+   "XMEAS(5)": [
+    32.14,
+    32.201,
+    32.261
+   ]
+  },
+  "underflow_valve": {
+   "XMV(7)": [
+    37.296,
+    37.334,
+    37.366
+   ],
+   "XMV(8)": [
+    46.433,
+    46.455,
+    46.475
+   ]
+  },
+  "D_feed_window": {
+   "XMEAS(2)": 55
+  },
+  "E_feed_window": {
+   "XMEAS(3)": 54
+  },
+  "L_window": {
+   "XMEAS(8)": 27,
+   "XMEAS(12)": 23,
+   "XMEAS(15)": 32
+  },
+  "feed_D_window": {
+   "XMEAS(26)": 14
+  },
+  "prod_D_window": {
+   "XMEAS(37)": 4
+  },
+  "prod_F_window": {
+   "XMEAS(39)": 5
+  },
+  "prod_G_window": {
+   "XMEAS(40)": 4
+  },
+  "prod_H_window": {
+   "XMEAS(41)": 4
+  },
+  "purge_window": {
+   "XMEAS(10)": 14
+  },
+  "purge_D_window": {
+   "XMEAS(32)": 14
+  },
+  "purge_valve_window": {
+   "XMV(6)": 15
+  },
+  "underflow_window": {
+   "XMEAS(14)": 29,
+   "XMEAS(17)": 46
+  },
+  "noise_windows": {
+   "XMEAS(4)": 6,
+   "XMV(4)": 1,
+   "XMEAS(1)": 1,
+   "XMV(3)": 1,
+   "XMEAS(2)": 105,
+   "XMV(1)": 1,
+   "XMEAS(3)": 92,
+   "XMV(2)": 1,
+   "XMEAS(8)": 58,
+   "XMEAS(12)": 18,
+   "XMEAS(15)": 2,
+   "XMEAS(7)": 1,
+   "XMEAS(13)": 1,
+   "XMEAS(16)": 1,
+   "XMEAS(9)": 136,
+   "XMEAS(11)": 2,
+   "XMEAS(18)": 1,
+   "XMEAS(20)": 1,
+   "XMV(10)": 4,
+   "XMV(11)": 342,
+   "XMEAS(21)": 15,
+   "XMEAS(22)": 2,
+   "XMEAS(6)": 13,
+   "XMEAS(23)": 2,
+   "XMEAS(24)": 2,
+   "XMEAS(25)": 3,
+   "XMEAS(26)": 15,
+   "XMEAS(27)": 6,
+   "XMEAS(28)": 1,
+   "XMEAS(37)": 5,
+   "XMEAS(38)": 1,
+   "XMEAS(39)": 4,
+   "XMEAS(40)": 5,
+   "XMEAS(41)": 5,
+   "XMEAS(10)": 1,
+   "XMEAS(29)": 1,
+   "XMEAS(30)": 1,
+   "XMEAS(31)": 2,
+   "XMEAS(32)": 18,
+   "XMEAS(33)": 4,
+   "XMEAS(34)": 1,
+   "XMEAS(35)": 4,
+   "XMEAS(36)": 8,
+   "XMV(6)": 1,
+   "XMEAS(5)": 12,
+   "XMEAS(19)": null,
+   "XMEAS(14)": 16,
+   "XMEAS(17)": 134,
+   "XMV(7)": 1,
+   "XMV(8)": 1
+  }
+ },
+ "trace": [
+  {
+   "pass_": 0,
+   "role": "P",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "T",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_C",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_G",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "underflow_valve",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_C",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_E",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_A",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "prod_E",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_B",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "cw_out",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "AC_feed",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_E",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "cw_flow",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_H",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "AC_valve",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "prod_D",
+   "scores": {
+    "q20_50_80": 342395.6030818813,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "prod_G",
+   "scores": {
+    "q20_50_80": 342152.6496352625,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "prod_F",
+   "scores": {
+    "q20_50_80": 340463.6105661236,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "prod_H",
+   "scores": {
+    "q20_50_80": 342106.0748502806,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "recycle",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_A",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_B",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_F",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "A_valve",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_F",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "A_feed",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "E_valve",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "compressor",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "L",
+   "scores": {
+    "q20_50_80": 353706.01335763314,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "D_valve",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "purge",
+   "scores": {
+    "q20_50_80": 336066.92456403375,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "feed_D",
+   "scores": {
+    "q20_50_80": 336754.21380986576,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_valve",
+   "scores": {
+    "q20_50_80": 336421.8250305876,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "purge_D",
+   "scores": {
+    "q20_50_80": 337354.9970297899,
+    "q10_90": null,
+    "dsign": 330268.36807809456
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "underflow",
+   "scores": {
+    "q20_50_80": 348411.661974677,
+    "q10_90": Infinity,
+    "dsign": 330268.36481070914
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "E_feed",
+   "scores": {
+    "q20_50_80": 333635.0692893213,
+    "q10_90": Infinity,
+    "dsign": 330268.36481070914
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "D_feed",
+   "scores": {
+    "q20_50_80": 333093.1086518121,
+    "q10_90": Infinity,
+    "dsign": 330268.36481070914
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "steam",
+   "scores": {},
+   "chosen": null
+  }
+ ],
+ "entity": "vessel",
+ "entity_scores": {
+  "vessel": {
+   "bits": 4.280238483806932,
+   "entities": 3
+  },
+  "sys": {
+   "bits": 5.328867297477924,
+   "entities": 1
+  }
+ },
+ "complete": true
+}

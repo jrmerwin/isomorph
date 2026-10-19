@@ -1,0 +1,57 @@
+TEP: 175201 samples in file; using the first 120 days = 57600 samples
+== symbolization by compression (3.2: faithfulness + noise floors, total confirmation bits) ==
+  resuming from checkpoint: 36 decisions already made
+  start AC_feed    q20_50_80 (9263 events)
+  start AC_valve   q20_50_80 (8328 events)
+  start A_feed     q20_50_80 (4770 events)
+  start A_valve    q20_50_80 (5274 events)
+  start D_feed     dsign (564 events)
+  start D_valve    q20_50_80 (3530 events)
+  start E_feed     dsign (593 events)
+  start E_valve    q20_50_80 (4299 events)
+  start L          dsign (4171 events)
+  start P          q20_50_80 (23975 events)
+  start T          q20_50_80 (13317 events)
+  start compressor q20_50_80 (4189 events)
+  start cw_flow    q20_50_80 (8694 events)
+  start cw_out     q20_50_80 (9461 events)
+  start feed       q20_50_80 (5972 events)
+  start feed_A     q20_50_80 (10090 events)
+  start feed_B     q20_50_80 (9475 events)
+  start feed_C     q20_50_80 (11535 events)
+  start feed_D     dsign (2769 events)
+  start feed_E     q20_50_80 (9010 events)
+  start feed_F     q20_50_80 (5449 events)
+  start prod_D     dsign (7725 events)
+  start prod_E     q20_50_80 (9595 events)
+  start prod_F     dsign (7634 events)
+  start prod_G     dsign (7656 events)
+  start prod_H     dsign (7601 events)
+  start purge      dsign (2809 events)
+  start purge_A    q20_50_80 (6061 events)
+  start purge_B    q20_50_80 (5637 events)
+  start purge_C    q20_50_80 (10713 events)
+  start purge_D    dsign (2545 events)
+  start purge_E    q20_50_80 (10639 events)
+  start purge_F    q20_50_80 (5171 events)
+  start purge_G    q20_50_80 (11217 events)
+  start purge_H    q20_50_80 (8438 events)
+  start purge_valve dsign (2629 events)
+  start recycle    q20_50_80 (6232 events)
+  start steam      None (0 events)
+  start underflow  dsign (2116 events)
+  start underflow_valve q20_50_80 (10856 events)
+  pass 0 underflow  q20_50_80=348.4kb  q10_90=unfaithful(0.79)  dsign=330.3kb  -> dsign
+  pass 0 E_feed     q20_50_80=333.6kb  q10_90=unfaithful(0.79)  dsign=330.3kb  -> dsign
+  pass 0 D_feed     q20_50_80=333.1kb  q10_90=unfaithful(0.77)  dsign=330.3kb  -> dsign
+  pass 0 steam      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 0 changed nothing: converged, later passes skipped (same result)
+chosen: {'AC_feed': 'q20_50_80', 'AC_valve': 'q20_50_80', 'A_feed': 'q20_50_80', 'A_valve': 'q20_50_80', 'D_feed': 'dsign', 'D_valve': 'q20_50_80', 'E_feed': 'dsign', 'E_valve': 'q20_50_80', 'L': 'dsign', 'P': 'q20_50_80', 'T': 'q20_50_80', 'compressor': 'q20_50_80', 'cw_flow': 'q20_50_80', 'cw_out': 'q20_50_80', 'feed': 'q20_50_80', 'feed_A': 'q20_50_80', 'feed_B': 'q20_50_80', 'feed_C': 'q20_50_80', 'feed_D': 'dsign', 'feed_E': 'q20_50_80', 'feed_F': 'q20_50_80', 'prod_D': 'dsign', 'prod_E': 'q20_50_80', 'prod_F': 'dsign', 'prod_G': 'dsign', 'prod_H': 'dsign', 'purge': 'dsign', 'purge_A': 'q20_50_80', 'purge_B': 'q20_50_80', 'purge_C': 'q20_50_80', 'purge_D': 'dsign', 'purge_E': 'q20_50_80', 'purge_F': 'q20_50_80', 'purge_G': 'q20_50_80', 'purge_H': 'q20_50_80', 'purge_valve': 'dsign', 'recycle': 'q20_50_80', 'steam': None, 'underflow': 'dsign', 'underflow_valve': 'q20_50_80'}
+(2331s)
+
+== entity by compression (3.1) ==
+  entity candidate vessel   entities=  3 confirmation bits (Markov only) 4.280
+  entity candidate sys      entities=  1 confirmation bits (Markov only) 5.329
+chosen entity layout: vessel
+wrote /home/claude/isomorph/datasets/tennessee_eastman 280002 events 186 types (2405s)
+exit 0
