@@ -1,0 +1,406 @@
+HAI 21.03: 22068 samples in 8 files, 15.3 days observed (17s)
+roles: {'P1': 31, 'P2': 12, 'P3': 5} system: 12
+== symbolization by compression (3.2) ==
+  start B2004      q20_50_80 (144 events)
+  start B2016      dsign (769 events)
+  start B3004      q20_50_80 (166 events)
+  start B3005      q10_90 (55 events)
+  start B4002      q10_90 (28 events)
+  start B4005      q10_90 (234 events)
+  start B400B      q20_50_80 (591 events)
+  start B4022      q20_50_80 (1973 events)
+  start FCV01D     q10_90 (176 events)
+  start FCV01Z     dsign (225 events)
+  start FCV02D     None (0 events)
+  start FCV02Z     q20_50_80 (472 events)
+  start FCV03D     dsign (217 events)
+  start FCV03Z     dsign (193 events)
+  start FT01       q20_50_80 (418 events)
+  start FT01Z      dsign (228 events)
+  start FT02       q20_50_80 (591 events)
+  start FT02Z      q20_50_80 (587 events)
+  start FT03       dsign (193 events)
+  start FT03Z      dsign (197 events)
+  start LCV01D     q20_50_80 (3419 events)
+  start LCV01Z     q20_50_80 (1200 events)
+  start LIT01      q20_50_80 (4174 events)
+  start PCV01D     dsign (278 events)
+  start PCV01Z     dsign (270 events)
+  start PCV02D     None (0 events)
+  start PCV02Z     dsign (20 events)
+  start PIT01      dsign (1678 events)
+  start PIT02      q10_90 (710 events)
+  start TIT01      dsign (239 events)
+  start TIT02      q20_50_80 (632 events)
+  start 24Vdc      dsign (39 events)
+  start CO_rpm     dsign (616 events)
+  start HILout     q20_50_80 (990 events)
+  start SIT01      dsign (580 events)
+  start SIT02      dsign (580 events)
+  start VT01       q20_50_80 (243 events)
+  start VXT02      q20_50_80 (962 events)
+  start VXT03      q20_50_80 (725 events)
+  start VYT02      q20_50_80 (923 events)
+  start VYT03      q20_50_80 (795 events)
+  start FIT01      None (0 events)
+  start LCP01D     q20_50_80 (1836 events)
+  start HT_FD      None (0 events)
+  start HT_LD      dsign (736 events)
+  start HT_PO      dsign (843 events)
+  start HT_PS      q20_50_80 (28 events)
+  start LD         dsign (562 events)
+  start ST_FD      None (0 events)
+  start ST_GOV     dsign (798 events)
+  start ST_LD      dsign (621 events)
+  start ST_PO      dsign (811 events)
+  start ST_PS      q20_50_80 (28 events)
+  start ST_PT01    dsign (1024 events)
+  start ST_TT01    q10_90 (265 events)
+  pass 0 LIT01      only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.69, dsign=0.51) -> q20_50_80
+  pass 0 LCV01D     only q20_50_80 is faithful (q20_50_80=0.31, q10_90=0.61, dsign=0.51) -> q20_50_80
+  pass 0 B4022      only q20_50_80 is faithful (q20_50_80=0.35, q10_90=0.62, dsign=1.28) -> q20_50_80
+  pass 0 LCP01D     only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.64, dsign=0.50) -> q20_50_80
+  pass 0 PIT01      q20_50_80=34.5kb  q10_90=unfaithful(0.75)  dsign=31.4kb  -> dsign
+  pass 0 LCV01Z     only q20_50_80 is faithful (q20_50_80=0.29, q10_90=0.57, dsign=0.61) -> q20_50_80
+  pass 0 ST_PT01    q20_50_80=32.1kb  q10_90=unfaithful(0.76)  dsign=31.4kb  -> dsign
+  pass 0 HILout     only q20_50_80 is faithful (q20_50_80=0.34, q10_90=0.71, dsign=1.06) -> q20_50_80
+  pass 0 VXT02      only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.66, dsign=0.90) -> q20_50_80
+  pass 0 VYT02      only q20_50_80 is faithful (q20_50_80=0.36, q10_90=0.71, dsign=1.08) -> q20_50_80
+  pass 0 HT_PO      q20_50_80=32.2kb  q10_90=unfaithful(0.64)  dsign=31.4kb  -> dsign
+  pass 0 ST_PO      q20_50_80=33.0kb  q10_90=unfaithful(0.72)  dsign=31.4kb  -> dsign
+  pass 0 ST_GOV     q20_50_80=33.0kb  q10_90=unfaithful(0.72)  dsign=31.4kb  -> dsign
+  pass 0 VYT03      only q20_50_80 is faithful (q20_50_80=0.35, q10_90=0.70, dsign=1.34) -> q20_50_80
+  pass 0 B2016      q20_50_80=33.3kb  q10_90=unfaithful(0.73)  dsign=31.4kb  -> dsign
+  pass 0 HT_LD      q20_50_80=33.2kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 0 VXT03      only q20_50_80 is faithful (q20_50_80=0.31, q10_90=0.62, dsign=0.94) -> q20_50_80
+  pass 0 PIT02      q20_50_80=31.9kb  q10_90=31.4kb  dsign=32.0kb  -> q10_90
+  pass 0 TIT02      only q20_50_80 is faithful (q20_50_80=0.24, q10_90=0.69, dsign=0.59) -> q20_50_80
+  pass 0 ST_LD      q20_50_80=32.8kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 0 CO_rpm     q20_50_80=32.2kb  q10_90=unfaithful(0.79)  dsign=31.4kb  -> dsign
+  pass 0 B400B      only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.96, dsign=1.42) -> q20_50_80
+  pass 0 FT02       only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.95, dsign=0.87) -> q20_50_80
+  pass 0 FT02Z      only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.96, dsign=1.45) -> q20_50_80
+  pass 0 SIT01      q20_50_80=33.0kb  q10_90=unfaithful(0.66)  dsign=31.4kb  -> dsign
+  pass 0 SIT02      q20_50_80=33.0kb  q10_90=unfaithful(0.66)  dsign=31.4kb  -> dsign
+  pass 0 LD         q20_50_80=32.9kb  q10_90=unfaithful(0.63)  dsign=31.4kb  -> dsign
+  pass 0 FCV02Z     only q20_50_80 is faithful (q20_50_80=0.22, q10_90=0.83, dsign=303.75) -> q20_50_80
+  pass 0 FT01       only q20_50_80 is faithful (q20_50_80=0.27, q10_90=0.69, dsign=0.51) -> q20_50_80
+HAI 21.03: 22068 samples in 8 files, 15.3 days observed (13s)
+roles: {'P1': 31, 'P2': 12, 'P3': 5} system: 12
+== symbolization by compression (3.2) ==
+  resuming from checkpoint: 35 decisions already made
+  start B2004      q20_50_80 (144 events)
+  start B2016      dsign (769 events)
+  start B3004      q20_50_80 (166 events)
+  start B3005      q10_90 (55 events)
+  start B4002      q10_90 (28 events)
+  start B4005      q10_90 (234 events)
+  start B400B      q20_50_80 (591 events)
+  start B4022      q20_50_80 (1973 events)
+  start FCV01D     q10_90 (176 events)
+  start FCV01Z     dsign (225 events)
+  start FCV02D     None (0 events)
+  start FCV02Z     q20_50_80 (472 events)
+  start FCV03D     dsign (217 events)
+  start FCV03Z     dsign (193 events)
+  start FT01       q20_50_80 (418 events)
+  start FT01Z      dsign (228 events)
+  start FT02       q20_50_80 (591 events)
+  start FT02Z      q20_50_80 (587 events)
+  start FT03       dsign (193 events)
+  start FT03Z      dsign (197 events)
+  start LCV01D     q20_50_80 (3419 events)
+  start LCV01Z     q20_50_80 (1200 events)
+  start LIT01      q20_50_80 (4174 events)
+  start PCV01D     dsign (278 events)
+  start PCV01Z     dsign (270 events)
+  start PCV02D     None (0 events)
+  start PCV02Z     dsign (20 events)
+  start PIT01      dsign (1678 events)
+  start PIT02      q10_90 (710 events)
+  start TIT01      dsign (239 events)
+  start TIT02      q20_50_80 (632 events)
+  start 24Vdc      dsign (39 events)
+  start CO_rpm     dsign (616 events)
+  start HILout     q20_50_80 (990 events)
+  start SIT01      dsign (580 events)
+  start SIT02      dsign (580 events)
+  start VT01       q20_50_80 (243 events)
+  start VXT02      q20_50_80 (962 events)
+  start VXT03      q20_50_80 (725 events)
+  start VYT02      q20_50_80 (923 events)
+  start VYT03      q20_50_80 (795 events)
+  start FIT01      None (0 events)
+  start LCP01D     q20_50_80 (1836 events)
+  start HT_FD      None (0 events)
+  start HT_LD      dsign (736 events)
+  start HT_PO      dsign (843 events)
+  start HT_PS      q20_50_80 (28 events)
+  start LD         dsign (562 events)
+  start ST_FD      None (0 events)
+  start ST_GOV     dsign (798 events)
+  start ST_LD      dsign (621 events)
+  start ST_PO      dsign (811 events)
+  start ST_PS      q20_50_80 (28 events)
+  start ST_PT01    dsign (1024 events)
+  start ST_TT01    q10_90 (265 events)
+  pass 0 FT01Z      q20_50_80=31.6kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 0 FCV01Z     q20_50_80=31.5kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 0 FCV03D     q20_50_80=32.0kb  q10_90=unfaithful(0.51)  dsign=31.4kb  -> dsign
+  pass 0 FT03Z      q20_50_80=31.7kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 0 FCV03Z     q20_50_80=32.3kb  q10_90=unfaithful(0.50)  dsign=31.4kb  -> dsign
+  pass 0 FT03       q20_50_80=31.7kb  q10_90=unfaithful(0.63)  dsign=31.4kb  -> dsign
+  pass 0 FCV01D     q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(0.63)  -> q10_90
+  pass 0 B3004      only q20_50_80 is faithful (q20_50_80=0.40, q10_90=0.73, dsign=1.52) -> q20_50_80
+  pass 0 B2004      only q20_50_80 is faithful (q20_50_80=0.22, q10_90=0.54, dsign=1.75) -> q20_50_80
+  pass 0 B3005      q20_50_80=31.6kb  q10_90=31.4kb  dsign=unfaithful(0.84)  -> q10_90
+  pass 0 24Vdc      q20_50_80=32.0kb  q10_90=unfaithful(0.54)  dsign=31.4kb  -> dsign
+  pass 0 B4002      q20_50_80=31.5kb  q10_90=31.4kb  dsign=unfaithful(1.64)  -> q10_90
+  pass 0 HT_PS      q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(1.28)  -> q20_50_80
+  pass 0 ST_PS      q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(1.28)  -> q20_50_80
+  pass 0 PCV02Z     q20_50_80=32.7kb  q10_90=unfaithful(0.51)  dsign=31.4kb  -> dsign
+  pass 0 FCV02D     no scheme reconstructs the series within 0.5 of its std (residual ratios q20_50_80=0.53, q10_90=0.53, dsign=1.03); role emits no events
+  pass 0 PCV02D     no scheme reconstructs the series within 0.5 of its std (residual ratios q20_50_80=0.66, q10_90=0.66, dsign=6.22); role emits no events
+  pass 0 FIT01      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 0 HT_FD      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 0 ST_FD      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 1 LIT01      only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.69, dsign=0.51) -> q20_50_80
+  pass 1 LCV01D     only q20_50_80 is faithful (q20_50_80=0.31, q10_90=0.61, dsign=0.51) -> q20_50_80
+  pass 1 B4022      only q20_50_80 is faithful (q20_50_80=0.35, q10_90=0.62, dsign=1.28) -> q20_50_80
+  pass 1 LCP01D     only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.64, dsign=0.50) -> q20_50_80
+HAI 21.03: 22068 samples in 8 files, 15.3 days observed (13s)
+roles: {'P1': 31, 'P2': 12, 'P3': 5} system: 12
+== symbolization by compression (3.2) ==
+  resuming from checkpoint: 59 decisions already made
+  start B2004      q20_50_80 (144 events)
+  start B2016      dsign (769 events)
+  start B3004      q20_50_80 (166 events)
+  start B3005      q10_90 (55 events)
+  start B4002      q10_90 (28 events)
+  start B4005      q10_90 (234 events)
+  start B400B      q20_50_80 (591 events)
+  start B4022      q20_50_80 (1973 events)
+  start FCV01D     q10_90 (176 events)
+  start FCV01Z     dsign (225 events)
+  start FCV02D     None (0 events)
+  start FCV02Z     q20_50_80 (472 events)
+  start FCV03D     dsign (217 events)
+  start FCV03Z     dsign (193 events)
+  start FT01       q20_50_80 (418 events)
+  start FT01Z      dsign (228 events)
+  start FT02       q20_50_80 (591 events)
+  start FT02Z      q20_50_80 (587 events)
+  start FT03       dsign (193 events)
+  start FT03Z      dsign (197 events)
+  start LCV01D     q20_50_80 (3419 events)
+  start LCV01Z     q20_50_80 (1200 events)
+  start LIT01      q20_50_80 (4174 events)
+  start PCV01D     dsign (278 events)
+  start PCV01Z     dsign (270 events)
+  start PCV02D     None (0 events)
+  start PCV02Z     dsign (20 events)
+  start PIT01      dsign (1678 events)
+  start PIT02      q10_90 (710 events)
+  start TIT01      dsign (239 events)
+  start TIT02      q20_50_80 (632 events)
+  start 24Vdc      dsign (39 events)
+  start CO_rpm     dsign (616 events)
+  start HILout     q20_50_80 (990 events)
+  start SIT01      dsign (580 events)
+  start SIT02      dsign (580 events)
+  start VT01       q20_50_80 (243 events)
+  start VXT02      q20_50_80 (962 events)
+  start VXT03      q20_50_80 (725 events)
+  start VYT02      q20_50_80 (923 events)
+  start VYT03      q20_50_80 (795 events)
+  start FIT01      None (0 events)
+  start LCP01D     q20_50_80 (1836 events)
+  start HT_FD      None (0 events)
+  start HT_LD      dsign (736 events)
+  start HT_PO      dsign (843 events)
+  start HT_PS      q20_50_80 (28 events)
+  start LD         dsign (562 events)
+  start ST_FD      None (0 events)
+  start ST_GOV     dsign (798 events)
+  start ST_LD      dsign (621 events)
+  start ST_PO      dsign (811 events)
+  start ST_PS      q20_50_80 (28 events)
+  start ST_PT01    dsign (1024 events)
+  start ST_TT01    q10_90 (265 events)
+  pass 1 PIT01      q20_50_80=34.5kb  q10_90=unfaithful(0.75)  dsign=31.4kb  -> dsign
+  pass 1 LCV01Z     only q20_50_80 is faithful (q20_50_80=0.29, q10_90=0.57, dsign=0.61) -> q20_50_80
+  pass 1 ST_PT01    q20_50_80=32.0kb  q10_90=unfaithful(0.76)  dsign=31.4kb  -> dsign
+  pass 1 HILout     only q20_50_80 is faithful (q20_50_80=0.34, q10_90=0.71, dsign=1.06) -> q20_50_80
+  pass 1 VXT02      only q20_50_80 is faithful (q20_50_80=0.33, q10_90=0.66, dsign=0.90) -> q20_50_80
+  pass 1 VYT02      only q20_50_80 is faithful (q20_50_80=0.36, q10_90=0.71, dsign=1.08) -> q20_50_80
+  pass 1 HT_PO      q20_50_80=32.1kb  q10_90=unfaithful(0.64)  dsign=31.4kb  -> dsign
+  pass 1 ST_PO      q20_50_80=33.0kb  q10_90=unfaithful(0.72)  dsign=31.4kb  -> dsign
+  pass 1 ST_GOV     q20_50_80=32.8kb  q10_90=unfaithful(0.72)  dsign=31.4kb  -> dsign
+  pass 1 VYT03      only q20_50_80 is faithful (q20_50_80=0.35, q10_90=0.70, dsign=1.34) -> q20_50_80
+  pass 1 B2016      q20_50_80=33.3kb  q10_90=unfaithful(0.73)  dsign=31.4kb  -> dsign
+  pass 1 HT_LD      q20_50_80=33.0kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 1 VXT03      only q20_50_80 is faithful (q20_50_80=0.31, q10_90=0.62, dsign=0.94) -> q20_50_80
+  pass 1 PIT02      q20_50_80=31.8kb  q10_90=31.4kb  dsign=32.0kb  -> q10_90
+  pass 1 TIT02      only q20_50_80 is faithful (q20_50_80=0.24, q10_90=0.69, dsign=0.59) -> q20_50_80
+  pass 1 ST_LD      q20_50_80=32.7kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 1 CO_rpm     q20_50_80=32.1kb  q10_90=unfaithful(0.79)  dsign=31.4kb  -> dsign
+  pass 1 B400B      only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.96, dsign=1.42) -> q20_50_80
+  pass 1 FT02       only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.95, dsign=0.87) -> q20_50_80
+  pass 1 FT02Z      only q20_50_80 is faithful (q20_50_80=0.01, q10_90=0.96, dsign=1.45) -> q20_50_80
+  pass 1 SIT01      q20_50_80=32.9kb  q10_90=unfaithful(0.66)  dsign=31.4kb  -> dsign
+  pass 1 SIT02      q20_50_80=32.9kb  q10_90=unfaithful(0.66)  dsign=31.4kb  -> dsign
+  pass 1 LD         q20_50_80=32.9kb  q10_90=unfaithful(0.63)  dsign=31.4kb  -> dsign
+  pass 1 FCV02Z     only q20_50_80 is faithful (q20_50_80=0.22, q10_90=0.83, dsign=303.75) -> q20_50_80
+  pass 1 FT01       only q20_50_80 is faithful (q20_50_80=0.27, q10_90=0.69, dsign=0.51) -> q20_50_80
+HAI 21.03: 22068 samples in 8 files, 15.3 days observed (13s)
+roles: {'P1': 31, 'P2': 12, 'P3': 5} system: 12
+== symbolization by compression (3.2) ==
+  resuming from checkpoint: 84 decisions already made
+  start B2004      q20_50_80 (144 events)
+  start B2016      dsign (769 events)
+  start B3004      q20_50_80 (166 events)
+  start B3005      q10_90 (55 events)
+  start B4002      q10_90 (28 events)
+  start B4005      q10_90 (234 events)
+  start B400B      q20_50_80 (591 events)
+  start B4022      q20_50_80 (1973 events)
+  start FCV01D     q10_90 (176 events)
+  start FCV01Z     dsign (225 events)
+  start FCV02D     None (0 events)
+  start FCV02Z     q20_50_80 (472 events)
+  start FCV03D     dsign (217 events)
+  start FCV03Z     dsign (193 events)
+  start FT01       q20_50_80 (418 events)
+  start FT01Z      dsign (228 events)
+  start FT02       q20_50_80 (591 events)
+  start FT02Z      q20_50_80 (587 events)
+  start FT03       dsign (193 events)
+  start FT03Z      dsign (197 events)
+  start LCV01D     q20_50_80 (3419 events)
+  start LCV01Z     q20_50_80 (1200 events)
+  start LIT01      q20_50_80 (4174 events)
+  start PCV01D     dsign (278 events)
+  start PCV01Z     dsign (270 events)
+  start PCV02D     None (0 events)
+  start PCV02Z     dsign (20 events)
+  start PIT01      dsign (1678 events)
+  start PIT02      q10_90 (710 events)
+  start TIT01      dsign (239 events)
+  start TIT02      q20_50_80 (632 events)
+  start 24Vdc      dsign (39 events)
+  start CO_rpm     dsign (616 events)
+  start HILout     q20_50_80 (990 events)
+  start SIT01      dsign (580 events)
+  start SIT02      dsign (580 events)
+  start VT01       q20_50_80 (243 events)
+  start VXT02      q20_50_80 (962 events)
+  start VXT03      q20_50_80 (725 events)
+  start VYT02      q20_50_80 (923 events)
+  start VYT03      q20_50_80 (795 events)
+  start FIT01      None (0 events)
+  start LCP01D     q20_50_80 (1836 events)
+  start HT_FD      None (0 events)
+  start HT_LD      dsign (736 events)
+  start HT_PO      dsign (843 events)
+  start HT_PS      q20_50_80 (28 events)
+  start LD         dsign (562 events)
+  start ST_FD      None (0 events)
+  start ST_GOV     dsign (798 events)
+  start ST_LD      dsign (621 events)
+  start ST_PO      dsign (811 events)
+  start ST_PS      q20_50_80 (28 events)
+  start ST_PT01    dsign (1024 events)
+  start ST_TT01    q10_90 (265 events)
+  pass 1 PCV01D     q20_50_80=33.1kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 1 PCV01Z     q20_50_80=33.0kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 1 ST_TT01    only q10_90 is faithful (q20_50_80=0.54, q10_90=0.49, dsign=3.58) -> q10_90
+  pass 1 VT01       q20_50_80=31.4kb  q10_90=unfaithful(0.75)  dsign=31.7kb  -> q20_50_80
+  pass 1 TIT01      q20_50_80=32.0kb  q10_90=unfaithful(0.55)  dsign=31.4kb  -> dsign
+  pass 1 B4005      q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(0.89)  -> q20_50_80
+  pass 1 FT01Z      q20_50_80=31.6kb  q10_90=unfaithful(0.70)  dsign=31.4kb  -> dsign
+  pass 1 FCV01Z     q20_50_80=31.5kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 1 FCV03D     q20_50_80=32.0kb  q10_90=unfaithful(0.51)  dsign=31.4kb  -> dsign
+  pass 1 FT03Z      q20_50_80=31.7kb  q10_90=unfaithful(0.65)  dsign=31.4kb  -> dsign
+  pass 1 FCV03Z     q20_50_80=32.3kb  q10_90=unfaithful(0.50)  dsign=31.4kb  -> dsign
+  pass 1 FT03       q20_50_80=31.7kb  q10_90=unfaithful(0.63)  dsign=31.4kb  -> dsign
+  pass 1 FCV01D     q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(0.63)  -> q10_90
+  pass 1 B3004      only q20_50_80 is faithful (q20_50_80=0.40, q10_90=0.73, dsign=1.52) -> q20_50_80
+  pass 1 B2004      only q20_50_80 is faithful (q20_50_80=0.22, q10_90=0.54, dsign=1.75) -> q20_50_80
+  pass 1 B3005      q20_50_80=31.6kb  q10_90=31.4kb  dsign=unfaithful(0.84)  -> q10_90
+  pass 1 24Vdc      q20_50_80=32.0kb  q10_90=unfaithful(0.54)  dsign=31.4kb  -> dsign
+HAI 21.03: 22068 samples in 8 files, 15.3 days observed (13s)
+roles: {'P1': 31, 'P2': 12, 'P3': 5} system: 12
+== symbolization by compression (3.2) ==
+  resuming from checkpoint: 103 decisions already made
+  start B2004      q20_50_80 (144 events)
+  start B2016      dsign (769 events)
+  start B3004      q20_50_80 (166 events)
+  start B3005      q10_90 (55 events)
+  start B4002      q10_90 (28 events)
+  start B4005      q10_90 (234 events)
+  start B400B      q20_50_80 (591 events)
+  start B4022      q20_50_80 (1973 events)
+  start FCV01D     q10_90 (176 events)
+  start FCV01Z     dsign (225 events)
+  start FCV02D     None (0 events)
+  start FCV02Z     q20_50_80 (472 events)
+  start FCV03D     dsign (217 events)
+  start FCV03Z     dsign (193 events)
+  start FT01       q20_50_80 (418 events)
+  start FT01Z      dsign (228 events)
+  start FT02       q20_50_80 (591 events)
+  start FT02Z      q20_50_80 (587 events)
+  start FT03       dsign (193 events)
+  start FT03Z      dsign (197 events)
+  start LCV01D     q20_50_80 (3419 events)
+  start LCV01Z     q20_50_80 (1200 events)
+  start LIT01      q20_50_80 (4174 events)
+  start PCV01D     dsign (278 events)
+  start PCV01Z     dsign (270 events)
+  start PCV02D     None (0 events)
+  start PCV02Z     dsign (20 events)
+  start PIT01      dsign (1678 events)
+  start PIT02      q10_90 (710 events)
+  start TIT01      dsign (239 events)
+  start TIT02      q20_50_80 (632 events)
+  start 24Vdc      dsign (39 events)
+  start CO_rpm     dsign (616 events)
+  start HILout     q20_50_80 (990 events)
+  start SIT01      dsign (580 events)
+  start SIT02      dsign (580 events)
+  start VT01       q20_50_80 (243 events)
+  start VXT02      q20_50_80 (962 events)
+  start VXT03      q20_50_80 (725 events)
+  start VYT02      q20_50_80 (923 events)
+  start VYT03      q20_50_80 (795 events)
+  start FIT01      None (0 events)
+  start LCP01D     q20_50_80 (1836 events)
+  start HT_FD      None (0 events)
+  start HT_LD      dsign (736 events)
+  start HT_PO      dsign (843 events)
+  start HT_PS      q20_50_80 (28 events)
+  start LD         dsign (562 events)
+  start ST_FD      None (0 events)
+  start ST_GOV     dsign (798 events)
+  start ST_LD      dsign (621 events)
+  start ST_PO      dsign (811 events)
+  start ST_PS      q20_50_80 (28 events)
+  start ST_PT01    dsign (1024 events)
+  start ST_TT01    q10_90 (265 events)
+  pass 1 ST_PS      q20_50_80=31.4kb  q10_90=31.4kb  dsign=unfaithful(1.28)  -> q20_50_80
+  pass 1 PCV02Z     q20_50_80=32.7kb  q10_90=unfaithful(0.51)  dsign=31.4kb  -> dsign
+  pass 1 FCV02D     no scheme reconstructs the series within 0.5 of its std (residual ratios q20_50_80=0.53, q10_90=0.53, dsign=1.03); role emits no events
+  pass 1 PCV02D     no scheme reconstructs the series within 0.5 of its std (residual ratios q20_50_80=0.66, q10_90=0.66, dsign=6.22); role emits no events
+  pass 1 FIT01      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 1 HT_FD      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 1 ST_FD      no detectable signal at the sampling scale (noise window > 1% of length); role emits no events
+  pass 1 changed nothing: converged, later passes skipped (same result)
+chosen: {'B2004': 'q20_50_80', 'B2016': 'dsign', 'B3004': 'q20_50_80', 'B3005': 'q10_90', 'B4002': 'q10_90', 'B4005': 'q20_50_80', 'B400B': 'q20_50_80', 'B4022': 'q20_50_80', 'FCV01D': 'q10_90', 'FCV01Z': 'dsign', 'FCV02D': None, 'FCV02Z': 'q20_50_80', 'FCV03D': 'dsign', 'FCV03Z': 'dsign', 'FT01': 'q20_50_80', 'FT01Z': 'dsign', 'FT02': 'q20_50_80', 'FT02Z': 'q20_50_80', 'FT03': 'dsign', 'FT03Z': 'dsign', 'LCV01D': 'q20_50_80', 'LCV01Z': 'q20_50_80', 'LIT01': 'q20_50_80', 'PCV01D': 'dsign', 'PCV01Z': 'dsign', 'PCV02D': None, 'PCV02Z': 'dsign', 'PIT01': 'dsign', 'PIT02': 'q10_90', 'TIT01': 'dsign', 'TIT02': 'q20_50_80', '24Vdc': 'dsign', 'CO_rpm': 'dsign', 'Emerg': None, 'HILout': 'q20_50_80', 'OnOff': None, 'SIT01': 'dsign', 'SIT02': 'dsign', 'VT01': 'q20_50_80', 'VXT02': 'q20_50_80', 'VXT03': 'q20_50_80', 'VYT02': 'q20_50_80', 'VYT03': 'q20_50_80', 'FIT01': None, 'LCP01D': 'q20_50_80', 'HT_FD': None, 'HT_LD': 'dsign', 'HT_PO': 'dsign', 'HT_PS': 'q20_50_80', 'LD': 'dsign', 'ST_FD': None, 'ST_GOV': 'dsign', 'ST_LD': 'dsign', 'ST_PO': 'dsign', 'ST_PS': 'q20_50_80', 'ST_PT01': 'dsign', 'ST_TT01': 'q10_90'}
+(933s)
+
+== entity by compression (3.1) ==
+  entity candidate process  entities=  3 confirmation bits (Markov only) 5.033
+  entity candidate sys      entities=  1 confirmation bits (Markov only) 6.220
+chosen entity layout: process
+wrote /home/claude/isomorph/datasets/hai 34298 events 190 types (1029s)
+exit 0

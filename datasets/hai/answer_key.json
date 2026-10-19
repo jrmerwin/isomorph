@@ -1,0 +1,81 @@
+{
+ "mechanisms": [
+  {
+   "cause": "FCV01D",
+   "effect": "FCV01Z",
+   "note": "valve command -> position (P1)"
+  },
+  {
+   "cause": "FCV02D",
+   "effect": "FCV02Z",
+   "note": "valve command -> position (P1)"
+  },
+  {
+   "cause": "FCV03D",
+   "effect": "FCV03Z",
+   "note": "valve command -> position (P1)"
+  },
+  {
+   "cause": "LCV01D",
+   "effect": "LCV01Z",
+   "note": "valve command -> position (P1)"
+  },
+  {
+   "cause": "PCV01D",
+   "effect": "PCV01Z",
+   "note": "valve command -> position (P1)"
+  },
+  {
+   "cause": "PP01AD",
+   "effect": "PP01AR",
+   "note": "pump start command -> running (P1)"
+  },
+  {
+   "cause": "PP02D",
+   "effect": "PP02R",
+   "note": "pump start command -> running (P1)"
+  },
+  {
+   "cause": "LCV01Z",
+   "effect": "LIT01",
+   "note": "level control valve -> return tank level (P1)"
+  },
+  {
+   "cause": "PCV01Z",
+   "effect": "PIT01",
+   "note": "pressure control valve -> HX outlet pressure (P1)"
+  },
+  {
+   "cause": "B4005",
+   "effect": "FCV03D",
+   "note": "temperature PID output -> FCV03 command (P1)"
+  },
+  {
+   "cause": "FCV03Z",
+   "effect": "TIT01",
+   "note": "FCV03 position -> HX outlet temperature (P1)"
+  },
+  {
+   "cause": "LCP01D",
+   "effect": "FIT01",
+   "note": "pump speed command -> inflow (P3)"
+  },
+  {
+   "cause": "FIT01",
+   "effect": "LIT01",
+   "note": "inflow -> upper tank level (P3)"
+  },
+  {
+   "cause": "LCV01D",
+   "effect": "LIT01",
+   "note": "drain valve command -> upper tank level (P3)"
+  },
+  {
+   "cause": "CO_rpm",
+   "effect": "SIT01",
+   "note": "speed controller output -> turbine rpm (P2)"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "cause -> effect pairs true by construction from the point descriptions (hai_dataset_technical_details.pdf); command -> position and start -> running pairs respond within one or two seconds"
+}
