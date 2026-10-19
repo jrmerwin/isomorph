@@ -2,6 +2,11 @@
 
 *Validated motif libraries from event streams, and how much they transfer between systems.*
 
+Complex physical and informational systems may instantiate recurring, substrate-independent logical
+structures. These structures can potentially be inferred from observational data as compositional motifs,
+organized into families, and studied to discover the conditions governing their recurrence,
+transformation, and transfer.
+
 A system — a building, a plant, a cluster, an organism — leaves a stream of events. isomorph turns that
 stream into a library of validated motifs (lagged, entity-bound fragments of structure), scores the
 library against fixed baselines in bits per event, and measures how much the library helps on every

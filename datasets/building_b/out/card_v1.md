@@ -10,10 +10,10 @@ Kind: synthetic · entities: u1, u2, u3, u4 · types: 22 · events/day: 348 · l
 | markov-3 | 2.100 | 2.100 | None |
 | hawkes-like decay features | 2.115 | 2.115 | None |
 | logistic markov features | 2.110 | 2.110 | None |
-| logistic triviality library | 2.110 | 2.110 | None |
+| logistic triviality library | 1.605 | 1.605 | None |
 | logistic library | 1.452 | 1.452 | None |
 | logistic unselected contexts | 1.482 | 1.482 | None |
 
-Gain over triviality: 0.657 bits · over best baseline (2.100): 0.648 bits · claim: **beats baselines**
+Gain over triviality: 0.153 bits · over best baseline (2.100): 0.648 bits · claim: **beats baselines**
 Library: 131 fragments (60 used), 451 compositions, chatty share 0.16
 Recovery: not measured

@@ -25,7 +25,7 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 12,
+  "signal_floor": 14,
   "min_count": 5,
   "lag_edges": [
    5.0,
@@ -68,8 +68,8 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 1.882874125980503,
-   "non_deterministic": 1.882874125980503,
+   "all": 1.892482611823007,
+   "non_deterministic": 1.892482611823007,
    "deterministic": null
   },
   "logistic library": {
@@ -78,13 +78,13 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.7995395162104897,
-   "non_deterministic": 1.7995395162104897,
+   "all": 1.7995395162105083,
+   "non_deterministic": 1.7995395162105083,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.06446059216122846,
+  "over_triviality": 0.0740690780037323,
   "over_best_baseline": 0.4023115573663101,
   "best_baseline_bits": 2.2207250911855847,
   "claim": "no gain"
@@ -100,6 +100,48 @@
   "null_survival": {
    "circular": 0.5211864406779662
   },
+  "trivial_pairs": [
+   [
+    "CO2:down700",
+    "CO2:up700"
+   ],
+   [
+    "CO2:down700",
+    "vent:off"
+   ],
+   [
+    "CO2:down900",
+    "CO2:up900"
+   ],
+   [
+    "CO2:up700",
+    "vent:on"
+   ],
+   [
+    "RH:down50",
+    "RH:up50"
+   ],
+   [
+    "RH:down70",
+    "RH:up70"
+   ],
+   [
+    "T:down20",
+    "T:up20"
+   ],
+   [
+    "T:down23",
+    "T:up23"
+   ],
+   [
+    "heater:off",
+    "heater:on"
+   ],
+   [
+    "vent:off",
+    "vent:on"
+   ]
+  ],
   "chatty_share": 0.1323529411764706
  },
  "recovery": {
@@ -110,5 +152,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 2.8
+ "elapsed_s": 5.0
 }

@@ -79,7 +79,8 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         if b_with >= b_without - 1e-4:
             comp_ctxs = []
     unsel_ctxs = list(dict.fromkeys(c for c, y in cands))
-    triv_ctxs = B.triviality_contexts(vocab, lags)
+    triv_ctxs = B.triviality_contexts(vocab, lags, rows_train)
+    triv_pairs = B.alternating_pairs(rows_train)
 
     # scoring (3.9), test split evaluated once
     det = B.deterministic_pairs(rows_train)
@@ -135,6 +136,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
                   best_baseline_bits=best_base, claim=("beats baselines" if gain_over_triviality >= K.CLAIM_MIN_GAIN_BITS and gain_over_best_baseline >= K.CLAIM_MIN_GAIN_BITS else "no gain")),
         library=dict(fragments=len(frags), fragments_used=len(frag_ctxs), compositions_kept=len(comp_ctxs),
                      candidates=len(cands), nulls_run=dinfo["nulls_run"], null_survival=dinfo["null_survival"],
+                     trivial_pairs=sorted(list(pq) for pq in triv_pairs),
                      chatty_share=chatty_share),
         recovery=recovery, transfer="not measured (collection step)", lineage="not measured (collection step)",
         elapsed_s=round(time.time() - t0, 1),

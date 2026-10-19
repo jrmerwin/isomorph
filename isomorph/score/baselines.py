@@ -32,20 +32,34 @@ def unigram_bits(rows_train, rows_test, vocab):
     return markov_bits(rows_train, rows_test, vocab, k=0)
 
 
-def triviality_contexts(vocab, lags):
-    """Symmetric pairs: X:on <-> X:off, V:upT <-> V:downT, at every lag class."""
+def alternating_pairs(rows, threshold=0.9, min_events=20):
+    """Name-free trivial pairs (METHOD 3.11): two types X, Y within an entity stream whose merged
+    subsequence strictly alternates (X Y X Y ...) at least `threshold` of the time. Captures on/off
+    and up/down partners whatever the types are called."""
+    seqs = defaultdict(list)
+    for r in rows:
+        seqs[r.get("entity", "")].append(r["tok"])
+    types = sorted(set(r["tok"] for r in rows))
+    pairs = set()
+    for i, X in enumerate(types):
+        for Y in types[i + 1:]:
+            alt = tot = 0
+            for s in seqs.values():
+                sub = [t for t in s if t == X or t == Y]
+                for a, b_ in zip(sub, sub[1:]):
+                    tot += 1; alt += (a != b_)
+            if tot >= min_events and alt / tot >= threshold:
+                pairs.add((X, Y))
+    return pairs
+
+
+def triviality_contexts(vocab, lags, rows=None):
+    """Contexts of the trivial library: each type's alternating partner at every lag class."""
     ctxs = set()
-    for t in vocab:
-        if ":" not in t: continue
-        var, ev = t.split(":", 1)
-        partner = None
-        if ev == "on": partner = f"{var}:off"
-        elif ev == "off": partner = f"{var}:on"
-        elif ev.startswith("up"): partner = f"{var}:down{ev[2:]}"
-        elif ev.startswith("down"): partner = f"{var}:up{ev[4:]}"
-        if partner in vocab:
-            for lab in lags.labels:
-                ctxs.add((partner, lab))
+    pairs = alternating_pairs(rows) if rows is not None else set()
+    for X, Y in pairs:
+        for lab in lags.labels:
+            ctxs.add((X, lab)); ctxs.add((Y, lab))
     return sorted(ctxs)
 
 

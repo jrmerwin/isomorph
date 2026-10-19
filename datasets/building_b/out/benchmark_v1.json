@@ -69,8 +69,8 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 2.1098300522398854,
-   "non_deterministic": 2.1098300522398854,
+   "all": 1.6053087803287225,
+   "non_deterministic": 1.6053087803287225,
    "deterministic": null
   },
   "logistic library": {
@@ -79,13 +79,13 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.4822917782164229,
-   "non_deterministic": 1.4822917782164229,
+   "all": 1.4822917782164575,
+   "non_deterministic": 1.4822917782164575,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.6574766566738757,
+  "over_triviality": 0.15295538476271275,
   "over_best_baseline": 0.6475079152219108,
   "best_baseline_bits": 2.0998613107879205,
   "claim": "beats baselines"
@@ -105,10 +105,52 @@
    "cycle": 0.5581395348837209,
    "rewire": 0.45478036175710596
   },
+  "trivial_pairs": [
+   [
+    "x00",
+    "x04"
+   ],
+   [
+    "x02",
+    "x24"
+   ],
+   [
+    "x05",
+    "x17"
+   ],
+   [
+    "x09",
+    "x18"
+   ],
+   [
+    "x12",
+    "x14"
+   ],
+   [
+    "x13",
+    "x25"
+   ],
+   [
+    "x15",
+    "x22"
+   ],
+   [
+    "x19",
+    "x27"
+   ],
+   [
+    "x23",
+    "x30"
+   ],
+   [
+    "x26",
+    "x28"
+   ]
+  ],
   "chatty_share": 0.16030534351145037
  },
  "recovery": "not measured",
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 15.9
+ "elapsed_s": 26.8
 }

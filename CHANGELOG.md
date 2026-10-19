@@ -74,3 +74,11 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Calibration reference re-recorded for v1; legacy reproduces its reference exactly.
 - METHOD.md amendments pending from stages 2-3: 3.5/3.6 (floor descriptive, admission per pair),
   3.8 (rewire as attribute), 3.2 (criterion and faithfulness floor as implemented), 3.4 (resolution).
+- Triviality baseline made name-free (3.11): a trivial pair is two types within an entity whose merged
+  subsequence strictly alternates (>= 0.9 over >= 20 transitions). The first version matched on/off and
+  up/down by NAME and found nothing on the name-scrambled building B', which then "beat baselines" for free
+  (legacy B' triviality 2.220 -> 1.694). Now: building A finds its 8 switch and threshold pairs (v1 gain over
+  triviality 0.04, "no gain"); B' finds 10 pairs from opaque names (gain 0.15, "beats baselines" — the
+  four-zone building with the dehumidifier loop carries cross-variable structure A does not). Reference
+  re-recorded for both profiles; only the triviality rows changed.
+- METHOD.md amended to what is implemented (3.2, 3.4, 3.5, 3.6, 3.8, 3.9, 3.11, constants table, open items).
