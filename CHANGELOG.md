@@ -114,3 +114,11 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   q10/90), so the buildings' admissibility is unchanged. Under the robust test q20/50/80 is faithful on every
   TEP role (0.34-0.45) and turning points only where the series really swings (0.03-0.4) — elsewhere 0.9-3.
 - Symbolization search stops after a pass that changes nothing (converged); identical result, saves a full pass.
+- Thresholds and windows per unit (3.2): quantile thresholds were pooled across the units sharing a role. On
+  Tennessee Eastman the reactor, separator and stripper pressures run at 2800, 2700 and 3300 kPa, so pooled
+  20/50/80 quantiles put each vessel in one band and no scheme was faithful for any vessel role (P, L, T,
+  cooling water, underflow all silent). Now each unit's own quantiles and correlation time; types carry the
+  quantile label (P:upq80) rather than the threshold value, so they remain shared across units. Building
+  zones share a scale, so this never showed; building_a_auto regenerated (type names change).
+- Choice stage checkpoints after every role decision and resumes; ingest_tep.py is resumable. The first full
+  TEP choice run was lost to a 2-hour job limit mid pass 1 (its log is kept in datasets/tennessee_eastman/out/).

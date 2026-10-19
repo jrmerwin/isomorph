@@ -11,7 +11,9 @@ A raw wide frame is described by a `layout`:
     )
 A *role* (T, CO2, heater, ...) is one variable that may appear in every entity; a scheme is
 chosen per role, shared across entities, so that the same mechanism gets the same symbols in
-every unit.
+every unit. Thresholds and windows are per unit (each unit's own quantiles and correlation
+time), so "P:upq80" means the same thing — crossing this unit's 80th percentile — in vessels
+that run at different levels (changelog v1, Tennessee Eastman).
 
 Noise floor (added on Tennessee Eastman, changelog v1): a continuous series is first denoised by a
 centred moving average over its *noise window* w, chosen so that the white-noise fraction left after
@@ -168,19 +170,21 @@ def symbolize_role(df, layout, role, scheme, thresholds_cache):
         if scheme.startswith("q"):
             qs = [int(q) / 100 for q in scheme[1:].split("_")]
             key = (role, scheme)
-            if key not in thresholds_cache:
-                thresholds_cache[key] = quantile_thresholds([x for _, _, x in series], qs) if series else []
-            th = thresholds_cache[key]
+            if key not in thresholds_cache:     # thresholds per column: each unit's own quantiles (changelog v1, Tennessee Eastman)
+                thresholds_cache[key] = {col: quantile_thresholds([x], qs) for _, col, x in series}
             for ent, col, x in series:
+                th = thresholds_cache[key][col]
                 for i, e, v in crossings(x, th, K.DEBOUNCE):
-                    rows.append(dict(t=t[i], entity=ent, type=f"{role}:{e}", value=v))
+                    direction = "up" if e.startswith("up") else "down"
+                    q = qs[th.index(float(e[len(direction):]))] if float(e[len(direction):]) in th else None
+                    label = f"{direction}q{int(round(q * 100))}" if q is not None else e
+                    rows.append(dict(t=t[i], entity=ent, type=f"{role}:{label}", value=v))
         elif scheme == "dsign":
             key = (role, "window")
-            if key not in thresholds_cache:
-                thresholds_cache[key] = max(3, int(np.median([correlation_time(x) for _, _, x in series]))) if series else 3
-            w = thresholds_cache[key]
+            if key not in thresholds_cache:     # window per column: the series' own correlation time
+                thresholds_cache[key] = {col: max(3, int(correlation_time(x))) for _, col, x in series}
             for ent, col, x in series:
-                for i, e, v in derivative_sign_events(x, w):
+                for i, e, v in derivative_sign_events(x, thresholds_cache[key][col]):
                     rows.append(dict(t=t[i], entity=ent, type=f"{role}:{e}", value=v))
         thresholds_cache[memo] = list(rows)
     elif kind == "binary":
@@ -233,8 +237,19 @@ def criterion(ev, role, lo, p_hi, c_hi, log=None):
     return float(fit_bits(FeatureMap(vocab, True, ctxs), tgt_p, tgt_c).sum())
 
 
-def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=2):
-    """Returns (choice per role, thresholds used, trace)."""
+def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=2, checkpoint=None):
+    """Returns (choice per role, thresholds used, trace). `checkpoint`: a json path written after every
+    role decision and read at start, so an interrupted run resumes (the search is deterministic)."""
+    import json, os
+    done = {}
+    if checkpoint and os.path.exists(checkpoint):
+        ck = json.load(open(checkpoint))
+        done = {tuple(k.split("|")): v for k, v in ck["done"].items()}
+        log(f"  resuming from checkpoint: {len(done)} decisions already made")
+    def save(choice, trace, faith):
+        if checkpoint:
+            json.dump(dict(done={"|".join(k): v for k, v in done.items()}, choice=choice, trace=trace,
+                           faith={f"{r}|{s}": (None if v == np.inf else v) for (r, s), v in faith.items()}), open(checkpoint, "w"), default=str)
     t = df[layout["time"]].values.astype(float); lo, hi = float(t.min()), float(t.max()) + 1
     p_hi, c_hi = lo + (hi - lo) * splits_frac[0], lo + (hi - lo) * (splits_frac[0] + splits_frac[1])
     cache = {}
@@ -250,9 +265,9 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
         if not series:
             return False, np.inf                            # no column carries signal at the sampling scale
         if sch.startswith("q"):
-            ratios = [residual_ratio(x, sch, thresholds=cache[cache_key]) for _, _, x in series]
+            ratios = [residual_ratio(x, sch, thresholds=cache[cache_key][col]) for _, col, x in series]
         else:
-            ratios = [residual_ratio(x, sch, window=cache[cache_key]) for _, _, x in series]
+            ratios = [residual_ratio(x, sch, window=cache[cache_key][col]) for _, col, x in series]
         return float(np.median(ratios)) <= K.FAITHFULNESS_MAX_RESIDUAL, float(np.median(ratios))
     faith = {}
     # start of the coordinate search: each role's coarsest faithful scheme (fewest events); a role with
@@ -273,6 +288,11 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
     for p in range(passes):
         changed_any = False
         for role in order:
+            if (str(p), role) in done:            # decided in an earlier (interrupted) run
+                rec = done[(str(p), role)]
+                changed_any |= bool(rec.get("changed")); choice[role] = rec["chosen"]
+                trace.append(dict(pass_=p, role=role, scores=rec.get("scores", {}), chosen=rec["chosen"]))
+                continue
             scores = {}
             adm = {}
             for sch in SCHEMES:
@@ -284,12 +304,14 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
                 else:
                     log(f"  pass {p} {role:10s} no scheme reconstructs the series within {K.FAITHFULNESS_MAX_RESIDUAL} of its std "
                         f"(residual ratios {', '.join(f'{s}={faith[(role, s)]:.2f}' for s in SCHEMES)}); role emits no events")
-                trace.append(dict(pass_=p, role=role, scores={}, chosen=None)); continue
+                trace.append(dict(pass_=p, role=role, scores={}, chosen=None))
+                done[(str(p), role)] = dict(chosen=None, changed=False, scores={}); save(choice, trace, faith); continue
             if sum(adm.values()) == 1:   # one admissible scheme: nothing to compare
                 best = next(s for s, ok in adm.items() if ok)
                 changed = best != choice[role]; choice[role] = best; changed_any |= changed
                 trace.append(dict(pass_=p, role=role, scores={best: "only admissible"}, chosen=best))
                 log(f"  pass {p} {role:10s} only {best} is faithful (" + ", ".join(f"{s}={faith[(role, s)]:.2f}" for s in SCHEMES) + f") -> {best}{' *' if changed else ''}")
+                done[(str(p), role)] = dict(chosen=best, changed=changed, scores={best: "only admissible"}); save(choice, trace, faith)
                 continue
             for sch in SCHEMES:
                 if not adm[sch]:
@@ -301,6 +323,7 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
             changed = best != choice[role]; choice[role] = best; changed_any |= changed
             trace.append(dict(pass_=p, role=role, scores=scores, chosen=best))
             log(f"  pass {p} {role:10s} " + "  ".join((f"{s}={v/1000:.1f}kb" if v < np.inf else f"{s}=unfaithful({faith[(role, s)]:.2f})") for s, v in scores.items()) + f"  -> {best}{' *' if changed else ''}")
+            done[(str(p), role)] = dict(chosen=best, changed=changed, scores={k: (None if v == np.inf else v) for k, v in scores.items()}); save(choice, trace, faith)
         if not changed_any:
             log(f"  pass {p} changed nothing: converged, later passes skipped (same result)")
             break

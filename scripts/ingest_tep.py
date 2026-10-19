@@ -27,16 +27,22 @@ print(f"TEP: {len(df_full)} samples in file; using the first {DAYS} days = {len(
 lay = L.vessel_layout()
 
 t0 = time.time()
-print("== symbolization by compression (3.2: faithfulness + noise floors, total confirmation bits) ==")
-choice, thresholds, trace = choose_symbolization(df, lay)
+os.makedirs(os.path.join(OUT, "out"), exist_ok=True)
+final = os.path.join(OUT, "out", "choices_v1.json")
+if os.path.exists(final) and "choice" in json.load(open(final)) and json.load(open(final)).get("complete"):
+    rec = json.load(open(final)); choice, thresholds, trace = rec["choice"], rec["thresholds"], rec["trace"]
+    print("symbolization choice loaded from", final)
+else:
+    print("== symbolization by compression (3.2: faithfulness + noise floors, total confirmation bits) ==")
+    choice, thresholds, trace = choose_symbolization(df, lay, checkpoint=os.path.join(OUT, "out", "choice_checkpoint.json"))
+    json.dump(dict(days=DAYS, choice=choice, thresholds=thresholds, trace=trace, complete=True), open(final, "w"), indent=1, default=str)
 print("chosen:", {k: v for k, v in choice.items()}); print(f"({time.time()-t0:.0f}s)")
 
 print("\n== entity by compression (3.1) ==")
 best, scores = choose_entity(df, {"vessel": lay, "sys": sys_layout(lay)}, choice)
 print("chosen entity layout:", best)
-os.makedirs(os.path.join(OUT, "out"), exist_ok=True)
-json.dump(dict(days=DAYS, choice=choice, thresholds=thresholds, trace=trace, entity=best, entity_scores=scores),
-          open(os.path.join(OUT, "out", "choices_v1.json"), "w"), indent=1, default=str)
+json.dump(dict(days=DAYS, choice=choice, thresholds=thresholds, trace=trace, entity=best, entity_scores=scores, complete=True),
+          open(final, "w"), indent=1, default=str)
 
 layout_used = lay if best == "vessel" else sys_layout(lay)
 ch = choice if best == "vessel" else {r: choice.get(next((b for b in choice if r == b or r.startswith(b + "_")), r)) for r in layout_used["kinds"]}
