@@ -8,3 +8,4 @@ dist/
 datasets/*/raw/*.csv.gz
 datasets/*/work/
 datasets/*/raw/*.csv
+datasets/*/out/choice_checkpoint.json
