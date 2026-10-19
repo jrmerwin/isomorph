@@ -332,8 +332,8 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
                 scores[sch] = criterion(ev, role, lo, p_hi, c_hi)
             best = min(scores, key=scores.get)
             cur = choice[role]
-            if cur in scores and scores[cur] <= scores[best] + 1e-6:
-                best = cur                                   # a tie is not evidence to change (and would force another pass)
+            if cur in scores and scores[cur] <= scores[best] + max(1e-6, 1e-4 * abs(scores[best])):
+                best = cur                                   # a tie (within solver noise, 1e-4 of the total) is not evidence to change
             changed = best != choice[role]; choice[role] = best; changed_any |= changed
             trace.append(dict(pass_=p, role=role, scores=scores, chosen=best))
             log(f"  pass {p} {role:10s} " + "  ".join((f"{s}={v/1000:.1f}kb" if v < np.inf else f"{s}=unfaithful({faith[(role, s)]:.2f})") for s, v in scores.items()) + f"  -> {best}{' *' if changed else ''}")

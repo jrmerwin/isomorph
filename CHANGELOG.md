@@ -158,3 +158,6 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Symbolization search: a tie between schemes keeps the current choice (a tie is not evidence to change, and a
   flip forces another pass). Prompted by HAI B4005, which on inspection was not a tie (31,395 vs 31,438 bits);
   its switch stands and pass 1 ran.
+- Tie tolerance made relative (1e-4 of the total bits): HAI HT_PS and ST_PS emit identical events under two schemes
+  (all thresholds equal) and differed by 0.003 bits of solver noise, which would have forced a third pass. The
+  pass-1 HT_PS entry was set to what the rule yields (unchanged).
