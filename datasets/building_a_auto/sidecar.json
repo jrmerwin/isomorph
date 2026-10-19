@@ -1,0 +1,47 @@
+{
+ "time_unit": "dataset time units",
+ "entity_key": "auto",
+ "period": "auto",
+ "system_wide_types": [
+  "T_out:peak",
+  "T_out:trough",
+  "setpoint:down",
+  "setpoint:up",
+  "vibration:down-0.012",
+  "vibration:down-1.069",
+  "vibration:down1.049",
+  "vibration:up-0.012",
+  "vibration:up-1.069",
+  "vibration:up1.049"
+ ],
+ "tie_rule": "canonical",
+ "kind": "synthetic",
+ "origin": "building_a raw frame, symbolization chosen by compression (scripts/choose_building_a.py)",
+ "symbolization": {
+  "rule": "confirmation bits on other roles (METHOD 3.2, v1)",
+  "choice": {
+   "T": "q20_50_80",
+   "CO2": "dsign",
+   "RH": "dsign",
+   "heater": null,
+   "vent": null,
+   "window": null,
+   "occ": null,
+   "setpoint": null,
+   "T_out": "dsign",
+   "vibration": "q20_50_80"
+  },
+  "thresholds": {
+   "T": [
+    16.799,
+    18.03,
+    21.356
+   ],
+   "vibration": [
+    -1.069,
+    -0.012,
+    1.049
+   ]
+  }
+ }
+}

@@ -26,7 +26,8 @@
   "types": 22,
   "n_entities": 4,
   "period": 1440.0,
-  "signal_floor": "not measured",
+  "signal_floor": 24,
+  "min_count": 3,
   "lag_edges": [
    4.0,
    18.0,
@@ -52,8 +53,16 @@
    "non_deterministic": 2.14878435177395,
    "deterministic": null
   },
-  "markov-3": "not measured",
-  "hawkes": "not measured",
+  "markov-3": {
+   "all": 2.0998613107879205,
+   "non_deterministic": 2.0998613107879205,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 2.115494859831282,
+   "non_deterministic": 2.115494859831282,
+   "deterministic": null
+  },
   "logistic markov features": {
    "all": 2.1098300522398854,
    "non_deterministic": 2.1098300522398854,
@@ -65,36 +74,41 @@
    "deterministic": null
   },
   "logistic library": {
-   "all": 1.4347836011663646,
-   "non_deterministic": 1.4347836011663646,
+   "all": 1.4523533955660097,
+   "non_deterministic": 1.4523533955660097,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.481685668935099,
-   "non_deterministic": 1.481685668935099,
+   "all": 1.4822917782164229,
+   "non_deterministic": 1.4822917782164229,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.6750464510735208,
-  "over_best_baseline": 0.6750464510735208,
-  "best_baseline_bits": 2.1098300522398854,
+  "over_triviality": 0.6574766566738757,
+  "over_best_baseline": 0.6475079152219108,
+  "best_baseline_bits": 2.0998613107879205,
   "claim": "beats baselines"
  },
  "library": {
-  "fragments": 146,
-  "fragments_used": 62,
-  "compositions_kept": 468,
-  "candidates": 1082,
+  "fragments": 131,
+  "fragments_used": 60,
+  "compositions_kept": 451,
+  "candidates": 1246,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
   "null_survival": {
-   "circular": 1.0,
-   "cycle": "not measured",
-   "rewire": "not measured"
+   "circular": 0.5736434108527132,
+   "cycle": 0.5581395348837209,
+   "rewire": 0.45478036175710596
   },
-  "chatty_share": 0.1917808219178082
+  "chatty_share": 0.16030534351145037
  },
  "recovery": "not measured",
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 11.3
+ "elapsed_s": 15.9
 }

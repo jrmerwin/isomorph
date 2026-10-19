@@ -7,10 +7,17 @@
    "count": 101,
    "lift": 51.74850809889173,
    "lift_conf": 41.034460547504025,
-   "null_max": 3,
+   "null_max": {
+    "circular": 3,
+    "cycle": 4,
+    "rewire": 35
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -22,10 +29,17 @@
    "count": 216,
    "lift": 22.871035940803385,
    "lift_conf": 22.952262349522623,
-   "null_max": 5,
+   "null_max": {
+    "circular": 5,
+    "cycle": 7,
+    "rewire": 66
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -37,10 +51,17 @@
    "count": 207,
    "lift": 20.564840069427227,
    "lift_conf": 21.225908808719044,
-   "null_max": 10,
+   "null_max": {
+    "circular": 10,
+    "cycle": 10,
+    "rewire": 67
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -52,10 +73,17 @@
    "count": 129,
    "lift": 20.118133605799642,
    "lift_conf": 16.337290143741757,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 5,
+    "rewire": 46
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -67,10 +95,17 @@
    "count": 123,
    "lift": 19.85042964554243,
    "lift_conf": 20.083542188805346,
-   "null_max": 6,
+   "null_max": {
+    "circular": 6,
+    "cycle": 4,
+    "rewire": 49
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -82,10 +117,17 @@
    "count": 70,
    "lift": 21.775362318840582,
    "lift_conf": 20.84479127957389,
-   "null_max": 1,
+   "null_max": {
+    "circular": 1,
+    "cycle": 2,
+    "rewire": 26
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -97,10 +139,17 @@
    "count": 273,
    "lift": 14.123981793334984,
    "lift_conf": 12.515731812214225,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 9,
+    "rewire": 85
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -112,10 +161,17 @@
    "count": 49,
    "lift": 18.0654857756307,
    "lift_conf": 17.420289855072465,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 6,
+    "rewire": 20
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -127,10 +183,17 @@
    "count": 154,
    "lift": 11.929367790165626,
    "lift_conf": 9.971655720705149,
-   "null_max": 17,
+   "null_max": {
+    "circular": 17,
+    "cycle": 13,
+    "rewire": 60
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -142,10 +205,17 @@
    "count": 51,
    "lift": 14.249651324965132,
    "lift_conf": 18.21212121212121,
-   "null_max": 10,
+   "null_max": {
+    "circular": 10,
+    "cycle": 15,
+    "rewire": 29
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -157,10 +227,17 @@
    "count": 173,
    "lift": 8.915680988697083,
    "lift_conf": 9.089920831856316,
-   "null_max": 22,
+   "null_max": {
+    "circular": 22,
+    "cycle": 20,
+    "rewire": 77
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -172,10 +249,17 @@
    "count": 142,
    "lift": 8.941660281974213,
    "lift_conf": 8.875003443810785,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 7,
+    "rewire": 58
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -187,10 +271,16 @@
    "count": 86,
    "lift": 9.591352454738404,
    "lift_conf": 9.936217180968484,
-   "null_max": 63,
+   "null_max": {
+    "circular": 63,
+    "cycle": 67,
+    "rewire": 86
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -202,10 +292,17 @@
    "count": 289,
    "lift": 7.4999703134361395,
    "lift_conf": 6.793629883030374,
-   "null_max": 34,
+   "null_max": {
+    "circular": 34,
+    "cycle": 64,
+    "rewire": 131
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -217,10 +314,17 @@
    "count": 81,
    "lift": 9.474237337614946,
    "lift_conf": 9.296509941671234,
-   "null_max": 14,
+   "null_max": {
+    "circular": 14,
+    "cycle": 18,
+    "rewire": 42
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -232,10 +336,17 @@
    "count": 120,
    "lift": 8.503150215541064,
    "lift_conf": 5.455546791758342,
-   "null_max": 26,
+   "null_max": {
+    "circular": 26,
+    "cycle": 38,
+    "rewire": 59
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -247,10 +358,16 @@
    "count": 9,
    "lift": 17.752615384615385,
    "lift_conf": 54.94857142857143,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 8,
+    "rewire": 9
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -262,10 +379,16 @@
    "count": 22,
    "lift": 11.901659634317863,
    "lift_conf": 9.862564102564104,
-   "null_max": 10,
+   "null_max": {
+    "circular": 10,
+    "cycle": 12,
+    "rewire": 22
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -277,10 +400,17 @@
    "count": 55,
    "lift": 8.357510824563066,
    "lift_conf": 7.434093544646309,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 11,
+    "rewire": 23
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -292,10 +422,17 @@
    "count": 159,
    "lift": 6.4636769480519485,
    "lift_conf": 6.237790751552219,
-   "null_max": 39,
+   "null_max": {
+    "circular": 39,
+    "cycle": 42,
+    "rewire": 94
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -307,10 +444,17 @@
    "count": 253,
    "lift": 5.41871969459052,
    "lift_conf": 5.320764970629357,
-   "null_max": 37,
+   "null_max": {
+    "circular": 37,
+    "cycle": 44,
+    "rewire": 100
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -322,10 +466,17 @@
    "count": 298,
    "lift": 5.2439327006481795,
    "lift_conf": 4.839967202734188,
-   "null_max": 55,
+   "null_max": {
+    "circular": 55,
+    "cycle": 77,
+    "rewire": 128
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -337,10 +488,17 @@
    "count": 57,
    "lift": 7.193920541796276,
    "lift_conf": 5.513761467889909,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 9,
+    "rewire": 26
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -352,10 +510,16 @@
    "count": 77,
    "lift": 6.527080394922426,
    "lift_conf": 6.424467374359735,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 67,
+    "rewire": 77
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -367,10 +531,16 @@
    "count": 284,
    "lift": 4.603213719240344,
    "lift_conf": 4.66034580440822,
-   "null_max": 74,
+   "null_max": {
+    "circular": 74,
+    "cycle": 254,
+    "rewire": 284
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -382,10 +552,17 @@
    "count": 58,
    "lift": 6.014277395561499,
    "lift_conf": 4.530150753768845,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 10,
+    "rewire": 29
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -397,10 +574,17 @@
    "count": 60,
    "lift": 5.878349465104432,
    "lift_conf": 8.490949227373068,
-   "null_max": 15,
+   "null_max": {
+    "circular": 15,
+    "cycle": 18,
+    "rewire": 30
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -412,10 +596,17 @@
    "count": 198,
    "lift": 4.240737152288233,
    "lift_conf": 4.038080558066922,
-   "null_max": 44,
+   "null_max": {
+    "circular": 44,
+    "cycle": 54,
+    "rewire": 88
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -427,10 +618,17 @@
    "count": 208,
    "lift": 4.084344484241566,
    "lift_conf": 4.019582150981921,
-   "null_max": 49,
+   "null_max": {
+    "circular": 49,
+    "cycle": 58,
+    "rewire": 108
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -442,10 +640,17 @@
    "count": 100,
    "lift": 4.697996413966963,
    "lift_conf": 3.7732138890945435,
-   "null_max": 57,
+   "null_max": {
+    "circular": 57,
+    "cycle": 91,
+    "rewire": 89
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -457,10 +662,17 @@
    "count": 20,
    "lift": 7.169164243644226,
    "lift_conf": 13.711026615969581,
-   "null_max": 3,
+   "null_max": {
+    "circular": 3,
+    "cycle": 3,
+    "rewire": 11
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -472,10 +684,17 @@
    "count": 17,
    "lift": 7.419753086419752,
    "lift_conf": 9.772357723577235,
-   "null_max": 6,
+   "null_max": {
+    "circular": 6,
+    "cycle": 10,
+    "rewire": 14
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -487,10 +706,16 @@
    "count": 7,
    "lift": 10.292354740061162,
    "lift_conf": 8.16853550798505,
-   "null_max": 4,
+   "null_max": {
+    "circular": 4,
+    "cycle": 1,
+    "rewire": 8
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -502,25 +727,17 @@
    "count": 148,
    "lift": 3.9808449695667742,
    "lift_conf": 3.7587546848773314,
-   "null_max": 41,
+   "null_max": {
+    "circular": 41,
+    "cycle": 51,
+    "rewire": 76
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x03",
-   "lag": "l",
-   "target": "x04",
-   "count": 34,
-   "lift": 5.495411301980031,
-   "lift_conf": 2.5860759068141324,
-   "null_max": 32,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -532,10 +749,17 @@
    "count": 59,
    "lift": 4.681983231002839,
    "lift_conf": 5.866076495289978,
-   "null_max": 17,
+   "null_max": {
+    "circular": 17,
+    "cycle": 26,
+    "rewire": 44
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -547,10 +771,17 @@
    "count": 123,
    "lift": 3.923023343748134,
    "lift_conf": 4.016528679048259,
-   "null_max": 26,
+   "null_max": {
+    "circular": 26,
+    "cycle": 27,
+    "rewire": 54
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -562,10 +793,17 @@
    "count": 31,
    "lift": 5.423477185066589,
    "lift_conf": 8.490949227373068,
-   "null_max": 13,
+   "null_max": {
+    "circular": 13,
+    "cycle": 11,
+    "rewire": 20
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -577,10 +815,17 @@
    "count": 322,
    "lift": 3.2217589678224905,
    "lift_conf": 2.591978295486674,
-   "null_max": 199,
+   "null_max": {
+    "circular": 199,
+    "cycle": 276,
+    "rewire": 258
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -592,10 +837,17 @@
    "count": 63,
    "lift": 4.36990016734953,
    "lift_conf": 4.5760902817906794,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 6,
+    "rewire": 34
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -607,10 +859,17 @@
    "count": 33,
    "lift": 5.063879358493577,
    "lift_conf": 9.220940337418718,
-   "null_max": 14,
+   "null_max": {
+    "circular": 14,
+    "cycle": 11,
+    "rewire": 17
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -622,10 +881,17 @@
    "count": 1259,
    "lift": 2.3956106059083004,
    "lift_conf": 2.2773402488920755,
-   "null_max": 708,
+   "null_max": {
+    "circular": 708,
+    "cycle": 765,
+    "rewire": 672
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -637,10 +903,17 @@
    "count": 168,
    "lift": 3.3310954034459725,
    "lift_conf": 3.1657980153946026,
-   "null_max": 43,
+   "null_max": {
+    "circular": 43,
+    "cycle": 63,
+    "rewire": 82
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -652,10 +925,17 @@
    "count": 133,
    "lift": 3.485235287064389,
    "lift_conf": 3.5946562078686113,
-   "null_max": 44,
+   "null_max": {
+    "circular": 44,
+    "cycle": 43,
+    "rewire": 73
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -667,10 +947,17 @@
    "count": 293,
    "lift": 2.964453759585196,
    "lift_conf": 2.887565746566634,
-   "null_max": 116,
+   "null_max": {
+    "circular": 116,
+    "cycle": 130,
+    "rewire": 145
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -682,10 +969,17 @@
    "count": 1146,
    "lift": 2.295853481196601,
    "lift_conf": 2.118624022240225,
-   "null_max": 718,
+   "null_max": {
+    "circular": 718,
+    "cycle": 725,
+    "rewire": 629
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -697,10 +991,17 @@
    "count": 56,
    "lift": 3.956358506785003,
    "lift_conf": 3.8195456559267913,
-   "null_max": 23,
+   "null_max": {
+    "circular": 23,
+    "cycle": 34,
+    "rewire": 53
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -712,10 +1013,17 @@
    "count": 61,
    "lift": 3.752741417475977,
    "lift_conf": 4.010008340283569,
-   "null_max": 27,
+   "null_max": {
+    "circular": 27,
+    "cycle": 18,
+    "rewire": 38
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -727,10 +1035,17 @@
    "count": 121,
    "lift": 3.211384537254772,
    "lift_conf": 3.0437681558969336,
-   "null_max": 40,
+   "null_max": {
+    "circular": 40,
+    "cycle": 76,
+    "rewire": 111
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -742,25 +1057,17 @@
    "count": 62,
    "lift": 3.7078461615005724,
    "lift_conf": 3.1887355559523507,
-   "null_max": 19,
+   "null_max": {
+    "circular": 19,
+    "cycle": 31,
+    "rewire": 56
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x03",
-   "lag": "m",
-   "target": "x04",
-   "count": 17,
-   "lift": 5.359386269752804,
-   "lift_conf": 4.205422966387605,
-   "null_max": 8,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -772,10 +1079,16 @@
    "count": 76,
    "lift": 3.4820991242531374,
    "lift_conf": 4.103655546879256,
-   "null_max": 51,
+   "null_max": {
+    "circular": 51,
+    "cycle": 74,
+    "rewire": 76
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -787,10 +1100,17 @@
    "count": 44,
    "lift": 3.9768403639371384,
    "lift_conf": 4.355072463768116,
-   "null_max": 23,
+   "null_max": {
+    "circular": 23,
+    "cycle": 22,
+    "rewire": 42
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -802,10 +1122,17 @@
    "count": 113,
    "lift": 3.178145656624744,
    "lift_conf": 2.945331643430503,
-   "null_max": 38,
+   "null_max": {
+    "circular": 38,
+    "cycle": 50,
+    "rewire": 70
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -817,10 +1144,17 @@
    "count": 118,
    "lift": 3.1424140375753282,
    "lift_conf": 2.845812370523824,
-   "null_max": 41,
+   "null_max": {
+    "circular": 41,
+    "cycle": 45,
+    "rewire": 78
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -832,10 +1166,17 @@
    "count": 60,
    "lift": 3.588238220807005,
    "lift_conf": 3.361503168013983,
-   "null_max": 20,
+   "null_max": {
+    "circular": 20,
+    "cycle": 20,
+    "rewire": 33
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -847,10 +1188,17 @@
    "count": 285,
    "lift": 2.588271293625654,
    "lift_conf": 2.3789569036717326,
-   "null_max": 159,
+   "null_max": {
+    "circular": 159,
+    "cycle": 167,
+    "rewire": 182
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -862,10 +1210,16 @@
    "count": 21,
    "lift": 4.740392966971056,
    "lift_conf": 4.072223291626564,
-   "null_max": 20,
+   "null_max": {
+    "circular": 20,
+    "cycle": 18,
+    "rewire": 22
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -877,10 +1231,16 @@
    "count": 45,
    "lift": 3.732017801083244,
    "lift_conf": 3.6521556917596523,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 34,
+    "rewire": 45
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -892,10 +1252,17 @@
    "count": 219,
    "lift": 2.6285226430213666,
    "lift_conf": 2.466868878929181,
-   "null_max": 169,
+   "null_max": {
+    "circular": 169,
+    "cycle": 134,
+    "rewire": 160
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -907,10 +1274,16 @@
    "count": 13,
    "lift": 5.446971677559913,
    "lift_conf": 9.381463414634146,
-   "null_max": 5,
+   "null_max": {
+    "circular": 5,
+    "cycle": 7,
+    "rewire": 16
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -922,10 +1295,16 @@
    "count": 8,
    "lift": 6.616324073277716,
    "lift_conf": 8.490949227373068,
-   "null_max": 4,
+   "null_max": {
+    "circular": 4,
+    "cycle": 4,
+    "rewire": 8
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -937,10 +1316,16 @@
    "count": 15,
    "lift": 5.073870831574504,
    "lift_conf": 3.9817805383022775,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 9,
+    "rewire": 16
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -952,10 +1337,17 @@
    "count": 65,
    "lift": 3.28546498181283,
    "lift_conf": 2.745545911375057,
-   "null_max": 22,
+   "null_max": {
+    "circular": 22,
+    "cycle": 29,
+    "rewire": 38
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -967,10 +1359,17 @@
    "count": 223,
    "lift": 2.4995372453392326,
    "lift_conf": 2.288181868277752,
-   "null_max": 108,
+   "null_max": {
+    "circular": 108,
+    "cycle": 131,
+    "rewire": 136
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -982,10 +1381,17 @@
    "count": 175,
    "lift": 2.592360946362715,
    "lift_conf": 2.132771896372508,
-   "null_max": 128,
+   "null_max": {
+    "circular": 128,
+    "cycle": 106,
+    "rewire": 114
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -997,10 +1403,17 @@
    "count": 230,
    "lift": 2.4375158428390367,
    "lift_conf": 2.3367163155035877,
-   "null_max": 82,
+   "null_max": {
+    "circular": 82,
+    "cycle": 204,
+    "rewire": 149
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1012,10 +1425,17 @@
    "count": 54,
    "lift": 3.322098959732832,
    "lift_conf": 2.67333889352238,
-   "null_max": 23,
+   "null_max": {
+    "circular": 23,
+    "cycle": 24,
+    "rewire": 34
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1027,10 +1447,17 @@
    "count": 48,
    "lift": 3.4094756902894123,
    "lift_conf": 3.5288073394495414,
-   "null_max": 16,
+   "null_max": {
+    "circular": 16,
+    "cycle": 28,
+    "rewire": 43
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1042,10 +1469,17 @@
    "count": 199,
    "lift": 2.450560652395515,
    "lift_conf": 2.2514955013605853,
-   "null_max": 107,
+   "null_max": {
+    "circular": 107,
+    "cycle": 86,
+    "rewire": 103
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1057,10 +1491,17 @@
    "count": 102,
    "lift": 2.7071175438015436,
    "lift_conf": 2.454651738626559,
-   "null_max": 48,
+   "null_max": {
+    "circular": 48,
+    "cycle": 66,
+    "rewire": 86
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1072,10 +1513,17 @@
    "count": 190,
    "lift": 2.339731276156522,
    "lift_conf": 1.9494656170317262,
-   "null_max": 100,
+   "null_max": {
+    "circular": 100,
+    "cycle": 102,
+    "rewire": 111
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1087,10 +1535,17 @@
    "count": 170,
    "lift": 2.3810647440099046,
    "lift_conf": 2.028538683391897,
-   "null_max": 106,
+   "null_max": {
+    "circular": 106,
+    "cycle": 109,
+    "rewire": 109
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1102,10 +1557,17 @@
    "count": 154,
    "lift": 2.4160804020100506,
    "lift_conf": 2.291933978191352,
-   "null_max": 104,
+   "null_max": {
+    "circular": 104,
+    "cycle": 92,
+    "rewire": 122
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1117,25 +1579,17 @@
    "count": 27,
    "lift": 3.624120603015075,
    "lift_conf": 3.208856783919598,
-   "null_max": 12,
+   "null_max": {
+    "circular": 12,
+    "cycle": 22,
+    "rewire": 25
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x05",
-   "lag": "s",
-   "target": "x29",
-   "count": 29,
-   "lift": 3.4856692874017225,
-   "lift_conf": 3.7020211742059677,
-   "null_max": 28,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1147,25 +1601,17 @@
    "count": 133,
    "lift": 2.397973513932092,
    "lift_conf": 2.4796186838468453,
-   "null_max": 72,
+   "null_max": {
+    "circular": 72,
+    "cycle": 99,
+    "rewire": 101
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x02",
-   "lag": "l",
-   "target": "x12",
-   "count": 145,
-   "lift": 2.302811295389158,
-   "lift_conf": 2.1393646316072266,
-   "null_max": 138,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1177,10 +1623,17 @@
    "count": 124,
    "lift": 2.3678144485483936,
    "lift_conf": 2.2471544322362034,
-   "null_max": 68,
+   "null_max": {
+    "circular": 68,
+    "cycle": 107,
+    "rewire": 96
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1192,10 +1645,17 @@
    "count": 61,
    "lift": 2.760305688363513,
    "lift_conf": 3.6191542336569458,
-   "null_max": 25,
+   "null_max": {
+    "circular": 25,
+    "cycle": 32,
+    "rewire": 52
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1207,10 +1667,16 @@
    "count": 107,
    "lift": 2.4274235024889705,
    "lift_conf": 2.868815319640876,
-   "null_max": 49,
+   "null_max": {
+    "circular": 49,
+    "cycle": 93,
+    "rewire": 122
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1222,10 +1688,17 @@
    "count": 54,
    "lift": 2.835323603125461,
    "lift_conf": 3.3397351055541478,
-   "null_max": 22,
+   "null_max": {
+    "circular": 22,
+    "cycle": 29,
+    "rewire": 43
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1237,25 +1710,16 @@
    "count": 109,
    "lift": 2.376829998367288,
    "lift_conf": 2.137767300609894,
-   "null_max": 68,
+   "null_max": {
+    "circular": 68,
+    "cycle": 82,
+    "rewire": 117
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x03",
-   "lag": "l",
-   "target": "x19",
-   "count": 47,
-   "lift": 2.882126367880009,
-   "lift_conf": 2.9434482054944775,
-   "null_max": 39,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1267,25 +1731,16 @@
    "count": 43,
    "lift": 2.9479057498306775,
    "lift_conf": 3.5257344516247304,
-   "null_max": 32,
+   "null_max": {
+    "circular": 32,
+    "cycle": 38,
+    "rewire": 52
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x05",
-   "lag": "m",
-   "target": "x29",
-   "count": 95,
-   "lift": 2.4154671122909814,
-   "lift_conf": 2.673681959148754,
-   "null_max": 78,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1297,10 +1752,17 @@
    "count": 79,
    "lift": 2.499198915657498,
    "lift_conf": 3.5697684439406294,
-   "null_max": 56,
+   "null_max": {
+    "circular": 56,
+    "cycle": 60,
+    "rewire": 53
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1312,10 +1774,17 @@
    "count": 130,
    "lift": 2.2315285885146112,
    "lift_conf": 1.628025423788596,
-   "null_max": 56,
+   "null_max": {
+    "circular": 56,
+    "cycle": 96,
+    "rewire": 121
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1327,10 +1796,17 @@
    "count": 288,
    "lift": 1.9175937017469757,
    "lift_conf": 1.8919168984201766,
-   "null_max": 271,
+   "null_max": {
+    "circular": 271,
+    "cycle": 203,
+    "rewire": 276
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1342,10 +1818,17 @@
    "count": 9,
    "lift": 4.8986245542536935,
    "lift_conf": 6.823084200567644,
-   "null_max": 4,
+   "null_max": {
+    "circular": 4,
+    "cycle": 7,
+    "rewire": 8
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1357,10 +1840,16 @@
    "count": 27,
    "lift": 3.229414398726305,
    "lift_conf": 4.102778041149142,
-   "null_max": 16,
+   "null_max": {
+    "circular": 16,
+    "cycle": 21,
+    "rewire": 27
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1372,10 +1861,17 @@
    "count": 145,
    "lift": 2.134298292340944,
    "lift_conf": 1.8281368821292776,
-   "null_max": 116,
+   "null_max": {
+    "circular": 116,
+    "cycle": 113,
+    "rewire": 110
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1387,10 +1883,17 @@
    "count": 173,
    "lift": 2.053686237716656,
    "lift_conf": 1.6860287450467646,
-   "null_max": 125,
+   "null_max": {
+    "circular": 125,
+    "cycle": 118,
+    "rewire": 119
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1402,25 +1905,17 @@
    "count": 76,
    "lift": 2.41612034052401,
    "lift_conf": 2.0589185389989715,
-   "null_max": 55,
+   "null_max": {
+    "circular": 55,
+    "cycle": 67,
+    "rewire": 65
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x17",
-   "lag": "m",
-   "target": "x29",
-   "count": 101,
-   "lift": 2.2524345698482087,
-   "lift_conf": 3.0152208658691135,
-   "null_max": 71,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1432,10 +1927,17 @@
    "count": 30,
    "lift": 3.046894803548796,
    "lift_conf": 2.999287072243346,
-   "null_max": 26,
+   "null_max": {
+    "circular": 26,
+    "cycle": 20,
+    "rewire": 24
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1447,10 +1949,17 @@
    "count": 66,
    "lift": 2.453250869733282,
    "lift_conf": 2.550307091010609,
-   "null_max": 53,
+   "null_max": {
+    "circular": 53,
+    "cycle": 47,
+    "rewire": 52
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1462,10 +1971,17 @@
    "count": 140,
    "lift": 2.0607017995016013,
    "lift_conf": 1.794898029726927,
-   "null_max": 98,
+   "null_max": {
+    "circular": 98,
+    "cycle": 137,
+    "rewire": 108
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1477,10 +1993,17 @@
    "count": 30,
    "lift": 2.991786277275367,
    "lift_conf": 3.744942424688967,
-   "null_max": 10,
+   "null_max": {
+    "circular": 10,
+    "cycle": 5,
+    "rewire": 12
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1492,10 +2015,17 @@
    "count": 40,
    "lift": 2.753821371039914,
    "lift_conf": 3.877145765923775,
-   "null_max": 18,
+   "null_max": {
+    "circular": 18,
+    "cycle": 24,
+    "rewire": 32
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1507,10 +2037,17 @@
    "count": 27,
    "lift": 3.0537755822159496,
    "lift_conf": 4.010008340283569,
-   "null_max": 20,
+   "null_max": {
+    "circular": 20,
+    "cycle": 17,
+    "rewire": 20
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1522,10 +2059,17 @@
    "count": 56,
    "lift": 2.472842159401921,
    "lift_conf": 1.8281368821292776,
-   "null_max": 30,
+   "null_max": {
+    "circular": 30,
+    "cycle": 37,
+    "rewire": 45
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1537,10 +2081,16 @@
    "count": 12,
    "lift": 3.879113860221199,
    "lift_conf": 1.9594498217014775,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 6,
+    "rewire": 12
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1552,10 +2102,16 @@
    "count": 68,
    "lift": 2.2820687320483155,
    "lift_conf": 1.760240816824635,
-   "null_max": 59,
+   "null_max": {
+    "circular": 59,
+    "cycle": 60,
+    "rewire": 68
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1567,10 +2123,17 @@
    "count": 83,
    "lift": 2.1679424147765856,
    "lift_conf": 2.1329172498718862,
-   "null_max": 33,
+   "null_max": {
+    "circular": 33,
+    "cycle": 66,
+    "rewire": 74
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1582,10 +2145,17 @@
    "count": 159,
    "lift": 1.8874919757049036,
    "lift_conf": 1.8546316195514412,
-   "null_max": 113,
+   "null_max": {
+    "circular": 113,
+    "cycle": 149,
+    "rewire": 125
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1597,10 +2167,17 @@
    "count": 43,
    "lift": 2.509455490010439,
    "lift_conf": 2.295276381909548,
-   "null_max": 32,
+   "null_max": {
+    "circular": 32,
+    "cycle": 30,
+    "rewire": 40
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1612,25 +2189,17 @@
    "count": 36,
    "lift": 2.6204014896902534,
    "lift_conf": 2.8128174444887653,
-   "null_max": 16,
+   "null_max": {
+    "circular": 16,
+    "cycle": 14,
+    "rewire": 21
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x29",
-   "lag": "s",
-   "target": "x00",
-   "count": 20,
-   "lift": 3.076430879482996,
-   "lift_conf": 2.5472847682119206,
-   "null_max": 14,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1642,10 +2211,17 @@
    "count": 41,
    "lift": 2.4518865401717695,
    "lift_conf": 2.619592459409393,
-   "null_max": 27,
+   "null_max": {
+    "circular": 27,
+    "cycle": 30,
+    "rewire": 33
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1657,10 +2233,16 @@
    "count": 111,
    "lift": 1.9293879469288893,
    "lift_conf": 2.0356478525222803,
-   "null_max": 76,
+   "null_max": {
+    "circular": 76,
+    "cycle": 83,
+    "rewire": 115
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1672,10 +2254,17 @@
    "count": 59,
    "lift": 2.178113062673961,
    "lift_conf": 2.713273249348537,
-   "null_max": 48,
+   "null_max": {
+    "circular": 48,
+    "cycle": 44,
+    "rewire": 41
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1687,10 +2276,16 @@
    "count": 110,
    "lift": 1.8882164979739018,
    "lift_conf": 1.7976114054332413,
-   "null_max": 58,
+   "null_max": {
+    "circular": 58,
+    "cycle": 80,
+    "rewire": 114
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1702,10 +2297,16 @@
    "count": 24,
    "lift": 2.7785884562594814,
    "lift_conf": 3.5288073394495414,
-   "null_max": 22,
+   "null_max": {
+    "circular": 22,
+    "cycle": 21,
+    "rewire": 26
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1717,10 +2318,17 @@
    "count": 66,
    "lift": 2.1050369161575357,
    "lift_conf": 2.4386066979935856,
-   "null_max": 39,
+   "null_max": {
+    "circular": 39,
+    "cycle": 25,
+    "rewire": 41
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1732,10 +2340,17 @@
    "count": 57,
    "lift": 2.1799958636269627,
    "lift_conf": 1.6619426201175251,
-   "null_max": 26,
+   "null_max": {
+    "circular": 26,
+    "cycle": 48,
+    "rewire": 42
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1747,10 +2362,17 @@
    "count": 66,
    "lift": 2.0982097694024304,
    "lift_conf": 1.9246412429772992,
-   "null_max": 52,
+   "null_max": {
+    "circular": 52,
+    "cycle": 55,
+    "rewire": 56
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1762,10 +2384,17 @@
    "count": 44,
    "lift": 2.2873330197808377,
    "lift_conf": 2.502281577308761,
-   "null_max": 21,
+   "null_max": {
+    "circular": 21,
+    "cycle": 23,
+    "rewire": 35
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1777,25 +2406,17 @@
    "count": 12,
    "lift": 3.459615038676021,
    "lift_conf": 2.2974006116207955,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 5,
+    "rewire": 10
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x04",
-   "lag": "m",
-   "target": "x11",
-   "count": 44,
-   "lift": 2.262346273125869,
-   "lift_conf": 1.5907122232916266,
-   "null_max": 41,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1807,10 +2428,17 @@
    "count": 39,
    "lift": 2.3265093426635897,
    "lift_conf": 2.0956739675275147,
-   "null_max": 18,
+   "null_max": {
+    "circular": 18,
+    "cycle": 21,
+    "rewire": 38
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1822,10 +2450,16 @@
    "count": 71,
    "lift": 1.9952073129390862,
    "lift_conf": 1.5528850972836317,
-   "null_max": 69,
+   "null_max": {
+    "circular": 69,
+    "cycle": 59,
+    "rewire": 71
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1837,10 +2471,17 @@
    "count": 33,
    "lift": 2.4020346988827326,
    "lift_conf": 3.0685281212604707,
-   "null_max": 18,
+   "null_max": {
+    "circular": 18,
+    "cycle": 14,
+    "rewire": 25
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1852,10 +2493,17 @@
    "count": 11,
    "lift": 3.442892946652345,
    "lift_conf": 2.4100250626566417,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 5,
+    "rewire": 8
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1867,10 +2515,17 @@
    "count": 108,
    "lift": 1.6943940481628923,
    "lift_conf": 1.591620818188439,
-   "null_max": 95,
+   "null_max": {
+    "circular": 95,
+    "cycle": 84,
+    "rewire": 102
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1882,25 +2537,17 @@
    "count": 89,
    "lift": 1.7589641352378995,
    "lift_conf": 1.530403782604418,
-   "null_max": 70,
+   "null_max": {
+    "circular": 70,
+    "cycle": 77,
+    "rewire": 76
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x12",
-   "lag": "l",
-   "target": "x02",
-   "count": 153,
-   "lift": 1.559291855318716,
-   "lift_conf": 1.600510189779385,
-   "null_max": 133,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1912,10 +2559,17 @@
    "count": 93,
    "lift": 1.6570892798244865,
    "lift_conf": 1.5316698421255766,
-   "null_max": 92,
+   "null_max": {
+    "circular": 92,
+    "cycle": 83,
+    "rewire": 74
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1927,25 +2581,17 @@
    "count": 17,
    "lift": 2.6450495930618256,
    "lift_conf": 2.1782761354626796,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 9,
+    "rewire": 16
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x14",
-   "lag": "m",
-   "target": "x28",
-   "count": 24,
-   "lift": 2.352106647098392,
-   "lift_conf": 2.570206699928724,
-   "null_max": 23,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1957,10 +2603,17 @@
    "count": 15,
    "lift": 2.688436591366585,
    "lift_conf": 2.5708174904942966,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 10,
+    "rewire": 11
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1972,10 +2625,17 @@
    "count": 15,
    "lift": 2.6512269092914256,
    "lift_conf": 2.272480207964079,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 11,
+    "rewire": 11
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -1987,10 +2647,16 @@
    "count": 10,
    "lift": 3.091365009965923,
    "lift_conf": 2.7292336802270576,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 6,
+    "rewire": 11
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2002,25 +2668,17 @@
    "count": 16,
    "lift": 2.489458440528777,
    "lift_conf": 2.450560652395515,
-   "null_max": 8,
+   "null_max": {
+    "circular": 8,
+    "cycle": 11,
+    "rewire": 15
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x05",
-   "lag": "m",
-   "target": "x11",
-   "count": 64,
-   "lift": 1.6272620545960297,
-   "lift_conf": 1.8921441557052723,
-   "null_max": 63,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2032,10 +2690,17 @@
    "count": 26,
    "lift": 2.052878772949716,
    "lift_conf": 1.7678637087878417,
-   "null_max": 20,
+   "null_max": {
+    "circular": 20,
+    "cycle": 22,
+    "rewire": 25
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2047,25 +2712,17 @@
    "count": 18,
    "lift": 2.301028954295286,
    "lift_conf": 2.684533780011167,
-   "null_max": 9,
+   "null_max": {
+    "circular": 9,
+    "cycle": 8,
+    "rewire": 12
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x03",
-   "lag": "s",
-   "target": "x04",
-   "count": 5,
-   "lift": 3.8830560491035375,
-   "lift_conf": 4.71719401520726,
-   "null_max": 4,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2077,10 +2734,16 @@
    "count": 22,
    "lift": 1.991040168655649,
    "lift_conf": 2.586986153956525,
-   "null_max": 19,
+   "null_max": {
+    "circular": 19,
+    "cycle": 17,
+    "rewire": 22
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2092,10 +2755,17 @@
    "count": 58,
    "lift": 1.5010200072127162,
    "lift_conf": 1.629534588149852,
-   "null_max": 24,
+   "null_max": {
+    "circular": 24,
+    "cycle": 24,
+    "rewire": 34
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2107,25 +2777,17 @@
    "count": 33,
    "lift": 1.647310443639233,
    "lift_conf": 2.169185653056621,
-   "null_max": 17,
+   "null_max": {
+    "circular": 17,
+    "cycle": 19,
+    "rewire": 17
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle",
+    "rewire"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x00",
-   "lag": "m",
-   "target": "x27",
-   "count": 16,
-   "lift": 1.962298803662985,
-   "lift_conf": 2.2302280633938927,
-   "null_max": 12,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": true,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2137,10 +2799,16 @@
    "count": 19,
    "lift": 1.7195346911116967,
    "lift_conf": 1.8971231795681183,
-   "null_max": 10,
+   "null_max": {
+    "circular": 10,
+    "cycle": 17,
+    "rewire": 19
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2152,10 +2820,16 @@
    "count": 21,
    "lift": 1.5285675356526478,
    "lift_conf": 1.642000031046741,
-   "null_max": 19,
+   "null_max": {
+    "circular": 19,
+    "cycle": 14,
+    "rewire": 23
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2167,25 +2841,16 @@
    "count": 10,
    "lift": 1.6831197927606245,
    "lift_conf": 1.7420289855072466,
-   "null_max": 7,
+   "null_max": {
+    "circular": 7,
+    "cycle": 6,
+    "rewire": 13
+   },
    "nulls_survived": [
-    "circular"
+    "circular",
+    "cycle"
    ],
-   "first_validated_in": "building_b",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "x03",
-   "lag": "s",
-   "target": "x15",
-   "count": 7,
-   "lift": 1.5606046554762127,
-   "lift_conf": 1.6927193353048866,
-   "null_max": 4,
-   "nulls_survived": [
-    "circular"
-   ],
+   "binding_evidence": false,
    "first_validated_in": "building_b",
    "confirmed_in": [],
    "failed_in": []
@@ -2205,34 +2870,6 @@
    ],
    "target": "x02",
    "count": 238
-  },
-  {
-   "priors": [
-    [
-     "x18",
-     "s"
-    ],
-    [
-     "x12",
-     "l"
-    ]
-   ],
-   "target": "x02",
-   "count": 206
-  },
-  {
-   "priors": [
-    [
-     "x24",
-     "l"
-    ],
-    [
-     "x12",
-     "l"
-    ]
-   ],
-   "target": "x02",
-   "count": 193
   },
   {
    "priors": [
@@ -2317,20 +2954,6 @@
    ],
    "target": "x09",
    "count": 51
-  },
-  {
-   "priors": [
-    [
-     "x14",
-     "l"
-    ],
-    [
-     "x02",
-     "l"
-    ]
-   ],
-   "target": "x12",
-   "count": 230
   },
   {
    "priors": [
@@ -2601,48 +3224,6 @@
   {
    "priors": [
     [
-     "x00",
-     "l"
-    ],
-    [
-     "x05",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 61
-  },
-  {
-   "priors": [
-    [
-     "x00",
-     "l"
-    ],
-    [
-     "x17",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 72
-  },
-  {
-   "priors": [
-    [
-     "x05",
-     "m"
-    ],
-    [
-     "x17",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 116
-  },
-  {
-   "priors": [
-    [
      "x15",
      "m"
     ],
@@ -2779,34 +3360,6 @@
    ],
    "target": "x22",
    "count": 128
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "l"
-    ],
-    [
-     "x22",
-     "l"
-    ]
-   ],
-   "target": "x04",
-   "count": 31
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "l"
-    ],
-    [
-     "x19",
-     "l"
-    ]
-   ],
-   "target": "x04",
-   "count": 38
   },
   {
    "priors": [
@@ -3073,6 +3626,20 @@
    ],
    "target": "x22",
    "count": 14
+  },
+  {
+   "priors": [
+    [
+     "x25",
+     "l"
+    ],
+    [
+     "x09",
+     "s"
+    ]
+   ],
+   "target": "x22",
+   "count": 4
   },
   {
    "priors": [
@@ -3960,20 +4527,6 @@
    "priors": [
     [
      "x15",
-     "s"
-    ],
-    [
-     "x05",
-     "m"
-    ]
-   ],
-   "target": "x11",
-   "count": 6
-  },
-  {
-   "priors": [
-    [
-     "x15",
      "m"
     ],
     [
@@ -4025,6 +4578,20 @@
    ],
    "target": "x19",
    "count": 22
+  },
+  {
+   "priors": [
+    [
+     "x25",
+     "m"
+    ],
+    [
+     "x11",
+     "s"
+    ]
+   ],
+   "target": "x19",
+   "count": 3
   },
   {
    "priors": [
@@ -4095,6 +4662,20 @@
    ],
    "target": "x19",
    "count": 22
+  },
+  {
+   "priors": [
+    [
+     "x11",
+     "s"
+    ],
+    [
+     "x23",
+     "l"
+    ]
+   ],
+   "target": "x19",
+   "count": 4
   },
   {
    "priors": [
@@ -4393,44 +4974,16 @@
   {
    "priors": [
     [
-     "x05",
-     "s"
-    ],
-    [
-     "x11",
-     "l"
-    ]
-   ],
-   "target": "x29",
-   "count": 16
-  },
-  {
-   "priors": [
-    [
-     "x05",
-     "s"
-    ],
-    [
-     "x17",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 41
-  },
-  {
-   "priors": [
-    [
-     "x11",
+     "x13",
      "l"
     ],
     [
-     "x17",
+     "x09",
      "m"
     ]
    ],
-   "target": "x29",
-   "count": 83
+   "target": "x05",
+   "count": 3
   },
   {
    "priors": [
@@ -4467,20 +5020,6 @@
      "m"
     ],
     [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x04",
-   "count": 18
-  },
-  {
-   "priors": [
-    [
-     "x27",
-     "m"
-    ],
-    [
      "x22",
      "l"
     ]
@@ -4509,40 +5048,12 @@
      "m"
     ],
     [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 66
-  },
-  {
-   "priors": [
-    [
-     "x15",
-     "m"
-    ],
-    [
      "x27",
      "m"
     ]
    ],
    "target": "x19",
    "count": 102
-  },
-  {
-   "priors": [
-    [
-     "x11",
-     "s"
-    ],
-    [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 18
   },
   {
    "priors": [
@@ -4565,40 +5076,12 @@
      "l"
     ],
     [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 50
-  },
-  {
-   "priors": [
-    [
-     "x22",
-     "l"
-    ],
-    [
      "x27",
      "m"
     ]
    ],
    "target": "x19",
    "count": 95
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "l"
-    ],
-    [
-     "x27",
-     "m"
-    ]
-   ],
-   "target": "x19",
-   "count": 44
   },
   {
    "priors": [
@@ -5219,6 +5702,62 @@
   {
    "priors": [
     [
+     "x27",
+     "s"
+    ],
+    [
+     "x11",
+     "s"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x17",
+     "s"
+    ],
+    [
+     "x11",
+     "s"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x22",
+     "m"
+    ],
+    [
+     "x11",
+     "s"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x15",
+     "l"
+    ],
+    [
+     "x11",
+     "s"
+    ]
+   ],
+   "target": "x05",
+   "count": 4
+  },
+  {
+   "priors": [
+    [
      "x22",
      "l"
     ],
@@ -5429,6 +5968,20 @@
   {
    "priors": [
     [
+     "x11",
+     "m"
+    ],
+    [
+     "x25",
+     "l"
+    ]
+   ],
+   "target": "x22",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
      "x19",
      "s"
     ],
@@ -5601,20 +6154,6 @@
      "m"
     ],
     [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 32
-  },
-  {
-   "priors": [
-    [
-     "x11",
-     "m"
-    ],
-    [
      "x27",
      "m"
     ]
@@ -5761,20 +6300,6 @@
    ],
    "target": "x05",
    "count": 69
-  },
-  {
-   "priors": [
-    [
-     "x05",
-     "m"
-    ],
-    [
-     "x11",
-     "l"
-    ]
-   ],
-   "target": "x29",
-   "count": 75
   },
   {
    "priors": [
@@ -6129,20 +6654,6 @@
   {
    "priors": [
     [
-     "x11",
-     "m"
-    ],
-    [
-     "x03",
-     "s"
-    ]
-   ],
-   "target": "x15",
-   "count": 6
-  },
-  {
-   "priors": [
-    [
      "x15",
      "m"
     ],
@@ -6227,30 +6738,16 @@
   {
    "priors": [
     [
-     "x20",
+     "x00",
      "l"
     ],
     [
-     "x29",
-     "s"
+     "x03",
+     "m"
     ]
    ],
-   "target": "x00",
-   "count": 23
-  },
-  {
-   "priors": [
-    [
-     "x29",
-     "s"
-    ],
-    [
-     "x12",
-     "l"
-    ]
-   ],
-   "target": "x00",
-   "count": 21
+   "target": "x22",
+   "count": 3
   },
   {
    "priors": [
@@ -6530,34 +7027,6 @@
     ]
    ],
    "target": "x05",
-   "count": 20
-  },
-  {
-   "priors": [
-    [
-     "x20",
-     "l"
-    ],
-    [
-     "x17",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 6
-  },
-  {
-   "priors": [
-    [
-     "x00",
-     "l"
-    ],
-    [
-     "x05",
-     "s"
-    ]
-   ],
-   "target": "x29",
    "count": 20
   },
   {
@@ -7029,20 +7498,6 @@
      "m"
     ],
     [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 20
-  },
-  {
-   "priors": [
-    [
-     "x04",
-     "m"
-    ],
-    [
      "x27",
      "m"
     ]
@@ -7207,48 +7662,6 @@
   {
    "priors": [
     [
-     "x27",
-     "m"
-    ],
-    [
-     "x03",
-     "m"
-    ]
-   ],
-   "target": "x04",
-   "count": 5
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "m"
-    ],
-    [
-     "x22",
-     "l"
-    ]
-   ],
-   "target": "x04",
-   "count": 8
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "m"
-    ],
-    [
-     "x19",
-     "l"
-    ]
-   ],
-   "target": "x04",
-   "count": 6
-  },
-  {
-   "priors": [
-    [
      "x22",
      "l"
     ],
@@ -7273,20 +7686,6 @@
    ],
    "target": "x19",
    "count": 10
-  },
-  {
-   "priors": [
-    [
-     "x03",
-     "m"
-    ],
-    [
-     "x04",
-     "m"
-    ]
-   ],
-   "target": "x11",
-   "count": 17
   },
   {
    "priors": [
@@ -7543,20 +7942,6 @@
   {
    "priors": [
     [
-     "x26",
-     "l"
-    ],
-    [
-     "x12",
-     "l"
-    ]
-   ],
-   "target": "x02",
-   "count": 63
-  },
-  {
-   "priors": [
-    [
      "x18",
      "m"
     ],
@@ -7697,20 +8082,6 @@
   {
    "priors": [
     [
-     "x28",
-     "l"
-    ],
-    [
-     "x12",
-     "l"
-    ]
-   ],
-   "target": "x02",
-   "count": 56
-  },
-  {
-   "priors": [
-    [
      "x18",
      "m"
     ],
@@ -7837,76 +8208,6 @@
   {
    "priors": [
     [
-     "x17",
-     "s"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 20
-  },
-  {
-   "priors": [
-    [
-     "x22",
-     "m"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 22
-  },
-  {
-   "priors": [
-    [
-     "x19",
-     "m"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 10
-  },
-  {
-   "priors": [
-    [
-     "x15",
-     "l"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 21
-  },
-  {
-   "priors": [
-    [
-     "x05",
-     "l"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 10
-  },
-  {
-   "priors": [
-    [
      "x00",
      "l"
     ],
@@ -7959,20 +8260,6 @@
    ],
    "target": "x09",
    "count": 22
-  },
-  {
-   "priors": [
-    [
-     "x19",
-     "l"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 11
   },
   {
    "priors": [
@@ -8075,20 +8362,6 @@
   {
    "priors": [
     [
-     "x02",
-     "l"
-    ],
-    [
-     "x04",
-     "s"
-    ]
-   ],
-   "target": "x12",
-   "count": 13
-  },
-  {
-   "priors": [
-    [
      "x27",
      "l"
     ],
@@ -8117,20 +8390,6 @@
   {
    "priors": [
     [
-     "x29",
-     "m"
-    ],
-    [
-     "x00",
-     "m"
-    ]
-   ],
-   "target": "x27",
-   "count": 8
-  },
-  {
-   "priors": [
-    [
      "x22",
      "l"
     ],
@@ -8155,6 +8414,20 @@
    ],
    "target": "x17",
    "count": 13
+  },
+  {
+   "priors": [
+    [
+     "x27",
+     "l"
+    ],
+    [
+     "x28",
+     "m"
+    ]
+   ],
+   "target": "x17",
+   "count": 3
   },
   {
    "priors": [
@@ -8233,6 +8506,20 @@
      "m"
     ],
     [
+     "x00",
+     "l"
+    ]
+   ],
+   "target": "x27",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x09",
+     "m"
+    ],
+    [
      "x29",
      "s"
     ]
@@ -8257,6 +8544,20 @@
   {
    "priors": [
     [
+     "x13",
+     "m"
+    ],
+    [
+     "x29",
+     "m"
+    ]
+   ],
+   "target": "x17",
+   "count": 4
+  },
+  {
+   "priors": [
+    [
      "x19",
      "s"
     ],
@@ -8271,20 +8572,6 @@
   {
    "priors": [
     [
-     "x27",
-     "l"
-    ],
-    [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 5
-  },
-  {
-   "priors": [
-    [
      "x29",
      "m"
     ],
@@ -8295,6 +8582,20 @@
    ],
    "target": "x05",
    "count": 10
+  },
+  {
+   "priors": [
+    [
+     "x30",
+     "l"
+    ],
+    [
+     "x19",
+     "m"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
   },
   {
    "priors": [
@@ -8481,20 +8782,6 @@
   {
    "priors": [
     [
-     "x20",
-     "l"
-    ],
-    [
-     "x05",
-     "m"
-    ]
-   ],
-   "target": "x29",
-   "count": 5
-  },
-  {
-   "priors": [
-    [
      "x02",
      "s"
     ],
@@ -8509,30 +8796,16 @@
   {
    "priors": [
     [
+     "x00",
+     "s"
+    ],
+    [
      "x11",
      "l"
-    ],
-    [
-     "x00",
-     "m"
     ]
    ],
-   "target": "x27",
-   "count": 7
-  },
-  {
-   "priors": [
-    [
-     "x05",
-     "l"
-    ],
-    [
-     "x03",
-     "l"
-    ]
-   ],
-   "target": "x19",
-   "count": 6
+   "target": "x29",
+   "count": 3
   },
   {
    "priors": [
@@ -8593,6 +8866,20 @@
   {
    "priors": [
     [
+     "x18",
+     "s"
+    ],
+    [
+     "x19",
+     "m"
+    ]
+   ],
+   "target": "x09",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
      "x19",
      "s"
     ],
@@ -8603,6 +8890,20 @@
    ],
    "target": "x22",
    "count": 14
+  },
+  {
+   "priors": [
+    [
+     "x15",
+     "l"
+    ],
+    [
+     "x28",
+     "m"
+    ]
+   ],
+   "target": "x27",
+   "count": 3
   },
   {
    "priors": [
@@ -8677,16 +8978,44 @@
   {
    "priors": [
     [
-     "x28",
-     "m"
+     "x05",
+     "s"
     ],
     [
-     "x00",
+     "x24",
      "m"
     ]
    ],
-   "target": "x27",
-   "count": 5
+   "target": "x04",
+   "count": 4
+  },
+  {
+   "priors": [
+    [
+     "x11",
+     "s"
+    ],
+    [
+     "x04",
+     "m"
+    ]
+   ],
+   "target": "x15",
+   "count": 4
+  },
+  {
+   "priors": [
+    [
+     "x04",
+     "m"
+    ],
+    [
+     "x03",
+     "m"
+    ]
+   ],
+   "target": "x15",
+   "count": 4
   },
   {
    "priors": [
@@ -8733,6 +9062,34 @@
   {
    "priors": [
     [
+     "x17",
+     "s"
+    ],
+    [
+     "x13",
+     "l"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x29",
+     "s"
+    ],
+    [
+     "x25",
+     "l"
+    ]
+   ],
+   "target": "x22",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
      "x29",
      "s"
     ],
@@ -8743,6 +9100,76 @@
    ],
    "target": "x17",
    "count": 7
+  },
+  {
+   "priors": [
+    [
+     "x18",
+     "m"
+    ],
+    [
+     "x22",
+     "s"
+    ]
+   ],
+   "target": "x09",
+   "count": 4
+  },
+  {
+   "priors": [
+    [
+     "x25",
+     "m"
+    ],
+    [
+     "x11",
+     "m"
+    ]
+   ],
+   "target": "x19",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x27",
+     "m"
+    ],
+    [
+     "x23",
+     "l"
+    ]
+   ],
+   "target": "x19",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x25",
+     "l"
+    ],
+    [
+     "x29",
+     "m"
+    ]
+   ],
+   "target": "x05",
+   "count": 3
+  },
+  {
+   "priors": [
+    [
+     "x19",
+     "s"
+    ],
+    [
+     "x03",
+     "m"
+    ]
+   ],
+   "target": "x22",
+   "count": 4
   }
  ]
 }

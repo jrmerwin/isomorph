@@ -90,7 +90,7 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
             if gap_mode == "drop" and gmap:
                 if _overlaps(all_gaps, t - H, t):
                     dropped = True
-            ctx = set()
+            ctx = set(); gapd = {}
             if not dropped:
                 for tok, tm in last_seen.items():
                     gap = t - tm
@@ -99,10 +99,11 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
                             continue
                         c = lags.of(gap)
                         if c is not None:
-                            ctx.add((tok, c))
-            rows.append(dict(t=t, tok=toks[i], ctx=ctx, event_id=int(ids[i]), dropped=dropped,
+                            ctx.add((tok, c)); gapd[tok] = gap
+            rows.append(dict(t=t, tok=toks[i], ctx=ctx, gaps=gapd, event_id=int(ids[i]), dropped=dropped,
                              m1=(own_hist[-1] if own_hist and not dropped else None),
-                             m2=(tuple(own_hist[-2:]) if len(own_hist) >= 2 and not dropped else None)))
+                             m2=(tuple(own_hist[-2:]) if len(own_hist) >= 2 and not dropped else None),
+                             m3=(tuple(own_hist[-3:]) if len(own_hist) >= 3 and not dropped else None)))
             own_hist.append(toks[i])
         last_seen[toks[i]] = t_arr[i]
     return rows

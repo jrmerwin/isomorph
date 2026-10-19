@@ -58,7 +58,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     for r in rows_train + rows_test:
         r["day"] = int(r["t"] // 1440)
     vocab = sorted(set(r["tok"] for r in rows_train + rows_test))        # prediction targets
-    all_types = sorted(set(events.type))                                   # targets + system-wide context types
+    all_types = sorted(set(events.type))                                   # targets + system-wide context types (also used by the decay baseline)
     n_dropped = sum(r["dropped"] for r in rows_train + rows_test)
     log(f"[{name}] candidates={len(cands)} validated fragments={len(frags)} dropped-for-gaps={n_dropped} ({time.time()-t0:.0f}s)")
 
@@ -88,8 +88,8 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         "unigram": B.unigram_bits(rows_train, rows_test, vocab),
         "markov-1": B.markov_bits(rows_train, rows_test, vocab, k=1),
         "markov-2": B.markov_bits(rows_train, rows_test, vocab, k=2),
-        "markov-3": None,   # not measured in v1.0: third-order context not tracked yet
-        "hawkes": None,
+        "markov-3": B.markov_bits(rows_train, rows_test, vocab, k=3),
+        "hawkes-like decay features": B.hawkes_bits(rows_train, rows_test, vocab, all_types, tau=lags.edges[1]),
         "logistic markov features": fit_bits(FeatureMap(vocab, True), rows_train, rows_test),
         "logistic triviality library": fit_bits(FeatureMap(vocab, True, triv_ctxs), rows_train, rows_test),
         "logistic library": fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs), rows_train, rows_test),

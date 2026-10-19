@@ -17,12 +17,14 @@ import numpy as np
 from .contexts import contexts_for_stream, streams_of, pair_counts
 
 
-def period_estimate(events, lo, hi, resolution=0.01, threshold=0.2):
-    """Autocorrelation of the whole-system event rate at `resolution` of the span;
-    the first local maximum above `threshold` with lag < span/4, else None."""
+def period_estimate(events, lo, hi, resolution=0.001, threshold=0.2):
+    """Autocorrelation of the whole-system event rate binned at `resolution` of the span
+    (0.1%: 86 min on 60 days); the first local maximum above `threshold` with lag < span/4,
+    refined to the peak's centre, else None. (v1.0 used 1%, too coarse to see a daily cycle.)"""
     span = hi - lo
     nb = int(round(1 / resolution))
-    counts, _ = np.histogram(events.t.values, bins=nb, range=(lo, hi))
+    ent_events = events[events.entity != "ALL"] if (events.entity != "ALL").any() else events   # entity-level rate
+    counts, _ = np.histogram(ent_events.t.values, bins=nb, range=(lo, hi))
     x = counts - counts.mean()
     if x.std() == 0:
         return None
@@ -30,7 +32,10 @@ def period_estimate(events, lo, hi, resolution=0.01, threshold=0.2):
     max_lag = nb // 4
     for k in range(2, max_lag):
         if acf[k] > threshold and acf[k] >= acf[k - 1] and acf[k] >= acf[k + 1]:
-            return float(k * span / nb)
+            # parabolic refinement of the peak position
+            a, b, c = acf[k - 1], acf[k], acf[k + 1]
+            off = 0.5 * (a - c) / (a - 2 * b + c) if (a - 2 * b + c) != 0 else 0.0
+            return float((k + off) * span / nb)
     return None
 
 

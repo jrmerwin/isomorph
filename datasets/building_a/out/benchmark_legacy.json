@@ -25,7 +25,8 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": "not measured",
+  "signal_floor": 12,
+  "min_count": 5,
   "lag_edges": [
    5.0,
    30.0,
@@ -51,8 +52,16 @@
    "non_deterministic": 2.6005658178955,
    "deterministic": null
   },
-  "markov-3": "not measured",
-  "hawkes": "not measured",
+  "markov-3": {
+   "all": 2.710627204103403,
+   "non_deterministic": 2.710627204103403,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 2.2207250911855847,
+   "non_deterministic": 2.2207250911855847,
+   "deterministic": null
+  },
   "logistic markov features": {
    "all": 2.318321352968337,
    "non_deterministic": 2.318321352968337,
@@ -69,15 +78,15 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.7995395162105101,
-   "non_deterministic": 1.7995395162105101,
+   "all": 1.7995395162104897,
+   "non_deterministic": 1.7995395162104897,
    "deterministic": null
   }
  },
  "gain": {
   "over_triviality": 0.06446059216122846,
-  "over_best_baseline": 0.49990781914906224,
-  "best_baseline_bits": 2.318321352968337,
+  "over_best_baseline": 0.4023115573663101,
+  "best_baseline_bits": 2.2207250911855847,
   "claim": "no gain"
  },
  "library": {
@@ -85,10 +94,11 @@
   "fragments_used": 39,
   "compositions_kept": 134,
   "candidates": 584,
+  "nulls_run": [
+   "circular"
+  ],
   "null_survival": {
-   "circular": 1.0,
-   "cycle": "not measured",
-   "rewire": "not measured"
+   "circular": 0.5211864406779662
   },
   "chatty_share": 0.1323529411764706
  },
@@ -100,5 +110,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 3.4
+ "elapsed_s": 2.8
 }

@@ -1,0 +1,131 @@
+{
+ "method_version": 1,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "building_a_auto",
+ "identity": {
+  "kind": "synthetic",
+  "origin": "building_a raw frame, symbolization chosen by compression (scripts/choose_building_a.py)",
+  "time_unit": "dataset time units",
+  "span": [
+   25.0,
+   86398.0
+  ],
+  "entity_key": "auto",
+  "entities": [
+   "A",
+   "B",
+   "C"
+  ],
+  "symbolization": {
+   "rule": "confirmation bits on other roles (METHOD 3.2, v1)",
+   "choice": {
+    "T": "q20_50_80",
+    "CO2": "dsign",
+    "RH": "dsign",
+    "heater": null,
+    "vent": null,
+    "window": null,
+    "occ": null,
+    "setpoint": null,
+    "T_out": "dsign",
+    "vibration": "q20_50_80"
+   },
+   "thresholds": {
+    "T": [
+     16.799,
+     18.03,
+     21.356
+    ],
+    "vibration": [
+     -1.069,
+     -0.012,
+     1.049
+    ]
+   }
+  }
+ },
+ "scale": {
+  "events": 34120,
+  "events_per_day": 568.8444305512139,
+  "types": 18,
+  "n_entities": 3,
+  "period": 1435.9813499988554,
+  "signal_floor": 46,
+  "min_count": 3,
+  "lag_edges": [
+   3.0,
+   11.0,
+   36.0
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 4565,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 4.060394604883163,
+   "non_deterministic": 4.060394604883163,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.8050172280622276,
+   "non_deterministic": 2.8050172280622276,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.682494267164986,
+   "non_deterministic": 2.682494267164986,
+   "deterministic": null
+  },
+  "markov-3": "not measured",
+  "hawkes": "not measured",
+  "logistic markov features": {
+   "all": 2.2687946763318467,
+   "non_deterministic": 2.2687946763318467,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 1.9473440297876712,
+   "non_deterministic": 1.9473440297876712,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.897459277504054,
+   "non_deterministic": 1.897459277504054,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.8594977286372711,
+   "non_deterministic": 1.8594977286372711,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.04988475228361722,
+  "over_best_baseline": 0.37133539882779276,
+  "best_baseline_bits": 2.2687946763318467,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 61,
+  "fragments_used": 39,
+  "compositions_kept": 88,
+  "candidates": 803,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.4918918918918919,
+   "cycle": 0.43783783783783786,
+   "rewire": 0.2648648648648649
+  },
+  "chatty_share": 0.06557377049180328
+ },
+ "recovery": "not measured",
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 12.4
+}

@@ -52,8 +52,16 @@
    "non_deterministic": 3.1848662069779685,
    "deterministic": null
   },
-  "markov-3": "not measured",
-  "hawkes": "not measured",
+  "markov-3": {
+   "all": 3.3293507451417614,
+   "non_deterministic": 3.3293507451417614,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 2.73745594028584,
+   "non_deterministic": 2.73745594028584,
+   "deterministic": null
+  },
   "logistic markov features": {
    "all": 2.6913065312639413,
    "non_deterministic": 2.6913065312639413,
@@ -70,8 +78,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.0987825569497462,
-   "non_deterministic": 2.0987825569497462,
+   "all": 2.0987825569495766,
+   "non_deterministic": 2.0987825569495766,
    "deterministic": null
   }
  },
@@ -106,5 +114,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 8.7
+ "elapsed_s": 7.3
 }

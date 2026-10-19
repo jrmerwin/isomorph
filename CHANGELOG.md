@@ -46,3 +46,31 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Building A, v1 profile after this stage: 90 validated fragments, recovery 9/12 (misses: the two
   rare window mechanisms and setpoint:down -> T:down20, whose lag exceeds the data-driven horizon of
   72 min). Library 2.214 bits vs triviality 2.210: no gain over trivial structure on this building.
+
+### v1, stage 3 — compression-driven choices, remaining baselines (2026-10-18)
+
+- Entity by compression (3.1) implemented over candidate layouts of the raw frame; building A chooses
+  `zone` (1.80 bits vs 8.10 for a single-entity layout).
+- Symbolization by compression (3.2) implemented per role (a role is one variable shared across
+  entities, so every unit gets the same symbols): schemes q20/50/80, q10/90, smoothed-derivative
+  extrema with the smoothing window = the series' own correlation time (first lag at which its
+  autocorrelation drops below 0.5). Criterion = TOTAL confirmation bits of the whole event table with
+  system-wide events scored as targets, subject to a faithfulness floor: the scheme must reconstruct
+  the series to within FAITHFULNESS_MAX_RESIDUAL = 0.5 of its std (band means for quantile schemes,
+  linear interpolation between extrema for dsign). Two earlier criteria were rejected: per-event bits
+  on other roles ignored chatter in system-wide channels; total bits without the floor drifted to the
+  coarsest symbolization (CO2 as daily extrema). PELT change-points are not in v1.0.
+  Building A result: T on q20/50/80 at 16.8 / 18.0 / 21.4 C (the control bands); CO2 and RH as smoothed
+  extrema (3.6 h and 5.9 h windows); T_out as daily extrema; vibration (pure noise) forced to a fine
+  quantile scheme because only fine schemes are faithful to noise — the library then ignores it
+  (chatty share 0.07). Open item: a "no events" option for roles whose symbols inform nothing.
+  The auto-symbolized building (`datasets/building_a_auto`) scores library 1.897 vs triviality 1.947:
+  gain 0.05 bits, still "no gain" under the 0.10 rule.
+- Period estimation moved to 0.1% resolution on entity-level events (1% bins could not see a daily
+  cycle; system-wide chatter diluted the autocorrelation): building A 1436 min.
+- Markov-3 (third-order backoff) and a Hawkes-like baseline (exponentially decaying excitation per
+  type, tau = the middle lag edge, same logistic model) are on the card. Building A v1: Markov-3
+  3.329 (worse than Markov-2, as in the session), decay features 2.737.
+- Calibration reference re-recorded for v1; legacy reproduces its reference exactly.
+- METHOD.md amendments pending from stages 2-3: 3.5/3.6 (floor descriptive, admission per pair),
+  3.8 (rewire as attribute), 3.2 (criterion and faithfulness floor as implemented), 3.4 (resolution).

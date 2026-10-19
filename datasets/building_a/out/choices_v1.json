@@ -1,0 +1,142 @@
+{
+ "choice": {
+  "T": "q20_50_80",
+  "CO2": "dsign",
+  "RH": "dsign",
+  "heater": null,
+  "vent": null,
+  "window": null,
+  "occ": null,
+  "setpoint": null,
+  "T_out": "dsign",
+  "vibration": "q20_50_80"
+ },
+ "thresholds": {
+  "T": [
+   16.799,
+   18.03,
+   21.356
+  ],
+  "vibration": [
+   -1.069,
+   -0.012,
+   1.049
+  ],
+  "CO2_window": 218,
+  "RH_window": 354,
+  "T_out_window": 336
+ },
+ "trace": [
+  {
+   "pass_": 0,
+   "role": "vibration",
+   "scores": {
+    "q20_50_80": 14059.636884727166,
+    "q10_90": Infinity,
+    "dsign": Infinity
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "T",
+   "scores": {
+    "q20_50_80": 14059.636884727166,
+    "q10_90": Infinity,
+    "dsign": 16638.604630014495
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "CO2",
+   "scores": {
+    "q20_50_80": 14059.636884727166,
+    "q10_90": Infinity,
+    "dsign": 13861.592270638832
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "RH",
+   "scores": {
+    "q20_50_80": 13861.592270638832,
+    "q10_90": Infinity,
+    "dsign": 12406.75465416297
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "T_out",
+   "scores": {
+    "q20_50_80": 12406.75465416297,
+    "q10_90": Infinity,
+    "dsign": 11849.073385214488
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "vibration",
+   "scores": {
+    "q20_50_80": 11849.073385214488,
+    "q10_90": Infinity,
+    "dsign": Infinity
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 1,
+   "role": "T",
+   "scores": {
+    "q20_50_80": 11849.073385214488,
+    "q10_90": Infinity,
+    "dsign": 14311.240051860328
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 1,
+   "role": "CO2",
+   "scores": {
+    "q20_50_80": 11915.124700667504,
+    "q10_90": Infinity,
+    "dsign": 11849.073385214488
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "RH",
+   "scores": {
+    "q20_50_80": 13336.962721266207,
+    "q10_90": Infinity,
+    "dsign": 11849.073385214488
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "T_out",
+   "scores": {
+    "q20_50_80": 12406.75465416297,
+    "q10_90": Infinity,
+    "dsign": 11849.073385214488
+   },
+   "chosen": "dsign"
+  }
+ ],
+ "entity": "zone",
+ "entity_scores": {
+  "zone": {
+   "bits": 1.7964946617004693,
+   "entities": 3
+  },
+  "sys": {
+   "bits": 8.095235182903206,
+   "entities": 1
+  }
+ }
+}

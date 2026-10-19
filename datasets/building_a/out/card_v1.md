@@ -7,8 +7,8 @@ Kind: synthetic · entities: A, B, C · types: 20 · events/day: 194 · lag edge
 | unigram | 4.376 | 4.376 | None |
 | markov-1 | 3.286 | 3.286 | None |
 | markov-2 | 3.185 | 3.185 | None |
-| markov-3 | not measured | | |
-| hawkes | not measured | | |
+| markov-3 | 3.329 | 3.329 | None |
+| hawkes-like decay features | 2.737 | 2.737 | None |
 | logistic markov features | 2.691 | 2.691 | None |
 | logistic triviality library | 2.210 | 2.210 | None |
 | logistic library | 2.214 | 2.214 | None |
