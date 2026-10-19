@@ -337,7 +337,7 @@
   "types": 168,
   "n_entities": 3,
   "period": null,
-  "signal_floor": 12,
+  "signal_floor": 13,
   "min_count": 3,
   "lag_edges": [
    4.986630952238645,
@@ -393,19 +393,19 @@
    "deterministic": 0.5087304590890414
   },
   "logistic library": {
-   "all": 3.7207333994233167,
-   "non_deterministic": 3.8506734934424953,
-   "deterministic": 0.5449620230706288
+   "all": 3.720733388793548,
+   "non_deterministic": 3.850673420937877,
+   "deterministic": 0.5449635246790838
   },
   "logistic unselected contexts": {
-   "all": 3.7356792517541613,
-   "non_deterministic": 3.8649898563337537,
-   "deterministic": 0.5752927691792217
+   "all": 3.7356740638208574,
+   "non_deterministic": 3.864984902570844,
+   "deterministic": 0.5752818580575156
   }
  },
  "gain": {
-  "over_triviality": -0.024479672992048673,
-  "over_best_baseline": 0.05461804186904917,
+  "over_triviality": -0.024479600487430364,
+  "over_best_baseline": 0.05461811437366748,
   "best_baseline_bits": 3.9052915353115445,
   "claim": "no gain"
  },
@@ -1186,5 +1186,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 1173.4
+ "elapsed_s": 1089.0
 }
