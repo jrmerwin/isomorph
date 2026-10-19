@@ -10,11 +10,11 @@ from .contexts import contexts_for_stream, pair_counts
 from .nulls import null_max_circular, null_max_rewire, signal_floor
 
 
-def rows_for(streams, lags, lo, hi, gaps=None, gap_mode="drop", shift=None):
+def rows_for(streams, lags, lo, hi, gaps=None, gap_mode="drop", shift=None, want_gaps=True):
     rows = []
     for z, s in streams.items():
         sub = s[(s.t >= lo) & (s.t < hi)]
-        for r in contexts_for_stream(sub, lags, entity=z, gaps=gaps, shift=shift, gap_mode=gap_mode):
+        for r in contexts_for_stream(sub, lags, entity=z, gaps=gaps, shift=shift, gap_mode=gap_mode, want_gaps=want_gaps):
             r["entity"] = z; rows.append(r)
     return rows
 

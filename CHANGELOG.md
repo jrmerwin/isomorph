@@ -134,3 +134,18 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   mechanism recovered with the right sign; recall 1/10 against a key half of which is unrecoverable by
   construction (system-wide effects). Open items: horizon follows event density (21 min here), lag class `s`
   empty under 3-min sampling, keys must name target roles only, L never predicted.
+
+## v2 (2026-10-19)
+- 3.3 horizon and lag classes: horizon = median over target types of the median recurrence gap (time until
+  the same symbol recurs); lag classes = three geometric bands between the data's time resolution and the
+  horizon, closed on the right. v1's 95th-percentile-gap horizon was 21 min on Tennessee Eastman (2,300
+  events/day) against thermal mechanisms acting over hours, and its first tercile sat at the 3-min sampling
+  interval (class s empty). Context-gap terciles were tried first and rejected: under a 5-hour horizon they
+  put every gap under 52 min in one class (building B'). New edges: A 5.6/31.6/178, B' 6.9/47/322,
+  TEP 10.9/39.5/143 min (v1: 5/21/72, 5/21/65, 3/9/21). Rule change -> version 2; calibration reference
+  re-recorded; all cards regenerated. Symbolization and entity choices (upper row) are not revisited.
+- Speed: FFT autocorrelation for the correlation time; run-length crossings (identical to the per-sample scan
+  except that the scan confirmed a crossing in the last two samples without the full debounce); interned
+  context keys; gaps dict built only where the decay baseline needs it. Needed for 1-second HAI data.
+- Dataset 4: HAI 21.03 in place of SWaT (SWaT is distributed by iTrust on request only, not reachable here;
+  Jason can request it and it joins as 4b). scripts/fetch_hai.sh, hai_layout.py, ingest_hai.py.

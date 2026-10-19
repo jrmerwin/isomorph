@@ -6,7 +6,7 @@ in minutes, a 30/30 train/test split with a 20/10 proposal/confirmation split
 inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
-METHOD_VERSION = 1
+METHOD_VERSION = 2   # v2: horizon by recurrence time, lag classes by context gaps (3.3); all cards regenerated
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -23,7 +23,7 @@ SUPERFAMILY_MIN_MEMBERS = 3
 PERIOD_ACF_THRESHOLD = 0.2
 PERIOD_MIN_PROMINENCE = 0.1       # a period peak must rise this far above the acf minimum before it (3.4)
 PERIOD_HARMONIC_RATIO = 0.8       # the period is the shortest prominent peak within this ratio of the strongest (3.4)
-HORIZON_QUANTILE = 0.95
+HORIZON_QUANTILE = 0.95           # v1 rule only (profile lag_mode 'terciles')
 FLOOR_PAIRS = 50
 FAITHFULNESS_MAX_RESIDUAL = 0.5   # a symbolization must reconstruct the (denoised) series to within half its std
 NOISE_FRACTION = 0.05             # white noise left after denoising <= 5% of the signal variance (3.2 noise floor)
@@ -32,7 +32,7 @@ CALIBRATION_TOLERANCE_BITS = 0.02
 PROFILES = {
     "v1": dict(
         splits=(0.50, 0.25, 0.25),      # proposal / confirmation / test, chronological
-        lag_mode="terciles",            # lag classes from the proposal split's gap distribution
+        lag_mode="recurrence",          # v2: horizon = median type recurrence time; classes = context-gap terciles (3.3)
         min_count_mode="fixed",         # admission is per pair, by the nulls; the floor is reported, not applied (changelog v1)
         min_count=3,
     ),

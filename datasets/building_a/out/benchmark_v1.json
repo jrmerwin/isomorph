@@ -1,5 +1,5 @@
 {
- "method_version": 1,
+ "method_version": 2,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_a",
@@ -25,12 +25,12 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 17,
+  "signal_floor": 22,
   "min_count": 3,
   "lag_edges": [
-   5.0,
-   21.0,
-   71.64999999999964
+   5.619954323071132,
+   31.583886593405914,
+   177.5
   ],
   "events_dropped_for_gaps": 0,
   "test_events": 2749,
@@ -58,8 +58,8 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 2.73745594028584,
-   "non_deterministic": 2.73745594028584,
+   "all": 2.5618218302893623,
+   "non_deterministic": 2.5618218302893623,
    "deterministic": null
   },
   "logistic markov features": {
@@ -68,41 +68,41 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 2.2559681264507807,
-   "non_deterministic": 2.2559681264507807,
+   "all": 2.1693058217121575,
+   "non_deterministic": 2.1693058217121575,
    "deterministic": null
   },
   "logistic library": {
-   "all": 2.2136191470872415,
-   "non_deterministic": 2.2136191470872415,
+   "all": 2.1671660189633783,
+   "non_deterministic": 2.1671660189633783,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.098782556949699,
-   "non_deterministic": 2.098782556949699,
+   "all": 2.0026193464593067,
+   "non_deterministic": 2.0026193464593067,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.04234897936353921,
-  "over_best_baseline": 0.47768738417669976,
-  "best_baseline_bits": 2.6913065312639413,
+  "over_triviality": 0.0021398027487791182,
+  "over_best_baseline": 0.39465581132598393,
+  "best_baseline_bits": 2.5618218302893623,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 90,
-  "fragments_used": 39,
-  "compositions_kept": 225,
-  "candidates": 777,
+  "fragments": 78,
+  "fragments_used": 37,
+  "compositions_kept": 187,
+  "candidates": 915,
   "nulls_run": [
    "circular",
    "cycle",
    "rewire"
   ],
   "null_survival": {
-   "circular": 0.5317220543806647,
-   "cycle": 0.5015105740181269,
-   "rewire": 0.3081570996978852
+   "circular": 0.5285714285714286,
+   "cycle": 0.44285714285714284,
+   "rewire": 0.2885714285714286
   },
   "trivial_pairs": [
    [
@@ -138,15 +138,15 @@
     "vent:on"
    ]
   ],
-  "chatty_share": 0.08888888888888889
+  "chatty_share": 0.08974358974358974
  },
  "recovery": {
   "recall": 0.75,
-  "precision": 0.14444444444444443,
+  "precision": 0.15384615384615385,
   "n_mechanisms": 12,
   "n_found": 9
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 14.1
+ "elapsed_s": 35.0
 }

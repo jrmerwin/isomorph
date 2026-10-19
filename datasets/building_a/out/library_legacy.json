@@ -24,7 +24,7 @@
    "target": "T:down20",
    "count": 22,
    "lift": 25.890362511052164,
-   "lift_conf": 8.532051282051281,
+   "lift_conf": 7.875739644970414,
    "null_max": {
     "circular": 14
    },
@@ -40,29 +40,11 @@
    "prior": "RH:down70",
    "lag": "m",
    "target": "RH:up70",
-   "count": 14,
-   "lift": 27.544715447154474,
-   "lift_conf": 11.523809523809524,
+   "count": 15,
+   "lift": 28.80952380952381,
+   "lift_conf": 9.777777777777779,
    "null_max": {
     "circular": 1
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:up900",
-   "lag": "s",
-   "target": "vent:on",
-   "count": 103,
-   "lift": 15.38728323699422,
-   "lift_conf": 11.456911220098087,
-   "null_max": {
-    "circular": 4
    },
    "nulls_survived": [
     "circular"
@@ -77,8 +59,8 @@
    "lag": "m",
    "target": "RH:down70",
    "count": 14,
-   "lift": 26.134642356241237,
-   "lift_conf": 7.9879969992498125,
+   "lift": 26.71541218637993,
+   "lift_conf": 9.758064516129032,
    "null_max": {
     "circular": 2
    },
@@ -95,10 +77,28 @@
    "lag": "s",
    "target": "vent:off",
    "count": 103,
-   "lift": 13.65128205128205,
-   "lift_conf": 15.652399835908655,
+   "lift": 12.859903381642512,
+   "lift_conf": 14.06734668796854,
    "null_max": {
     "circular": 5
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up900",
+   "lag": "s",
+   "target": "vent:on",
+   "count": 103,
+   "lift": 12.676190476190476,
+   "lift_conf": 9.58034817542685,
+   "null_max": {
+    "circular": 4
    },
    "nulls_survived": [
     "circular"
@@ -113,8 +113,8 @@
    "lag": "s",
    "target": "T:up20",
    "count": 35,
-   "lift": 16.14171864171864,
-   "lift_conf": 17.46094215861658,
+   "lift": 14.391411801050356,
+   "lift_conf": 15.168091168091166,
    "null_max": {
     "circular": 8
    },
@@ -130,29 +130,11 @@
    "prior": "vent:off",
    "lag": "s",
    "target": "CO2:up700",
-   "count": 39,
-   "lift": 12.2890625,
-   "lift_conf": 13.563179347826086,
+   "count": 44,
+   "lift": 11.297067901234566,
+   "lift_conf": 13.309999999999999,
    "null_max": {
     "circular": 4
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "vent:on",
-   "lag": "s",
-   "target": "CO2:down900",
-   "count": 64,
-   "lift": 10.140952380952381,
-   "lift_conf": 7.364139344262295,
-   "null_max": {
-    "circular": 6
    },
    "nulls_survived": [
     "circular"
@@ -166,11 +148,29 @@
    "prior": "T:down20",
    "lag": "s",
    "target": "T:up20",
-   "count": 32,
-   "lift": 12.134472934472935,
-   "lift_conf": 6.135407663497551,
+   "count": 34,
+   "lift": 11.840397697540554,
+   "lift_conf": 6.53518821603928,
    "null_max": {
     "circular": 2
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "vent:on",
+   "lag": "s",
+   "target": "CO2:down900",
+   "count": 70,
+   "lift": 9.705208333333333,
+   "lift_conf": 6.892678571428572,
+   "null_max": {
+    "circular": 6
    },
    "nulls_survived": [
     "circular"
@@ -184,9 +184,9 @@
    "prior": "CO2:down700",
    "lag": "s",
    "target": "CO2:up700",
-   "count": 55,
-   "lift": 5.865785256410256,
-   "lift_conf": 6.737015845070422,
+   "count": 64,
+   "lift": 6.429951690821255,
+   "lift_conf": 7.107792721518987,
    "null_max": {
     "circular": 3
    },
@@ -202,11 +202,29 @@
    "prior": "heater:on",
    "lag": "m",
    "target": "heater:off",
-   "count": 391,
-   "lift": 3.7278106085025606,
-   "lift_conf": 3.878032119556125,
+   "count": 395,
+   "lift": 3.741611096482176,
+   "lift_conf": 4.059301931548627,
    "null_max": {
     "circular": 115
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up900",
+   "lag": "s",
+   "target": "CO2:down900",
+   "count": 67,
+   "lift": 5.3081547619047615,
+   "lift_conf": 5.4502155172413795,
+   "null_max": {
+    "circular": 4
    },
    "nulls_survived": [
     "circular"
@@ -220,9 +238,9 @@
    "prior": "CO2:up700",
    "lag": "m",
    "target": "vent:on",
-   "count": 83,
-   "lift": 4.623074991630399,
-   "lift_conf": 3.8766990291262133,
+   "count": 86,
+   "lift": 4.669413396426532,
+   "lift_conf": 3.80747226074896,
    "null_max": {
     "circular": 22
    },
@@ -238,9 +256,9 @@
    "prior": "setpoint:up",
    "lag": "l",
    "target": "occ:arrive",
-   "count": 76,
-   "lift": 4.665436767825846,
-   "lift_conf": 4.068055626305333,
+   "count": 77,
+   "lift": 4.663799772468714,
+   "lift_conf": 4.141838988154989,
    "null_max": {
     "circular": 25
    },
@@ -271,65 +289,11 @@
    "failed_in": []
   },
   {
-   "prior": "CO2:up900",
-   "lag": "m",
-   "target": "CO2:down900",
-   "count": 89,
-   "lift": 3.550929256594724,
-   "lift_conf": 2.376785714285714,
-   "null_max": {
-    "circular": 17
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "T_out:up10",
-   "lag": "l",
-   "target": "T:up20",
-   "count": 15,
-   "lift": 5.817307692307692,
-   "lift_conf": 7.41917502787068,
-   "null_max": {
-    "circular": 13
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:up900",
-   "lag": "s",
-   "target": "CO2:down900",
-   "count": 41,
-   "lift": 3.9429913294797685,
-   "lift_conf": 4.97409793814433,
-   "null_max": {
-    "circular": 4
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
    "prior": "vent:off",
    "lag": "m",
    "target": "vent:on",
-   "count": 50,
-   "lift": 3.7347774847073354,
+   "count": 51,
+   "lift": 3.8653304102724713,
    "lift_conf": 3.299318322660607,
    "null_max": {
     "circular": 16
@@ -343,12 +307,30 @@
    "failed_in": []
   },
   {
+   "prior": "T_out:up10",
+   "lag": "l",
+   "target": "T:up20",
+   "count": 14,
+   "lift": 5.42948717948718,
+   "lift_conf": 7.261320240043644,
+   "null_max": {
+    "circular": 13
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
    "prior": "CO2:up700",
    "lag": "m",
    "target": "CO2:up900",
-   "count": 88,
-   "lift": 3.1553879310344826,
-   "lift_conf": 2.646875,
+   "count": 90,
+   "lift": 3.1457457983193278,
+   "lift_conf": 2.6738839285714286,
    "null_max": {
     "circular": 29
    },
@@ -364,9 +346,9 @@
    "prior": "CO2:down700",
    "lag": "m",
    "target": "vent:on",
-   "count": 47,
-   "lift": 3.3648172551972677,
-   "lift_conf": 2.7752655242066853,
+   "count": 48,
+   "lift": 3.4364091116908266,
+   "lift_conf": 2.8917102315160568,
    "null_max": {
     "circular": 27
    },
@@ -382,9 +364,9 @@
    "prior": "T:up20",
    "lag": "l",
    "target": "occ:arrive",
-   "count": 105,
-   "lift": 2.6279863481228665,
-   "lift_conf": 1.8536807627169642,
+   "count": 107,
+   "lift": 2.6560920569201216,
+   "lift_conf": 1.8447358846866824,
    "null_max": {
     "circular": 60
    },
@@ -397,50 +379,14 @@
    "failed_in": []
   },
   {
-   "prior": "vent:off",
-   "lag": "l",
-   "target": "CO2:down700",
-   "count": 48,
-   "lift": 3.0715384615384616,
-   "lift_conf": 2.3463141025641026,
-   "null_max": {
-    "circular": 29
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
    "prior": "occ:arrive",
-   "lag": "m",
-   "target": "vent:on",
-   "count": 43,
-   "lift": 3.095599967547394,
-   "lift_conf": 1.957928802588997,
+   "lag": "s",
+   "target": "CO2:up900",
+   "count": 33,
+   "lift": 3.4749208860759495,
+   "lift_conf": 2.734931506849315,
    "null_max": {
-    "circular": 27
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "occ:leave",
-   "lag": "m",
-   "target": "vent:off",
-   "count": 52,
-   "lift": 2.9152328201672177,
-   "lift_conf": 2.3909157007826867,
-   "null_max": {
-    "circular": 18
+    "circular": 10
    },
    "nulls_survived": [
     "circular"
@@ -454,9 +400,9 @@
    "prior": "occ:leave",
    "lag": "s",
    "target": "CO2:down700",
-   "count": 25,
-   "lift": 3.4894085570469797,
-   "lift_conf": 3.8310032894736836,
+   "count": 32,
+   "lift": 3.448186528497409,
+   "lift_conf": 4.113667582417582,
    "null_max": {
     "circular": 13
    },
@@ -469,14 +415,32 @@
    "failed_in": []
   },
   {
-   "prior": "CO2:up700",
+   "prior": "vent:off",
+   "lag": "l",
+   "target": "CO2:down700",
+   "count": 47,
+   "lift": 3.08344834384858,
+   "lift_conf": 2.358408505154639,
+   "null_max": {
+    "circular": 29
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up900",
    "lag": "m",
    "target": "CO2:down900",
-   "count": 71,
-   "lift": 2.5458243534482756,
-   "lift_conf": 2.344375,
+   "count": 63,
+   "lift": 2.694505141388175,
+   "lift_conf": 1.839321608040201,
    "null_max": {
-    "circular": 31
+    "circular": 17
    },
    "nulls_survived": [
     "circular"
@@ -491,10 +455,64 @@
    "lag": "m",
    "target": "vent:off",
    "count": 42,
-   "lift": 2.864052053180316,
-   "lift_conf": 2.323115523071888,
+   "lift": 2.902341519131925,
+   "lift_conf": 2.376520477625265,
    "null_max": {
     "circular": 20
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "heater:off",
+   "lag": "m",
+   "target": "RH:up70",
+   "count": 14,
+   "lift": 4.091787439613527,
+   "lift_conf": 2.477815699658703,
+   "null_max": {
+    "circular": 12
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up700",
+   "lag": "m",
+   "target": "CO2:down900",
+   "count": 72,
+   "lift": 2.516596638655462,
+   "lift_conf": 2.302511160714286,
+   "null_max": {
+    "circular": 31
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "vent:on",
+   "lag": "m",
+   "target": "vent:off",
+   "count": 32,
+   "lift": 3.097487364095851,
+   "lift_conf": 2.6219220486843957,
+   "null_max": {
+    "circular": 18
    },
    "nulls_survived": [
     "circular"
@@ -509,7 +527,7 @@
    "lag": "m",
    "target": "CO2:up900",
    "count": 54,
-   "lift": 2.5966040462427746,
+   "lift": 2.634677419354839,
    "lift_conf": 2.3599290780141846,
    "null_max": {
     "circular": 18
@@ -524,11 +542,29 @@
   },
   {
    "prior": "CO2:up700",
+   "lag": "s",
+   "target": "occ:arrive",
+   "count": 17,
+   "lift": 3.677393141556964,
+   "lift_conf": 2.5237011755783088,
+   "null_max": {
+    "circular": 14
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up700",
    "lag": "l",
    "target": "CO2:down700",
-   "count": 54,
-   "lift": 2.569865560640732,
-   "lift_conf": 2.1754053347280333,
+   "count": 53,
+   "lift": 2.575313960280374,
+   "lift_conf": 2.142167381974249,
    "null_max": {
     "circular": 26
    },
@@ -541,66 +577,12 @@
    "failed_in": []
   },
   {
-   "prior": "heater:off",
-   "lag": "m",
-   "target": "RH:up70",
-   "count": 13,
-   "lift": 3.9572327044025157,
-   "lift_conf": 2.6209386281588443,
-   "null_max": {
-    "circular": 12
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "vent:on",
-   "lag": "m",
+   "prior": "occ:leave",
+   "lag": "s",
    "target": "vent:off",
-   "count": 31,
-   "lift": 2.9133980582524273,
-   "lift_conf": 2.5302464525765496,
-   "null_max": {
-    "circular": 18
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "occ:arrive",
-   "lag": "s",
-   "target": "CO2:up900",
-   "count": 23,
-   "lift": 3.1625,
-   "lift_conf": 2.42,
-   "null_max": {
-    "circular": 10
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "T:down20",
-   "lag": "s",
-   "target": "heater:on",
-   "count": 41,
-   "lift": 2.665250305250305,
-   "lift_conf": 2.8924064699345595,
+   "count": 24,
+   "lift": 3.213843754716032,
+   "lift_conf": 3.1240798036914543,
    "null_max": {
     "circular": 9
    },
@@ -615,10 +597,46 @@
   {
    "prior": "occ:leave",
    "lag": "m",
+   "target": "vent:off",
+   "count": 44,
+   "lift": 2.608176716843324,
+   "lift_conf": 2.273372887450557,
+   "null_max": {
+    "circular": 18
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "occ:arrive",
+   "lag": "s",
+   "target": "vent:on",
+   "count": 20,
+   "lift": 3.271475973946172,
+   "lift_conf": 2.1242186460965553,
+   "null_max": {
+    "circular": 8
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "occ:leave",
+   "lag": "m",
    "target": "CO2:up700",
-   "count": 54,
-   "lift": 2.436076464208243,
-   "lift_conf": 1.9239399779735682,
+   "count": 51,
+   "lift": 2.432661983944954,
+   "lift_conf": 1.8293547453703702,
    "null_max": {
     "circular": 38
    },
@@ -634,47 +652,11 @@
    "prior": "heater:off",
    "lag": "l",
    "target": "heater:on",
-   "count": 342,
-   "lift": 1.6577364640330672,
-   "lift_conf": 1.6251526251526252,
+   "count": 336,
+   "lift": 1.6408886605881596,
+   "lift_conf": 1.5501455809148117,
    "null_max": {
     "circular": 244
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "T:down20",
-   "lag": "m",
-   "target": "CO2:down700",
-   "count": 19,
-   "lift": 3.265625,
-   "lift_conf": 2.1968529929577465,
-   "null_max": {
-    "circular": 13
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "setpoint:down",
-   "lag": "s",
-   "target": "heater:off",
-   "count": 5,
-   "lift": 5.863436123348017,
-   "lift_conf": 5.863436123348017,
-   "null_max": {
-    "circular": 4
    },
    "nulls_survived": [
     "circular"
@@ -689,8 +671,8 @@
    "lag": "m",
    "target": "CO2:down700",
    "count": 45,
-   "lift": 2.4692859498680737,
-   "lift_conf": 1.86938202247191,
+   "lift": 2.5022977941176467,
+   "lift_conf": 1.9123563218390802,
    "null_max": {
     "circular": 20
    },
@@ -703,14 +685,14 @@
    "failed_in": []
   },
   {
-   "prior": "CO2:down900",
-   "lag": "s",
-   "target": "occ:leave",
-   "count": 20,
-   "lift": 3.079770926129461,
-   "lift_conf": 1.6223793271574842,
+   "prior": "occ:arrive",
+   "lag": "m",
+   "target": "vent:on",
+   "count": 34,
+   "lift": 2.6872123749294854,
+   "lift_conf": 2.1184147700143243,
    "null_max": {
-    "circular": 13
+    "circular": 27
    },
    "nulls_survived": [
     "circular"
@@ -724,11 +706,29 @@
    "prior": "CO2:down700",
    "lag": "m",
    "target": "CO2:up900",
-   "count": 50,
-   "lift": 2.3043628808864267,
-   "lift_conf": 2.121560402684564,
+   "count": 51,
+   "lift": 2.350450138504155,
+   "lift_conf": 2.210576923076923,
    "null_max": {
     "circular": 32
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "T:down20",
+   "lag": "s",
+   "target": "heater:on",
+   "count": 41,
+   "lift": 2.4476788517604846,
+   "lift_conf": 2.738555061959317,
+   "null_max": {
+    "circular": 9
    },
    "nulls_survived": [
     "circular"
@@ -743,8 +743,8 @@
    "lag": "m",
    "target": "CO2:down700",
    "count": 33,
-   "lift": 2.495625,
-   "lift_conf": 2.036057692307692,
+   "lift": 2.5704002808988764,
+   "lift_conf": 2.1098278985507246,
    "null_max": {
     "circular": 14
    },
@@ -757,32 +757,14 @@
    "failed_in": []
   },
   {
-   "prior": "T:down20",
-   "lag": "m",
-   "target": "vent:off",
-   "count": 15,
-   "lift": 3.203883495145631,
-   "lift_conf": 2.548065089566525,
+   "prior": "vent:on",
+   "lag": "l",
+   "target": "CO2:up900",
+   "count": 44,
+   "lift": 2.3538585209003218,
+   "lift_conf": 2.20966796875,
    "null_max": {
-    "circular": 13
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "vent:off",
-   "lag": "s",
-   "target": "T:up20",
-   "count": 8,
-   "lift": 4.136752136752137,
-   "lift_conf": 4.4515050167224075,
-   "null_max": {
-    "circular": 2
+    "circular": 29
    },
    "nulls_survived": [
     "circular"
@@ -796,8 +778,8 @@
    "prior": "vent:off",
    "lag": "m",
    "target": "CO2:down900",
-   "count": 46,
-   "lift": 2.2119219653179187,
+   "count": 47,
+   "lift": 2.2931451612903224,
    "lift_conf": 2.1239361702127657,
    "null_max": {
     "circular": 20
@@ -815,8 +797,8 @@
    "lag": "m",
    "target": "T:up20",
    "count": 22,
-   "lift": 2.7302564102564104,
-   "lift_conf": 3.5798816568047336,
+   "lift": 2.8120618457697106,
+   "lift_conf": 3.956893348197696,
    "null_max": {
     "circular": 18
    },
@@ -829,32 +811,14 @@
    "failed_in": []
   },
   {
-   "prior": "vent:on",
-   "lag": "l",
-   "target": "CO2:up900",
-   "count": 42,
-   "lift": 2.2396634615384614,
-   "lift_conf": 2.142708333333333,
-   "null_max": {
-    "circular": 29
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:down700",
+   "prior": "T:down20",
    "lag": "m",
-   "target": "CO2:up700",
-   "count": 39,
-   "lift": 2.246753808864266,
-   "lift_conf": 1.8144924496644295,
+   "target": "CO2:down700",
+   "count": 17,
+   "lift": 3.0217681623931623,
+   "lift_conf": 2.036057692307692,
    "null_max": {
-    "circular": 15
+    "circular": 13
    },
    "nulls_survived": [
     "circular"
@@ -868,9 +832,9 @@
    "prior": "CO2:down900",
    "lag": "l",
    "target": "CO2:up900",
-   "count": 67,
-   "lift": 1.945397033158813,
-   "lift_conf": 1.7636925795053005,
+   "count": 68,
+   "lift": 1.9848245614035087,
+   "lift_conf": 1.7954136690647482,
    "null_max": {
     "circular": 42
    },
@@ -883,14 +847,14 @@
    "failed_in": []
   },
   {
-   "prior": "occ:arrive",
+   "prior": "T:down20",
    "lag": "m",
-   "target": "CO2:up900",
-   "count": 46,
-   "lift": 2.131824512534819,
-   "lift_conf": 1.7645833333333334,
+   "target": "vent:off",
+   "count": 14,
+   "lift": 3.092523442038005,
+   "lift_conf": 2.5302464525765496,
    "null_max": {
-    "circular": 36
+    "circular": 13
    },
    "nulls_survived": [
     "circular"
@@ -901,14 +865,68 @@
    "failed_in": []
   },
   {
-   "prior": "vent:on",
-   "lag": "m",
+   "prior": "setpoint:down",
+   "lag": "s",
+   "target": "heater:off",
+   "count": 5,
+   "lift": 4.8861967694566815,
+   "lift_conf": 4.8861967694566815,
+   "null_max": {
+    "circular": 4
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:down700",
+   "lag": "l",
    "target": "T:down20",
    "count": 21,
-   "lift": 2.6061538461538465,
-   "lift_conf": 5.250493096646943,
+   "lift": 2.454425711275026,
+   "lift_conf": 5.65660858478538,
    "null_max": {
-    "circular": 11
+    "circular": 18
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "heater:on",
+   "lag": "s",
+   "target": "CO2:down700",
+   "count": 12,
+   "lift": 3.0067771084337345,
+   "lift_conf": 1.925636574074074,
+   "null_max": {
+    "circular": 9
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up900",
+   "lag": "m",
+   "target": "vent:off",
+   "count": 32,
+   "lift": 2.1260388848678464,
+   "lift_conf": 1.8182173000926964,
+   "null_max": {
+    "circular": 17
    },
    "nulls_survived": [
     "circular"
@@ -922,11 +940,29 @@
    "prior": "CO2:up900",
    "lag": "l",
    "target": "occ:leave",
-   "count": 78,
-   "lift": 1.6753080144264516,
+   "count": 77,
+   "lift": 1.681658571803623,
    "lift_conf": 2.353710940953863,
    "null_max": {
     "circular": 70
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up700",
+   "lag": "l",
+   "target": "vent:off",
+   "count": 34,
+   "lift": 2.053080482714817,
+   "lift_conf": 1.5528980374182257,
+   "null_max": {
+    "circular": 29
    },
    "nulls_survived": [
     "circular"
@@ -942,7 +978,7 @@
    "target": "CO2:down900",
    "count": 42,
    "lift": 1.9356648199445983,
-   "lift_conf": 1.7865771812080538,
+   "lift_conf": 1.8615384615384616,
    "null_max": {
     "circular": 23
    },
@@ -960,45 +996,9 @@
    "target": "heater:on",
    "count": 21,
    "lift": 2.3627218934911243,
-   "lift_conf": 2.1274725274725275,
+   "lift_conf": 2.207754509641302,
    "null_max": {
     "circular": 19
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "occ:leave",
-   "lag": "l",
-   "target": "occ:arrive",
-   "count": 71,
-   "lift": 1.6754753778644564,
-   "lift_conf": 1.5221485624430429,
-   "null_max": {
-    "circular": 61
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:up700",
-   "lag": "l",
-   "target": "vent:off",
-   "count": 34,
-   "lift": 2.0107973606451757,
-   "lift_conf": 1.5139131494495675,
-   "null_max": {
-    "circular": 29
    },
    "nulls_survived": [
     "circular"
@@ -1012,9 +1012,9 @@
    "prior": "T:up20",
    "lag": "l",
    "target": "T:down20",
-   "count": 23,
-   "lift": 2.1623931623931623,
-   "lift_conf": 4.126332106180972,
+   "count": 24,
+   "lift": 2.237915090374107,
+   "lift_conf": 4.1577508785630615,
    "null_max": {
     "circular": 17
    },
@@ -1027,14 +1027,32 @@
    "failed_in": []
   },
   {
-   "prior": "heater:on",
-   "lag": "l",
-   "target": "RH:up70",
-   "count": 22,
-   "lift": 2.18018018018018,
-   "lift_conf": 1.934809348093481,
+   "prior": "vent:off",
+   "lag": "s",
+   "target": "T:up20",
+   "count": 8,
+   "lift": 3.3706869262424815,
+   "lift_conf": 5.460512820512821,
    "null_max": {
-    "circular": 20
+    "circular": 2
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:down900",
+   "lag": "s",
+   "target": "T:down20",
+   "count": 7,
+   "lift": 3.462281679672984,
+   "lift_conf": 10.146223146223146,
+   "null_max": {
+    "circular": 6
    },
    "nulls_survived": [
     "circular"
@@ -1046,31 +1064,13 @@
   },
   {
    "prior": "occ:leave",
-   "lag": "s",
-   "target": "CO2:down900",
-   "count": 20,
-   "lift": 2.2332214765100673,
-   "lift_conf": 1.5324013157894736,
+   "lag": "l",
+   "target": "occ:arrive",
+   "count": 65,
+   "lift": 1.5917683964563996,
+   "lift_conf": 1.554707889981931,
    "null_max": {
-    "circular": 17
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:up900",
-   "lag": "m",
-   "target": "vent:off",
-   "count": 31,
-   "lift": 1.9213056739074759,
-   "lift_conf": 1.6673974318822424,
-   "null_max": {
-    "circular": 17
+    "circular": 61
    },
    "nulls_survived": [
     "circular"
@@ -1085,8 +1085,8 @@
    "lag": "m",
    "target": "T:up20",
    "count": 23,
-   "lift": 2.071104796698464,
-   "lift_conf": 4.218092768654566,
+   "lift": 2.098793363499246,
+   "lift_conf": 4.511199528440907,
    "null_max": {
     "circular": 9
    },
@@ -1099,14 +1099,32 @@
    "failed_in": []
   },
   {
-   "prior": "occ:leave",
+   "prior": "CO2:down900",
    "lag": "s",
-   "target": "vent:off",
-   "count": 14,
-   "lift": 2.4283573336808497,
-   "lift_conf": 3.060551865099642,
+   "target": "occ:arrive",
+   "count": 17,
+   "lift": 2.2384132165998913,
+   "lift_conf": 2.701042339267595,
    "null_max": {
-    "circular": 9
+    "circular": 15
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "heater:on",
+   "lag": "l",
+   "target": "RH:up70",
+   "count": 21,
+   "lift": 2.078527607361963,
+   "lift_conf": 1.9823566477630747,
+   "null_max": {
+    "circular": 20
    },
    "nulls_survived": [
     "circular"
@@ -1121,8 +1139,8 @@
    "lag": "m",
    "target": "T:down20",
    "count": 23,
-   "lift": 1.8823710262559181,
-   "lift_conf": 5.190003544842255,
+   "lift": 2.0178630281458045,
+   "lift_conf": 4.97345702873341,
    "null_max": {
     "circular": 18
    },
@@ -1137,12 +1155,12 @@
   {
    "prior": "CO2:up900",
    "lag": "m",
-   "target": "T:up20",
-   "count": 23,
-   "lift": 1.8823710262559181,
-   "lift_conf": 2.830911024459412,
+   "target": "CO2:down700",
+   "count": 33,
+   "lift": 1.764259318766067,
+   "lift_conf": 1.5676036432160803,
    "null_max": {
-    "circular": 13
+    "circular": 28
    },
    "nulls_survived": [
     "circular"
@@ -1153,32 +1171,32 @@
    "failed_in": []
   },
   {
-   "prior": "occ:arrive",
-   "lag": "s",
-   "target": "vent:on",
-   "count": 11,
-   "lift": 2.3495145631067964,
-   "lift_conf": 2.3495145631067964,
-   "null_max": {
-    "circular": 8
-   },
-   "nulls_survived": [
-    "circular"
-   ],
-   "binding_evidence": null,
-   "first_validated_in": "building_a",
-   "confirmed_in": [],
-   "failed_in": []
-  },
-  {
-   "prior": "CO2:down900",
+   "prior": "vent:on",
    "lag": "m",
    "target": "T:down20",
-   "count": 20,
-   "lift": 1.8009606927812734,
-   "lift_conf": 4.793287237107462,
+   "count": 17,
+   "lift": 2.1729568808220496,
+   "lift_conf": 4.698810850984764,
    "null_max": {
-    "circular": 19
+    "circular": 11
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "CO2:up900",
+   "lag": "m",
+   "target": "T:up20",
+   "count": 22,
+   "lift": 1.9301298530090303,
+   "lift_conf": 3.258471846411545,
+   "null_max": {
+    "circular": 13
    },
    "nulls_survived": [
     "circular"
@@ -1192,11 +1210,29 @@
    "prior": "vent:on",
    "lag": "s",
    "target": "occ:arrive",
-   "count": 19,
-   "lift": 1.6440110515195838,
-   "lift_conf": 1.6383371566049347,
+   "count": 21,
+   "lift": 1.5899317406143343,
+   "lift_conf": 1.6872745002437834,
    "null_max": {
     "circular": 9
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": null,
+   "first_validated_in": "building_a",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "vent:on",
+   "lag": "s",
+   "target": "T:down20",
+   "count": 7,
+   "lift": 1.9908119658119658,
+   "lift_conf": 6.825641025641026,
+   "null_max": {
+    "circular": 2
    },
    "nulls_survived": [
     "circular"
@@ -1212,7 +1248,7 @@
    "target": "T:up20",
    "count": 13,
    "lift": 1.503954802259887,
-   "lift_conf": 2.1141366008622646,
+   "lift_conf": 2.152229152229152,
    "null_max": {
     "circular": 12
    },
@@ -1252,21 +1288,7 @@
     ]
    ],
    "target": "occ:arrive",
-   "count": 87
-  },
-  {
-   "priors": [
-    [
-     "CO2:up700",
-     "m"
-    ],
-    [
-     "occ:arrive",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 40
+   "count": 88
   },
   {
    "priors": [
@@ -1280,7 +1302,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 116
+   "count": 119
   },
   {
    "priors": [
@@ -1294,7 +1316,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 58
+   "count": 49
   },
   {
    "priors": [
@@ -1308,7 +1330,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 50
+   "count": 44
   },
   {
    "priors": [
@@ -1322,21 +1344,7 @@
     ]
    ],
    "target": "occ:arrive",
-   "count": 10
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "s"
-    ],
-    [
-     "occ:leave",
-     "m"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 73
+   "count": 12
   },
   {
    "priors": [
@@ -1355,16 +1363,30 @@
   {
    "priors": [
     [
-     "occ:leave",
-     "m"
+     "CO2:down700",
+     "s"
     ],
     [
-     "CO2:down900",
+     "occ:leave",
      "m"
     ]
    ],
    "target": "vent:off",
-   "count": 35
+   "count": 63
+  },
+  {
+   "priors": [
+    [
+     "CO2:down900",
+     "m"
+    ],
+    [
+     "occ:leave",
+     "m"
+    ]
+   ],
+   "target": "vent:off",
+   "count": 33
   },
   {
    "priors": [
@@ -1378,7 +1400,7 @@
     ]
    ],
    "target": "CO2:up700",
-   "count": 27
+   "count": 40
   },
   {
    "priors": [
@@ -1392,7 +1414,7 @@
     ]
    ],
    "target": "CO2:up700",
-   "count": 44
+   "count": 46
   },
   {
    "priors": [
@@ -1406,7 +1428,7 @@
     ]
    ],
    "target": "CO2:up700",
-   "count": 37
+   "count": 42
   },
   {
    "priors": [
@@ -1434,7 +1456,7 @@
     ]
    ],
    "target": "CO2:up900",
-   "count": 69
+   "count": 70
   },
   {
    "priors": [
@@ -1462,7 +1484,7 @@
     ]
    ],
    "target": "CO2:up900",
-   "count": 69
+   "count": 70
   },
   {
    "priors": [
@@ -1481,20 +1503,6 @@
   {
    "priors": [
     [
-     "vent:off",
-     "m"
-    ],
-    [
-     "occ:arrive",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 11
-  },
-  {
-   "priors": [
-    [
      "CO2:down700",
      "m"
     ],
@@ -1504,35 +1512,7 @@
     ]
    ],
    "target": "CO2:up900",
-   "count": 40
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "m"
-    ],
-    [
-     "occ:arrive",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 10
-  },
-  {
-   "priors": [
-    [
-     "CO2:down900",
-     "l"
-    ],
-    [
-     "occ:arrive",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 25
+   "count": 41
   },
   {
    "priors": [
@@ -1546,7 +1526,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 68
+   "count": 69
   },
   {
    "priors": [
@@ -1560,7 +1540,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 63
+   "count": 64
   },
   {
    "priors": [
@@ -1574,7 +1554,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 68
+   "count": 69
   },
   {
    "priors": [
@@ -1588,7 +1568,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 63
+   "count": 64
   },
   {
    "priors": [
@@ -1602,7 +1582,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 63
+   "count": 64
   },
   {
    "priors": [
@@ -1616,7 +1596,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 15
+   "count": 14
   },
   {
    "priors": [
@@ -1630,7 +1610,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 13
+   "count": 12
   },
   {
    "priors": [
@@ -1640,11 +1620,11 @@
     ],
     [
      "CO2:up900",
-     "m"
+     "s"
     ]
    ],
    "target": "CO2:down900",
-   "count": 60
+   "count": 63
   },
   {
    "priors": [
@@ -1658,7 +1638,7 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 78
+   "count": 84
   },
   {
    "priors": [
@@ -1672,7 +1652,7 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 55
+   "count": 56
   },
   {
    "priors": [
@@ -1692,7 +1672,7 @@
    "priors": [
     [
      "CO2:up900",
-     "m"
+     "s"
     ],
     [
      "CO2:up700",
@@ -1700,13 +1680,13 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 66
+   "count": 68
   },
   {
    "priors": [
     [
      "CO2:up900",
-     "m"
+     "s"
     ],
     [
      "vent:off",
@@ -1714,13 +1694,13 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 35
+   "count": 51
   },
   {
    "priors": [
     [
      "CO2:up900",
-     "m"
+     "s"
     ],
     [
      "CO2:down700",
@@ -1728,7 +1708,7 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 32
+   "count": 45
   },
   {
    "priors": [
@@ -1742,7 +1722,7 @@
     ]
    ],
    "target": "CO2:down900",
-   "count": 64
+   "count": 65
   },
   {
    "priors": [
@@ -1784,7 +1764,49 @@
     ]
    ],
    "target": "CO2:down700",
-   "count": 69
+   "count": 68
+  },
+  {
+   "priors": [
+    [
+     "setpoint:down",
+     "l"
+    ],
+    [
+     "CO2:down700",
+     "l"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 9
+  },
+  {
+   "priors": [
+    [
+     "CO2:up700",
+     "m"
+    ],
+    [
+     "occ:arrive",
+     "s"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 33
+  },
+  {
+   "priors": [
+    [
+     "CO2:up900",
+     "m"
+    ],
+    [
+     "CO2:up700",
+     "m"
+    ]
+   ],
+   "target": "CO2:down900",
+   "count": 35
   },
   {
    "priors": [
@@ -1798,21 +1820,7 @@
     ]
    ],
    "target": "vent:off",
-   "count": 23
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "m"
-    ],
-    [
-     "CO2:down700",
-     "m"
-    ]
-   ],
-   "target": "CO2:up700",
-   "count": 38
+   "count": 35
   },
   {
    "priors": [
@@ -1826,7 +1834,21 @@
     ]
    ],
    "target": "vent:on",
-   "count": 16
+   "count": 26
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down900",
+   "count": 36
   },
   {
    "priors": [
@@ -1854,7 +1876,7 @@
     ]
    ],
    "target": "CO2:up900",
-   "count": 26
+   "count": 27
   },
   {
    "priors": [
@@ -1868,59 +1890,73 @@
     ]
    ],
    "target": "CO2:up900",
-   "count": 52
+   "count": 53
   },
   {
    "priors": [
     [
-     "CO2:up900",
+     "occ:leave",
+     "s"
+    ],
+    [
+     "vent:off",
+     "l"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
      "s"
     ],
     [
      "CO2:up700",
-     "m"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 36
-  },
-  {
-   "priors": [
-    [
-     "CO2:up900",
-     "s"
-    ],
-    [
-     "vent:off",
-     "m"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 29
-  },
-  {
-   "priors": [
-    [
-     "CO2:up900",
-     "s"
-    ],
-    [
-     "CO2:down700",
-     "m"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 26
-  },
-  {
-   "priors": [
-    [
-     "vent:off",
      "l"
-    ],
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 14
+  },
+  {
+   "priors": [
     [
      "occ:leave",
      "s"
+    ],
+    [
+     "CO2:down900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 20
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
+     "s"
+    ],
+    [
+     "vent:on",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
     ]
    ],
    "target": "CO2:down700",
@@ -1934,6 +1970,76 @@
     ],
     [
      "CO2:down900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 41
+  },
+  {
+   "priors": [
+    [
+     "vent:off",
+     "l"
+    ],
+    [
+     "vent:on",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 40
+  },
+  {
+   "priors": [
+    [
+     "vent:off",
+     "l"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 39
+  },
+  {
+   "priors": [
+    [
+     "CO2:up700",
+     "l"
+    ],
+    [
+     "CO2:down900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 45
+  },
+  {
+   "priors": [
+    [
+     "CO2:up700",
+     "l"
+    ],
+    [
+     "vent:on",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 44
+  },
+  {
+   "priors": [
+    [
+     "CO2:up700",
+     "l"
+    ],
+    [
+     "CO2:up900",
      "m"
     ]
    ],
@@ -1943,67 +2049,11 @@
   {
    "priors": [
     [
-     "vent:off",
-     "l"
+     "CO2:down900",
+     "m"
     ],
     [
      "vent:on",
-     "m"
-    ]
-   ],
-   "target": "CO2:down700",
-   "count": 42
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "s"
-    ],
-    [
-     "CO2:up700",
-     "l"
-    ]
-   ],
-   "target": "CO2:down700",
-   "count": 15
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "s"
-    ],
-    [
-     "CO2:down900",
-     "m"
-    ]
-   ],
-   "target": "CO2:down700",
-   "count": 17
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "s"
-    ],
-    [
-     "vent:on",
-     "m"
-    ]
-   ],
-   "target": "CO2:down700",
-   "count": 12
-  },
-  {
-   "priors": [
-    [
-     "CO2:up700",
-     "l"
-    ],
-    [
-     "CO2:down900",
      "m"
     ]
    ],
@@ -2013,15 +2063,57 @@
   {
    "priors": [
     [
-     "CO2:up700",
-     "l"
+     "CO2:down900",
+     "m"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 48
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
+     "m"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 46
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "s"
     ],
     [
      "vent:on",
      "m"
     ]
    ],
-   "target": "CO2:down700",
+   "target": "vent:off",
+   "count": 46
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "vent:off",
    "count": 46
   },
   {
@@ -2035,78 +2127,8 @@
      "m"
     ]
    ],
-   "target": "CO2:down700",
-   "count": 47
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "s"
-    ],
-    [
-     "vent:on",
-     "m"
-    ]
-   ],
    "target": "vent:off",
-   "count": 45
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "s"
-    ],
-    [
-     "CO2:up900",
-     "m"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 45
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "m"
-    ],
-    [
-     "vent:on",
-     "m"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 27
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "m"
-    ],
-    [
-     "CO2:up700",
-     "l"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 26
-  },
-  {
-   "priors": [
-    [
-     "occ:leave",
-     "m"
-    ],
-    [
-     "CO2:up900",
-     "m"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 27
+   "count": 46
   },
   {
    "priors": [
@@ -2115,12 +2137,12 @@
      "m"
     ],
     [
-     "vent:on",
+     "CO2:up900",
      "m"
     ]
    ],
    "target": "vent:off",
-   "count": 45
+   "count": 46
   },
   {
    "priors": [
@@ -2139,7 +2161,21 @@
   {
    "priors": [
     [
-     "CO2:down900",
+     "vent:on",
+     "m"
+    ],
+    [
+     "occ:leave",
+     "m"
+    ]
+   ],
+   "target": "vent:off",
+   "count": 27
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
      "m"
     ],
     [
@@ -2162,12 +2198,12 @@
     ]
    ],
    "target": "vent:off",
-   "count": 39
+   "count": 40
   },
   {
    "priors": [
     [
-     "vent:on",
+     "occ:leave",
      "m"
     ],
     [
@@ -2176,17 +2212,31 @@
     ]
    ],
    "target": "vent:off",
-   "count": 44
+   "count": 26
   },
   {
    "priors": [
     [
+     "occ:leave",
+     "m"
+    ],
+    [
      "CO2:up700",
      "l"
-    ],
+    ]
+   ],
+   "target": "vent:off",
+   "count": 23
+  },
+  {
+   "priors": [
     [
      "CO2:up900",
      "m"
+    ],
+    [
+     "CO2:up700",
+     "l"
     ]
    ],
    "target": "vent:off",
@@ -2217,13 +2267,125 @@
      "s"
     ]
    ],
-   "target": "CO2:up900",
-   "count": 23
+   "target": "vent:on",
+   "count": 18
   },
   {
    "priors": [
     [
+     "CO2:down900",
+     "s"
+    ],
+    [
+     "vent:on",
+     "s"
+    ]
+   ],
+   "target": "occ:arrive",
+   "count": 20
+  },
+  {
+   "priors": [
+    [
+     "vent:off",
+     "m"
+    ],
+    [
+     "vent:on",
+     "l"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 24
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "m"
+    ],
+    [
+     "vent:on",
+     "l"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 24
+  },
+  {
+   "priors": [
+    [
+     "setpoint:up",
+     "l"
+    ],
+    [
      "CO2:up700",
+     "s"
+    ]
+   ],
+   "target": "occ:arrive",
+   "count": 11
+  },
+  {
+   "priors": [
+    [
+     "T:up20",
+     "l"
+    ],
+    [
+     "CO2:up700",
+     "s"
+    ]
+   ],
+   "target": "occ:arrive",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "occ:arrive",
+     "s"
+    ],
+    [
+     "vent:off",
+     "m"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 12
+  },
+  {
+   "priors": [
+    [
+     "occ:arrive",
+     "s"
+    ],
+    [
+     "CO2:down700",
+     "m"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 11
+  },
+  {
+   "priors": [
+    [
+     "occ:arrive",
+     "s"
+    ],
+    [
+     "CO2:down900",
+     "l"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 16
+  },
+  {
+   "priors": [
+    [
+     "vent:off",
      "m"
     ],
     [
@@ -2232,7 +2394,7 @@
     ]
    ],
    "target": "vent:on",
-   "count": 10
+   "count": 5
   },
   {
    "priors": [
@@ -2246,77 +2408,21 @@
     ]
    ],
    "target": "occ:arrive",
-   "count": 19
+   "count": 21
   },
   {
    "priors": [
-    [
-     "vent:off",
-     "s"
-    ],
-    [
-     "CO2:down700",
-     "m"
-    ]
-   ],
-   "target": "CO2:up700",
-   "count": 27
-  },
-  {
-   "priors": [
-    [
-     "vent:off",
-     "m"
-    ],
-    [
-     "vent:on",
-     "l"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 23
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "m"
-    ],
-    [
-     "vent:on",
-     "l"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 23
-  },
-  {
-   "priors": [
-    [
-     "CO2:up900",
-     "m"
-    ],
-    [
-     "CO2:down900",
-     "m"
-    ]
-   ],
-   "target": "T:down20",
-   "count": 39
-  },
-  {
-   "priors": [
-    [
-     "T:down20",
-     "s"
-    ],
     [
      "heater:off",
      "l"
+    ],
+    [
+     "T:down20",
+     "s"
     ]
    ],
    "target": "heater:on",
-   "count": 47
+   "count": 42
   },
   {
    "priors": [
@@ -2330,7 +2436,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 46
+   "count": 50
   },
   {
    "priors": [
@@ -2344,7 +2450,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 27
+   "count": 28
   },
   {
    "priors": [
@@ -2372,7 +2478,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 22
+   "count": 25
   },
   {
    "priors": [
@@ -2391,16 +2497,86 @@
   {
    "priors": [
     [
-     "CO2:up900",
-     "m"
+     "CO2:down700",
+     "l"
     ],
     [
-     "occ:leave",
+     "T:up20",
+     "l"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 28
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "l"
+    ],
+    [
+     "CO2:down900",
      "s"
     ]
    ],
-   "target": "CO2:down900",
-   "count": 5
+   "target": "T:down20",
+   "count": 10
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "l"
+    ],
+    [
+     "vent:on",
+     "s"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 10
+  },
+  {
+   "priors": [
+    [
+     "T:up20",
+     "l"
+    ],
+    [
+     "CO2:down900",
+     "s"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 8
+  },
+  {
+   "priors": [
+    [
+     "T:up20",
+     "l"
+    ],
+    [
+     "vent:on",
+     "s"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "CO2:down900",
+     "s"
+    ],
+    [
+     "vent:on",
+     "s"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 13
   },
   {
    "priors": [
@@ -2414,7 +2590,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 36
+   "count": 37
   },
   {
    "priors": [
@@ -2456,7 +2632,7 @@
     ]
    ],
    "target": "CO2:down700",
-   "count": 17
+   "count": 12
   },
   {
    "priors": [
@@ -2470,21 +2646,35 @@
     ]
    ],
    "target": "CO2:down700",
-   "count": 19
+   "count": 13
   },
   {
    "priors": [
-    [
-     "T:down20",
-     "m"
-    ],
     [
      "CO2:down900",
      "m"
+    ],
+    [
+     "T:down20",
+     "m"
     ]
    ],
    "target": "CO2:down700",
-   "count": 16
+   "count": 12
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
+     "m"
+    ],
+    [
+     "T:down20",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 11
   },
   {
    "priors": [
@@ -2493,12 +2683,12 @@
      "m"
     ],
     [
-     "vent:on",
+     "CO2:up900",
      "m"
     ]
    ],
    "target": "CO2:down700",
-   "count": 15
+   "count": 11
   },
   {
    "priors": [
@@ -2512,7 +2702,7 @@
     ]
    ],
    "target": "vent:off",
-   "count": 29
+   "count": 28
   },
   {
    "priors": [
@@ -2526,7 +2716,7 @@
     ]
    ],
    "target": "vent:off",
-   "count": 20
+   "count": 19
   },
   {
    "priors": [
@@ -2540,21 +2730,7 @@
     ]
    ],
    "target": "vent:off",
-   "count": 19
-  },
-  {
-   "priors": [
-    [
-     "T:down20",
-     "m"
-    ],
-    [
-     "CO2:up700",
-     "l"
-    ]
-   ],
-   "target": "vent:off",
-   "count": 16
+   "count": 18
   },
   {
    "priors": [
@@ -2568,7 +2744,21 @@
     ]
    ],
    "target": "vent:off",
-   "count": 19
+   "count": 18
+  },
+  {
+   "priors": [
+    [
+     "T:down20",
+     "m"
+    ],
+    [
+     "CO2:up700",
+     "l"
+    ]
+   ],
+   "target": "vent:off",
+   "count": 15
   },
   {
    "priors": [
@@ -2582,7 +2772,7 @@
     ]
    ],
    "target": "RH:up70",
-   "count": 5
+   "count": 7
   },
   {
    "priors": [
@@ -2624,7 +2814,7 @@
     ]
    ],
    "target": "heater:on",
-   "count": 33
+   "count": 32
   },
   {
    "priors": [
@@ -2638,21 +2828,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 8
-  },
-  {
-   "priors": [
-    [
-     "vent:off",
-     "m"
-    ],
-    [
-     "occ:arrive",
-     "s"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 9
+   "count": 7
   },
   {
    "priors": [
@@ -2671,16 +2847,16 @@
   {
    "priors": [
     [
-     "T:down20",
-     "m"
-    ],
-    [
      "occ:leave",
      "s"
+    ],
+    [
+     "T:down20",
+     "m"
     ]
    ],
    "target": "vent:off",
-   "count": 7
+   "count": 8
   },
   {
    "priors": [
@@ -2699,22 +2875,64 @@
   {
    "priors": [
     [
-     "occ:arrive",
-     "s"
+     "CO2:up900",
+     "m"
     ],
     [
-     "CO2:down900",
-     "l"
+     "vent:off",
+     "m"
     ]
    ],
-   "target": "CO2:up900",
-   "count": 8
+   "target": "CO2:down900",
+   "count": 14
   },
   {
    "priors": [
     [
-     "vent:on",
+     "CO2:up900",
      "m"
+    ],
+    [
+     "CO2:down700",
+     "m"
+    ]
+   ],
+   "target": "CO2:down900",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "occ:arrive",
+     "s"
+    ],
+    [
+     "vent:on",
+     "l"
+    ]
+   ],
+   "target": "CO2:up900",
+   "count": 7
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
+     "l"
+    ],
+    [
+     "CO2:down900",
+     "s"
+    ]
+   ],
+   "target": "occ:arrive",
+   "count": 15
+  },
+  {
+   "priors": [
+    [
+     "CO2:down700",
+     "l"
     ],
     [
      "CO2:up900",
@@ -2722,21 +2940,35 @@
     ]
    ],
    "target": "T:down20",
-   "count": 41
+   "count": 25
   },
   {
    "priors": [
     [
-     "vent:on",
-     "m"
+     "CO2:down700",
+     "l"
     ],
     [
-     "CO2:down900",
+     "vent:on",
      "m"
     ]
    ],
    "target": "T:down20",
-   "count": 38
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "CO2:up900",
+     "m"
+    ],
+    [
+     "vent:on",
+     "m"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 34
   },
   {
    "priors": [
@@ -2764,7 +2996,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 24
+   "count": 23
   },
   {
    "priors": [
@@ -2778,7 +3010,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 19
+   "count": 21
   },
   {
    "priors": [
@@ -2792,7 +3024,77 @@
     ]
    ],
    "target": "T:up20",
-   "count": 20
+   "count": 21
+  },
+  {
+   "priors": [
+    [
+     "vent:off",
+     "l"
+    ],
+    [
+     "heater:on",
+     "s"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 12
+  },
+  {
+   "priors": [
+    [
+     "CO2:up700",
+     "l"
+    ],
+    [
+     "heater:on",
+     "s"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "CO2:down900",
+     "m"
+    ],
+    [
+     "heater:on",
+     "s"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
+     "m"
+    ],
+    [
+     "heater:on",
+     "s"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "heater:on",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 13
   },
   {
    "priors": [
@@ -2806,21 +3108,7 @@
     ]
    ],
    "target": "vent:off",
-   "count": 15
-  },
-  {
-   "priors": [
-    [
-     "vent:on",
-     "m"
-    ],
-    [
-     "T:up20",
-     "l"
-    ]
-   ],
-   "target": "T:down20",
-   "count": 21
+   "count": 13
   },
   {
    "priors": [
@@ -2834,7 +3122,7 @@
     ]
    ],
    "target": "T:down20",
-   "count": 30
+   "count": 27
   },
   {
    "priors": [
@@ -2843,12 +3131,12 @@
      "l"
     ],
     [
-     "CO2:down900",
+     "vent:on",
      "m"
     ]
    ],
    "target": "T:down20",
-   "count": 22
+   "count": 17
   },
   {
    "priors": [
@@ -2881,16 +3169,16 @@
   {
    "priors": [
     [
-     "vent:off",
-     "s"
-    ],
-    [
      "vent:on",
      "m"
+    ],
+    [
+     "vent:off",
+     "s"
     ]
    ],
    "target": "T:up20",
-   "count": 6
+   "count": 7
   },
   {
    "priors": [
@@ -2904,7 +3192,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 6
+   "count": 7
   },
   {
    "priors": [
@@ -2918,7 +3206,7 @@
     ]
    ],
    "target": "T:up20",
-   "count": 6
+   "count": 7
   },
   {
    "priors": [
@@ -2932,7 +3220,7 @@
     ]
    ],
    "target": "T:down20",
-   "count": 6
+   "count": 7
   },
   {
    "priors": [
@@ -2946,17 +3234,73 @@
     ]
    ],
    "target": "vent:off",
-   "count": 7
+   "count": 10
   },
   {
    "priors": [
     [
+     "occ:leave",
+     "s"
+    ],
+    [
      "CO2:up700",
      "l"
+    ]
+   ],
+   "target": "vent:off",
+   "count": 10
+  },
+  {
+   "priors": [
+    [
+     "CO2:down900",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "CO2:up900",
+     "m"
+    ],
+    [
+     "vent:on",
+     "s"
+    ]
+   ],
+   "target": "T:down20",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "vent:on",
+     "m"
     ],
     [
      "occ:leave",
      "s"
+    ]
+   ],
+   "target": "vent:off",
+   "count": 5
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
+     "s"
+    ],
+    [
+     "CO2:up900",
+     "m"
     ]
    ],
    "target": "vent:off",
@@ -2965,100 +3309,16 @@
   {
    "priors": [
     [
-     "vent:on",
-     "s"
-    ],
-    [
-     "CO2:up900",
-     "s"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 31
-  },
-  {
-   "priors": [
-    [
-     "vent:on",
+     "T:up20",
      "l"
     ],
     [
-     "occ:arrive",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 14
-  },
-  {
-   "priors": [
-    [
-     "occ:arrive",
-     "s"
-    ],
-    [
-     "CO2:down700",
-     "m"
-    ]
-   ],
-   "target": "CO2:up900",
-   "count": 8
-  },
-  {
-   "priors": [
-    [
-     "CO2:up900",
-     "s"
-    ],
-    [
-     "occ:leave",
+     "CO2:down900",
      "s"
     ]
    ],
-   "target": "CO2:down900",
-   "count": 9
-  },
-  {
-   "priors": [
-    [
-     "CO2:up700",
-     "m"
-    ],
-    [
-     "occ:leave",
-     "s"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 7
-  },
-  {
-   "priors": [
-    [
-     "vent:off",
-     "m"
-    ],
-    [
-     "occ:leave",
-     "s"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 7
-  },
-  {
-   "priors": [
-    [
-     "CO2:down700",
-     "m"
-    ],
-    [
-     "occ:leave",
-     "s"
-    ]
-   ],
-   "target": "CO2:down900",
-   "count": 7
+   "target": "occ:arrive",
+   "count": 10
   },
   {
    "priors": [
@@ -3101,6 +3361,20 @@
    ],
    "target": "occ:arrive",
    "count": 18
+  },
+  {
+   "priors": [
+    [
+     "occ:leave",
+     "s"
+    ],
+    [
+     "heater:on",
+     "s"
+    ]
+   ],
+   "target": "CO2:down700",
+   "count": 5
   }
  ]
 }

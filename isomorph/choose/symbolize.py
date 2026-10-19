@@ -72,12 +72,16 @@ def denoise(x, w):
 
 
 def correlation_time(x, max_lag=5000):
-    """First lag at which the series' autocorrelation drops below 0.5 (its own time scale)."""
-    v = x[~np.isnan(x)]; v = v - v.mean()
-    if v.std() == 0: return 1
-    for k in range(1, min(max_lag, len(v) // 2)):
-        if np.corrcoef(v[:-k], v[k:])[0, 1] < 0.5: return k
-    return max_lag
+    """First lag at which the series' autocorrelation drops below 0.5 (its own time scale). FFT-based."""
+    v = x[~np.isnan(x)].astype(float); v = v - v.mean()
+    n = len(v)
+    if n < 3 or v.std() == 0: return 1
+    m = min(max_lag, n // 2)
+    nfft = 1 << int(np.ceil(np.log2(2 * n)))
+    f = np.fft.rfft(v, nfft); acov = np.fft.irfft(f * np.conj(f), nfft)[: m + 1]
+    acf = acov / acov[0]
+    below = np.flatnonzero(acf[1:] < 0.5)
+    return int(below[0] + 1) if len(below) else m
 
 
 def _mad(v):
@@ -94,19 +98,22 @@ def residual_ratio(x, scheme, thresholds=None, window=None):
     v = x.astype(float); ok = ~np.isnan(v)
     if ok.sum() < 10 or v[ok].std() == 0: return np.inf
     scale = _mad(v)
-    if scale == 0: return np.inf
+    # a step-schedule series (constant more than half the time, e.g. a scheduled power demand) has MAD 0;
+    # the robust ratio degenerates, so the ordinary std ratio is used for it
+    spread = _mad if scale > 0 else (lambda a: float(np.nanstd(a)))
+    scale = scale if scale > 0 else float(v[ok].std())
     if scheme.startswith("q"):
         band = np.zeros(len(v), int)
         for th in thresholds: band += (v > th).astype(int)
         rec = np.full(len(v), np.nan)
         for b in np.unique(band[ok]):
             m = ok & (band == b); rec[m] = np.median(v[m])          # band medians: robust to excursions within a band
-        return float(_mad(v - rec) / scale)
+        return float(spread(v - rec) / scale)
     ev = derivative_sign_events(v, window)
     idx = np.array([i for i, _, _ in ev])
     if len(idx) < 2: return np.inf
     rec = np.interp(np.arange(len(v)), idx, v[idx])
-    return float(_mad(v - rec) / scale)
+    return float(spread(v - rec) / scale)
 
 
 def derivative_sign_events(x, window):
@@ -174,9 +181,11 @@ def symbolize_role(df, layout, role, scheme, thresholds_cache):
                 thresholds_cache[key] = {col: quantile_thresholds([x], qs) for _, col, x in series}
             for ent, col, x in series:
                 th = thresholds_cache[key][col]
+                th = sorted(set(th))                    # equal quantiles (step-like series) would emit the same crossing twice
                 for i, e, v in crossings(x, th, K.DEBOUNCE):
                     direction = "up" if e.startswith("up") else "down"
-                    q = qs[th.index(float(e[len(direction):]))] if float(e[len(direction):]) in th else None
+                    full = thresholds_cache[key][col]
+                    q = qs[full.index(float(e[len(direction):]))] if float(e[len(direction):]) in full else None
                     label = f"{direction}q{int(round(q * 100))}" if q is not None else e
                     rows.append(dict(t=t[i], entity=ent, type=f"{role}:{label}", value=v))
         elif scheme == "dsign":
@@ -225,10 +234,12 @@ def criterion(ev, role, lo, p_hi, c_hi, log=None):
     entities = sorted(e for e in ev.entity.unique() if e != SYSTEM) + [SYSTEM]   # system-wide events are targets here
     streams = streams_of(ev, entities)
     prop = {z: s[(s.t >= lo) & (s.t < p_hi)] for z, s in streams.items()}
-    gaps_ = inter_event_gaps(prop)
-    if len(gaps_) < 10: return np.inf
-    lags = LagClasses.from_gaps(gaps_, K.HORIZON_QUANTILE)
-    rows_p = rows_for(streams, lags, lo, p_hi, None, "ignore"); rows_c = rows_for(streams, lags, p_hi, c_hi, None, "ignore")
+    if len(inter_event_gaps(prop)) < 10: return np.inf
+    try:
+        lags = LagClasses.from_recurrence(streams, lo, p_hi)                       # v2 (3.3)
+    except ValueError:
+        return np.inf
+    rows_p = rows_for(streams, lags, lo, p_hi, None, "ignore", want_gaps=False); rows_c = rows_for(streams, lags, p_hi, c_hi, None, "ignore", want_gaps=False)
     tgt_p, tgt_c = rows_p, rows_c
     if len(tgt_c) < 20 or len(tgt_p) < 50: return np.inf
     vocab = sorted(set(r["tok"] for r in tgt_p + tgt_c))

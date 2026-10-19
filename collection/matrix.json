@@ -1,0 +1,284 @@
+{
+ "v2": {
+  "building_a|building_b|v1|0": {
+   "method_version": 2,
+   "profile": "v1",
+   "seed": 0,
+   "A": "building_a",
+   "B": "building_b",
+   "headline": {
+    "A": {
+     "all": 2.1671660189633783,
+     "non_deterministic": 2.1671660189633783,
+     "deterministic": null
+    },
+    "B": {
+     "all": 1.3653307393190863,
+     "non_deterministic": 1.3653307393190863,
+     "deterministic": null
+    }
+   },
+   "triviality": {
+    "A": {
+     "all": 2.1693058217121575,
+     "non_deterministic": 2.1693058217121575,
+     "deterministic": null
+    },
+    "B": {
+     "all": 1.5297042841236872,
+     "non_deterministic": 1.5297042841236872,
+     "deterministic": null
+    }
+   },
+   "A_to_B": {
+    "mapping": {
+     "x00": "T:up20",
+     "x01": null,
+     "x02": "vibration:down-2",
+     "x03": "setpoint:down",
+     "x04": "T:down20",
+     "x05": "CO2:down900",
+     "x06": null,
+     "x07": "vibration:up2",
+     "x08": "T_out:down20",
+     "x09": "vibration:up-2",
+     "x10": "window:on",
+     "x11": "window:off",
+     "x12": "heater:on",
+     "x13": "T:up23",
+     "x14": "heater:off",
+     "x15": "CO2:down700",
+     "x16": "T_out:down10",
+     "x17": "CO2:up900",
+     "x18": "occ:arrive",
+     "x19": "vent:off",
+     "x20": "setpoint:up",
+     "x21": "T_out:up20",
+     "x22": "CO2:up700",
+     "x23": "RH:down50",
+     "x24": "RH:up70",
+     "x25": "T:down23",
+     "x26": "RH:down70",
+     "x27": "vent:on",
+     "x28": "vibration:down2",
+     "x29": "occ:leave",
+     "x30": "RH:up50",
+     "x31": "T_out:up10"
+    },
+    "anchors": {
+     "x14": "heater:off",
+     "x29": "occ:leave"
+    },
+    "alignment_objective": 3435.479193930528,
+    "types_mapped": 22,
+    "types_total": 22,
+    "zero_shot": {
+     "all": 4.599865095234606,
+     "shared": 4.599865095234606,
+     "unshared": null
+    },
+    "learning_curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 2.9935511394006613,
+      "mixed": 2.6464026455056664,
+      "own_shared": 2.9935511394006613,
+      "mixed_shared": 2.6464026455056664,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 2,
+      "lam": 0.25,
+      "own": 2.17059868349166,
+      "mixed": 2.190055992894303,
+      "own_shared": 2.17059868349166,
+      "mixed_shared": 2.190055992894303,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 3,
+      "lam": 0.1,
+      "own": 2.1561037152557434,
+      "mixed": 2.1245475219406353,
+      "own_shared": 2.1561037152557434,
+      "mixed_shared": 2.1245475219406353,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 5,
+      "lam": 0.0,
+      "own": 2.015304097396283,
+      "mixed": 2.015304097396283,
+      "own_shared": 2.015304097396283,
+      "mixed_shared": 2.015304097396283,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 10,
+      "lam": 0.0,
+      "own": 1.727305401003938,
+      "mixed": 1.727305401003938,
+      "own_shared": 1.727305401003938,
+      "mixed_shared": 1.727305401003938,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 20,
+      "lam": 0.0,
+      "own": 1.6811926126701584,
+      "mixed": 1.6811926126701584,
+      "own_shared": 1.6811926126701584,
+      "mixed_shared": 1.6811926126701584,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 44,
+      "lam": 0.0,
+      "own": 1.3618395980847873,
+      "mixed": 1.3618395980847873,
+      "own_shared": 1.3618395980847873,
+      "mixed_shared": 1.3618395980847873,
+      "own_unshared": null,
+      "mixed_unshared": null
+     }
+    ],
+    "cell_bit_days": 0.20145122751751687,
+    "damage": false,
+    "mapping_accuracy": {
+     "accuracy": 0.6,
+     "n_scorable": 30,
+     "unshared_correct": 0.0
+    }
+   },
+   "B_to_A": {
+    "mapping": {
+     "CO2:down700": "x15",
+     "CO2:down900": "x05",
+     "CO2:up700": "x22",
+     "CO2:up900": "x17",
+     "RH:down50": "x23",
+     "RH:down70": "x26",
+     "RH:up50": "x30",
+     "RH:up70": "x24",
+     "T:down20": "x09",
+     "T:down23": "x25",
+     "T:up20": "x00",
+     "T:up23": "x13",
+     "T_out:down10": "x18",
+     "T_out:down20": "x08",
+     "T_out:up10": "x31",
+     "T_out:up20": "x21",
+     "heater:off": "x14",
+     "heater:on": "x12",
+     "occ:arrive": "x29",
+     "occ:leave": "x11",
+     "setpoint:down": "x03",
+     "setpoint:up": "x20",
+     "vent:off": "x19",
+     "vent:on": "x27",
+     "vibration:down-2": "x28",
+     "vibration:down2": "x16",
+     "vibration:up-2": "x01",
+     "vibration:up2": "x02",
+     "window:off": "x06",
+     "window:on": "x04"
+    },
+    "anchors": {
+     "T:down20": "x09",
+     "T:down23": "x25"
+    },
+    "alignment_objective": 3365.169944514802,
+    "types_mapped": 20,
+    "types_total": 20,
+    "zero_shot": {
+     "all": 3.075236515619782,
+     "shared": 3.075236515619782,
+     "unshared": null
+    },
+    "learning_curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 4.512406345337583,
+      "mixed": 2.8111118345833663,
+      "own_shared": 4.512406345337583,
+      "mixed_shared": 2.8111118345833663,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 2,
+      "lam": 0.5,
+      "own": 2.6850846192636975,
+      "mixed": 2.461460760352523,
+      "own_shared": 2.6850846192636975,
+      "mixed_shared": 2.461460760352523,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 3,
+      "lam": 0.25,
+      "own": 2.5688300638867148,
+      "mixed": 2.376701215041919,
+      "own_shared": 2.5688300638867148,
+      "mixed_shared": 2.376701215041919,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 5,
+      "lam": 0.25,
+      "own": 2.2639485570697535,
+      "mixed": 2.2310100902112326,
+      "own_shared": 2.2639485570697535,
+      "mixed_shared": 2.2310100902112326,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 10,
+      "lam": 0.1,
+      "own": 2.2094578562606872,
+      "mixed": 2.184148067961071,
+      "own_shared": 2.2094578562606872,
+      "mixed_shared": 2.184148067961071,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 20,
+      "lam": 0.1,
+      "own": 2.015068913935785,
+      "mixed": 2.011562414334392,
+      "own_shared": 2.015068913935785,
+      "mixed_shared": 2.011562414334392,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "days": 44,
+      "lam": 0.0,
+      "own": 2.005685918471979,
+      "mixed": 2.005685918471979,
+      "own_shared": 2.005685918471979,
+      "mixed_shared": 2.005685918471979,
+      "own_unshared": null,
+      "mixed_unshared": null
+     }
+    ],
+    "cell_bit_days": 1.7271829270311012,
+    "damage": false,
+    "mapping_accuracy": "not measured (no mapping key)"
+   },
+   "elapsed_s": 409.9
+  }
+ }
+}

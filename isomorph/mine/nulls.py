@@ -53,7 +53,7 @@ def _counts_under_shift(streams, lags, lo, hi, shift, gaps, gap_mode):
     rows = []
     for z, s in streams.items():
         sub = s[(s.t >= lo) & (s.t < hi)]
-        rows += contexts_for_stream(sub, lags, entity=z, gaps=gaps, shift=shift, gap_mode=gap_mode)
+        rows += contexts_for_stream(sub, lags, entity=z, gaps=gaps, shift=shift, gap_mode=gap_mode, want_gaps=False)
     return pair_counts(rows)[0]
 
 

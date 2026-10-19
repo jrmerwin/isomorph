@@ -38,7 +38,9 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     # lag classes (3.3)
     if prof["lag_mode"] == "fixed_minutes":
         lags = LagClasses.fixed_minutes(prof["lag_edges"])
-    else:
+    elif prof["lag_mode"] == "recurrence":          # v2 (METHOD 3.3)
+        lags = LagClasses.from_recurrence(streams, lo, p_hi)
+    else:                                            # v1 rule, kept for the record
         prop_streams = {z: s[(s.t >= lo) & (s.t < p_hi)] for z, s in streams.items()}
         lags = LagClasses.from_gaps(inter_event_gaps(prop_streams), K.HORIZON_QUANTILE)
     log(f"[{name}] profile={profile} lags={[round(e, 2) for e in lags.edges]} splits=({lo:.0f},{p_hi:.0f},{c_hi:.0f},{hi:.0f})")

@@ -33,8 +33,8 @@ def markov_bits(ev, lo, p_hi, c_hi):
     entities = sorted(e for e in ev.entity.unique() if e != SYSTEM)
     streams = streams_of(ev, entities)
     prop = {z: s[(s.t >= lo) & (s.t < p_hi)] for z, s in streams.items()}
-    lags = LagClasses.from_gaps(inter_event_gaps(prop), K.HORIZON_QUANTILE)
-    rows_p = rows_for(streams, lags, lo, p_hi, None, "ignore"); rows_c = rows_for(streams, lags, p_hi, c_hi, None, "ignore")
+    lags = LagClasses.from_recurrence(streams, lo, p_hi)                           # v2 (3.3)
+    rows_p = rows_for(streams, lags, lo, p_hi, None, "ignore", want_gaps=False); rows_c = rows_for(streams, lags, p_hi, c_hi, None, "ignore", want_gaps=False)
     vocab = sorted(set(r["tok"] for r in rows_p + rows_c))
     return float(fit_bits(FeatureMap(vocab, True), rows_p, rows_c).mean()), len(entities)
 

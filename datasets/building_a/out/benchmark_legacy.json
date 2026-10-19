@@ -1,5 +1,5 @@
 {
- "method_version": 1,
+ "method_version": 2,
  "profile": "legacy",
  "seed": 0,
  "dataset": "building_a",
@@ -25,7 +25,7 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 14,
+  "signal_floor": 17,
   "min_count": 5,
   "lag_edges": [
    5.0,
@@ -58,8 +58,8 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 2.2207250911855847,
-   "non_deterministic": 2.2207250911855847,
+   "all": 2.2199201779868365,
+   "non_deterministic": 2.2199201779868365,
    "deterministic": null
   },
   "logistic markov features": {
@@ -68,37 +68,37 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 1.892482611823007,
-   "non_deterministic": 1.892482611823007,
+   "all": 1.8914324193671563,
+   "non_deterministic": 1.8914324193671563,
    "deterministic": null
   },
   "logistic library": {
-   "all": 1.8184135338192746,
-   "non_deterministic": 1.8184135338192746,
+   "all": 1.8155110636533072,
+   "non_deterministic": 1.8155110636533072,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.7995395162105072,
-   "non_deterministic": 1.7995395162105072,
+   "all": 1.7981791610477151,
+   "non_deterministic": 1.7981791610477151,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.0740690780037323,
-  "over_best_baseline": 0.4023115573663101,
-  "best_baseline_bits": 2.2207250911855847,
+  "over_triviality": 0.07592135571384917,
+  "over_best_baseline": 0.40440911433352933,
+  "best_baseline_bits": 2.2199201779868365,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 68,
-  "fragments_used": 39,
-  "compositions_kept": 134,
-  "candidates": 584,
+  "fragments": 70,
+  "fragments_used": 41,
+  "compositions_kept": 151,
+  "candidates": 601,
   "nulls_run": [
    "circular"
   ],
   "null_survival": {
-   "circular": 0.5211864406779662
+   "circular": 0.5394190871369294
   },
   "trivial_pairs": [
    [
@@ -142,15 +142,15 @@
     "vent:on"
    ]
   ],
-  "chatty_share": 0.1323529411764706
+  "chatty_share": 0.14285714285714285
  },
  "recovery": {
   "recall": 0.8333333333333334,
-  "precision": 0.17647058823529413,
+  "precision": 0.17142857142857143,
   "n_mechanisms": 12,
   "n_found": 10
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 5.3
+ "elapsed_s": 3.6
 }

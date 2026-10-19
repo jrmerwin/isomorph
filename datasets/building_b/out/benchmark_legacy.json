@@ -1,5 +1,5 @@
 {
- "method_version": 1,
+ "method_version": 2,
  "profile": "legacy",
  "seed": 0,
  "dataset": "building_b",
@@ -26,7 +26,7 @@
   "types": 22,
   "n_entities": 4,
   "period": 1440.0,
-  "signal_floor": 19,
+  "signal_floor": 21,
   "min_count": 5,
   "lag_edges": [
    5.0,
@@ -59,8 +59,8 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 2.026223364854123,
-   "non_deterministic": 2.026223364854123,
+   "all": 2.0260853079349497,
+   "non_deterministic": 2.0260853079349497,
    "deterministic": null
   },
   "logistic markov features": {
@@ -69,37 +69,37 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 1.694029959576979,
-   "non_deterministic": 1.694029959576979,
+   "all": 1.6881702133364134,
+   "non_deterministic": 1.6881702133364134,
    "deterministic": null
   },
   "logistic library": {
-   "all": 1.6375060843770939,
-   "non_deterministic": 1.6375060843770939,
+   "all": 1.6470978537691823,
+   "non_deterministic": 1.6470978537691823,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.5638366455120742,
-   "non_deterministic": 1.5638366455120742,
+   "all": 1.560162831389597,
+   "non_deterministic": 1.560162831389597,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.05652387519988511,
-  "over_best_baseline": 0.3887172804770289,
-  "best_baseline_bits": 2.026223364854123,
+  "over_triviality": 0.0410723595672311,
+  "over_best_baseline": 0.3789874541657674,
+  "best_baseline_bits": 2.0260853079349497,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 96,
+  "fragments": 95,
   "fragments_used": 43,
-  "compositions_kept": 215,
-  "candidates": 926,
+  "compositions_kept": 201,
+  "candidates": 954,
   "nulls_run": [
    "circular"
   ],
   "null_survival": {
-   "circular": 0.5741758241758241
+   "circular": 0.5638297872340425
   },
   "trivial_pairs": [
    [
@@ -143,10 +143,10 @@
     "x28"
    ]
   ],
-  "chatty_share": 0.2604166666666667
+  "chatty_share": 0.2631578947368421
  },
  "recovery": "not measured",
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 17.0
+ "elapsed_s": 13.0
 }

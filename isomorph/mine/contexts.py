@@ -27,7 +27,7 @@ class LagClasses:
 
     def of(self, gap):
         for e, lab in zip(self.edges, self.labels):
-            if gap < e:
+            if gap <= e:                      # closed on the right: a gap equal to the sampling interval has a class (v2)
                 return lab
         return None
 
@@ -37,12 +37,69 @@ class LagClasses:
 
     @staticmethod
     def from_gaps(gaps, horizon_q=0.95):
-        """Terciles of within-horizon inter-event gaps; horizon = quantile of all gaps."""
+        """v1 rule: terciles of within-horizon inter-event gaps; horizon = quantile of all gaps."""
         gaps = np.asarray([g for g in gaps if g > 0], float)
         horizon = float(np.quantile(gaps, horizon_q))
         inside = gaps[gaps <= horizon]
         e1, e2 = float(np.quantile(inside, 1 / 3)), float(np.quantile(inside, 2 / 3))
         return LagClasses((e1, e2, horizon))
+
+    @staticmethod
+    def from_recurrence(streams, lo, hi, min_occurrences=5):
+        """v2 rule (METHOD 3.3): horizon = the median over target types of the type's median recurrence
+        gap (time until the same symbol recurs in a stream) on [lo, hi); lag classes = three geometric
+        bands between the data's time resolution delta and the horizon: (delta, delta r^(1/3)],
+        (delta r^(1/3), delta r^(2/3)], (delta r^(2/3), H], r = H / delta.
+        The horizon follows the system's own time scale, not its event density; every type counts once."""
+        rec = {}
+        for z, s in streams.items():
+            sub = s[(s.t >= lo) & (s.t < hi)]
+            tg = sub[sub.target == 1]
+            for typ, g in tg.groupby("type"):
+                d = np.diff(g.t.values.astype(float)); d = d[d > 0]
+                if len(d) >= min_occurrences: rec.setdefault(typ, []).append(d)
+        if not rec:
+            raise ValueError("no target type recurs often enough to set a horizon")
+        medians = [float(np.median(np.concatenate(v))) for v in rec.values()]
+        H = float(np.median(medians))
+        # lag classes: three geometric bands between the data's time resolution (smallest positive gap)
+        # and the horizon — time scales are multiplicative; terciles of context gaps put the whole
+        # short-lag range, where mechanisms act, into one class once the horizon is hours long
+        delta = min(float(np.min(np.concatenate(v))) for v in rec.values())
+        allgaps = np.concatenate([np.diff(s[(s.t >= lo) & (s.t < hi)].t.values.astype(float)) for s in streams.values()])
+        allgaps = allgaps[allgaps > 0]
+        if len(allgaps): delta = min(delta, float(allgaps.min()))
+        r = H / delta
+        e1, e2 = delta * r ** (1 / 3), delta * r ** (2 / 3)
+        return LagClasses((float(e1), float(e2), H))
+
+
+def context_gaps(streams, lo, hi, H):
+    """All (target, prior type) gaps within H on [lo, hi), as one array (no rows built)."""
+    out = []
+    for z, s in streams.items():
+        sub = s[(s.t >= lo) & (s.t < hi)]
+        t_arr = sub.t.values.astype(float); toks = sub.type.values; tgt = sub.target.values
+        last = {}
+        for i in range(len(t_arr)):
+            if tgt[i]:
+                t = t_arr[i]
+                for tm in last.values():
+                    g = t - tm
+                    if 0 < g <= H: out.append(g)
+            last[toks[i]] = t_arr[i]
+    return np.asarray(out, float)
+
+
+_CTX = {}
+
+
+def ctx_key(tok, c):
+    """Interned (type, lag) tuple so context sets share one object per key."""
+    k = (tok, c)
+    r = _CTX.get(k)
+    if r is None: _CTX[k] = r = k
+    return r
 
 
 def streams_of(events, entities, system=SYSTEM):
@@ -68,7 +125,7 @@ def _overlaps(intervals, lo, hi):
     return any(s < hi and e > lo for s, e in intervals)
 
 
-def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="drop", entity_gap_map=None):
+def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="drop", entity_gap_map=None, want_gaps=True):
     """Rows of dicts for every target event: minute/t, tok, ctx (set of (type, lag)),
     m1, m2, event_id, dropped (bool: window spanned a gap).
     shift: optional {type: offset} for the circular null — timestamps shifted modulo the
@@ -99,7 +156,8 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
                             continue
                         c = lags.of(gap)
                         if c is not None:
-                            ctx.add((tok, c)); gapd[tok] = gap
+                            ctx.add(ctx_key(tok, c))
+                            if want_gaps: gapd[tok] = gap
             rows.append(dict(t=t, tok=toks[i], ctx=ctx, gaps=gapd, event_id=int(ids[i]), dropped=dropped,
                              m1=(own_hist[-1] if own_hist and not dropped else None),
                              m2=(tuple(own_hist[-2:]) if len(own_hist) >= 2 and not dropped else None),
