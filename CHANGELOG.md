@@ -113,3 +113,4 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   the excursions. On Gaussian and AR(1) series the MAD and std ratios coincide (0.36 for q20/50/80, 0.65 for
   q10/90), so the buildings' admissibility is unchanged. Under the robust test q20/50/80 is faithful on every
   TEP role (0.34-0.45) and turning points only where the series really swings (0.03-0.4) — elsewhere 0.9-3.
+- Symbolization search stops after a pass that changes nothing (converged); identical result, saves a full pass.

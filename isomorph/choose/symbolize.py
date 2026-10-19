@@ -271,6 +271,7 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
         log(f"  start {role:10s} {choice[role]} ({counts[role]} events)")
     order = sorted(cont, key=lambda r: -counts[r])
     for p in range(passes):
+        changed_any = False
         for role in order:
             scores = {}
             adm = {}
@@ -286,7 +287,7 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
                 trace.append(dict(pass_=p, role=role, scores={}, chosen=None)); continue
             if sum(adm.values()) == 1:   # one admissible scheme: nothing to compare
                 best = next(s for s, ok in adm.items() if ok)
-                changed = best != choice[role]; choice[role] = best
+                changed = best != choice[role]; choice[role] = best; changed_any |= changed
                 trace.append(dict(pass_=p, role=role, scores={best: "only admissible"}, chosen=best))
                 log(f"  pass {p} {role:10s} only {best} is faithful (" + ", ".join(f"{s}={faith[(role, s)]:.2f}" for s in SCHEMES) + f") -> {best}{' *' if changed else ''}")
                 continue
@@ -297,9 +298,12 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
                 ev = assemble(df, layout, trial, cache)
                 scores[sch] = criterion(ev, role, lo, p_hi, c_hi)
             best = min(scores, key=scores.get)
-            changed = best != choice[role]; choice[role] = best
+            changed = best != choice[role]; choice[role] = best; changed_any |= changed
             trace.append(dict(pass_=p, role=role, scores=scores, chosen=best))
             log(f"  pass {p} {role:10s} " + "  ".join((f"{s}={v/1000:.1f}kb" if v < np.inf else f"{s}=unfaithful({faith[(role, s)]:.2f})") for s, v in scores.items()) + f"  -> {best}{' *' if changed else ''}")
+        if not changed_any:
+            log(f"  pass {p} changed nothing: converged, later passes skipped (same result)")
+            break
     thresholds = {f"{r}": cache.get((r, choice[r])) for r in cont if choice[r] and choice[r].startswith("q")}
     thresholds.update({f"{r}_window": cache.get((r, "window")) for r in cont if choice[r] == "dsign"})
     thresholds["noise_windows"] = {col: w for r in cont for col, w in cache.get((r, "noise"), {}).items()}
