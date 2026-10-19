@@ -17,10 +17,13 @@ import numpy as np
 from .contexts import contexts_for_stream, streams_of, pair_counts
 
 
-def period_estimate(events, lo, hi, resolution=0.001, threshold=0.2):
+def period_estimate(events, lo, hi, resolution=0.001, threshold=0.2, prominence=0.1, harmonic_ratio=0.8):
     """Autocorrelation of the whole-system event rate binned at `resolution` of the span
-    (0.1%: 86 min on 60 days); the first local maximum above `threshold` with lag < span/4,
-    refined to the peak's centre, else None. (v1.0 used 1%, too coarse to see a daily cycle.)"""
+    (0.1%: 86 min on 60 days). Qualifying peaks: local maxima above `threshold` with lag < span/8 (at least eight repetitions) that
+    rise at least `prominence` above the acf minimum before them, refined to the peak centre. The period
+    is the shortest qualifying peak within `harmonic_ratio` of the strongest (the fundamental), else None.
+    (v1.0 used 1%, too coarse to see a daily cycle; "first peak" picked a 5-hour component on building A and,
+    without the prominence test, a 9.4-hour bump on TEP's decaying acf.)"""
     span = hi - lo
     nb = int(round(1 / resolution))
     ent_events = events[events.entity != "ALL"] if (events.entity != "ALL").any() else events   # entity-level rate
@@ -29,14 +32,21 @@ def period_estimate(events, lo, hi, resolution=0.001, threshold=0.2):
     if x.std() == 0:
         return None
     acf = np.correlate(x, x, mode="full")[nb - 1:] / (x.var() * nb)
-    max_lag = nb // 4
+    max_lag = nb // 8          # at least 8 repetitions in the span (v1.0: 4; a 5-repetition hump of acf 0.22 on TEP is not a cycle)
+    peaks = []
     for k in range(2, max_lag):
-        if acf[k] > threshold and acf[k] >= acf[k - 1] and acf[k] >= acf[k + 1]:
-            # parabolic refinement of the peak position
+        # a cycle's peak is preceded by a trough: prominence >= `prominence` above the acf minimum before it,
+        # else a slowly decaying acf (regime switching, Tennessee Eastman) yields spurious peaks
+        if acf[k] > threshold and acf[k] >= acf[k - 1] and acf[k] >= acf[k + 1] and acf[k] - acf[1:k].min() >= prominence:
             a, b, c = acf[k - 1], acf[k], acf[k + 1]
             off = 0.5 * (a - c) / (a - 2 * b + c) if (a - 2 * b + c) != 0 else 0.0
-            return float((k + off) * span / nb)
-    return None
+            peaks.append((float((k + off) * span / nb), float(b)))
+    if not peaks:
+        return None
+    strongest = max(a for _, a in peaks)
+    # the fundamental: the shortest prominent peak within `harmonic_ratio` of the strongest (building A: the
+    # weekly peak, 0.48, edges out the daily, 0.46; the daily cycle is the one the null must respect)
+    return min(p for p, a in peaks if a >= harmonic_ratio * strongest)
 
 
 def _counts_under_shift(streams, lags, lo, hi, shift, gaps, gap_mode):

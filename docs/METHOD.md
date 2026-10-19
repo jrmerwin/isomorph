@@ -55,7 +55,7 @@ The upper row is run once per dataset and never revisited; the lower row is re-r
 
 **3.3 Lag classes and horizon.** Horizon = the 95th percentile of inter-event gaps within an entity stream. Lag classes = terciles of the within-horizon gap distribution, labelled s/m/l. Both are computed on the proposal split only.
 
-**3.4 Period.** Autocorrelation of the entity-level event rate binned at 0.1% of the dataset span; the period is the first local maximum above 0.2 with lag shorter than a quarter of the span, refined to the peak centre by parabolic interpolation, else `none`. Recorded; used only by the cycle null. *(v1.0 amended from 1%: on 60 days a 14-hour bin cannot see a daily cycle and returned 6 days.)*
+**3.4 Period.** Autocorrelation of the entity-level event rate binned at 0.1% of the proposal span. A qualifying peak is a local maximum above 0.2, at a lag shorter than an eighth of the span (at least eight repetitions), rising at least 0.1 above the autocorrelation minimum before it (a cycle has a trough before its peak), refined to the peak centre by parabolic interpolation. The period is the fundamental: the shortest qualifying peak within 80% of the strongest; `none` if no peak qualifies. Recorded; used only by the cycle null. *(v1.0 amended: 1% bins could not see a daily cycle; "first peak" picked a 5-hour component on building A over the daily cycle, and the dominant peak there is the weekly one; on Tennessee Eastman, which has no cycle, a decaying autocorrelation gave a 9.4-hour bump without the prominence test and a 10.7-day hump with only four repetitions required.)*
 
 **3.5 Signal floor.** Before mining, the median planted-support equivalent: for each of 50 random (context, target) pairs with any proposal count, the support needed to exceed the maximum of its per-type circular-shift null over 19 draws. Reported on the card as a description of the dataset's noise level. It is NOT an admission threshold: admission is decided per pair by that pair's own nulls (3.8). *(v1.0 amended: applied as an absolute minimum count it discarded planted mechanisms whose true support was below the median noise support.)*
 
@@ -142,7 +142,7 @@ These are the only free numbers in the method. Each was set by the experiments r
 | Confirmation minimum count | 3 | Experiment A |
 | Debounce | 3 samples | building symbolization |
 | Lag classes | terciles of within-horizon gaps; horizon = 95th percentile gap | Experiment G (coarse bins beat fine ones) |
-| Period detection | first autocorrelation peak > 0.2 below a quarter of the span, 0.1% bins | buildings (1% bins missed the daily cycle); to be checked on dataset 3 |
+| Period detection | acf peak > 0.2, prominence ≥ 0.1, ≥ 8 repetitions, fundamental within 80% of the strongest; 0.1% bins | buildings (daily 1436 min recovered; weekly rejected as harmonic), Tennessee Eastman (none) |
 | Faithfulness floor | reconstruction residual MAD ≤ 0.5 of the variable's MAD (std on the buildings; identical on Gaussian and AR(1) cores, 0.36 for q20/50/80) | building A symbolization; made robust on Tennessee Eastman |
 | Noise floor | residual white noise ≤ 5% of signal variance after denoising; no signal if the window exceeds 1% of the length | Tennessee Eastman |
 | Triviality pairs | alternation ≥ 0.9 over ≥ 20 transitions | buildings A and B′ |

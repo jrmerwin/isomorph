@@ -122,3 +122,10 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   zones share a scale, so this never showed; building_a_auto regenerated (type names change).
 - Choice stage checkpoints after every role decision and resumes; ingest_tep.py is resumable. The first full
   TEP choice run was lost to a 2-hour job limit mid pass 1 (its log is kept in datasets/tennessee_eastman/out/).
+- Period rule (3.4) corrected on Tennessee Eastman, which has no cycle: the estimator returned 9.4 h (a 0.49-vs-0.47
+  bump on a slowly decaying acf) and, with a prominence test, a 10.7-day hump of acf 0.22 seen 5.5 times. Now a
+  qualifying peak needs prominence >= 0.1 above the preceding acf minimum and at least 8 repetitions in the span
+  (was 4), and the period is the fundamental (shortest qualifying peak within 80% of the strongest) rather than
+  the first peak — on building A the first peak is a 5-hour component (0.33) and the strongest is the weekly cycle
+  (0.48), neither the one the cycle null must respect. Buildings: 1436-1438 min from the data (sidecars declare
+  1440, which the pipeline uses); TEP: none. The first TEP pipeline run was restarted under this rule.
