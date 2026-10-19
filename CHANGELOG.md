@@ -167,3 +167,7 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   position, co-stepping setpoints): it carries the plant's deterministic couplings, so the library adds nothing
   beyond them. Admitted provisionally (15.3 days, no period). Open item: whether 3.11 should absorb cross-variable
   couplings — to settle before dataset 5.
+- Pipeline state cached (out/state_<profile>_<seed>.pkl, not committed, keyed by method version); `isomorph transfer`
+  loads it and takes --direction ab|ba|both, so each cell runs as its own job. The first TEP<->HAI transfer job
+  re-ran both pipelines and spent over an hour on the TEP->HAI learning curve (168 receiver classes) before the
+  2-hour job limit; nothing was recorded.

@@ -11,3 +11,4 @@ datasets/*/raw/*.csv
 datasets/*/out/choice_checkpoint.json
 datasets/*/raw/*.csv.gz
 datasets/*/raw/*.pdf
+datasets/*/out/state_*.pkl

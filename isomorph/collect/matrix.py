@@ -13,7 +13,7 @@ version, so the matrix is regenerated per version and never mixes versions.
 import json, os, time
 import numpy as np
 from .. import constants as K
-from ..pipeline import run
+from ..pipeline import run, load_state
 from ..score.model import FeatureMap, Model
 from ..transfer.align import align_datasets
 from ..transfer.apply import transfer, mapping_accuracy, own_contexts
@@ -38,23 +38,34 @@ def _cell(src, dst, profile, rng, key_dst=None, log=print):
     return out
 
 
-def transfer_pair(dirA, dirB, profile="v1", seed=0, log=print):
+def _get(d, profile, seed, log):
+    c = load_state(d, profile, seed)
+    if c is not None:
+        log(f"[{os.path.basename(os.path.normpath(d))}] pipeline state loaded from cache (method v{K.METHOD_VERSION}, {profile}, seed {seed})")
+        return c
+    return run(d, profile, seed, log)
+
+
+def transfer_pair(dirA, dirB, profile="v1", seed=0, log=print, direction="both"):
+    """direction: 'both', 'ab' (A -> B only) or 'ba'. One-direction runs merge into the same matrix record."""
     t0 = time.time()
     nameA, nameB = os.path.basename(os.path.normpath(dirA)), os.path.basename(os.path.normpath(dirB))
-    cardA, A = run(dirA, profile, seed, log)
-    cardB, B = run(dirB, profile, seed, log)
+    cardA, A = _get(dirA, profile, seed, log)
+    cardB, B = _get(dirB, profile, seed, log)
     keyA = json.load(open(os.path.join(dirA, "answer_key.json"))) if os.path.exists(os.path.join(dirA, "answer_key.json")) else None
     keyB = json.load(open(os.path.join(dirB, "answer_key.json"))) if os.path.exists(os.path.join(dirB, "answer_key.json")) else None
-    rng = np.random.default_rng(seed)
-    log(f"[transfer {nameA} -> {nameB}]"); ab = _cell(A, B, profile, rng, keyB, log)
-    log(f"[transfer {nameB} -> {nameA}]"); ba = _cell(B, A, profile, rng, keyA, log)
-    rec = dict(method_version=K.METHOD_VERSION, profile=profile, seed=seed, A=nameA, B=nameB,
-               headline=dict(A=cardA["headline_bits"]["logistic library"], B=cardB["headline_bits"]["logistic library"]),
-               triviality=dict(A=cardA["headline_bits"]["logistic triviality library"], B=cardB["headline_bits"]["logistic triviality library"]),
-               A_to_B=ab, B_to_A=ba, elapsed_s=round(time.time() - t0, 1))
     os.makedirs(os.path.dirname(MATRIX), exist_ok=True)
     M = json.load(open(MATRIX)) if os.path.exists(MATRIX) else {}
-    M.setdefault(f"v{K.METHOD_VERSION}", {})[f"{nameA}|{nameB}|{profile}|{seed}"] = rec
+    key = f"{nameA}|{nameB}|{profile}|{seed}"
+    rec = M.get(f"v{K.METHOD_VERSION}", {}).get(key) or dict(method_version=K.METHOD_VERSION, profile=profile, seed=seed, A=nameA, B=nameB)
+    rec.update(headline=dict(A=cardA["headline_bits"]["logistic library"], B=cardB["headline_bits"]["logistic library"]),
+               triviality=dict(A=cardA["headline_bits"]["logistic triviality library"], B=cardB["headline_bits"]["logistic triviality library"]))
+    if direction in ("both", "ab"):
+        rng = np.random.default_rng(seed); log(f"[transfer {nameA} -> {nameB}]"); rec["A_to_B"] = _cell(A, B, profile, rng, keyB, log)
+    if direction in ("both", "ba"):
+        rng = np.random.default_rng(seed); log(f"[transfer {nameB} -> {nameA}]"); rec["B_to_A"] = _cell(B, A, profile, rng, keyA, log)
+    rec["elapsed_s"] = round(time.time() - t0, 1)
+    M.setdefault(f"v{K.METHOD_VERSION}", {})[key] = rec
     json.dump(M, open(MATRIX, "w"), indent=1, default=str)
     return rec
 
@@ -68,6 +79,7 @@ def cell_markdown(rec):
              f"Own libraries: {rec['A']} {rec['headline']['A']['all']:.3f} bits (triviality {rec['triviality']['A']['all']:.3f}); "
              f"{rec['B']} {rec['headline']['B']['all']:.3f} bits (triviality {rec['triviality']['B']['all']:.3f})", "",
              "| direction | zero-shot bits (all) | zero-shot (shared types) | cell (bit-days) | receiver types mapped | mapping accuracy |",
-             "| --- | --- | --- | --- | --- | --- |",
-             row(f"{rec['A']} → {rec['B']}", rec["A_to_B"]), row(f"{rec['B']} → {rec['A']}", rec["B_to_A"])]
+             "| --- | --- | --- | --- | --- | --- |"]
+    if "A_to_B" in rec: lines.append(row(f"{rec['A']} → {rec['B']}", rec["A_to_B"]))
+    if "B_to_A" in rec: lines.append(row(f"{rec['B']} → {rec['A']}", rec["B_to_A"]))
     return "\n".join(lines) + "\n"

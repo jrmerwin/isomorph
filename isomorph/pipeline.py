@@ -148,8 +148,25 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     os.makedirs(os.path.join(dataset_dir, "out"), exist_ok=True)
     json.dump(library_to_json(frags, comps), open(os.path.join(dataset_dir, "out", f"library_{profile}.json"), "w"), indent=1)
     json.dump(card, open(os.path.join(dataset_dir, "out", f"benchmark_{profile}.json"), "w"), indent=1)
-    return card, dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, vocab=vocab, all_types=all_types, lags=lags,
-                      rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, gap_mode=gap_mode)
+    state = dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, vocab=vocab, all_types=all_types, lags=lags,
+                 rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, gap_mode=gap_mode)
+    try:   # state cache for the collection step (not committed; keyed by version/profile/seed in the card)
+        import pickle
+        with open(os.path.join(dataset_dir, "out", f"state_{profile}_{seed}.pkl"), "wb") as fh:
+            pickle.dump(dict(method_version=K.METHOD_VERSION, profile=profile, seed=seed, state=state), fh, protocol=5)
+    except Exception as e:
+        log(f"[{name}] state cache not written: {e}")
+    return card, state
+
+
+def load_state(dataset_dir, profile="v1", seed=0):
+    """Cached (card, state) from the last run() with this version/profile/seed, else None."""
+    import pickle
+    pk = os.path.join(dataset_dir, "out", f"state_{profile}_{seed}.pkl"); bj = os.path.join(dataset_dir, "out", f"benchmark_{profile}.json")
+    if not (os.path.exists(pk) and os.path.exists(bj)): return None
+    rec = pickle.load(open(pk, "rb")); card = json.load(open(bj))
+    if rec.get("method_version") != K.METHOD_VERSION or card.get("method_version") != K.METHOD_VERSION or card.get("seed") != seed: return None
+    return card, rec["state"]
 
 
 def card_markdown(card):
