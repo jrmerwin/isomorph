@@ -7,21 +7,17 @@
   "T_out:trough",
   "setpoint:down",
   "setpoint:up",
-  "vibration:down-0.012",
-  "vibration:down-1.069",
-  "vibration:down1.049",
-  "vibration:up-0.012",
-  "vibration:up-1.069",
-  "vibration:up1.049"
+  "vibration:peak",
+  "vibration:trough"
  ],
  "tie_rule": "canonical",
  "kind": "synthetic",
  "origin": "building_a raw frame, symbolization chosen by compression (scripts/choose_building_a.py)",
  "symbolization": {
-  "rule": "confirmation bits on other roles (METHOD 3.2, v1)",
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
   "choice": {
-   "T": "q20_50_80",
-   "CO2": "dsign",
+   "T": "dsign",
+   "CO2": "q20_50_80",
    "RH": "dsign",
    "heater": null,
    "vent": null,
@@ -29,19 +25,39 @@
    "occ": null,
    "setpoint": null,
    "T_out": "dsign",
-   "vibration": "q20_50_80"
+   "vibration": "dsign"
   },
   "thresholds": {
-   "T": [
-    16.799,
-    18.03,
-    21.356
-   ],
-   "vibration": [
-    -1.069,
-    -0.012,
-    1.049
-   ]
+   "CO2": {
+    "CO2_A": [
+     435.951,
+     523.146,
+     808.465
+    ],
+    "CO2_B": [
+     437.018,
+     532.624,
+     816.865
+    ],
+    "CO2_C": [
+     438.475,
+     513.695,
+     791.812
+    ]
+   }
+  },
+  "noise_windows": {
+   "T_A": 1,
+   "T_B": 1,
+   "T_C": 1,
+   "CO2_A": 1,
+   "CO2_B": 1,
+   "CO2_C": 1,
+   "RH_A": 1,
+   "RH_B": 1,
+   "RH_C": 1,
+   "T_out": 1,
+   "vibration": 14
   }
  }
 }
