@@ -155,3 +155,5 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   mapping accuracy 0.60 (v1 profile), zero-shot through the learned mapping 4.60 — the longer horizon gives the
   source model many more context features and wrong mappings do more damage — cell 0.20 bit-days; B'->A cell
   1.73 bit-days. `isomorph transfer A B` writes collection/matrix.json and a cell card.
+- Symbolization search: a tie between schemes keeps the current choice (HAI B4005 tied at 31.4 kb and the arbitrary
+  flip would have forced a full second pass). The checkpointed B4005 decision was set to what the rule yields.
