@@ -13,8 +13,17 @@ A *role* (T, CO2, heater, ...) is one variable that may appear in every entity; 
 chosen per role, shared across entities, so that the same mechanism gets the same symbols in
 every unit.
 
+Noise floor (added on Tennessee Eastman, changelog v1): a continuous series is first denoised by a
+centred moving average over its *noise window* w, chosen so that the white-noise fraction left after
+averaging is at most constants.NOISE_FRACTION of the signal variance: with f = 1 - acf(1) the
+white-noise fraction, w = ceil(f / (NOISE_FRACTION * (1 - f))). Clean series (acf(1) ~ 1) get w = 1
+and are unchanged; a series whose window would exceed 1% of its length carries no detectable
+signal at the sampling scale and emits no events. Every scheme and the faithfulness test operate
+on the denoised series.
+
 Schemes for continuous roles: quantile crossings q20/50/80, quantile crossings q10/90,
-sign changes of the smoothed derivative (window = 1% of the series length). All debounced
+turning points persisting over the denoised series' correlation time (the first lag at which
+its autocorrelation falls below 0.5): a peak is the maximum within +/- one correlation time. All debounced
 (constants.DEBOUNCE). Binary roles emit on/off; count roles emit +/- steps; categorical roles
 emit transitions. PELT change-points are not in v1.0 (changelog).
 
@@ -41,6 +50,25 @@ def quantile_thresholds(series_list, qs):
     return [float(np.round(np.quantile(x, q), 3)) for q in qs]
 
 
+def noise_window(x):
+    """Samples to average so that residual white noise is <= NOISE_FRACTION of the signal variance;
+    None when the series has no detectable signal at the sampling scale (window > 1% of length)."""
+    v = x[~np.isnan(x)]
+    if len(v) < 10 or v.std() == 0: return None
+    v = v - v.mean()
+    a1 = float(np.corrcoef(v[:-1], v[1:])[0, 1])
+    if a1 <= 0: return None
+    f = 1.0 - a1
+    w = int(np.ceil(f / (K.NOISE_FRACTION * (1.0 - f))))
+    if w > len(v) // 100: return None
+    return max(1, w)
+
+
+def denoise(x, w):
+    if w is None or w <= 1: return x.astype(float)
+    return pd.Series(x.astype(float)).rolling(w, center=True, min_periods=1).mean().values
+
+
 def correlation_time(x, max_lag=5000):
     """First lag at which the series' autocorrelation drops below 0.5 (its own time scale)."""
     v = x[~np.isnan(x)]; v = v - v.mean()
@@ -50,39 +78,77 @@ def correlation_time(x, max_lag=5000):
     return max_lag
 
 
+def _mad(v):
+    v = v[~np.isnan(v)]
+    return float(np.median(np.abs(v - np.median(v)))) if len(v) else np.nan
+
+
 def residual_ratio(x, scheme, thresholds=None, window=None):
-    """Reconstruction residual std / series std under a scheme: band means for quantile schemes,
-    linear interpolation between smoothed-series extrema for dsign."""
+    """Reconstruction residual / series spread under a scheme: band medians for quantile schemes, linear
+    interpolation between turning points for dsign. Spread is the median absolute deviation on both sides
+    (robust): with the standard deviation, a handful of 10-sigma fault excursions on Tennessee Eastman
+    made every scheme look unfaithful (0.9+) although the symbols described the bulk of the series
+    (changelog v1)."""
     v = x.astype(float); ok = ~np.isnan(v)
     if ok.sum() < 10 or v[ok].std() == 0: return np.inf
+    scale = _mad(v)
+    if scale == 0: return np.inf
     if scheme.startswith("q"):
         band = np.zeros(len(v), int)
         for th in thresholds: band += (v > th).astype(int)
         rec = np.full(len(v), np.nan)
         for b in np.unique(band[ok]):
-            m = ok & (band == b); rec[m] = v[m].mean()
-        return float(np.nanstd(v - rec) / v[ok].std())
+            m = ok & (band == b); rec[m] = np.median(v[m])          # band medians: robust to excursions within a band
+        return float(_mad(v - rec) / scale)
     ev = derivative_sign_events(v, window)
-    idx = np.array([i for i, _, _ in ev]); 
+    idx = np.array([i for i, _, _ in ev])
     if len(idx) < 2: return np.inf
     rec = np.interp(np.arange(len(v)), idx, v[idx])
-    return float(np.nanstd(v - rec) / v[ok].std())
+    return float(_mad(v - rec) / scale)
 
 
 def derivative_sign_events(x, window):
-    """Local extrema of the smoothed series: 'peak' / 'trough'."""
-    xs = pd.Series(x).rolling(window, center=True, min_periods=1).mean().values
-    d = np.diff(xs); ev = []
-    sign = None; i = 1
-    while i < len(d):
-        if np.isnan(d[i]) or np.isnan(d[i - 1]):
-            sign = None; i += 1; continue
-        s = 1 if d[i] > 0 else (-1 if d[i] < 0 else 0)
-        if s != 0 and sign is not None and s != sign:
-            ev.append((i, "trough" if s > 0 else "peak", float(x[i])))
-        if s != 0: sign = s
-        i += 1
-    return ev
+    """Turning points of the series that persist over `window` samples: i is a peak if x[i] is the
+    maximum over [i - window, i + window] (first index on a plateau), a trough likewise; consecutive
+    turning points of the same kind keep only the more extreme one, so the output alternates.
+    v1.0 took sign changes of the derivative of a moving average, whose derivative is the difference
+    of two samples one window apart and is as noisy as the raw series (changelog v1, Tennessee Eastman)."""
+    v = np.asarray(x, float); n = len(v)
+    if n < 3: return []
+    s = pd.Series(v)
+    w = max(1, int(window))
+    rmax = s.rolling(2 * w + 1, center=True, min_periods=1).max().values
+    rmin = s.rolling(2 * w + 1, center=True, min_periods=1).min().values
+    ok = ~np.isnan(v)
+    prev = np.r_[np.nan, v[:-1]]
+    peaks = np.flatnonzero(ok & (v == rmax) & (v != prev))
+    troughs = np.flatnonzero(ok & (v == rmin) & (v != prev))
+    cand = sorted([(i, "peak") for i in peaks] + [(i, "trough") for i in troughs])
+    out = []
+    for i, kind in cand:
+        if i == 0 or i == n - 1: continue
+        if out and out[-1][1] == kind:                   # same kind twice: keep the more extreme
+            j = out[-1][0]
+            if (kind == "peak" and v[i] > v[j]) or (kind == "trough" and v[i] < v[j]):
+                out[-1] = (i, kind, float(v[i]))
+            continue
+        out.append((i, kind, float(v[i])))
+    return out
+
+
+def denoised_holders(df, role, holders, cache):
+    """Per-column noise window and denoised series for a role; columns with no signal are left out."""
+    key = (role, "noise")
+    if key not in cache:
+        cache[key] = {col: noise_window(df[col].values.astype(float)) for _, col in holders}
+    out = []
+    for ent, col in holders:
+        w = cache[key][col]
+        if w is None: continue
+        dkey = ("denoised", col)
+        if dkey not in cache: cache[dkey] = denoise(df[col].values, w)
+        out.append((ent, col, cache[dkey]))
+    return out
 
 
 def symbolize_role(df, layout, role, scheme, thresholds_cache):
@@ -95,23 +161,28 @@ def symbolize_role(df, layout, role, scheme, thresholds_cache):
     if kind == "continuous":
         if scheme is None:
             return rows
+        memo = ("rows", role, scheme)
+        if memo in thresholds_cache:
+            return list(thresholds_cache[memo])
+        series = denoised_holders(df, role, holders, thresholds_cache)    # [(entity, col, denoised x)] — only columns with signal
         if scheme.startswith("q"):
             qs = [int(q) / 100 for q in scheme[1:].split("_")]
             key = (role, scheme)
             if key not in thresholds_cache:
-                thresholds_cache[key] = quantile_thresholds([df[c].values.astype(float) for _, c in holders], qs)
+                thresholds_cache[key] = quantile_thresholds([x for _, _, x in series], qs) if series else []
             th = thresholds_cache[key]
-            for ent, col in holders:
-                for i, e, v in crossings(df[col].values.astype(float), th, K.DEBOUNCE):
+            for ent, col, x in series:
+                for i, e, v in crossings(x, th, K.DEBOUNCE):
                     rows.append(dict(t=t[i], entity=ent, type=f"{role}:{e}", value=v))
         elif scheme == "dsign":
             key = (role, "window")
             if key not in thresholds_cache:
-                thresholds_cache[key] = max(3, int(np.median([correlation_time(df[c].values.astype(float)) for _, c in holders])))
+                thresholds_cache[key] = max(3, int(np.median([correlation_time(x) for _, _, x in series]))) if series else 3
             w = thresholds_cache[key]
-            for ent, col in holders:
-                for i, e, v in derivative_sign_events(df[col].values.astype(float), w):
+            for ent, col, x in series:
+                for i, e, v in derivative_sign_events(x, w):
                     rows.append(dict(t=t[i], entity=ent, type=f"{role}:{e}", value=v))
+        thresholds_cache[memo] = list(rows)
     elif kind == "binary":
         for ent, col in holders:
             x = df[col].values
@@ -168,45 +239,70 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
     p_hi, c_hi = lo + (hi - lo) * splits_frac[0], lo + (hi - lo) * (splits_frac[0] + splits_frac[1])
     cache = {}
     cont = [r for r, k in layout["kinds"].items() if k == "continuous"]
-    choice = {r: (SCHEMES[0] if k == "continuous" else None) for r, k in layout["kinds"].items()}
-    # order of event count under the initial choice
-    ev0 = assemble(df, layout, choice, cache)
-    counts = {r: int((ev0.type.str.split(":").str[0] == r).sum()) for r in cont}
-    order = sorted(cont, key=lambda r: -counts[r])
     trace = []
     def admissible(role, sch):
-        holders = [cols[role] for cols in layout["entities"].values() if role in cols]
-        if role in layout.get("system", {}): holders.append(layout["system"][role])
+        holders = [(e, cols[role]) for e, cols in layout["entities"].items() if role in cols]
+        if role in layout.get("system", {}): holders.append((SYSTEM, layout["system"][role]))
         cache_key = (role, sch) if sch.startswith("q") else (role, "window")
         if cache_key not in cache:
-            symbolize_role(df, layout, role, sch, cache)   # fills thresholds / window
+            symbolize_role(df, layout, role, sch, cache)   # fills noise windows, thresholds / window
+        series = denoised_holders(df, role, holders, cache)
+        if not series:
+            return False, np.inf                            # no column carries signal at the sampling scale
         if sch.startswith("q"):
-            ratios = [residual_ratio(df[c].values, sch, thresholds=cache[cache_key]) for c in holders]
+            ratios = [residual_ratio(x, sch, thresholds=cache[cache_key]) for _, _, x in series]
         else:
-            ratios = [residual_ratio(df[c].values, sch, window=cache[cache_key]) for c in holders]
+            ratios = [residual_ratio(x, sch, window=cache[cache_key]) for _, _, x in series]
         return float(np.median(ratios)) <= K.FAITHFULNESS_MAX_RESIDUAL, float(np.median(ratios))
     faith = {}
+    # start of the coordinate search: each role's coarsest faithful scheme (fewest events); a role with
+    # none is silent from the start. Starting from the finest scheme made every trial table chatter-heavy
+    # on noisy data (Tennessee Eastman, changelog v1).
+    choice = {r: None for r in layout["kinds"]}
+    counts = {}
+    for role in cont:
+        best_n = None
+        for sch in SCHEMES:
+            ok, ratio = admissible(role, sch); faith[(role, sch)] = ratio
+            if not ok: continue
+            n = len(symbolize_role(df, layout, role, sch, cache))
+            if best_n is None or n < best_n: best_n, choice[role] = n, sch
+        counts[role] = best_n or 0
+        log(f"  start {role:10s} {choice[role]} ({counts[role]} events)")
+    order = sorted(cont, key=lambda r: -counts[r])
     for p in range(passes):
         for role in order:
             scores = {}
+            adm = {}
             for sch in SCHEMES:
-                ok, ratio = admissible(role, sch); faith[(role, sch)] = ratio
-                if not ok:
+                ok, ratio = admissible(role, sch); faith[(role, sch)] = ratio; adm[sch] = ok
+            if not any(adm.values()):
+                choice[role] = None      # no admissible scheme: the role emits no events
+                if all(faith[(role, s)] == np.inf for s in SCHEMES):
+                    log(f"  pass {p} {role:10s} no detectable signal at the sampling scale (noise window > 1% of length); role emits no events")
+                else:
+                    log(f"  pass {p} {role:10s} no scheme reconstructs the series within {K.FAITHFULNESS_MAX_RESIDUAL} of its std "
+                        f"(residual ratios {', '.join(f'{s}={faith[(role, s)]:.2f}' for s in SCHEMES)}); role emits no events")
+                trace.append(dict(pass_=p, role=role, scores={}, chosen=None)); continue
+            if sum(adm.values()) == 1:   # one admissible scheme: nothing to compare
+                best = next(s for s, ok in adm.items() if ok)
+                changed = best != choice[role]; choice[role] = best
+                trace.append(dict(pass_=p, role=role, scores={best: "only admissible"}, chosen=best))
+                log(f"  pass {p} {role:10s} only {best} is faithful (" + ", ".join(f"{s}={faith[(role, s)]:.2f}" for s in SCHEMES) + f") -> {best}{' *' if changed else ''}")
+                continue
+            for sch in SCHEMES:
+                if not adm[sch]:
                     scores[sch] = np.inf; continue
                 trial = dict(choice); trial[role] = sch
                 ev = assemble(df, layout, trial, cache)
                 scores[sch] = criterion(ev, role, lo, p_hi, c_hi)
-            if all(v == np.inf for v in scores.values()):
-                choice[role] = None      # no admissible scheme: the role emits no events
-                log(f"  pass {p} {role:10s} no scheme reconstructs the series within {K.FAITHFULNESS_MAX_RESIDUAL} of its std "
-                    f"(residual ratios {', '.join(f'{s}={faith[(role, s)]:.2f}' for s in SCHEMES)}); role emits no events")
-                trace.append(dict(pass_=p, role=role, scores={}, chosen=None)); continue
             best = min(scores, key=scores.get)
             changed = best != choice[role]; choice[role] = best
             trace.append(dict(pass_=p, role=role, scores=scores, chosen=best))
             log(f"  pass {p} {role:10s} " + "  ".join((f"{s}={v/1000:.1f}kb" if v < np.inf else f"{s}=unfaithful({faith[(role, s)]:.2f})") for s, v in scores.items()) + f"  -> {best}{' *' if changed else ''}")
     thresholds = {f"{r}": cache.get((r, choice[r])) for r in cont if choice[r] and choice[r].startswith("q")}
     thresholds.update({f"{r}_window": cache.get((r, "window")) for r in cont if choice[r] == "dsign"})
+    thresholds["noise_windows"] = {col: w for r in cont for col, w in cache.get((r, "noise"), {}).items()}
     return choice, thresholds, trace
 
 
@@ -224,7 +320,8 @@ def write_chosen_dataset(df, layout, choice, outdir, sidecar_extra=None, gaps=()
     thresholds = {r: cache.get((r, choice[r])) for r in layout["kinds"] if choice.get(r) and str(choice[r]).startswith("q")}
     side = dict(time_unit="dataset time units", entity_key="auto", period="auto",
                 system_wide_types=sorted(set(ev[ev.entity == SYSTEM].type)), tie_rule="canonical", kind=kind, origin=origin,
-                symbolization=dict(rule="confirmation bits on other roles (METHOD 3.2, v1)", choice=choice, thresholds=thresholds))
+                symbolization=dict(rule="total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)", choice=choice, thresholds=thresholds,
+                                   noise_windows={col: w for r in layout["kinds"] for col, w in cache.get((r, "noise"), {}).items()}))
     if sidecar_extra: side.update(sidecar_extra)
     write_dataset(outdir, ev, observation, list(gaps), side)
     return ev

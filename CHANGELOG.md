@@ -82,3 +82,34 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   four-zone building with the dehumidifier loop carries cross-variable structure A does not). Reference
   re-recorded for both profiles; only the triviality rows changed.
 - METHOD.md amended to what is implemented (3.2, 3.4, 3.5, 3.6, 3.8, 3.9, 3.11, constants table, open items).
+- Noise floor added to symbolization (3.2), found on Tennessee Eastman: measurements carry white noise at the
+  3-min sampling scale, so quantile crossings toggled at the debounce limit (812k events a year under the
+  all-fine start) and the extrema scheme tracked every wiggle (240k events for one role); the faithfulness
+  test, measured against the raw series, demanded that the symbols reconstruct the noise and admitted only
+  the extrema scheme. Now each series is denoised by a centred moving average over w = ceil(f/(0.05(1-f)))
+  samples, f = 1 - acf(1), leaving <= 5% white noise; a series needing w > 1% of its length has no signal and
+  emits no events (the "none" option, from the data); schemes and faithfulness run on the denoised series; a
+  role with exactly one faithful scheme takes it without the criterion. Buildings: acf(1) > 0.999 on every
+  real signal, w = 1, unchanged; the vibration noise channel (acf(1) = 0.60) is denoised over 14 samples and
+  now takes dsign instead of forced q20/50/80; building_a_auto's CO2 flips to q20/50/80 (8.6 vs 8.8 kb).
+  Calibration datasets (fixed symbolization) unaffected. New constant NOISE_FRACTION = 0.05.
+- Recovery check accepts answer keys that name roles (match = "role_prefix") for datasets whose mechanisms are
+  actuator -> measurement in any direction.
+- Dataset 3 declared: Tennessee Eastman, first 120 days of the Souza et al. (2023) 1-year continuous run
+  (Ricker model), entity candidates vessel / sys, STATUS excluded from events and kept as regimes, answer key =
+  flowsheet actuator -> measurement pairs. scripts/fetch_tep.sh, scripts/tep_layout.py, scripts/ingest_tep.py.
+- Symbolization search starts from each role's coarsest faithful scheme instead of q20/50/80 everywhere: on
+  Tennessee Eastman the all-fine start made every trial table chatter-heavy (4 GB and climbing on the first
+  criterion). Building A auto re-run to confirm the same choice is reached.
+- dsign scheme re-implemented as persistent turning points (3.2): a peak is the maximum of the denoised series
+  within +/- one correlation time (trough likewise), alternation enforced. The v1.0 implementation took sign
+  changes of the derivative of a moving average, and the derivative of a moving average is the difference of
+  two samples one window apart — as noisy as the raw series — so on Tennessee Eastman it emitted an extremum
+  every ~5 samples whatever the window (reactor pressure: 11k per column in 120 days; now 2.9k, and dsign
+  is no longer trivially faithful: reactor pressure 0.51, reactor temperature 0.57). Building A auto re-run.
+- Faithfulness test made robust (3.2): residual MAD / series MAD with band-median reconstruction, floor unchanged
+  at 0.5. On Tennessee Eastman a few 10-sigma fault excursions dominated the std, so every scheme scored 0.9+
+  on reactor pressure/temperature and the method would have discarded them; band means were also pulled by
+  the excursions. On Gaussian and AR(1) series the MAD and std ratios coincide (0.36 for q20/50/80, 0.65 for
+  q10/90), so the buildings' admissibility is unchanged. Under the robust test q20/50/80 is faithful on every
+  TEP role (0.34-0.45) and turning points only where the series really swings (0.03-0.4) — elsewhere 0.9-3.

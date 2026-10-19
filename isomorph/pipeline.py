@@ -110,11 +110,13 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     recovery = "not measured"
     if key and "mechanisms" in key:
         mech = {(m["cause"], m["effect"]): set(m.get("lags", lags.labels)) for m in key["mechanisms"]}
+        # match="role_prefix": the key names roles (cause role -> effect role, any event direction); default: full types
+        name = (lambda s: s.split(":")[0]) if key.get("match") == "role_prefix" else (lambda s: s)
         found = set()
         for f in frags:
-            k_ = (f["ctx"][0], f["y"])
+            k_ = (name(f["ctx"][0]), name(f["y"]))
             if k_ in mech and f["ctx"][1] in mech[k_]: found.add(k_)
-        precision = sum(1 for f in frags if (f["ctx"][0], f["y"]) in mech) / max(1, len(frags))
+        precision = sum(1 for f in frags if (name(f["ctx"][0]), name(f["y"])) in mech) / max(1, len(frags))
         recovery = dict(recall=len(found) / max(1, len(mech)), precision=precision, n_mechanisms=len(mech), n_found=len(found))
 
     # library stats

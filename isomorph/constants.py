@@ -23,7 +23,8 @@ SUPERFAMILY_MIN_MEMBERS = 3
 PERIOD_ACF_THRESHOLD = 0.2
 HORIZON_QUANTILE = 0.95
 FLOOR_PAIRS = 50
-FAITHFULNESS_MAX_RESIDUAL = 0.5   # a symbolization must reconstruct the series to within half its std
+FAITHFULNESS_MAX_RESIDUAL = 0.5   # a symbolization must reconstruct the (denoised) series to within half its std
+NOISE_FRACTION = 0.05             # white noise left after denoising <= 5% of the signal variance (3.2 noise floor)
 CALIBRATION_TOLERANCE_BITS = 0.02
 
 PROFILES = {

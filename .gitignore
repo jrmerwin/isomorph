@@ -7,3 +7,4 @@ dist/
 .venv/
 datasets/*/raw/*.csv.gz
 datasets/*/work/
+datasets/*/raw/*.csv
