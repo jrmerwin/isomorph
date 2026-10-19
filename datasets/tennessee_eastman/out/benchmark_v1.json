@@ -1,5 +1,5 @@
 {
- "method_version": 1,
+ "method_version": 2,
  "profile": "v1",
  "seed": 0,
  "dataset": "tennessee_eastman",
@@ -346,12 +346,12 @@
   "types": 40,
   "n_entities": 3,
   "period": null,
-  "signal_floor": 66,
+  "signal_floor": 108,
   "min_count": 3,
   "lag_edges": [
-   3.0,
-   9.0,
-   21.0
+   10.883762260366268,
+   39.48542698005769,
+   143.25
   ],
   "events_dropped_for_gaps": 0,
   "test_events": 19784,
@@ -379,8 +379,8 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 3.978384329945016,
-   "non_deterministic": 3.978384329945016,
+   "all": 3.410388759921121,
+   "non_deterministic": 3.410388759921121,
    "deterministic": null
   },
   "logistic markov features": {
@@ -389,39 +389,39 @@
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 3.569361882495052,
-   "non_deterministic": 3.569361882495052,
+   "all": 3.170941163863138,
+   "non_deterministic": 3.170941163863138,
    "deterministic": null
   },
   "logistic library": {
-   "all": 3.386755187896387,
-   "non_deterministic": 3.386755187896387,
+   "all": 3.032947999370494,
+   "non_deterministic": 3.032947999370494,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 3.477161755250181,
-   "non_deterministic": 3.477161755250181,
+   "all": 3.1758265427322794,
+   "non_deterministic": 3.1758265427322794,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.18260669459866508,
-  "over_best_baseline": 0.591629142048629,
-  "best_baseline_bits": 3.978384329945016,
+  "over_triviality": 0.1379931644926442,
+  "over_best_baseline": 0.3774407605506269,
+  "best_baseline_bits": 3.410388759921121,
   "claim": "beats baselines"
  },
  "library": {
-  "fragments": 606,
-  "fragments_used": 179,
+  "fragments": 567,
+  "fragments_used": 186,
   "compositions_kept": 0,
-  "candidates": 14271,
+  "candidates": 21863,
   "nulls_run": [
    "circular",
    "rewire"
   ],
   "null_survival": {
-   "circular": 0.745674740484429,
-   "rewire": 0.24134948096885814
+   "circular": 0.6027732463295269,
+   "rewire": 0.3189233278955954
   },
   "trivial_pairs": [
    [
@@ -505,15 +505,15 @@
     "underflow_valve:upq80"
    ]
   ],
-  "chatty_share": 0.15676567656765678
+  "chatty_share": 0.10758377425044091
  },
  "recovery": {
-  "recall": 0.1,
-  "precision": 0.036303630363036306,
+  "recall": 0.2,
+  "precision": 0.047619047619047616,
   "n_mechanisms": 10,
-  "n_found": 1
+  "n_found": 2
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 387.8
+ "elapsed_s": 995.8
 }

@@ -149,3 +149,9 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   context keys; gaps dict built only where the decay baseline needs it. Needed for 1-second HAI data.
 - Dataset 4: HAI 21.03 in place of SWaT (SWaT is distributed by iTrust on request only, not reachable here;
   Jason can request it and it joins as 4b). scripts/fetch_hai.sh, hai_layout.py, ingest_hai.py.
+- Dataset 3 re-carded under v2: library 3.033 vs triviality 3.171 vs best baseline 3.410 (beats baselines);
+  unselected 3.176; 567 fragments; recovery 2/10 (underflow valve -> underflow now visible); classes s/m/l all
+  populated. Buildings under v2: A 2.167 vs 2.169 (no gain), B' 1.365 vs 1.530 (beats baselines); A->B'
+  mapping accuracy 0.60 (v1 profile), zero-shot through the learned mapping 4.60 — the longer horizon gives the
+  source model many more context features and wrong mappings do more damage — cell 0.20 bit-days; B'->A cell
+  1.73 bit-days. `isomorph transfer A B` writes collection/matrix.json and a cell card.
