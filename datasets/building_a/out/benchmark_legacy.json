@@ -1,0 +1,104 @@
+{
+ "method_version": 1,
+ "profile": "legacy",
+ "seed": 0,
+ "dataset": "building_a",
+ "identity": {
+  "kind": "synthetic",
+  "origin": "datasets/building_a/raw/simulate_building.py seed 7",
+  "time_unit": "minute",
+  "span": [
+   43.0,
+   86398.0
+  ],
+  "entity_key": "zone",
+  "entities": [
+   "A",
+   "B",
+   "C"
+  ],
+  "symbolization": "fixed thresholds matched to control bands (session default)"
+ },
+ "scale": {
+  "events": 11661,
+  "events_per_day": 194.45127670661802,
+  "types": 20,
+  "n_entities": 3,
+  "period": 1440.0,
+  "signal_floor": "not measured",
+  "lag_edges": [
+   5.0,
+   30.0,
+   90.0
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 5957,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.836077067238869,
+   "non_deterministic": 3.836077067238869,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.778936172552872,
+   "non_deterministic": 2.778936172552872,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.6005658178955,
+   "non_deterministic": 2.6005658178955,
+   "deterministic": null
+  },
+  "markov-3": "not measured",
+  "hawkes": "not measured",
+  "logistic markov features": {
+   "all": 2.318321352968337,
+   "non_deterministic": 2.318321352968337,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 1.882874125980503,
+   "non_deterministic": 1.882874125980503,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.8184135338192746,
+   "non_deterministic": 1.8184135338192746,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.7995395162105101,
+   "non_deterministic": 1.7995395162105101,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.06446059216122846,
+  "over_best_baseline": 0.49990781914906224,
+  "best_baseline_bits": 2.318321352968337,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 68,
+  "fragments_used": 39,
+  "compositions_kept": 134,
+  "candidates": 584,
+  "null_survival": {
+   "circular": 1.0,
+   "cycle": "not measured",
+   "rewire": "not measured"
+  },
+  "chatty_share": 0.1323529411764706
+ },
+ "recovery": {
+  "recall": 0.8333333333333334,
+  "precision": 0.17647058823529413,
+  "n_mechanisms": 12,
+  "n_found": 10
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 3.4
+}

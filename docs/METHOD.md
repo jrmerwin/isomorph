@@ -1,0 +1,154 @@
+# Motif Transfer Method — Specification v1
+
+Oct 18, 2026 · @Jason Merwin
+
+## Purpose and stance
+
+One ruler, applied unchanged to every dataset, so that every result is a number the data produced rather than a choice I made. The method turns an event stream into a validated motif library, scores the library against fixed baselines in bits per event, and measures how much that library helps on every other dataset already in the collection. The collection's output is a directed transfer matrix and the lineage of a shared library grown across datasets.
+
+Three commitments govern everything below.
+
+- Every parameter is either a fixed constant (section 7) or chosen by a stated rule that the data settles, usually held-out compression. There are no per-dataset decisions.
+- A claim is reported with its control and its sign, never more. Trivial structure, negative transfer and failures are results of the same standing as gains.
+- The pipeline is deterministic end to end given a seed. The one human act is choosing which dataset to feed it.
+
+What this is not: a search for universals. Universals, if any exist, must survive the triviality baseline (3.11) and the negative controls (section 6); until then the object of study is the matrix.
+
+## Canonical data format
+
+Every dataset is converted to one event table and one sidecar before anything runs; nothing downstream ever reads the raw source.
+
+| File | Columns | Rule |
+| --- | --- | --- |
+| `events.csv` | `event_id` (unique, stable across re-runs), `t` (float, dataset time unit), `entity` (string, or `ALL` for system-wide events), `type` (string, opaque), `value` (float, optional), `tie_rank` (integer, see ties) | One row per event, sorted by `t` then `tie_rank`; types are opaque labels and carry no meaning the pipeline may use |
+| `observation.csv` | `entity`, `start`, `end` | The intervals during which each entity was actually observed; absence of events outside them is unknown, not zero |
+| `gaps.csv` | `entity`, `start`, `end`, `reason` (optional) | Missing-data intervals inside an observation interval (sensor dropouts, outages); an observed entity with no gaps still has a row-less file |
+| `raw/` | the original series or log, untouched | Kept for the symbolization step only (3.2); never read after it |
+| `sidecar.json` | `time_unit`, `entity_key` (name of the column that was chosen as entity, or `auto`), `period` (`auto` or a number), `system_wide_types` (list), `tie_rule` (`source` or `canonical`), `answer_key` (optional) | Declares what is known; `auto` means the rule decides |
+| `answer_key.json` (optional) | ground-truth mechanisms as a list of (cause type, effect type, lag range) and, for a dataset pair, the role mapping between their types | Used only for scoring recovery; never visible to the pipeline |
+
+Two conventions keep datasets comparable.
+
+- Time is continuous in the dataset's own unit; the pipeline never resamples. Lag classes (3.3) are defined in quantiles of that dataset's inter-event gaps, so they mean the same thing in seconds or in days.
+- A dataset with no natural entity gets a single entity named `sys`; system-wide events bind to every entity as context and are never prediction targets.
+
+Four rules make the contract explicit about what event data usually leaves implicit.
+
+- Ties. Events with equal `t` are ordered by `tie_rank`: the source order when the source has one (`tie_rule: source`), otherwise entity then type, lexicographic (`canonical`). Tied events are never each other's predecessor: a context requires a strictly positive gap, so simultaneous events are contemporaneous, not causal.
+- Identity. `event_id` is unique within the dataset and stable across re-runs; every fragment instance, null draw and recovered mechanism is recorded by `event_id`, so a result can be traced to the rows that produced it.
+- Observation. Counts, lifts, horizons and null shifts are computed only inside an entity's observation intervals; a null shift that would move an event outside its interval wraps within the interval. An entity observed for less than the horizon (3.3) contributes no contexts.
+- Gaps. A context window that spans a gap is dropped, not truncated; the same holds for the Markov adjacency features. Gap time is excluded from inter-event gap statistics (3.3) and from period estimation (3.4). The card reports the share of events lost to gap handling.
+
+Outputs are canonical too: `library.json` (fragments with lag class, lift, counts, null survival, provenance), `benchmark.json` (the card in section 4) and one row and column added to `transfer_matrix.csv`.
+
+## Pipeline stage rules
+
+Thirteen stages, in order. Each names what it decides, the rule that decides it, and what it emits. Where a rule says "by compression", the measure is prequential bits per event on the dataset's own confirmation split (3.7), the same measure used for scoring.
+
+&#91;embedded content: pipeline · 10 stages, one loop\]
+
+The upper row is run once per dataset and never revisited; the lower row is re-run for the whole collection every time a dataset is added, which is what makes the matrix and the lineage grow together.
+
+**3.1 Entity.** Candidates are every categorical column of the raw data with between 2 and 1,000 distinct values, plus `sys` (no entity). For each candidate, build per-entity streams and fit the stage-9 model with Markov features only; the candidate with the lowest confirmation-split bits is the entity. Ties within 0.02 bits go to the candidate with more entities (more units, more transfer).
+
+**3.2 Symbolization.** For each continuous variable, candidate schemes are: crossings of its 20/50/80 quantiles; crossings of its 10/90 quantiles; sign changes of its smoothed derivative (smoothing window = 1% of the series length); per-variable change-points (PELT, penalty by BIC). Binary and categorical variables emit transitions. Each scheme is debounced for 3 samples. The scheme chosen per variable is the one that minimises the stage-9 confirmation bits of the whole table with Markov features only; variables are optimised one at a time in order of event count, two passes. The result is recorded in the sidecar and never revisited for that dataset.
+
+**3.3 Lag classes and horizon.** Horizon = the 95th percentile of inter-event gaps within an entity stream. Lag classes = terciles of the within-horizon gap distribution, labelled s/m/l. Both are computed on the proposal split only.
+
+**3.4 Period.** Autocorrelation of the system-wide event rate at 1% resolution of the dataset span; the period is the first peak above 0.2 with lag shorter than a quarter of the span, else `none`. Recorded; used only by the cycle null.
+
+**3.5 Signal floor.** Before mining, the median planted-support equivalent: for each of 50 random type pairs, the support that would be needed to exceed the 95th percentile of its per-type circular-shift null. Reported as the floor; fragments whose observed count is below it are never admitted regardless of lift.
+
+**3.6 Candidate contexts.** Within each entity stream, for each event, the set of (prior type, lag class) within the horizon, most recent occurrence per type; system-wide events are included in every entity's context. Candidates are all (context, next type) pairs with count at or above the floor on the proposal split.
+
+**3.7 Splits.** Chronological 50 / 25 / 25 by time, never shuffled, with three distinct roles. Proposal (first 50%): generate candidates and fit them initially; lifts, counts and null draws are computed here. Confirmation (next 25%): every selection is made here and only here, with the same prequential bits measure: the entity (3.1), the symbolization (3.2), lag classes and horizon (3.3), the retained fragments (3.8), the compositions kept (3.10), the regularisation and mixing weights (3.9, 3.12). Test (last 25%): the fully frozen result is evaluated exactly once; nothing is tuned, chosen or re-run against it, and a second look at the test split is a new version of the method (section 7). Transfer measurements use the receiving dataset's test split only.
+
+**3.8 Validation and nulls.** A candidate is retained if, on the proposal split, lift is at least 1.5 and count exceeds the maximum over 19 draws of every applicable null, and, on the confirmation split, lift is at least 1.5 with count at least 3. Nulls, all run, each reported: per-type circular shift (each type's timestamps shifted by one independent offset, modulo the span); cycle shift (offsets in whole periods when a period exists); degree-preserving rewire (when the entity count exceeds 1). A fragment records which nulls it survived.
+
+**3.9 Model and scoring.** The predictive model is a multinomial logistic regression (L2, C = 0.5) over indicator features: Markov-1 and Markov-2 adjacent contexts within the entity stream plus one feature per retained context. Score = bits per event on the test split. Baselines, always all four: unigram; interpolated-backoff Markov-1/2/3 on the entity stream; a Hawkes process fitted on the same split; the same logistic model with Markov features only. Deterministic pairs (a type followed by one other type more than 95% of the time) are reported in a separate column and excluded from the headline figure.
+
+**3.10 Library.** The retained contexts form the fragment library. Compositions (two retained contexts sharing a target, co-matched at or above the floor) are added as features only if they reduce confirmation bits. Library size is whatever the rules admit; no cap.
+
+**3.11 Triviality baseline.** A fixed generic library of symmetric pairs (any `on` followed by its `off`, any upward crossing by its downward crossing, and the reverse), fitted on each dataset with the same model. Every library score and every transfer score is reported as the gain over this baseline, not over the unigram. Structure that transfers but does not beat the triviality baseline is recorded as trivial.
+
+**3.12 Transfer.** For an ordered pair (A, B): align A's and B's lagged-pair lift matrices (three lag classes, z-scored, equal proposal-split sizes) with signature-initialised Hungarian assignment refined to a fixed point, 20 restarts, dummy nodes for the size difference. Anchors: the two B types with the largest signature margin to their second-best A match are fixed. Then A's fitted model is applied to B's test split through the mapping (zero-shot bits), and a per-fragment mixture with B's own model is fitted on B's proposal split, with mixing weights per translated fragment. Report zero-shot bits, the learning-curve shift (bits on B's test split as a function of B's training days 1, 2, 3, 5, 10, 20, all), bits on B's types with no A counterpart (negative transfer), and the mapping accuracy when an answer key exists. The pair's cell in the matrix is the area between B's own learning curve and the mixed curve, in bit-days.
+
+**3.13 Growth and provenance.** After each dataset, the shared library is regrown: every fragment carries the dataset that first validated it, every dataset it was later confirmed in through a mapping, and every dataset where it was tested and failed. A fragment confirmed in a second family is marked inherited. The similarity tree is hierarchical clustering of the symmetrised matrix; the lineage is the inheritance graph, which is the only object the word phylogeny applies to.
+
+## Benchmark card
+
+Every dataset produces one card with exactly these fields, in this order. A field that cannot be filled is reported as `not measured`, never omitted.
+
+| Field | Content | Why it is on the card |
+| --- | --- | --- |
+| Identity | name, source, span, time unit, entity chosen (3.1) and the runner-up with its bit gap, symbolization chosen per variable (3.2) | So the result can be reproduced and the two data-driven choices can be questioned |
+| Scale | events per day, event types, entities, period found (3.4), signal floor (3.5) | Tells a reader before any result whether discoveries can be trusted at all |
+| Headline bits | test-split bits per event: unigram, Markov-1/2/3, Hawkes, logistic with Markov features, logistic with library; deterministic pairs in a separate column; gain over the triviality baseline (3.11) | The only number that counts as the method's performance is the library row's gain over triviality |
+| Library | fragment count, compositions kept, fraction surviving each null, share of fragments involving the chattiest 10% of types | The last field is the chatty-sensor check from building A |
+| Recovery | when an answer key exists: fraction of known mechanisms present as validated fragments at the right lag class; fraction of validated fragments that are known mechanisms | Precision and recall against ground truth, both, never one |
+| Transfer row | for every dataset already in the collection: zero-shot bits through the learned mapping, learning-curve area in bit-days, negative-transfer bits on unshared types, mapping accuracy where a key exists | One cell per existing dataset, in both directions |
+| Lineage | fragments newly validated here; fragments inherited from earlier datasets and confirmed; fragments tested and failed | What this dataset added to, confirmed in, or removed from the shared library |
+| Seeds | the seed; for synthetic datasets, a second-seed replication of the headline | A headline that fails to replicate is reported as failed |
+
+The card is written by the pipeline, not by hand. Prose about a dataset goes after its card and may interpret but not restate it.
+
+## Claim rules
+
+A result is one of the following claims or it is not a claim. Each has a threshold fixed here so that the finding is read off the card, not argued.
+
+| Claim | Condition | Reported as |
+| --- | --- | --- |
+| The method beats standard models on this dataset | library bits are at least 0.10 below the best baseline on the non-deterministic events, and the gain over the triviality baseline is at least 0.10 | "beats baselines by X bits" with the best baseline named |
+| The method adds nothing here | the above fails | "no gain"; the dataset stays in the collection as a negative result |
+| A mechanism is recovered | a validated fragment matches an answer-key mechanism in type and lag class | counted in the recovery field; individual fragments are never cited as findings outside that count |
+| A fragment is trivial | it is in the triviality baseline, or transfers to every dataset with the same lift within 20% | labelled trivial; excluded from superfamily and universality statements |
+| A transfers to B | zero-shot bits through the learned mapping are below B's unigram, and the learning-curve area is positive | one matrix cell; direction stated |
+| A damages B | the mixed curve is above B's own curve at any training size on B's unshared types | reported with the same standing as a gain |
+| A superfamily exists | hierarchical clustering of the symmetrised matrix yields a cluster whose within-cluster mean transfer is at least twice the between-cluster mean, with at least three members | named only by its members, never by a hypothesised common mechanism, until 5.9 |
+| A fragment is inherited | validated in dataset A, confirmed in dataset B through the learned mapping with lift at least 1.5, where B is not in A's superfamily | the only basis for a cross-family statement |
+| A motif has a function | the same shape (type-free pattern plus lag classes) is inherited across at least two superfamilies and beats triviality in each | the strongest claim the framework can make; stated with the shapes and the datasets, nothing more |
+
+Two prohibitions. A statement about reality, systems in general, or universality is never made from fewer than three superfamilies. And a single dataset's result is never generalised beyond that dataset in any document produced by this method.
+
+## Dataset admission and running order
+
+A dataset is admitted when it has at least 20 days (or 20 natural periods) of events, at least 10 event types after symbolization, and a documented origin. Ground truth is welcome but not required; a dataset with an answer key fills the recovery field, one without leaves it `not measured`. Synthetic datasets are admitted only with their generator and are flagged as synthetic in every matrix view.
+
+The first collection, in running order, with the role each plays:
+
+| Order | Dataset | Kind | Role |
+| --- | --- | --- | --- |
+| 1 | Building A (this project) | synthetic, answer key | calibration: the card must reproduce the recorded result |
+| 2 | Building B' (this project) | synthetic, answer key, role mapping to A | calibration of the transfer cell against the recorded zero-shot and curve |
+| 3 | Tennessee Eastman process | semi-natural, flowsheet as answer key, labelled faults | first real regulator; recovery and regime fields |
+| 4 | SWaT water-treatment testbed | real testbed, attacks as regime changes | second regulator; the first real transfer cell (3 ↔ 4) |
+| 5 | A real building management log | real, no key | third regulator; first key-free card |
+| 6 | Server or cluster telemetry (e.g. a public cluster trace) | real, no key | negative control: should not join the regulator superfamily |
+| 7 | Clickstream or transaction log | real, no key | second negative control, different kind again |
+| 8 | A biological regulation event series | real or simulated, partial key | the first test of transfer across a kind boundary |
+
+The negative controls are not optional. A collection in which everything transfers to everything has failed the triviality baseline or the symbolization step, and the next action is to fix the instrument, not to report a universal.
+
+Datasets 1 and 2 are run first on every change to the pipeline (section 7); their cards must match the recorded results within 0.02 bits before any other dataset is run.
+
+## Fixed constants and change control
+
+These are the only free numbers in the method. Each was set by the experiments recorded in RESULTS.md (A through H and the building tests); none is tuned per dataset.
+
+| Constant | Value | Set by |
+| --- | --- | --- |
+| Lift threshold | 1.5 (proposal and confirmation) | building library runs |
+| Null draws | 19 per null (p < 0.05 when the observed count exceeds all) | Experiments F, building runs |
+| Confirmation minimum count | 3 | Experiment A |
+| Debounce | 3 samples | building symbolization |
+| Lag classes | terciles of within-horizon gaps; horizon = 95th percentile gap | Experiment G (coarse bins beat fine ones) |
+| Period detection | first autocorrelation peak > 0.2 below a quarter of the span | new; to be checked on dataset 3 |
+| Logistic regularisation | L2, C = 0.5 | building runs |
+| Splits | 50 / 25 / 25 by time | building runs (30 / 30 there; 50 / 25 / 25 generalises the confirmation idea) |
+| Alignment | 20 restarts, 30 refinement iterations, 2 anchors by signature margin | Experiments B, G3, second-building test |
+| Learning-curve points | 1, 2, 3, 5, 10, 20, all training days | second-building test |
+| Claim thresholds | 0.10 bits; superfamily ratio 2; minimum members 3 | section 5 |
+
+Change control is deliberately light. A change to any rule or constant gets one line in a changelog with the date and the reason; datasets 1 and 2 are re-run and must reproduce their recorded cards within 0.02 bits; every card already in the collection is then regenerated under the new version, so the matrix is never a mixture of methods. Version numbers are integers; a card states the version it was produced under. No other process, review or sign-off is required.
+
+Open items the method does not yet settle, listed so they are not mistaken for rules: online refitting during the test split (regime adaptation on real data); per-fragment transfer weights are specified (3.12) but were only run with a global weight on the second building; the period rule and the entity rule have not yet met a real dataset.

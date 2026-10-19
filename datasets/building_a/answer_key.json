@@ -1,0 +1,97 @@
+{
+ "mechanisms": [
+  {
+   "cause": "setpoint:up",
+   "effect": "heater:on",
+   "lags": [
+    "s"
+   ]
+  },
+  {
+   "cause": "heater:on",
+   "effect": "T:up20",
+   "lags": [
+    "s",
+    "m"
+   ]
+  },
+  {
+   "cause": "heater:on",
+   "effect": "heater:off",
+   "lags": [
+    "m",
+    "l"
+   ]
+  },
+  {
+   "cause": "occ:arrive",
+   "effect": "CO2:up900",
+   "lags": [
+    "s",
+    "m"
+   ]
+  },
+  {
+   "cause": "CO2:up900",
+   "effect": "vent:on",
+   "lags": [
+    "s"
+   ]
+  },
+  {
+   "cause": "vent:on",
+   "effect": "CO2:down900",
+   "lags": [
+    "s",
+    "m"
+   ]
+  },
+  {
+   "cause": "CO2:down700",
+   "effect": "vent:off",
+   "lags": [
+    "s"
+   ]
+  },
+  {
+   "cause": "occ:leave",
+   "effect": "vent:off",
+   "lags": [
+    "s",
+    "m"
+   ]
+  },
+  {
+   "cause": "vent:on",
+   "effect": "T:down20",
+   "lags": [
+    "m",
+    "l"
+   ]
+  },
+  {
+   "cause": "window:on",
+   "effect": "heater:on",
+   "lags": [
+    "m",
+    "l"
+   ]
+  },
+  {
+   "cause": "window:on",
+   "effect": "CO2:down700",
+   "lags": [
+    "s",
+    "m"
+   ]
+  },
+  {
+   "cause": "setpoint:down",
+   "effect": "T:down20",
+   "lags": [
+    "m",
+    "l"
+   ]
+  }
+ ]
+}

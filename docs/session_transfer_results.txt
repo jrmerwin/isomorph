@@ -1,0 +1,95 @@
+A: 30 types, 73 validated fragments;  B': 32 types, 201 validated fragments  (7s)
+
+== Library-graph alignment A <-> B' (no shared names) ==
+scorable B' types (with an A counterpart): 30; chance = 0.033
+  structure only                       accuracy 0.00   dehum tokens mapped to 'no counterpart': 0.00
+  structure + frequency                accuracy 0.03   dehum tokens mapped to 'no counterpart': 0.00
+     errors (B' scrambled -> mapped A, true A role):
+       x00   -> RH:down70        (true T:up20)
+       x01   -> RH:up50          (true vibration:down2)
+       x03   -> vibration:down-2 (true setpoint:down)
+       x04   -> RH:up70          (true T:down20)
+       x05   -> CO2:up700        (true CO2:down900)
+       x06   -> T_out:up10       (true vibration:down-2)
+       x07   -> T_out:down10     (true vibration:up2)
+       x09   -> -                (true RH:up50)
+       x10   -> T_out:up20       (true vibration:up-2)
+       x11   -> vibration:up-2   (true occ:leave)
+       x12   -> vibration:down2  (true heater:on)
+       x13   -> T:down20         (true window:off)
+  structure + 2 anchors                accuracy 0.23   dehum tokens mapped to 'no counterpart': 0.00
+  structure + frequency + 2 anchors    accuracy 0.23   dehum tokens mapped to 'no counterpart': 0.00
+
+translated contexts: learned 39, true 39, random 39
+
+== Learning curves on B': bits per event on days 30-59 (all events | events with an A counterpart | dehumidifier-loop events) ==
+ k days                    markov                       own                  transfer                 transfer*                    random              own+transfer
+      1    2.885 |  2.747 |  4.922    2.645 |  2.520 |  4.480    2.607 |  2.506 |  4.098    2.591 |  2.444 |  4.760    2.622 |  2.497 |  4.464    2.594 |  2.482 |  4.252
+   k=1 done (15s)
+      2    2.775 |  2.623 |  5.013    2.311 |  2.196 |  4.006    2.384 |  2.271 |  4.046    2.385 |  2.225 |  4.746    2.400 |  2.268 |  4.345    2.270 |  2.168 |  3.783
+   k=2 done (20s)
+      3    2.770 |  2.590 |  5.426    2.276 |  2.145 |  4.202    2.363 |  2.233 |  4.294    2.367 |  2.188 |  5.012    2.379 |  2.231 |  4.561    2.235 |  2.117 |  3.977
+   k=3 done (25s)
+      5    2.650 |  2.527 |  4.457    2.114 |  2.042 |  3.176    2.268 |  2.179 |  3.582    2.264 |  2.143 |  4.044    2.266 |  2.176 |  3.586    2.113 |  2.041 |  3.175
+   k=5 done (31s)
+     10    2.423 |  2.355 |  3.426    1.850 |  1.803 |  2.538    2.058 |  2.006 |  2.817    2.010 |  1.933 |  3.139    2.041 |  1.986 |  2.838    1.850 |  1.803 |  2.538
+   k=10 done (39s)
+     20    2.365 |  2.300 |  3.327    1.810 |  1.766 |  2.452    2.010 |  1.959 |  2.757    1.977 |  1.905 |  3.043    2.003 |  1.954 |  2.726    1.810 |  1.766 |  2.452
+   k=20 done (48s)
+     30    2.220 |  2.197 |  2.560    1.564 |  1.550 |  1.761    1.845 |  1.826 |  2.126    1.773 |  1.743 |  2.204    1.789 |  1.777 |  1.971    1.564 |  1.550 |  1.761
+   k=30 done (60s)
+
+== Weight transfer: A's fitted model applied to B' through a mapping ==
+(all | with A counterpart | dehumidifier-loop)
+  zero-shot, true   mapping, k = 0 B' days:   3.126 | 2.661 | 9.983
+  zero-shot, random mapping, k = 0 B' days:   7.146 | 7.000 | 9.298
+
+  mixture lambda*P_A(true mapping) + (1-lambda)*P_own, lambda chosen on B' training days
+ k days                    own                mixture  lambda
+      1    2.754| 2.637| 4.482    2.500| 2.301| 5.430    0.50
+      2    2.313| 2.198| 4.008    2.451| 2.220| 5.856    0.75
+      3    2.277| 2.146| 4.203    2.268| 2.073| 5.134    0.50
+      5    2.115| 2.043| 3.178    2.052| 1.949| 3.573    0.25
+     10    1.851| 1.804| 2.539    1.861| 1.788| 2.940    0.25
+     20    1.811| 1.768| 2.453    1.780| 1.725| 2.597    0.10
+     30    1.565| 1.552| 1.762    1.565| 1.552| 1.762    0.00
+alignment on full lagged-pair lift matrices (count>=3), equal data on both sides, z-scored
+  no anchors   accuracy 0.42 (3 restart seeds: [np.float64(0.07), np.float64(0.6), np.float64(0.6)])  [chance 0.03; anchors count as correct]
+  2 anchors    accuracy 0.61 (3 restart seeds: [np.float64(0.57), np.float64(0.57), np.float64(0.7)])  [chance 0.03; anchors count as correct]
+  4 anchors    accuracy 0.63 (3 restart seeds: [np.float64(0.63), np.float64(0.63), np.float64(0.63)])  [chance 0.03; anchors count as correct]
+  8 anchors    accuracy 0.63 (3 restart seeds: [np.float64(0.63), np.float64(0.63), np.float64(0.63)])  [chance 0.03; anchors count as correct]
+learned mapping (2 anchors): B' true name -> mapped A token   [ok?]
+  T:up21           -> T:up20            ok
+  vibration:down2  -> vibration:up-2    X
+  dehum:off        -> None              ok
+  setpoint:down    -> setpoint:down     ok
+  T:down21         -> T:down20          ok
+  CO2:down1000     -> CO2:down900       ok
+  vibration:down-2 -> vibration:down-2  ok
+  vibration:up2    -> vibration:down2   X
+  T_out:down22     -> T_out:up20        X
+  RH:up55          -> T_out:down10      X
+  vibration:up-2   -> None              X
+  occ:leave        -> occ:leave         ok
+  heater:on        -> heater:on         ok
+  window:off       -> window:off        ok
+  heater:off       -> heater:off        ok
+  CO2:down800      -> CO2:down700       ok
+  T_out:down12     -> vibration:up2     X
+  CO2:up1000       -> CO2:up900         ok
+  RH:down55        -> RH:down50         ok
+  vent:off         -> vent:off          ok
+  setpoint:up      -> setpoint:up       ok
+  T_out:up22       -> T:up23            X
+  CO2:up800        -> CO2:up700         ok
+  T:up24           -> RH:up50           X
+  dehum:on         -> RH:up70           --
+  window:on        -> window:on         ok
+  RH:down65        -> RH:down70         ok
+  vent:on          -> vent:on           ok
+  RH:up65          -> T_out:down20      X
+  occ:arrive       -> occ:arrive        ok
+  T:down24         -> T:down23          ok
+  T_out:up12       -> T_out:up10        ok
+
+zero-shot bits on B' (all | with A counterpart | dehum):  learned mapping 3.297 | 2.998 | 7.711   true mapping 3.126 | 2.661 | 9.983

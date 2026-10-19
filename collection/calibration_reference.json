@@ -1,0 +1,434 @@
+{
+ "legacy": {
+  "profile": "legacy",
+  "building_a": {
+   "headline": {
+    "unigram": 3.836077067238869,
+    "markov-1": 2.778936172552872,
+    "markov-2": 2.6005658178955,
+    "markov-3": "not measured",
+    "hawkes": "not measured",
+    "logistic markov features": 2.318321352968337,
+    "logistic triviality library": 1.882874125980503,
+    "logistic library": 1.8184135338192746,
+    "logistic unselected contexts": 1.7995395162105101
+   },
+   "fragments": 68,
+   "gain": {
+    "over_triviality": 0.06446059216122846,
+    "over_best_baseline": 0.49990781914906224,
+    "best_baseline_bits": 2.318321352968337,
+    "claim": "no gain"
+   }
+  },
+  "building_b": {
+   "headline": {
+    "unigram": 3.8283784557549456,
+    "markov-1": 2.6390827457819155,
+    "markov-2": 2.33130909602327,
+    "markov-3": "not measured",
+    "hawkes": "not measured",
+    "logistic markov features": 2.220315686834228,
+    "logistic triviality library": 2.220315686834228,
+    "logistic library": 1.6375060843770939,
+    "logistic unselected contexts": 1.5638366455686874
+   },
+   "fragments": 96,
+   "gain": {
+    "over_triviality": 0.5828096024571341,
+    "over_best_baseline": 0.5828096024571341,
+    "best_baseline_bits": 2.220315686834228,
+    "claim": "beats baselines"
+   }
+  },
+  "transfer_A_to_B": {
+   "mapping_accuracy": {
+    "accuracy": 0.6,
+    "n_scorable": 30,
+    "unshared_correct": 0.5
+   },
+   "anchors": {
+    "x11": "occ:leave",
+    "x17": "CO2:down900"
+   },
+   "learned": {
+    "zero_shot": {
+     "all": 3.656545158407704,
+     "shared": 3.133928156327395,
+     "unshared": 9.965228727261398
+    },
+    "curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 2.963245096963121,
+      "mixed": 2.636560690382394,
+      "own_shared": 2.8596219480630993,
+      "mixed_shared": 2.427036810440687,
+      "own_unshared": 4.214114575407667,
+      "mixed_unshared": 5.165793098453956
+     },
+     {
+      "days": 2,
+      "lam": 0.5,
+      "own": 2.3101382105396473,
+      "mixed": 2.384213452256616,
+      "own_shared": 2.2410849400509925,
+      "mixed_shared": 2.2408054332974183,
+      "own_unshared": 3.143703194406063,
+      "mixed_unshared": 4.1153393231113276
+     },
+     {
+      "days": 3,
+      "lam": 0.25,
+      "own": 2.274909320655093,
+      "mixed": 2.248572178022372,
+      "own_shared": 2.1943271197049388,
+      "mixed_shared": 2.1325013150367083,
+      "own_unshared": 3.2476438567546015,
+      "mixed_unshared": 3.649702151263855
+     },
+     {
+      "days": 5,
+      "lam": 0.1,
+      "own": 2.1140891204222747,
+      "mixed": 2.073108964889682,
+      "own_shared": 2.071896112117809,
+      "mixed_shared": 2.015252286505356,
+      "own_unshared": 2.623414950143343,
+      "mixed_unshared": 2.7715161633136596
+     },
+     {
+      "days": 10,
+      "lam": 0.1,
+      "own": 1.8490952113639716,
+      "mixed": 1.8502055988030424,
+      "own_shared": 1.8164270064244967,
+      "mixed_shared": 1.805372287503458,
+      "own_unshared": 2.2434439732780356,
+      "mixed_unshared": 2.391403403710142
+     },
+     {
+      "days": 20,
+      "lam": 0.0,
+      "own": 1.8101302799449819,
+      "mixed": 1.8101302799449819,
+      "own_shared": 1.7740967619453014,
+      "mixed_shared": 1.7740967619453014,
+      "own_unshared": 2.2451028545602396,
+      "mixed_unshared": 2.2451028545602396
+     },
+     {
+      "days": 29,
+      "lam": 0.0,
+      "own": 1.5696783219577506,
+      "mixed": 1.5696783219577506,
+      "own_shared": 1.5399269490284064,
+      "mixed_shared": 1.5399269490284064,
+      "own_unshared": 1.928817035017354,
+      "mixed_unshared": 1.928817035017354
+     }
+    ],
+    "cell_bit_days": 0.2638753140935204,
+    "damage": true
+   },
+   "true_mapping": {
+    "zero_shot": {
+     "all": 3.0971592908279617,
+     "shared": 2.6309998483913932,
+     "unshared": 9.96866679319521
+    },
+    "curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 2.963245096963121,
+      "mixed": 2.4894095878889257,
+      "own_shared": 2.8595691488192236,
+      "mixed_shared": 2.289308444363662,
+      "own_unshared": 4.491499146183135,
+      "mixed_unshared": 5.439036654926644
+     },
+     {
+      "days": 2,
+      "lam": 0.75,
+      "own": 2.3101382105396473,
+      "mixed": 2.436436063678681,
+      "own_shared": 2.194479195258895,
+      "mixed_shared": 2.2041126061784815,
+      "own_unshared": 4.015030826388011,
+      "mixed_unshared": 5.8610419728590974
+     },
+     {
+      "days": 3,
+      "lam": 0.5,
+      "own": 2.274909320655093,
+      "mixed": 2.258917633496068,
+      "own_shared": 2.14334575441561,
+      "mixed_shared": 2.0632276030847474,
+      "own_unshared": 4.2142458440717805,
+      "mixed_unshared": 5.1435218905316615
+     },
+     {
+      "days": 5,
+      "lam": 0.25,
+      "own": 2.1140891204222747,
+      "mixed": 2.0473387493563417,
+      "own_shared": 2.042179564207641,
+      "mixed_shared": 1.9440841295151507,
+      "own_unshared": 3.1740849288049255,
+      "mixed_unshared": 3.5693821325907504
+     },
+     {
+      "days": 10,
+      "lam": 0.25,
+      "own": 1.8490952113639716,
+      "mixed": 1.85560582869289,
+      "own_shared": 1.8021885572257506,
+      "mixed_shared": 1.7819939393796616,
+      "own_unshared": 2.5405312233366164,
+      "mixed_unshared": 2.940695185749316
+     },
+     {
+      "days": 20,
+      "lam": 0.1,
+      "own": 1.8101302799449819,
+      "mixed": 1.777750074303672,
+      "own_shared": 1.7663893514650124,
+      "mixed_shared": 1.7220535309717269,
+      "own_unshared": 2.454901340763985,
+      "mixed_unshared": 2.5987550363847807
+     },
+     {
+      "days": 29,
+      "lam": 0.0,
+      "own": 1.5696783219577506,
+      "mixed": 1.5696783219577506,
+      "own_shared": 1.5555397145175907,
+      "mixed_shared": 1.5555397145175907,
+      "own_unshared": 1.7780910199614008,
+      "mixed_unshared": 1.7780910199614008
+     }
+    ],
+    "cell_bit_days": 0.6270160544929224,
+    "damage": true
+   }
+  }
+ },
+ "v1": {
+  "profile": "v1",
+  "building_a": {
+   "headline": {
+    "unigram": 4.376136766688016,
+    "markov-1": 3.2857385282207456,
+    "markov-2": 3.1848662069779685,
+    "markov-3": "not measured",
+    "hawkes": "not measured",
+    "logistic markov features": 2.6913065312639413,
+    "logistic triviality library": 2.2097949038750797,
+    "logistic library": 2.21512877879048,
+    "logistic unselected contexts": 2.130295319396428
+   },
+   "fragments": 105,
+   "gain": {
+    "over_triviality": -0.005333874915400383,
+    "over_best_baseline": 0.47617775247346117,
+    "best_baseline_bits": 2.6913065312639413,
+    "claim": "no gain"
+   }
+  },
+  "building_b": {
+   "headline": {
+    "unigram": 3.8320340715119183,
+    "markov-1": 2.550509100131101,
+    "markov-2": 2.14878435177395,
+    "markov-3": "not measured",
+    "hawkes": "not measured",
+    "logistic markov features": 2.1098300522398854,
+    "logistic triviality library": 2.1098300522398854,
+    "logistic library": 1.4347836011663646,
+    "logistic unselected contexts": 1.481685668935099
+   },
+   "fragments": 146,
+   "gain": {
+    "over_triviality": 0.6750464510735208,
+    "over_best_baseline": 0.6750464510735208,
+    "best_baseline_bits": 2.1098300522398854,
+    "claim": "beats baselines"
+   }
+  },
+  "transfer_A_to_B": {
+   "mapping_accuracy": {
+    "accuracy": 0.4,
+    "n_scorable": 30,
+    "unshared_correct": 0.0
+   },
+   "anchors": {
+    "x14": "heater:off",
+    "x05": "CO2:up700"
+   },
+   "learned": {
+    "zero_shot": {
+     "all": 3.7204941937569433,
+     "shared": 3.44280636201493,
+     "unshared": 9.969168116072183
+    },
+    "curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 3.01236267994488,
+      "mixed": 2.582154901095824,
+      "own_shared": 3.0038694720895958,
+      "mixed_shared": 2.51182911554816,
+      "own_unshared": 3.203481196407005,
+      "mixed_unshared": 4.164661773871898
+     },
+     {
+      "days": 2,
+      "lam": 0.25,
+      "own": 2.202519912256251,
+      "mixed": 2.195812832395796,
+      "own_shared": 2.19199798352336,
+      "mixed_shared": 2.1668100619547297,
+      "own_unshared": 2.4392897457531513,
+      "mixed_unshared": 2.8484480386022937
+     },
+     {
+      "days": 3,
+      "lam": 0.1,
+      "own": 2.1468514866597403,
+      "mixed": 2.114620463421769,
+      "own_shared": 2.1375831513493373,
+      "mixed_shared": 2.09724230849844,
+      "own_unshared": 2.3554123184184634,
+      "mixed_unshared": 2.505672612902505
+     },
+     {
+      "days": 5,
+      "lam": 0.1,
+      "own": 1.9893248161187151,
+      "mixed": 1.963571235461609,
+      "own_shared": 1.9921925290356086,
+      "mixed_shared": 1.9586111538421738,
+      "own_unshared": 1.9247940701797634,
+      "mixed_unshared": 2.075185534415539
+     },
+     {
+      "days": 10,
+      "lam": 0.1,
+      "own": 1.781513281817031,
+      "mixed": 1.7911965844835636,
+      "own_shared": 1.7789386713628064,
+      "mixed_shared": 1.7823802390036474,
+      "own_unshared": 1.8394484859075781,
+      "mixed_unshared": 1.9895865094034832
+     },
+     {
+      "days": 20,
+      "lam": 0.0,
+      "own": 1.7263390013037094,
+      "mixed": 1.7263390013037094,
+      "own_shared": 1.7284656466576769,
+      "mixed_shared": 1.7284656466576769,
+      "own_unshared": 1.6784841375094006,
+      "mixed_unshared": 1.6784841375094006
+     },
+     {
+      "days": 44,
+      "lam": 0.0,
+      "own": 1.488748087543639,
+      "mixed": 1.488748087543639,
+      "own_shared": 1.479831284105657,
+      "mixed_shared": 1.479831284105657,
+      "own_unshared": 1.6893985689269742,
+      "mixed_unshared": 1.6893985689269742
+     }
+    ],
+    "cell_bit_days": 0.2876702664428171,
+    "damage": true
+   },
+   "true_mapping": {
+    "zero_shot": {
+     "all": 2.9378916441329044,
+     "shared": 2.503755244463223,
+     "unshared": 9.96866679319521
+    },
+    "curve": [
+     {
+      "days": 1,
+      "lam": 0.5,
+      "own": 3.01236267994488,
+      "mixed": 2.3796275271165928,
+      "own_shared": 2.932783470658781,
+      "mixed_shared": 2.2019235140399243,
+      "own_unshared": 4.301136271508356,
+      "mixed_unshared": 5.2575178859501515
+     },
+     {
+      "days": 2,
+      "lam": 0.75,
+      "own": 2.202519912256251,
+      "mixed": 2.2889005054276206,
+      "own_shared": 2.1027090725196205,
+      "mixed_shared": 2.0796845370491077,
+      "own_unshared": 3.818941783726307,
+      "mixed_unshared": 5.677122346263464
+     },
+     {
+      "days": 3,
+      "lam": 0.5,
+      "own": 2.1468514866597403,
+      "mixed": 2.117262291776474,
+      "own_shared": 2.0327947563577173,
+      "mixed_shared": 1.9436838880407594,
+      "own_unshared": 3.993983460852431,
+      "mixed_unshared": 4.9283390140405245
+     },
+     {
+      "days": 5,
+      "lam": 0.25,
+      "own": 1.9893248161187151,
+      "mixed": 1.92451251609754,
+      "own_shared": 1.9141335122171883,
+      "mixed_shared": 1.8210279212162923,
+      "own_unshared": 3.2070369252592514,
+      "mixed_unshared": 3.600430311876569
+     },
+     {
+      "days": 10,
+      "lam": 0.1,
+      "own": 1.781513281817031,
+      "mixed": 1.7617291575789318,
+      "own_shared": 1.7337598490736779,
+      "mixed_shared": 1.7037853857768706,
+      "own_unshared": 2.5548731025319995,
+      "mixed_unshared": 2.7001200207703993
+     },
+     {
+      "days": 20,
+      "lam": 0.1,
+      "own": 1.7263390013037094,
+      "mixed": 1.6996640460310677,
+      "own_shared": 1.677972850949914,
+      "mixed_shared": 1.641093339148204,
+      "own_unshared": 2.5096216936142546,
+      "mixed_unshared": 2.6482080306597946
+     },
+     {
+      "days": 44,
+      "lam": 0.0,
+      "own": 1.488748087543639,
+      "mixed": 1.488748087543639,
+      "own_shared": 1.4847481323216298,
+      "mixed_shared": 1.4847481323216298,
+      "own_unshared": 1.5535267741353675,
+      "mixed_unshared": 1.5535267741353675
+     }
+    ],
+    "cell_bit_days": 1.10306899706244,
+    "damage": true
+   }
+  }
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "method_version": 1,
+ "profile": "legacy",
+ "seed": 0,
+ "dataset": "building_b",
+ "identity": {
+  "kind": "synthetic",
+  "origin": "datasets/building_b/raw/building_sim.py CFG_B (seed 11), names scrambled with seed 99",
+  "time_unit": "minute",
+  "span": [
+   13.0,
+   86400.0
+  ],
+  "entity_key": "zone (scrambled)",
+  "entities": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "symbolization": "fixed thresholds matched to its own control bands"
+ },
+ "scale": {
+  "events": 20878,
+  "events_per_day": 348.01903064118443,
+  "types": 22,
+  "n_entities": 4,
+  "period": 1440.0,
+  "signal_floor": "not measured",
+  "lag_edges": [
+   5.0,
+   30.0,
+   90.0
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 9712,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.8283784557549456,
+   "non_deterministic": 3.8283784557549456,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.6390827457819155,
+   "non_deterministic": 2.6390827457819155,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.33130909602327,
+   "non_deterministic": 2.33130909602327,
+   "deterministic": null
+  },
+  "markov-3": "not measured",
+  "hawkes": "not measured",
+  "logistic markov features": {
+   "all": 2.220315686834228,
+   "non_deterministic": 2.220315686834228,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 2.220315686834228,
+   "non_deterministic": 2.220315686834228,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.6375060843770939,
+   "non_deterministic": 1.6375060843770939,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.5638366455686874,
+   "non_deterministic": 1.5638366455686874,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.5828096024571341,
+  "over_best_baseline": 0.5828096024571341,
+  "best_baseline_bits": 2.220315686834228,
+  "claim": "beats baselines"
+ },
+ "library": {
+  "fragments": 96,
+  "fragments_used": 43,
+  "compositions_kept": 215,
+  "candidates": 926,
+  "null_survival": {
+   "circular": 1.0,
+   "cycle": "not measured",
+   "rewire": "not measured"
+  },
+  "chatty_share": 0.2604166666666667
+ },
+ "recovery": "not measured",
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 12.7
+}

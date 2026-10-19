@@ -1,0 +1,139 @@
+{
+ "token": {
+  "x05": {
+   "true": "CO2:down1000",
+   "A_role": "CO2:down900"
+  },
+  "x15": {
+   "true": "CO2:down800",
+   "A_role": "CO2:down700"
+  },
+  "x17": {
+   "true": "CO2:up1000",
+   "A_role": "CO2:up900"
+  },
+  "x22": {
+   "true": "CO2:up800",
+   "A_role": "CO2:up700"
+  },
+  "x18": {
+   "true": "RH:down55",
+   "A_role": "RH:down50"
+  },
+  "x26": {
+   "true": "RH:down65",
+   "A_role": "RH:down70"
+  },
+  "x09": {
+   "true": "RH:up55",
+   "A_role": "RH:up50"
+  },
+  "x28": {
+   "true": "RH:up65",
+   "A_role": "RH:up70"
+  },
+  "x04": {
+   "true": "T:down21",
+   "A_role": "T:down20"
+  },
+  "x30": {
+   "true": "T:down24",
+   "A_role": "T:down23"
+  },
+  "x00": {
+   "true": "T:up21",
+   "A_role": "T:up20"
+  },
+  "x23": {
+   "true": "T:up24",
+   "A_role": "T:up23"
+  },
+  "x16": {
+   "true": "T_out:down12",
+   "A_role": "T_out:down10"
+  },
+  "x08": {
+   "true": "T_out:down22",
+   "A_role": "T_out:down20"
+  },
+  "x31": {
+   "true": "T_out:up12",
+   "A_role": "T_out:up10"
+  },
+  "x21": {
+   "true": "T_out:up22",
+   "A_role": "T_out:up20"
+  },
+  "x02": {
+   "true": "dehum:off",
+   "A_role": null
+  },
+  "x24": {
+   "true": "dehum:on",
+   "A_role": null
+  },
+  "x14": {
+   "true": "heater:off",
+   "A_role": "heater:off"
+  },
+  "x12": {
+   "true": "heater:on",
+   "A_role": "heater:on"
+  },
+  "x29": {
+   "true": "occ:arrive",
+   "A_role": "occ:arrive"
+  },
+  "x11": {
+   "true": "occ:leave",
+   "A_role": "occ:leave"
+  },
+  "x03": {
+   "true": "setpoint:down",
+   "A_role": "setpoint:down"
+  },
+  "x20": {
+   "true": "setpoint:up",
+   "A_role": "setpoint:up"
+  },
+  "x19": {
+   "true": "vent:off",
+   "A_role": "vent:off"
+  },
+  "x27": {
+   "true": "vent:on",
+   "A_role": "vent:on"
+  },
+  "x06": {
+   "true": "vibration:down-2",
+   "A_role": "vibration:down-2"
+  },
+  "x01": {
+   "true": "vibration:down2",
+   "A_role": "vibration:down2"
+  },
+  "x10": {
+   "true": "vibration:up-2",
+   "A_role": "vibration:up-2"
+  },
+  "x07": {
+   "true": "vibration:up2",
+   "A_role": "vibration:up2"
+  },
+  "x13": {
+   "true": "window:off",
+   "A_role": "window:off"
+  },
+  "x25": {
+   "true": "window:on",
+   "A_role": "window:on"
+  }
+ },
+ "zone": {
+  "u1": "Z3",
+  "u2": "Z4",
+  "u3": "Z1",
+  "u4": "Z2"
+ },
+ "role_mapping_to": "building_a"
+}

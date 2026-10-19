@@ -1,0 +1,22 @@
+{
+ "time_unit": "minute",
+ "entity_key": "zone",
+ "period": 1440.0,
+ "system_wide_types": [
+  "setpoint:up",
+  "setpoint:down",
+  "T_out:up10",
+  "T_out:down10",
+  "T_out:up20",
+  "T_out:down20",
+  "vibration:up-2",
+  "vibration:down-2",
+  "vibration:up2",
+  "vibration:down2"
+ ],
+ "tie_rule": "canonical",
+ "kind": "synthetic",
+ "origin": "datasets/building_a/raw/simulate_building.py seed 7",
+ "symbolization": "fixed thresholds matched to control bands (session default)",
+ "generator_seed": 7
+}

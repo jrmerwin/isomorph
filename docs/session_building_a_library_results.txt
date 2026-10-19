@@ -1,0 +1,52 @@
+test = zone events on days 30-59 (5964 events); bits per event, lower is better
+model                          all  B fault  C cold  non-heater  #feat
+markov-2 (count model)       2.621    2.606   2.263       3.477      0
+markov_feats                 2.324    2.343   1.950       3.036    420
++fragments (selected)        1.845    1.961   1.478       2.458    459
++fragments (all validated)   1.845    1.961   1.478       2.458    459
++compositions                1.841    1.965   1.410       2.454    596
+unselected contexts          1.805    1.951   1.458       2.414    494
+
+selected fragments: 39 contexts (from 73 validated, 74 unselected contexts); compositions used: 162
+vibration contexts in the library: 1
+
+top validated fragments (prior event, lag) -> next event   [count, lift, confirm lift, null max]
+  (setpoint:up    m) -> T:up20            25   31.7   25.4    5
+  (setpoint:down  l) -> T:down20          22   27.9    5.0   21
+  (RH:down70      m) -> RH:up70           14   30.3   12.7    2
+  (CO2:up900      s) -> vent:on          103   16.9   12.6    4
+  (RH:up70        m) -> RH:down70         14   28.8    8.8    3
+  (CO2:down700    s) -> vent:off         103   15.0   17.2    3
+  (heater:on      s) -> T:up20            35   18.0   19.5    6
+  (vent:off       s) -> CO2:up700         39   13.5   14.9    3
+  (vent:on        s) -> CO2:down900       64   11.2    8.1    2
+  (T:down20       s) -> T:up20            31   13.3    6.8    3
+  (CO2:down700    s) -> CO2:up700         55    6.5    7.4    5
+  (CO2:up700      m) -> vent:on           83    5.1    4.3   16
+  (setpoint:up    l) -> occ:arrive        77    5.1    4.1   20
+  (heater:on      m) -> heater:off       527    3.5    3.8  136
+  (CO2:up900      m) -> CO2:down900       89    3.9    2.6   28
+  (T_out:up10     l) -> T:up20            15    6.1    8.1   11
+  (setpoint:up    s) -> heater:on         26    5.0    5.0    4
+  (CO2:up900      s) -> CO2:down900       41    4.3    5.5    5
+  (vent:off       m) -> vent:on           50    4.1    3.6   14
+  (CO2:up700      m) -> CO2:up900         88    3.5    2.9   25
+  (CO2:down700    m) -> vent:on           47    3.7    3.1   19
+  (T:up20         l) -> occ:arrive       107    2.9    2.0   54
+  (vent:off       l) -> CO2:down700       48    3.4    2.7   25
+  (occ:arrive     m) -> vent:on           43    3.4    2.2   22
+  (occ:leave      m) -> vent:off          52    3.2    2.6   18
+
+top compositions (two fragments, same target) [co-matched count]
+  (CO2:up900 s) & (CO2:up700 m) -> vent:on  [116]
+  (setpoint:up l) & (T:up20 l) -> occ:arrive  [89]
+  (vent:on s) & (CO2:up700 m) -> CO2:down900  [78]
+  (CO2:up700 m) & (vent:off m) -> CO2:up900  [74]
+  (CO2:down700 s) & (occ:leave m) -> vent:off  [73]
+  (vent:off l) & (CO2:up700 l) -> CO2:down700  [70]
+  (CO2:up700 m) & (CO2:down700 m) -> CO2:up900  [69]
+  (vent:off m) & (CO2:down700 m) -> CO2:up900  [69]
+  (CO2:up900 s) & (vent:off m) -> vent:on  [68]
+  (CO2:up700 m) & (vent:off m) -> vent:on  [68]
+  (CO2:up900 m) & (CO2:up700 m) -> CO2:down900  [66]
+  (CO2:up700 m) & (vent:off m) -> CO2:down900  [64]
