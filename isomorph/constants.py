@@ -29,8 +29,8 @@ PROFILES = {
     "v1": dict(
         splits=(0.50, 0.25, 0.25),      # proposal / confirmation / test, chronological
         lag_mode="terciles",            # lag classes from the proposal split's gap distribution
-        min_count_mode="floor",         # candidate admission by the signal floor
-        min_count=5,                    # used only until the floor is implemented for a dataset
+        min_count_mode="fixed",         # admission is per pair, by the nulls; the floor is reported, not applied (changelog v1)
+        min_count=3,
     ),
     "legacy": dict(
         splits=(20 / 60, 10 / 60, 30 / 60),

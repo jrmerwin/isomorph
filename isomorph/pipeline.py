@@ -11,6 +11,7 @@ from .canon.ingest import read_dataset, SYSTEM
 from .canon.validate import validate
 from .mine.contexts import LagClasses, streams_of, inter_event_gaps
 from .mine.library import discover, compositions, rows_for, library_to_json
+from .mine.nulls import period_estimate
 from .score.model import FeatureMap, Model, fit_bits
 from .score import baselines as B
 
@@ -43,8 +44,15 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     log(f"[{name}] profile={profile} lags={[round(e, 2) for e in lags.edges]} splits=({lo:.0f},{p_hi:.0f},{c_hi:.0f},{hi:.0f})")
 
     # discovery (3.5-3.8)
-    frags, cands, rows_prop, rows_conf = discover(streams, lags, (lo, p_hi, c_hi), rng, gaps, gap_mode,
-                                                  min_count=prof["min_count"], dataset_name=name)
+    period = side.get("period")
+    if profile == "v1" and (period in (None, "auto")):
+        period = period_estimate(events, lo, p_hi)
+    nulls = ("circular", "cycle", "rewire") if profile == "v1" else ("circular",)
+    frags, cands, rows_prop, rows_conf, dinfo = discover(streams, lags, (lo, p_hi, c_hi), rng, gaps, gap_mode,
+                                                         min_count=prof["min_count"], dataset_name=name, nulls=nulls,
+                                                         period=period if isinstance(period, (int, float)) else None,
+                                                         events=events, entities=entities, floor_mode=prof["min_count_mode"])
+    log(f"[{name}] period={period} floor={dinfo['signal_floor']} min_count={dinfo['min_count']} nulls={dinfo['nulls_run']} survival={ {k: (round(v, 2) if v is not None else None) for k, v in dinfo['null_survival'].items()} }")
     rows_train = rows_prop + rows_conf
     rows_test = rows_for(streams, lags, c_hi, hi, gaps, gap_mode)
     for r in rows_train + rows_test:
@@ -63,7 +71,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
             b = fit_bits(FeatureMap(vocab, True, [f["ctx"] for f in frags[:k]]), rows_prop, rows_conf).mean()
             if b < best - 1e-4: best_k, best = k, b
         frag_ctxs = list(dict.fromkeys(f["ctx"] for f in frags[:best_k]))
-    comps = compositions(frags, rows_train, min_count=prof["min_count"])
+    comps = compositions(frags, rows_train, min_count=dinfo["min_count"])
     comp_ctxs = [c["ctx"] for c in comps if c["ctx"][0] in frag_ctxs and c["ctx"][1] in frag_ctxs]
     if profile == "v1" and comp_ctxs:
         b_without = fit_bits(FeatureMap(vocab, True, frag_ctxs), rows_prop, rows_conf).mean()
@@ -119,14 +127,14 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
                       span=[lo, hi], entity_key=side.get("entity_key"), entities=entities,
                       symbolization=side.get("symbolization", "fixed (declared in sidecar)")),
         scale=dict(events=int(len(events)), events_per_day=float(len(events) / ((hi - lo) / 1440)), types=len(vocab),
-                   n_entities=len(entities), period=side.get("period"), signal_floor="not measured",
+                   n_entities=len(entities), period=period, signal_floor=dinfo["signal_floor"], min_count=dinfo["min_count"],
                    lag_edges=[float(e) for e in lags.edges], events_dropped_for_gaps=int(n_dropped),
                    test_events=len(rows_test), deterministic_types=sorted(det)),
         headline_bits=headline,
         gain=dict(over_triviality=gain_over_triviality, over_best_baseline=gain_over_best_baseline,
                   best_baseline_bits=best_base, claim=("beats baselines" if gain_over_triviality >= K.CLAIM_MIN_GAIN_BITS and gain_over_best_baseline >= K.CLAIM_MIN_GAIN_BITS else "no gain")),
         library=dict(fragments=len(frags), fragments_used=len(frag_ctxs), compositions_kept=len(comp_ctxs),
-                     candidates=len(cands), null_survival=dict(circular=1.0, cycle="not measured", rewire="not measured"),
+                     candidates=len(cands), nulls_run=dinfo["nulls_run"], null_survival=dinfo["null_survival"],
                      chatty_share=chatty_share),
         recovery=recovery, transfer="not measured (collection step)", lineage="not measured (collection step)",
         elapsed_s=round(time.time() - t0, 1),

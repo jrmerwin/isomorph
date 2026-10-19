@@ -24,3 +24,25 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Not yet implemented (cards say `not measured`): entity and symbolization by compression, signal floor,
   period and cycle null, rewire null, Hawkes and Markov-3 baselines, per-fragment transfer weights,
   collection matrix and lineage.
+
+### v1, stage 2 — floor, period, cycle and rewire nulls (2026-10-18)
+
+- Period estimation (3.4) from the autocorrelation of the whole-system event rate; building A: 1440 min.
+- Cycle null (3.8): whole-period offsets per type, DISTINCT across types and drawn from both
+  directions. The first version drew offsets independently and in some draws gave two types the
+  same offset, preserving their alignment; the null maximum then equalled the observed count and
+  rejected every core mechanism. Caught by the answer key (recall fell to 0.33); fixed (0.75).
+- Rewire null (entity labels permuted within type) is recorded per fragment as `binding_evidence`,
+  not used as a gate: it is blind by construction to system-wide causes (setpoint -> heater) and
+  uninformative when units run on a synchronized schedule (occupancy -> CO2 in all zones at once).
+  Gates are circular + cycle. METHOD.md 3.8 to be amended accordingly.
+- Signal floor (3.5) is reported on the card but not applied as a minimum count: as an absolute
+  number it is dominated by high-rate pairs (building A: 16) and would discard real low-rate
+  mechanisms; admission is per pair through the nulls, with the fixed minimum count 3. METHOD.md
+  3.5/3.6 to be amended.
+- Known limitation: one period only. Weekly structure survives a daily cycle null (building A:
+  "T:up20 (long) -> occ:arrive" remains, a weekday-schedule confound); nested periods need spans
+  long enough for distinct whole-week offsets.
+- Building A, v1 profile after this stage: 90 validated fragments, recovery 9/12 (misses: the two
+  rare window mechanisms and setpoint:down -> T:down20, whose lag exceeds the data-driven horizon of
+  72 min). Library 2.214 bits vs triviality 2.210: no gain over trivial structure on this building.

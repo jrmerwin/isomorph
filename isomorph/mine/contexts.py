@@ -108,6 +108,14 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
     return rows
 
 
+def pair_counts(rows):
+    cnt, base = defaultdict(lambda: defaultdict(int)), defaultdict(int)
+    for r in rows:
+        for c in r["ctx"]:
+            cnt[c][r["tok"]] += 1; base[c] += 1
+    return cnt, base
+
+
 def inter_event_gaps(streams):
     out = []
     for z, s in streams.items():

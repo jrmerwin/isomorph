@@ -11,9 +11,9 @@ Kind: synthetic · entities: A, B, C · types: 20 · events/day: 194 · lag edge
 | hawkes | not measured | | |
 | logistic markov features | 2.691 | 2.691 | None |
 | logistic triviality library | 2.210 | 2.210 | None |
-| logistic library | 2.215 | 2.215 | None |
-| logistic unselected contexts | 2.130 | 2.130 | None |
+| logistic library | 2.214 | 2.214 | None |
+| logistic unselected contexts | 2.099 | 2.099 | None |
 
-Gain over triviality: -0.005 bits · over best baseline (2.691): 0.476 bits · claim: **no gain**
-Library: 105 fragments (45 used), 291 compositions, chatty share 0.08
-Recovery: {'recall': 0.8333333333333334, 'precision': 0.13333333333333333, 'n_mechanisms': 12, 'n_found': 10}
+Gain over triviality: -0.004 bits · over best baseline (2.691): 0.478 bits · claim: **no gain**
+Library: 90 fragments (39 used), 225 compositions, chatty share 0.09
+Recovery: {'recall': 0.75, 'precision': 0.14444444444444443, 'n_mechanisms': 12, 'n_found': 9}
