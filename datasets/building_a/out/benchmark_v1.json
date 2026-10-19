@@ -25,7 +25,7 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 18,
+  "signal_floor": 17,
   "min_count": 3,
   "lag_edges": [
    5.0,
@@ -78,8 +78,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.0987825569498306,
-   "non_deterministic": 2.0987825569498306,
+   "all": 2.09878255694966,
+   "non_deterministic": 2.09878255694966,
    "deterministic": null
   }
  },
@@ -148,5 +148,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 12.7
+ "elapsed_s": 14.0
 }
