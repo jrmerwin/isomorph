@@ -78,8 +78,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.09878255694966,
-   "non_deterministic": 2.09878255694966,
+   "all": 2.098782556949699,
+   "non_deterministic": 2.098782556949699,
    "deterministic": null
   }
  },
@@ -148,5 +148,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 14.0
+ "elapsed_s": 14.1
 }

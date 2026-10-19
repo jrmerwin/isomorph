@@ -129,3 +129,8 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   the first peak — on building A the first peak is a 5-hour component (0.33) and the strongest is the weekly cycle
   (0.48), neither the one the cycle null must respect. Buildings: 1436-1438 min from the data (sidecars declare
   1440, which the pipeline uses); TEP: none. The first TEP pipeline run was restarted under this rule.
+- Dataset 3 carded (docs/CARD_tennessee_eastman_v1.md): library 3.387 vs triviality 3.569 vs best baseline
+  3.978 -> beats baselines; unselected contexts 3.477 (validation pays here); 606 fragments; cooling-water
+  mechanism recovered with the right sign; recall 1/10 against a key half of which is unrecoverable by
+  construction (system-wide effects). Open items: horizon follows event density (21 min here), lag class `s`
+  empty under 3-min sampling, keys must name target roles only, L never predicted.

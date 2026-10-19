@@ -2,4 +2,518 @@
  "method_version": 1,
  "profile": "v1",
  "seed": 0,
- "dataset": 
+ "dataset": "tennessee_eastman",
+ "identity": {
+  "kind": "simulated plant (Tennessee Eastman)",
+  "origin": "scripts/ingest_tep.py",
+  "time_unit": "minute",
+  "span": [
+   3.0,
+   172798.0
+  ],
+  "entity_key": "vessel",
+  "entities": [
+   "reactor",
+   "separator",
+   "stripper"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "AC_feed": "q20_50_80",
+    "AC_valve": "q20_50_80",
+    "A_feed": "q20_50_80",
+    "A_valve": "q20_50_80",
+    "D_feed": "dsign",
+    "D_valve": "q20_50_80",
+    "E_feed": "dsign",
+    "E_valve": "q20_50_80",
+    "L": "dsign",
+    "P": "q20_50_80",
+    "T": "q20_50_80",
+    "compressor": "q20_50_80",
+    "cw_flow": "q20_50_80",
+    "cw_out": "q20_50_80",
+    "feed": "q20_50_80",
+    "feed_A": "q20_50_80",
+    "feed_B": "q20_50_80",
+    "feed_C": "q20_50_80",
+    "feed_D": "dsign",
+    "feed_E": "q20_50_80",
+    "feed_F": "q20_50_80",
+    "prod_D": "dsign",
+    "prod_E": "q20_50_80",
+    "prod_F": "dsign",
+    "prod_G": "dsign",
+    "prod_H": "dsign",
+    "purge": "dsign",
+    "purge_A": "q20_50_80",
+    "purge_B": "q20_50_80",
+    "purge_C": "q20_50_80",
+    "purge_D": "dsign",
+    "purge_E": "q20_50_80",
+    "purge_F": "q20_50_80",
+    "purge_G": "q20_50_80",
+    "purge_H": "q20_50_80",
+    "purge_valve": "dsign",
+    "recycle": "q20_50_80",
+    "steam": null,
+    "underflow": "dsign",
+    "underflow_valve": "q20_50_80"
+   },
+   "thresholds": {
+    "AC_feed": {
+     "XMEAS(4)": [
+      9.211,
+      9.235,
+      9.258
+     ]
+    },
+    "AC_valve": {
+     "XMV(4)": [
+      60.43,
+      60.566,
+      60.703
+     ]
+    },
+    "A_feed": {
+     "XMEAS(1)": [
+      0.263,
+      0.266,
+      0.269
+     ]
+    },
+    "A_valve": {
+     "XMV(3)": [
+      25.877,
+      26.125,
+      26.387
+     ]
+    },
+    "D_valve": {
+     "XMV(1)": [
+      62.891,
+      62.922,
+      62.952
+     ]
+    },
+    "E_valve": {
+     "XMV(2)": [
+      53.166,
+      53.194,
+      53.222
+     ]
+    },
+    "P": {
+     "XMEAS(7)": [
+      2798.8,
+      2800.0,
+      2801.3
+     ],
+     "XMEAS(13)": [
+      2703.1,
+      2704.4,
+      2705.6
+     ],
+     "XMEAS(16)": [
+      3330.5,
+      3332.1,
+      3333.5
+     ]
+    },
+    "T": {
+     "XMEAS(9)": [
+      122.899,
+      122.9,
+      122.901
+     ],
+     "XMEAS(11)": [
+      91.709,
+      91.767,
+      91.826
+     ],
+     "XMEAS(18)": [
+      66.289,
+      66.344,
+      66.405
+     ]
+    },
+    "compressor": {
+     "XMEAS(20)": [
+      270.78,
+      271.06,
+      271.35
+     ]
+    },
+    "cw_flow": {
+     "XMV(10)": [
+      35.835,
+      35.896,
+      35.978
+     ],
+     "XMV(11)": [
+      12.451,
+      12.529,
+      12.635
+     ]
+    },
+    "cw_out": {
+     "XMEAS(21)": [
+      102.481,
+      102.492,
+      102.502
+     ],
+     "XMEAS(22)": [
+      91.784,
+      91.889,
+      91.989
+     ]
+    },
+    "feed": {
+     "XMEAS(6)": [
+      47.33,
+      47.392,
+      47.456
+     ]
+    },
+    "feed_A": {
+     "XMEAS(23)": [
+      31.638,
+      31.845,
+      32.079
+     ]
+    },
+    "feed_B": {
+     "XMEAS(24)": [
+      14.954,
+      15.051,
+      15.136
+     ]
+    },
+    "feed_C": {
+     "XMEAS(25)": [
+      18.558,
+      18.742,
+      18.924
+     ]
+    },
+    "feed_E": {
+     "XMEAS(27)": [
+      16.783,
+      16.934,
+      17.074
+     ]
+    },
+    "feed_F": {
+     "XMEAS(28)": [
+      4.043,
+      4.074,
+      4.101
+     ]
+    },
+    "prod_E": {
+     "XMEAS(38)": [
+      0.586,
+      0.597,
+      0.608
+     ]
+    },
+    "purge_A": {
+     "XMEAS(29)": [
+      31.949,
+      32.202,
+      32.485
+     ]
+    },
+    "purge_B": {
+     "XMEAS(30)": [
+      21.889,
+      22.01,
+      22.115
+     ]
+    },
+    "purge_C": {
+     "XMEAS(31)": [
+      12.886,
+      13.098,
+      13.313
+     ]
+    },
+    "purge_E": {
+     "XMEAS(33)": [
+      16.312,
+      16.494,
+      16.663
+     ]
+    },
+    "purge_F": {
+     "XMEAS(34)": [
+      5.396,
+      5.429,
+      5.457
+     ]
+    },
+    "purge_G": {
+     "XMEAS(35)": [
+      6.581,
+      6.616,
+      6.652
+     ]
+    },
+    "purge_H": {
+     "XMEAS(36)": [
+      3.205,
+      3.229,
+      3.255
+     ]
+    },
+    "recycle": {
+     "XMEAS(5)": [
+      32.14,
+      32.201,
+      32.261
+     ]
+    },
+    "underflow_valve": {
+     "XMV(7)": [
+      37.296,
+      37.334,
+      37.366
+     ],
+     "XMV(8)": [
+      46.433,
+      46.455,
+      46.475
+     ]
+    }
+   },
+   "noise_windows": {
+    "XMEAS(4)": 6,
+    "XMV(4)": 1,
+    "XMEAS(1)": 1,
+    "XMV(3)": 1,
+    "XMEAS(2)": 105,
+    "XMV(1)": 1,
+    "XMEAS(3)": 92,
+    "XMV(2)": 1,
+    "XMEAS(8)": 58,
+    "XMEAS(12)": 18,
+    "XMEAS(15)": 2,
+    "XMEAS(7)": 1,
+    "XMEAS(13)": 1,
+    "XMEAS(16)": 1,
+    "XMEAS(9)": 136,
+    "XMEAS(11)": 2,
+    "XMEAS(18)": 1,
+    "XMEAS(20)": 1,
+    "XMV(10)": 4,
+    "XMV(11)": 342,
+    "XMEAS(21)": 15,
+    "XMEAS(22)": 2,
+    "XMEAS(6)": 13,
+    "XMEAS(23)": 2,
+    "XMEAS(24)": 2,
+    "XMEAS(25)": 3,
+    "XMEAS(26)": 15,
+    "XMEAS(27)": 6,
+    "XMEAS(28)": 1,
+    "XMEAS(37)": 5,
+    "XMEAS(38)": 1,
+    "XMEAS(39)": 4,
+    "XMEAS(40)": 5,
+    "XMEAS(41)": 5,
+    "XMEAS(10)": 1,
+    "XMEAS(29)": 1,
+    "XMEAS(30)": 1,
+    "XMEAS(31)": 2,
+    "XMEAS(32)": 18,
+    "XMEAS(33)": 4,
+    "XMEAS(34)": 1,
+    "XMEAS(35)": 4,
+    "XMEAS(36)": 8,
+    "XMV(6)": 1,
+    "XMEAS(5)": 12,
+    "XMEAS(14)": 16,
+    "XMEAS(17)": 134,
+    "XMV(7)": 1,
+    "XMV(8)": 1
+   }
+  }
+ },
+ "scale": {
+  "events": 280002,
+  "events_per_day": 2333.417517867994,
+  "types": 40,
+  "n_entities": 3,
+  "period": null,
+  "signal_floor": 66,
+  "min_count": 3,
+  "lag_edges": [
+   3.0,
+   9.0,
+   21.0
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 19784,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 5.086848171153133,
+   "non_deterministic": 5.086848171153133,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 4.524114421608652,
+   "non_deterministic": 4.524114421608652,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 4.6056562639790375,
+   "non_deterministic": 4.6056562639790375,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 5.18804914139441,
+   "non_deterministic": 5.18804914139441,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 3.978384329945016,
+   "non_deterministic": 3.978384329945016,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 4.195840025821796,
+   "non_deterministic": 4.195840025821796,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 3.569361882495052,
+   "non_deterministic": 3.569361882495052,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 3.386755187896387,
+   "non_deterministic": 3.386755187896387,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 3.477161755250181,
+   "non_deterministic": 3.477161755250181,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.18260669459866508,
+  "over_best_baseline": 0.591629142048629,
+  "best_baseline_bits": 3.978384329945016,
+  "claim": "beats baselines"
+ },
+ "library": {
+  "fragments": 606,
+  "fragments_used": 179,
+  "compositions_kept": 0,
+  "candidates": 14271,
+  "nulls_run": [
+   "circular",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.745674740484429,
+   "rewire": 0.24134948096885814
+  },
+  "trivial_pairs": [
+   [
+    "L:peak",
+    "L:trough"
+   ],
+   [
+    "P:downq20",
+    "P:upq20"
+   ],
+   [
+    "P:downq50",
+    "P:upq50"
+   ],
+   [
+    "P:downq80",
+    "P:upq80"
+   ],
+   [
+    "T:downq20",
+    "T:upq20"
+   ],
+   [
+    "T:downq50",
+    "T:upq50"
+   ],
+   [
+    "T:downq80",
+    "T:upq80"
+   ],
+   [
+    "cw_flow:downq20",
+    "cw_flow:upq20"
+   ],
+   [
+    "cw_flow:downq50",
+    "cw_flow:upq50"
+   ],
+   [
+    "cw_flow:downq80",
+    "cw_flow:upq80"
+   ],
+   [
+    "cw_out:downq20",
+    "cw_out:upq20"
+   ],
+   [
+    "cw_out:downq50",
+    "cw_out:upq50"
+   ],
+   [
+    "cw_out:downq80",
+    "cw_out:upq80"
+   ],
+   [
+    "feed:downq20",
+    "feed:upq20"
+   ],
+   [
+    "feed:downq50",
+    "feed:upq50"
+   ],
+   [
+    "feed:downq80",
+    "feed:upq80"
+   ],
+   [
+    "underflow:peak",
+    "underflow:trough"
+   ],
+   [
+    "underflow_valve:downq20",
+    "underflow_valve:upq20"
+   ],
+   [
+    "underflow_valve:downq50",
+    "underflow_valve:upq50"
+   ],
+   [
+    "underflow_valve:downq80",
+    "underflow_valve:upq80"
+   ]
+  ],
+  "chatty_share": 0.15676567656765678
+ },
+ "recovery": {
+  "recall": 0.1,
+  "precision": 0.036303630363036306,
+  "n_mechanisms": 10,
+  "n_found": 1
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 387.8
+}
