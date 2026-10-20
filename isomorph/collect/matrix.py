@@ -34,7 +34,7 @@ def _cell(src, dst, profile, rng, key_dst=None, log=print, tags_src=None, tags_d
     else:
         mapping, anchors, obj = align_datasets(src["rows_train"], src["all_types"], dst["rows_train"], dst["all_types"], rng, tagsA=tags_src, tagsB=tags_dst)
         role_map = None
-    tr = transfer(model_src, dst, mapping, dst["vocab"], mc, tagsB=tags_dst)
+    tr = transfer(model_src, dst, mapping, dst["vocab"], mc, rng=rng, tagsB=tags_dst)
     acc = mapping_accuracy(mapping, key_dst, src["all_types"]) if key_dst and "token" in key_dst else "not measured (no mapping key)"
     shared = sum(1 for t in dst["vocab"] if mapping.get(t) is not None)
     out = dict(mapping=mapping, anchors=anchors, alignment_objective=float(obj), types_mapped=shared, types_total=len(dst["vocab"]),

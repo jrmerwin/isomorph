@@ -227,3 +227,8 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   seed through the card) and every `run` rewrites `out/benchmark_v1.json` and `out/library_v1.json` — the library
   without the tagged shapes that `scripts/tag_datasets.py` adds. The tracked seed-0 files and the seed-0 cell card
   were restored from git after the sweep; `matrix.json` is keyed by seed and holds all five. RUNBOOK amended.
+- After the seeds sweep (Mac, 0ee5cba): control permutations now take the run's seed (they came from a fixed
+  generator, so a seed sweep sampled the control only through the mapping); permutations 3 -> 10, since the
+  control's spread (sd 0.89 bit-days) had become the matrix's largest uncertainty — the control's definition is
+  unchanged, only its sample; cells shift slightly and are regenerated at the next sweep. `isomorph run` now
+  writes tag-prefixed shapes into the library when the sidecar has tags, so a re-run no longer strips them.

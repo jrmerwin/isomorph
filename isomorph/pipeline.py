@@ -146,7 +146,13 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         elapsed_s=round(time.time() - t0, 1),
     )
     os.makedirs(os.path.join(dataset_dir, "out"), exist_ok=True)
-    json.dump(library_to_json(frags, comps), open(os.path.join(dataset_dir, "out", f"library_{profile}.json"), "w"), indent=1)
+    lib_json = library_to_json(frags, comps)
+    if side.get("tags"):   # v4+: tag-prefixed shapes travel with the library, so a re-run never strips them
+        from .choose.pos import shape_of
+        from collections import Counter
+        for f in lib_json["fragments"]: f["shape"] = shape_of(f["prior"], f["lag"], f["target"], side["tags"])
+        lib_json["shape_counts"] = dict(Counter(f["shape"] for f in lib_json["fragments"]).most_common())
+    json.dump(lib_json, open(os.path.join(dataset_dir, "out", f"library_{profile}.json"), "w"), indent=1)
     json.dump(card, open(os.path.join(dataset_dir, "out", f"benchmark_{profile}.json"), "w"), indent=1)
     state = dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, vocab=vocab, all_types=all_types, lags=lags,
                  rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, gap_mode=gap_mode)

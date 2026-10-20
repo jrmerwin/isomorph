@@ -19,7 +19,7 @@ ALIGN_ITERS = 30
 N_ANCHORS = 2
 ALIGN_UNMATCHED_PENALTY = 3.0     # role-level alignment (v5): penalty, in units of the typical signature distance, for leaving a role unmatched
 LEARNING_CURVE_DAYS = (1, 2, 3, 5, 10, 20, None)   # None = all training days
-N_CONTROL_MAPPINGS = 3                              # permuted-mapping controls per cell (3.12, v3)
+N_CONTROL_MAPPINGS = 10                             # permuted-mapping controls per cell (3.12, v3; 3 until the seeds sweep showed the control's spread was the matrix's largest uncertainty)
 
 # parts of speech (3.14, v4): dimensionless, relative to the system's horizon
 POS_CONST_FRAC = 0.9      # share of zero increments at or above which a series is a schedule/setpoint (SET)
