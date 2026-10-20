@@ -1053,7 +1053,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 16,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "SLOW\u00b7LEAD \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "AC_valve": {
    "cls": "SLOW",
@@ -1067,7 +1083,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 33,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7LEAD"
   },
   "A_feed": {
    "cls": "SLOW",
@@ -1081,7 +1105,23 @@
      "saturation": 0.001,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 27,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "SLOW\u00b7LEAD \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "A_valve": {
    "cls": "SLOW",
@@ -1095,7 +1135,15 @@
      "saturation": 0.001,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 25,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7LEAD"
   },
   "D_feed": {
    "cls": "SLOW",
@@ -1109,7 +1157,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "mass_flow",
+   "full": "SLOW\u00b7ISOLATED \u27e8M T\u207b\u00b9\u27e9"
   },
   "D_valve": {
    "cls": "MID",
@@ -1123,7 +1187,15 @@
      "saturation": 0.001,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "E_feed": {
    "cls": "SLOW",
@@ -1137,7 +1209,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "mass_flow",
+   "full": "SLOW\u00b7ISOLATED \u27e8M T\u207b\u00b9\u27e9"
   },
   "E_valve": {
    "cls": "MID",
@@ -1151,7 +1239,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "L": {
    "cls": "MID",
@@ -1181,7 +1277,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 4,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LEAD"
   },
   "P": {
    "cls": "MID",
@@ -1211,7 +1315,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "FOLLOW",
+   "locality": "COMMON",
+   "out_degree": 43,
+   "in_degree": 116,
+   "binding_share": 0.2,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7FOLLOW \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "T": {
    "cls": "MID",
@@ -1241,7 +1361,23 @@
      "saturation": 0.001,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "FOLLOW",
+   "locality": "COMMON",
+   "out_degree": 52,
+   "in_degree": 106,
+   "binding_share": 0.37,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7COMMON\u00b7FOLLOW \u27e8\u0398\u27e9"
   },
   "compressor": {
    "cls": "MID",
@@ -1255,7 +1391,23 @@
      "saturation": 0.001,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 42,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "cw_flow": {
    "cls": "SLOW",
@@ -1277,7 +1429,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 71,
+   "in_degree": 107,
+   "binding_share": 0.5,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY"
   },
   "cw_out": {
    "cls": "MID",
@@ -1299,7 +1459,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 78,
+   "in_degree": 108,
+   "binding_share": 0.52,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "feed": {
    "cls": "MID",
@@ -1313,7 +1489,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 65,
+   "in_degree": 60,
+   "binding_share": 0.15,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "feed_A": {
    "cls": "MID",
@@ -1327,7 +1519,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "feed_B": {
    "cls": "SLOW",
@@ -1341,7 +1541,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7ISOLATED"
   },
   "feed_C": {
    "cls": "MID",
@@ -1355,7 +1563,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "feed_D": {
    "cls": "MID",
@@ -1369,7 +1585,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "feed_E": {
    "cls": "MID",
@@ -1383,7 +1607,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "feed_F": {
    "cls": "SLOW",
@@ -1397,7 +1629,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 2,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7LEAD"
   },
   "prod_D": {
    "cls": "FAST",
@@ -1411,7 +1651,15 @@
      "saturation": 0.0,
      "cls": "FAST"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "FAST\u00b7ISOLATED"
   },
   "prod_E": {
    "cls": "MID",
@@ -1425,7 +1673,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "prod_F": {
    "cls": "MID",
@@ -1439,7 +1695,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "prod_G": {
    "cls": "FAST",
@@ -1453,7 +1717,15 @@
      "saturation": 0.0,
      "cls": "FAST"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "FAST\u00b7ISOLATED"
   },
   "prod_H": {
    "cls": "FAST",
@@ -1467,7 +1739,15 @@
      "saturation": 0.0,
      "cls": "FAST"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "FAST\u00b7ISOLATED"
   },
   "purge": {
    "cls": "MID",
@@ -1481,7 +1761,23 @@
      "saturation": 0.006,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 10,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7LEAD \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "purge_A": {
    "cls": "MID",
@@ -1495,7 +1791,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "purge_B": {
    "cls": "SLOW",
@@ -1509,7 +1813,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7ISOLATED"
   },
   "purge_C": {
    "cls": "MID",
@@ -1523,7 +1835,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 30,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LEAD"
   },
   "purge_D": {
    "cls": "MID",
@@ -1537,7 +1857,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "purge_E": {
    "cls": "MID",
@@ -1551,7 +1879,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "purge_F": {
    "cls": "SLOW",
@@ -1565,7 +1901,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7ISOLATED"
   },
   "purge_G": {
    "cls": "MID",
@@ -1579,7 +1923,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 1,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LEAD"
   },
   "purge_H": {
    "cls": "MID",
@@ -1593,7 +1945,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
   },
   "purge_valve": {
    "cls": "MID",
@@ -1607,7 +1967,15 @@
      "saturation": 0.01,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 10,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LEAD"
   },
   "recycle": {
    "cls": "MID",
@@ -1621,7 +1989,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 5,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7LEAD \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "steam": {
    "cls": "TEX",
@@ -1632,7 +2016,23 @@
      "noise_window": null,
      "cls": "TEX"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "mass_flow",
+   "full": "TEX\u00b7ISOLATED \u27e8M T\u207b\u00b9\u27e9"
   },
   "underflow": {
    "cls": "MID",
@@ -1654,7 +2054,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 7,
+   "in_degree": 8,
+   "binding_share": 1.0,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "underflow_valve": {
    "cls": "MID",
@@ -1676,8 +2092,16 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 46,
+   "in_degree": 62,
+   "binding_share": 0.84,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   }
  },
- "tags_note": "parts of speech (3.14, v4) from the first 120 days, relative to H = recurrence time"
+ "tags_note": "parts of speech (3.14): clock prefix from the first 120 days relative to H; place prefix from the v1 library; dimension suffix from Downs & Vogel"
 }

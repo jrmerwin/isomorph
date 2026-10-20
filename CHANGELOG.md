@@ -195,3 +195,14 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   better than the within-class permuted control in zero-shot; mixed curve beats the receiver's own model at every
   point of both curves. The grammar (3.14 + role-level 3.12) moved the cross-kind cells off the floor. Buildings
   unchanged (B' scrambled names -> type-level). docs/MATRIX.md.
+
+## v5 (2026-10-19)
+- 3.14 second prefix (place): LOCAL/COMMON from binding evidence, LEAD/FOLLOW/RELAY/ISOLATED from library degrees;
+  suffix: SI dimension vector from each dataset's unit table (TEP: Downs & Vogel; HAI: technical details).
+  A role reads `P: MID·COMMON·FOLLOW ⟨M L⁻¹ T⁻²⟩`. Jason: not units but the vector behind them, combinations of
+  the same fundamental measurements; a strict language also filters the data to what it can describe.
+- 3.12 alignment: kind and dimension hard; clock class and place graded; both sides padded; unmatched costs 3.
+  Bug found on the way: distances were not normalised, so the 10^6 "forbidden" penalty was smaller than typical
+  signature distances once both sides were padded and forbidden pairs (and even anchors) were taken; distances
+  are now in units of their median before penalties. Earlier versions' constraints were only partly effective.
+- RUNBOOK.md for local runs; `isomorph bundle` packages everything worth returning (58 files, 0.4 MB).

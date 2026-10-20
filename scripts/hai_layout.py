@@ -135,3 +135,20 @@ def regimes(df):
             procs = [p for p in ("P1", "P2", "P3") if f"attack_{p}" in df.columns and df[f"attack_{p}"].values[s:e].max() > 0]
             out.append(dict(start=float(df.minute.values[s]), end=float(df.minute.values[e - 1] + SAMPLE_MIN), processes=procs))
     return out
+
+
+# Dimensions (v5 suffix) from hai_dataset_technical_details.pdf. Raw digital values keep the dimension of the
+# quantity they encode; percent, booleans, commands and ratios are dimensionless.
+DIMENSION = {
+    "B2004": "pressure", "B2016": "pressure", "B3004": "length", "B3005": "volume_flow", "B4002": "temperature",
+    "B400B": "volume_flow", "B4022": "temperature", "FT01": "pressure", "FT01Z": "volume_flow", "FT02": "pressure",
+    "FT02Z": "volume_flow", "FT03": "pressure", "FT03Z": "volume_flow", "LIT01": "length", "PIT01": "pressure",
+    "PIT02": "pressure", "TIT01": "temperature", "TIT02": "temperature",
+    "24Vdc": "voltage", "ASD": "frequency", "CO_rpm": None, "HILout": None, "MSD": "frequency", "RTR": "frequency",
+    "SIT01": "frequency", "SIT02": "frequency", "VT01": "frequency", "VXT02": "length", "VXT03": "length", "VYT02": "length", "VYT03": "length",
+    "FIT01": "volume_flow", "LCP01D": None, "LCV01D": None, "LH": None, "LL": None,
+    "HT_FD": "frequency", "HT_LD": "power", "HT_PO": "power", "HT_PS": "power", "LD": "power", "ST_FD": "frequency",
+    "ST_GOV": None, "ST_LD": "power", "ST_PO": "power", "ST_PS": "power", "ST_PT01": "pressure", "ST_TT01": "temperature",
+}
+# note: P3_LIT01 is in percent (dimensionless) while P1_LIT01 is in mm; the role LIT01 is shared by name, and the
+# majority rule gives it 'length' — recorded here as a known imprecision of the shared-role layout.

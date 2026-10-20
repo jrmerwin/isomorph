@@ -11,6 +11,7 @@ from .. import constants as K
 from ..mine.library import pair_counts
 
 LAGS = ("s", "m", "l")
+BIG = 1e6   # a forbidden assignment, in units of the median distance (distances are normalised before penalties are added)
 
 
 def lift_matrices(rows, toks, labels=LAGS, min_count=3):
@@ -92,16 +93,19 @@ def anchors_by_margin(MA, MB, nB, nA, n_anchors=K.N_ANCHORS, compat=None):
     return anchors
 
 
-def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_ITERS, compat=None):
+def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_ITERS, compat=None, soft=None):
     n = next(iter(MA.values())).shape[0]
     SA, SB = signatures(MA), signatures(MB)
     scale = SA.std(0) + 1e-6
     D = (((SA[None, :, :] - SB[:, None, :]) / scale) ** 2).sum(-1)
-    forbid = None if compat is None else np.where(compat, 0.0, 1e6)
+    D = D / max(1e-12, float(np.median(D[np.isfinite(D)])))     # distances in units of their median, so penalties have a fixed meaning
+    forbid = None if compat is None else np.where(compat, 0.0, BIG)
+    if soft is not None and soft.any():      # graded preferences, in units of the typical distance
+        forbid = soft.copy() if forbid is None else forbid + soft
     if forbid is not None: D = D + forbid
     if anchors:
         for j, i in anchors.items():
-            D[j, :] += 1e6; D[j, i] -= 1e6
+            D[j, :] += BIG; D[j, i] -= BIG
     def objective(pi):
         P = np.zeros((n, n)); P[np.arange(n), pi] = 1
         return sum(np.linalg.norm(MB[c] - P @ MA[c] @ P.T) ** 2 for c in LAGS)
@@ -113,10 +117,11 @@ def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_IT
                 rowsA, colsA = A[:, pi], A[pi, :].T
                 for j in range(n):
                     cost[j, :] += ((rowsA - Bm[j, :][None, :]) ** 2).sum(1) + ((colsA - Bm[:, j][None, :]) ** 2).sum(1)
+            cost = cost / max(1e-12, float(np.median(cost)))
             if forbid is not None: cost += forbid
             if anchors:
                 for j, i in anchors.items():
-                    cost[j, :] += 1e6; cost[j, i] -= 1e6
+                    cost[j, :] += BIG; cost[j, i] -= BIG
             rj, ci = linear_sum_assignment(cost)
             new = np.empty(n, int); new[rj] = ci
             if np.array_equal(new, pi): break
@@ -183,23 +188,35 @@ def align_roles(rowsA, toksA, rowsB, toksB, rng, tagsA=None, tagsB=None, use_anc
     rolesA = sorted(set(role_of(t) for t in toksA)); rolesB = sorted(set(role_of(t) for t in toksB))
     symsA = {r: sorted(sym_of(t) for t in toksA if role_of(t) == r) for r in rolesA}
     symsB = {r: sorted(sym_of(t) for t in toksB if role_of(t) == r) for r in rolesB}
-    n = max(len(rolesA), len(rolesB))
+    n = len(rolesA) + len(rolesB)      # dummies on BOTH sides, so any role may map to no counterpart (kinds and dimensions need not balance)
     MA = zscore(pad(role_lift_matrices(rowsA, toksA, rolesA), n)); MB = zscore(pad(role_lift_matrices(rowsB, toksB, rolesB), n))
-    # compatibility: same symbol kind, and same tag class when tags exist (coarse fallback, then any of the kind)
+    # compatibility (v5): HARD on symbol kind and on the dimension suffix when both sides know it (categorical
+    # facts); GRADED on the clock class (exact 0, coarse speed 1, neither 2) and on the place prefix (+1 when the
+    # influence differs). Hard clock classes made the assignment infeasible (several receiver roles allowed the
+    # same single source role), so the Hungarian had to violate them anyway.
     C = np.ones((n, n), bool)
+    soft = np.zeros((n, n))
     for j, rb in enumerate(rolesB):
         kind_ok = [i for i, ra in enumerate(rolesA) if symbol_kind(symsA[ra]) == symbol_kind(symsB[rb])]
         allowed = kind_ok
         if tagsA and tagsB:
-            cb = type_tag(tagsB, rb + ":x"); cob = type_tag(tagsB, rb + ":x", coarse=True)
-            if cb is not None:
-                exact = [i for i in kind_ok if type_tag(tagsA, rolesA[i] + ":x") == cb]
-                coarse = [i for i in kind_ok if type_tag(tagsA, rolesA[i] + ":x", coarse=True) == cob]
-                allowed = exact or coarse or kind_ok
+            tb = tagsB.get(rb, {}); db = tb.get("dimension")
+            if db is not None:
+                dim_ok = [i for i in kind_ok if (tagsA.get(rolesA[i], {}).get("dimension") in (None, db))]
+                allowed = dim_ok or kind_ok
+            cb = type_tag(tagsB, rb + ":x"); cob = type_tag(tagsB, rb + ":x", coarse=True); infl = tb.get("influence")
+            for i in allowed:
+                ta = tagsA.get(rolesA[i], {})
+                ca, coa = type_tag(tagsA, rolesA[i] + ":x"), type_tag(tagsA, rolesA[i] + ":x", coarse=True)
+                if cb is not None and ca is not None:
+                    soft[j, i] += 0.0 if ca == cb else (1.0 if coa == cob else 2.0)
+                if infl and ta.get("influence") not in (None, infl):
+                    soft[j, i] += 1.0
         row = np.zeros(n, bool); row[allowed] = True; row[len(rolesA):] = True
         C[j, :] = row
+        soft[j, len(rolesA):] += K.ALIGN_UNMATCHED_PENALTY    # mapping to no counterpart costs more than any graded mismatch
     anchors = anchors_by_margin(MA, MB, len(rolesB), len(rolesA), compat=C) if use_anchors else None
-    pi, obj = align(MA, MB, rng, anchors, compat=C)
+    pi, obj = align(MA, MB, rng, anchors, compat=C, soft=soft)
     role_map = {rb: (rolesA[pi[j]] if pi[j] < len(rolesA) else None) for j, rb in enumerate(rolesB)}
     setA = set(toksA)
     mapping = {}

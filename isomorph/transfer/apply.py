@@ -54,13 +54,15 @@ def permuted_mappings(mapping, rng, n, tagsB=None):
     """Random-mapping controls (METHOD 3.12, v3): the same receiver types stay mapped, but their source
     targets are shuffled among them, so the translated source model keeps its size and smoothness and loses
     only the correspondence. What a permuted mapping gains is regularisation, not shared structure.
-    With tags (v4) the shuffle is WITHIN each receiver tag class, so the control keeps the grammar and
-    loses only the word-level correspondence — a stricter control."""
+    With tags (v4/v5) the shuffle is WITHIN each receiver (clock class, dimension) group, so the control keeps
+    the grammar and loses only the word-level correspondence — a stricter control."""
     from ..choose.pos import type_tag
     keys = [t for t, v in mapping.items() if v is not None]
     groups = {}
     for t in keys:
-        groups.setdefault(type_tag(tagsB, t) if tagsB else None, []).append(t)
+        role = t.split(":")[0]; tb = (tagsB or {}).get(role, {})
+        key = (type_tag(tagsB, t) if tagsB else None, tuple(tb["dimension"]) if tb.get("dimension") else None)
+        groups.setdefault(key, []).append(t)
     out = []
     for _ in range(n):
         m = dict(mapping)

@@ -76,3 +76,12 @@ def regimes(df):
     f = df["STATUS"].values.astype(int); ch = np.flatnonzero(np.diff(f) != 0) + 1
     starts = np.r_[0, ch]; ends = np.r_[ch, len(f)]
     return [dict(start=float(s * SAMPLE_MIN), end=float(e * SAMPLE_MIN), fault=int(f[s]), label=FAULTS[int(f[s])]) for s, e in zip(starts, ends)]
+
+
+# Dimensions (v5 suffix) from Downs & Vogel's unit table. Percent, mol%, and valve positions are dimensionless.
+DIMENSION = {
+    "P": "pressure", "T": "temperature", "cw_out": "temperature", "feed": "volume_flow", "underflow": "volume_flow",
+    "steam": "mass_flow", "A_feed": "volume_flow", "D_feed": "mass_flow", "E_feed": "mass_flow", "AC_feed": "volume_flow",
+    "recycle": "volume_flow", "purge": "volume_flow", "compressor": "power",
+    # L (%), cw_flow (XMV %), underflow_valve (%), the five feed/purge valves (%), and the 19 analysers (mol%) are dimensionless
+}

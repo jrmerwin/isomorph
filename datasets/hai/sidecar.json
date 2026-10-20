@@ -805,7 +805,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 30,
+   "in_degree": 21,
+   "binding_share": 0.1,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "SET\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "B2016": {
    "cls": "MID",
@@ -819,7 +835,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 22,
+   "in_degree": 28,
+   "binding_share": 0.04,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "B3004": {
    "cls": "SET",
@@ -830,7 +862,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 50,
+   "in_degree": 32,
+   "binding_share": 0.03,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "SET\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "B3005": {
    "cls": "SET",
@@ -841,7 +889,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 7,
+   "in_degree": 11,
+   "binding_share": 0.18,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "SET\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "B4002": {
    "cls": "SET",
@@ -852,7 +916,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 4,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7LEAD \u27e8\u0398\u27e9"
   },
   "B4005": {
    "cls": "MID-S",
@@ -866,7 +946,15 @@
      "saturation": 0.596,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 95,
+   "in_degree": 108,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "B400B": {
    "cls": "MID-S",
@@ -880,7 +968,23 @@
      "saturation": 0.647,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 110,
+   "in_degree": 118,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "B4022": {
    "cls": "SLOW",
@@ -894,7 +998,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 119,
+   "in_degree": 166,
+   "binding_share": 0.02,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "FCV01D": {
    "cls": "MID-S",
@@ -908,7 +1028,15 @@
      "saturation": 0.542,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 62,
+   "in_degree": 72,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "FCV01Z": {
    "cls": "MID-S",
@@ -922,7 +1050,15 @@
      "saturation": 0.563,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 52,
+   "in_degree": 44,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "FCV02D": {
    "cls": "MID-S",
@@ -936,7 +1072,15 @@
      "saturation": 0.819,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7ISOLATED"
   },
   "FCV02Z": {
    "cls": "MID-S",
@@ -950,7 +1094,15 @@
      "saturation": 0.823,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 102,
+   "in_degree": 146,
+   "binding_share": 0.01,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "FCV03D": {
    "cls": "MID",
@@ -964,7 +1116,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 14,
+   "in_degree": 9,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7COMMON\u00b7RELAY"
   },
   "FCV03Z": {
    "cls": "MID",
@@ -978,7 +1138,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "FOLLOW",
+   "locality": "COMMON",
+   "out_degree": 12,
+   "in_degree": 24,
+   "binding_share": 0.12,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7COMMON\u00b7FOLLOW"
   },
   "FT01": {
    "cls": "MID",
@@ -992,7 +1160,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 48,
+   "in_degree": 65,
+   "binding_share": 0.25,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT01Z": {
    "cls": "MID",
@@ -1006,7 +1190,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 25,
+   "in_degree": 24,
+   "binding_share": 0.25,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "FT02": {
    "cls": "MID-S",
@@ -1020,7 +1220,23 @@
      "saturation": 0.625,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 106,
+   "in_degree": 118,
+   "binding_share": 0.0,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT02Z": {
    "cls": "MID-S",
@@ -1034,7 +1250,23 @@
      "saturation": 0.646,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 108,
+   "in_degree": 117,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "FT03": {
    "cls": "MID",
@@ -1048,7 +1280,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 15,
+   "in_degree": 22,
+   "binding_share": 0.09,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT03Z": {
    "cls": "MID",
@@ -1062,7 +1310,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 16,
+   "in_degree": 20,
+   "binding_share": 0.1,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "LCV01D": {
    "cls": "MID",
@@ -1084,7 +1348,15 @@
      "saturation": 0.205,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 121,
+   "in_degree": 93,
+   "binding_share": 0.68,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "LCV01Z": {
    "cls": "MID",
@@ -1098,7 +1370,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 90,
+   "in_degree": 101,
+   "binding_share": 0.23,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7COMMON\u00b7RELAY"
   },
   "LIT01": {
    "cls": "MID",
@@ -1120,7 +1400,23 @@
      "saturation": 0.027,
      "cls": "FAST"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 88,
+   "in_degree": 77,
+   "binding_share": 0.71,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u27e9"
   },
   "PCV01D": {
    "cls": "MID-S",
@@ -1134,7 +1430,15 @@
      "saturation": 0.115,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 20,
+   "in_degree": 21,
+   "binding_share": 0.05,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "PCV01Z": {
    "cls": "MID-S",
@@ -1148,7 +1452,15 @@
      "saturation": 0.148,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 21,
+   "in_degree": 22,
+   "binding_share": 0.14,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "PCV02D": {
    "cls": "SET",
@@ -1159,7 +1471,15 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SET\u00b7ISOLATED"
   },
   "PCV02Z": {
    "cls": "SLOW-S",
@@ -1173,7 +1493,15 @@
      "saturation": 0.576,
      "cls": "SLOW-S"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 1,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW-S\u00b7LEAD"
   },
   "PIT01": {
    "cls": "MID",
@@ -1195,7 +1523,23 @@
      "saturation": 0.437,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 17,
+   "in_degree": 20,
+   "binding_share": 0.3,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "PIT02": {
    "cls": "MID",
@@ -1209,7 +1553,23 @@
      "saturation": 0.05,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 123,
+   "in_degree": 145,
+   "binding_share": 0.0,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "TIT01": {
    "cls": "MID",
@@ -1223,7 +1583,23 @@
      "saturation": 0.001,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": "COMMON",
+   "out_degree": 64,
+   "in_degree": 29,
+   "binding_share": 0.03,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7COMMON\u00b7LEAD \u27e8\u0398\u27e9"
   },
   "TIT02": {
    "cls": "MID",
@@ -1237,7 +1613,23 @@
      "saturation": 0.028,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 137,
+   "in_degree": 111,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "24Vdc": {
    "cls": "SLOW",
@@ -1251,7 +1643,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 1,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "quantity": "voltage",
+   "full": "SLOW\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3 N\u207b\u00b9\u27e9"
   },
   "CO_rpm": {
    "cls": "MID",
@@ -1265,7 +1673,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 27,
+   "in_degree": 22,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7COMMON\u00b7RELAY"
   },
   "Emerg": {
    "cls": "SET",
@@ -1275,7 +1691,15 @@
      "binary": true,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SET\u00b7ISOLATED"
   },
   "HILout": {
    "cls": "SLOW",
@@ -1289,7 +1713,15 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 45,
+   "in_degree": 62,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7COMMON\u00b7RELAY"
   },
   "OnOff": {
    "cls": "SET",
@@ -1299,7 +1731,15 @@
      "binary": true,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SET\u00b7ISOLATED"
   },
   "SIT01": {
    "cls": "MID",
@@ -1313,7 +1753,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 22,
+   "in_degree": 23,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "SIT02": {
    "cls": "MID",
@@ -1327,7 +1783,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 22,
+   "in_degree": 20,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "VT01": {
    "cls": "MID-S",
@@ -1341,7 +1813,23 @@
      "saturation": 0.684,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": "COMMON",
+   "out_degree": 16,
+   "in_degree": 6,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "MID-S\u00b7COMMON\u00b7LEAD \u27e8T\u207b\u00b9\u27e9"
   },
   "VXT02": {
    "cls": "SLOW",
@@ -1355,7 +1843,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 29,
+   "in_degree": 31,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "VXT03": {
    "cls": "SLOW",
@@ -1369,7 +1873,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 29,
+   "in_degree": 39,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "VYT02": {
    "cls": "SLOW",
@@ -1383,7 +1903,23 @@
      "saturation": 0.0,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 38,
+   "in_degree": 36,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "VYT03": {
    "cls": "SLOW",
@@ -1397,7 +1933,23 @@
      "saturation": 0.001,
      "cls": "SLOW"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 28,
+   "in_degree": 39,
+   "binding_share": 0.0,
+   "dimension": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "length",
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "FIT01": {
    "cls": "TEX",
@@ -1408,7 +1960,23 @@
      "noise_window": null,
      "cls": "TEX"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "TEX\u00b7ISOLATED \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "LCP01D": {
    "cls": "MID-S",
@@ -1422,7 +1990,15 @@
      "saturation": 0.216,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 44,
+   "in_degree": 54,
+   "binding_share": 0.3,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "HT_FD": {
    "cls": "TEX",
@@ -1433,7 +2009,23 @@
      "noise_window": null,
      "cls": "TEX"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "TEX\u00b7ISOLATED \u27e8T\u207b\u00b9\u27e9"
   },
   "HT_LD": {
    "cls": "MID-S",
@@ -1447,7 +2039,23 @@
      "saturation": 0.247,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 9,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "HT_PO": {
    "cls": "MID-S",
@@ -1461,7 +2069,23 @@
      "saturation": 0.194,
      "cls": "MID-S"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 6,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "HT_PS": {
    "cls": "SET",
@@ -1472,7 +2096,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 4,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "SET\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "LD": {
    "cls": "MID",
@@ -1486,7 +2126,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 5,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "ST_FD": {
    "cls": "TEX",
@@ -1497,7 +2153,23 @@
      "noise_window": null,
      "cls": "TEX"
     }
-   }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "TEX\u00b7ISOLATED \u27e8T\u207b\u00b9\u27e9"
   },
   "ST_GOV": {
    "cls": "MID",
@@ -1511,7 +2183,15 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 4,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7LEAD"
   },
   "ST_LD": {
    "cls": "MID",
@@ -1525,7 +2205,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 8,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "ST_PO": {
    "cls": "MID",
@@ -1539,7 +2235,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 4,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "ST_PS": {
    "cls": "SET",
@@ -1550,7 +2262,23 @@
      "speed": null,
      "cls": "SET"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 6,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "SET\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
   },
   "ST_PT01": {
    "cls": "MID",
@@ -1564,7 +2292,23 @@
      "saturation": 0.0,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 11,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7LEAD \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "ST_TT01": {
    "cls": "MID",
@@ -1578,8 +2322,24 @@
      "saturation": 0.001,
      "cls": "MID"
     }
-   }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 59,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LEAD \u27e8\u0398\u27e9"
   }
  },
- "tags_note": "parts of speech (3.14, v4) at 1-minute means, relative to H = recurrence time"
+ "tags_note": "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix from the technical details"
 }

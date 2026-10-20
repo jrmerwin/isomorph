@@ -82,3 +82,56 @@ def shape_of(prior, lag, target, tags):
         return f"{tag}.{d}.{sym[len(d):]}"
     same = prior.split(":")[0] == target.split(":")[0]
     return f"{part(prior)} -{lag}-> {part(target)}" + (" [same role]" if same else "")
+
+
+# ---------------------------------------------------------------------------------------------
+# v5: the structural prefix (place in the coupling web) and the dimension suffix.
+# ---------------------------------------------------------------------------------------------
+
+# SI dimension vectors as (M, L, T, Theta, N, I, J); a None suffix means dimensionless or unknown.
+DIMENSIONS = {
+    "pressure": (1, -1, -2, 0, 0, 0, 0), "length": (0, 1, 0, 0, 0, 0, 0), "temperature": (0, 0, 0, 1, 0, 0, 0),
+    "volume_flow": (0, 3, -1, 0, 0, 0, 0), "mass_flow": (1, 0, -1, 0, 0, 0, 0), "power": (1, 2, -3, 0, 0, 0, 0),
+    "frequency": (0, 0, -1, 0, 0, 0, 0), "velocity": (0, 1, -1, 0, 0, 0, 0), "voltage": (1, 2, -3, 0, -1, 0, 0),
+    "time": (0, 0, 1, 0, 0, 0, 0), "mass": (1, 0, 0, 0, 0, 0, 0), "volume": (0, 3, 0, 0, 0, 0, 0),
+}
+
+
+def dim_label(vec):
+    if vec is None: return None
+    names = "M L T Θ N I J".split()
+    sup = str.maketrans("-0123456789", "⁻⁰¹²³⁴⁵⁶⁷⁸⁹")
+    return " ".join(f"{n}{str(e).translate(sup) if e != 1 else ''}" for n, e in zip(names, vec) if e != 0) or "1"
+
+
+def place_tags(fragments, roles, binding_share_common=0.5, lead_ratio=2.0):
+    """Structural prefix per role from the validated library: LOCAL/COMMON from the share of its fragments
+    with binding evidence (rewire null, 3.8), LEAD/FOLLOW/RELAY/ISOLATED from its out- and in-degree."""
+    from collections import defaultdict
+    out_deg, in_deg, bound, total = defaultdict(int), defaultdict(int), defaultdict(int), defaultdict(int)
+    for f in fragments:
+        rp, rt = f["prior"].split(":")[0], f["target"].split(":")[0]
+        out_deg[rp] += 1; in_deg[rt] += 1
+        total[rt] += 1; bound[rt] += 1 if f.get("binding_evidence") else 0
+    tags = {}
+    for r in roles:
+        o, i = out_deg.get(r, 0), in_deg.get(r, 0)
+        if o == 0 and i == 0: infl = "ISOLATED"
+        elif i == 0 or o >= lead_ratio * i: infl = "LEAD"
+        elif o == 0 or i >= lead_ratio * o: infl = "FOLLOW"
+        else: infl = "RELAY"
+        loc = None if total.get(r, 0) == 0 else ("LOCAL" if bound[r] / total[r] >= binding_share_common else "COMMON")
+        tags[r] = dict(influence=infl, locality=loc, out_degree=o, in_degree=i, binding_share=(round(bound[r] / total[r], 2) if total.get(r) else None))
+    return tags
+
+
+def full_tag(tags, role):
+    """'MID·LOCAL·LEAD ⟨M L⁻¹ T⁻²⟩' — clock prefix · place prefix · dimension suffix."""
+    t = tags.get(role)
+    if not t: return None
+    parts = [t["cls"]]
+    if t.get("locality"): parts.append(t["locality"])
+    if t.get("influence"): parts.append(t["influence"])
+    s = "·".join(parts)
+    if t.get("dimension"): s += f" ⟨{dim_label(tuple(t['dimension']))}⟩"
+    return s

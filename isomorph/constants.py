@@ -7,7 +7,7 @@ inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
 CARD_RULES_VERSION = 2   # the version at which the per-dataset rules (3.1-3.11) last changed; cards and cached state from it stay valid
-METHOD_VERSION = 4   # v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
+METHOD_VERSION = 5   # v5: structural prefix (place) and dimension suffix in alignment and control (3.14, 3.12); v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -17,6 +17,7 @@ LOGISTIC_C = 0.5
 ALIGN_RESTARTS = 20
 ALIGN_ITERS = 30
 N_ANCHORS = 2
+ALIGN_UNMATCHED_PENALTY = 3.0     # role-level alignment (v5): penalty, in units of the typical signature distance, for leaving a role unmatched
 LEARNING_CURVE_DAYS = (1, 2, 3, 5, 10, 20, None)   # None = all training days
 N_CONTROL_MAPPINGS = 3                              # permuted-mapping controls per cell (3.12, v3)
 
