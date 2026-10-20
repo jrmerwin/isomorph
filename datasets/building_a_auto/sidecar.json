@@ -3,8 +3,12 @@
  "entity_key": "auto",
  "period": "auto",
  "system_wide_types": [
-  "T_out:peak",
-  "T_out:trough",
+  "T_out:downq20",
+  "T_out:downq50",
+  "T_out:downq80",
+  "T_out:upq20",
+  "T_out:upq50",
+  "T_out:upq80",
   "setpoint:down",
   "setpoint:up",
   "vibration:peak",
@@ -24,7 +28,7 @@
    "window": null,
    "occ": null,
    "setpoint": null,
-   "T_out": "dsign",
+   "T_out": "q20_50_80",
    "vibration": "dsign"
   },
   "thresholds": {
@@ -43,6 +47,13 @@
      438.475,
      513.695,
      791.812
+    ]
+   },
+   "T_out": {
+    "T_out": [
+     3.533,
+     9.973,
+     17.436
     ]
    }
   },

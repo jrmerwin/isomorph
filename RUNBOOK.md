@@ -52,5 +52,21 @@ If you would rather hand over a file: `isomorph bundle` writes `results_<date>.z
 | pipeline (`isomorph run`) | ~40 min | ~5 min |
 | one transfer direction | ~35 min | ~30 min |
 
-The choice stage is embarrassingly parallel across the two or three scheme trials of a role, which is not yet
-exploited; it is the first thing to parallelise on a multi-core machine.
+The choice stage runs the two or three scheme trials of a role in forked workers (`n_jobs`, default
+min(3, cores)); expect roughly a 2–3× speed-up over the figures above. Pipeline and transfer steps are
+single-process apart from numpy's own threading.
+
+## The next round (October 2026)
+
+1. **Robustness of the cross-kind cells.** Five seeds of TEP ↔ HAI under v5, one direction per invocation:
+   `for s in 0 1 2 3 4; do isomorph transfer datasets/tennessee_eastman datasets/hai --seed $s --direction ab;
+   isomorph transfer datasets/tennessee_eastman datasets/hai --seed $s --direction ba; done`
+   (seed 0 exists). The matrix is keyed by seed; report mean and spread of the net cells in docs/MATRIX.md.
+2. **A Rosetta set** of real, measured systems that physics says share a grammar, as datasets 5–8: a thermal
+   loop (TCLab temperature-control lab runs), an electrochemical one (NASA battery charge/discharge cycles),
+   a hydraulic one (a two- or three-tank lab rig), an electromechanical one (DC motor voltage → speed), and a
+   physiological regulator (PhysioNet cardiorespiratory records). Each needs a `*_layout.py` with roles,
+   kinds and the dimension table, and an `ingest_*.py`; the method's admission rule (20 days or 20 natural
+   periods) decides what is long enough. The negative controls move down the running order, not off it.
+3. **Syntax motifs** (v6): chains A→B→C and the feedback-return motif X↑ → Y → X↓, admitted by confirmation
+   bits with the circular null, written in the tagged alphabet. The expensive step; run it here.

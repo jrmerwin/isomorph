@@ -248,7 +248,21 @@ def criterion(ev, role, lo, p_hi, c_hi, log=None):
     return float(fit_bits(FeatureMap(vocab, True, ctxs), tgt_p, tgt_c).sum())
 
 
-def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=2, checkpoint=None):
+_POOL_CTX = {}
+
+
+def _trial_entry(args):
+    """Runs in a forked worker: evaluate one scheme for one role against the parent's current choice."""
+    sch, choice, role = args
+    df, layout, cache, lo, p_hi, c_hi = (_POOL_CTX[k] for k in ("df", "layout", "cache", "lo", "p_hi", "c_hi"))
+    trial = dict(choice); trial[role] = sch
+    return sch, criterion(assemble(df, layout, trial, cache), role, lo, p_hi, c_hi)
+
+
+def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=2, checkpoint=None, n_jobs=None):
+    """n_jobs: forked workers for the scheme trials of a role (default: min(3, cpu count)); 1 disables."""
+    import os as _os
+    if n_jobs is None: n_jobs = max(1, min(3, (_os.cpu_count() or 1)))
     """Returns (choice per role, thresholds used, trace). `checkpoint`: a json path written after every
     role decision and read at start, so an interrupted run resumes (the search is deterministic)."""
     import json, os
@@ -264,6 +278,7 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
     t = df[layout["time"]].values.astype(float); lo, hi = float(t.min()), float(t.max()) + 1
     p_hi, c_hi = lo + (hi - lo) * splits_frac[0], lo + (hi - lo) * (splits_frac[0] + splits_frac[1])
     cache = {}
+    _POOL_CTX.update(df=df, layout=layout, cache=cache, lo=lo, p_hi=p_hi, c_hi=c_hi)
     cont = [r for r, k in layout["kinds"].items() if k == "continuous"]
     trace = []
     def admissible(role, sch):
@@ -324,12 +339,20 @@ def choose_symbolization(df, layout, splits_frac=(0.5, 0.25), log=print, passes=
                 log(f"  pass {p} {role:10s} only {best} is faithful (" + ", ".join(f"{s}={faith[(role, s)]:.2f}" for s in SCHEMES) + f") -> {best}{' *' if changed else ''}")
                 done[(str(p), role)] = dict(chosen=best, changed=changed, scores={best: "only admissible"}); save(choice, trace, faith)
                 continue
+            trials = [sch for sch in SCHEMES if adm[sch]]
             for sch in SCHEMES:
-                if not adm[sch]:
-                    scores[sch] = np.inf; continue
-                trial = dict(choice); trial[role] = sch
-                ev = assemble(df, layout, trial, cache)
-                scores[sch] = criterion(ev, role, lo, p_hi, c_hi)
+                if not adm[sch]: scores[sch] = np.inf
+            if n_jobs > 1 and len(trials) > 1:
+                # the scheme trials of one role are independent: run them in forked workers (the memoised rows
+                # cache is inherited copy-on-write, so each worker only assembles and fits)
+                import concurrent.futures as cf, multiprocessing as mp
+                with cf.ProcessPoolExecutor(max_workers=min(n_jobs, len(trials)), mp_context=mp.get_context("fork")) as ex:
+                    for sch, val in ex.map(_trial_entry, [(sch, choice, role) for sch in trials]):
+                        scores[sch] = val
+            else:
+                for sch in trials:
+                    trial = dict(choice); trial[role] = sch
+                    scores[sch] = criterion(assemble(df, layout, trial, cache), role, lo, p_hi, c_hi)
             best = min(scores, key=scores.get)
             cur = choice[role]
             if cur in scores and scores[cur] <= scores[best] + max(1e-6, 1e-4 * abs(scores[best])):

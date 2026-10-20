@@ -8,7 +8,7 @@
   "window": null,
   "occ": null,
   "setpoint": null,
-  "T_out": "dsign",
+  "T_out": "q20_50_80",
   "vibration": "dsign"
  },
  "thresholds": {
@@ -29,18 +29,22 @@
     791.812
    ]
   },
+  "T_out": {
+   "T_out": [
+    3.533,
+    9.973,
+    17.436
+   ]
+  },
   "T_window": {
    "T_A": 244,
    "T_B": 245,
    "T_C": 252
   },
   "RH_window": {
-   "RH_A": 356,
+   "RH_A": 355,
    "RH_B": 352,
-   "RH_C": 354
-  },
-  "T_out_window": {
-   "T_out": 336
+   "RH_C": 349
   },
   "vibration_window": {
    "vibration": 9
@@ -64,9 +68,9 @@
    "pass_": 0,
    "role": "vibration",
    "scores": {
-    "q20_50_80": 8026.945184480647,
     "q10_90": Infinity,
-    "dsign": 6210.794026938631
+    "q20_50_80": 7673.530749964473,
+    "dsign": 5914.935322540661
    },
    "chosen": "dsign"
   },
@@ -82,9 +86,9 @@
    "pass_": 0,
    "role": "T",
    "scores": {
-    "q20_50_80": 8409.211081796213,
     "q10_90": Infinity,
-    "dsign": 6210.794026938631
+    "q20_50_80": 8055.286303164359,
+    "dsign": 5914.935322540661
    },
    "chosen": "dsign"
   },
@@ -92,9 +96,9 @@
    "pass_": 0,
    "role": "RH",
    "scores": {
-    "q20_50_80": 7992.518102964656,
     "q10_90": Infinity,
-    "dsign": 6210.794026938631
+    "q20_50_80": 7062.369442920065,
+    "dsign": 5914.935322540661
    },
    "chosen": "dsign"
   },
@@ -102,11 +106,59 @@
    "pass_": 0,
    "role": "T_out",
    "scores": {
-    "q20_50_80": 6580.723325546096,
     "q10_90": Infinity,
-    "dsign": 6210.794026938631
+    "q20_50_80": 5621.517862647656,
+    "dsign": 5914.935322540661
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 1,
+   "role": "vibration",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 7984.7710427530155,
+    "dsign": 5621.517862647656
    },
    "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "CO2",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 1,
+   "role": "T",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 8224.88410204153,
+    "dsign": 5621.517862647656
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "RH",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 7845.949182895095,
+    "dsign": 5621.517862647656
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 1,
+   "role": "T_out",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 5621.517862647656,
+    "dsign": 5914.935322540661
+   },
+   "chosen": "q20_50_80"
   }
  ],
  "entity": "zone",
