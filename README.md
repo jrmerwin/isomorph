@@ -24,7 +24,7 @@ recorded in [docs/RESULTS_session_2026-10-18.md](docs/RESULTS_session_2026-10-18
 
 ## Status
 
-Method **v4** (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v2, the last change to per-dataset rules):
+Method **v5** (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v2, the last change to per-dataset rules):
 
 | # | dataset | library vs triviality / best baseline (bits per event, test split) | claim |
 | --- | --- | --- | --- |
@@ -39,8 +39,8 @@ Transfer matrix (net bit-days after the permuted-mapping control; [full table an
 | --- | --- | --- |
 | building A → B′ | 0.74 | same kind: alignment real (zero-shot 4.6 vs 7.9 permuted) |
 | building B′ → A | 5.53 | the richer system teaches more |
-| Tennessee Eastman → HAI | **1.67** (v3: 0.37) | cross kind; v4 grammar: roles aligned by part of speech, symbols by spelling |
-| HAI → Tennessee Eastman | **10.52** (v3: 0.06) | cross kind; mixed curve beats TEP's own model at every point to 20 days |
+| Tennessee Eastman → HAI | **0.83** (v4: 1.67, v3: 0.37) | cross kind; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
+| HAI → Tennessee Eastman | **13.37** (v4: 10.52, v3: 0.06) | cross kind; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire

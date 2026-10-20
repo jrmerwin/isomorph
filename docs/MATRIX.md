@@ -5,6 +5,23 @@ mixed with the translated source model, minus the same area for the source model
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
 
+## v5: place prefix and dimension suffix (alignment hard on kind and dimension, graded on clock and place; control permuted within clock class × dimension)
+
+| source → receiver | zero-shot (learned) | zero-shot (permuted) | raw cell | control cell | **net cell** | v4 net | v3 net | types mapped |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Tennessee Eastman → HAI | 7.682 (shared 7.176) | 8.697 | 0.86 | 0.03 | **0.83** | 1.67 | 0.37 | 120/168 |
+| HAI → Tennessee Eastman | 6.607 (shared 5.884) | 7.647 | 21.65 | 8.29 | **13.37** | 10.52 | 0.06 | 34/40 |
+
+Mixed picture, reported as such. HAI → TEP improved: more TEP roles found a dimensionally and dynamically
+compatible HAI counterpart (34 of 40 types mapped against 22), and the mixed curve beats TEP's own model by
+0.29–0.64 bits from 1 to 20 receiver days against a stricter control. TEP → HAI fell: the zero-shot is unchanged
+(7.68 vs 7.65) but the control is now permuted within (clock class, dimension) and so is 0.9 bits better than
+v4's, and the dimension constraint rules out pairs that v4 had used (120 types mapped against 134), so the net
+halves. Two caveats on the comparison: v5 also fixed a scale bug that had made the "forbidden" penalty only
+partly effective in v3 and v4 (distances were not normalised), so v4's constraints were looser than written;
+and the stricter control is the right control, which means part of v4's 1.67 was credit the grammar had not
+earned. One seed, one pair, as before.
+
 ## v4: grammar (parts of speech, role-level alignment, symbols by spelling, control permuted within class)
 
 | source → receiver | zero-shot (learned) | zero-shot (permuted, within class) | raw cell | control cell | **net cell** | v3 net | kind |

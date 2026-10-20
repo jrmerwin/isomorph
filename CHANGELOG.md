@@ -206,3 +206,5 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   signature distances once both sides were padded and forbidden pairs (and even anchors) were taken; distances
   are now in units of their median before penalties. Earlier versions' constraints were only partly effective.
 - RUNBOOK.md for local runs; `isomorph bundle` packages everything worth returning (58 files, 0.4 MB).
+- Matrix v5: TEP -> HAI net 0.83 (v4 1.67), HAI -> TEP net 13.37 (v4 10.52). The within-dimension control is
+  stricter and the dimension constraint maps fewer TEP->HAI types; HAI->TEP maps more (34/40 vs 22/40) and gains.
