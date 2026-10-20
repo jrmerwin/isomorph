@@ -12296,11 +12296,11 @@
      "cls": "MID"
     }
    },
-   "influence": "LEAD",
-   "locality": null,
-   "out_degree": 7,
-   "in_degree": 0,
-   "binding_share": null,
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 22,
+   "in_degree": 23,
+   "binding_share": 1.0,
    "dimension": [
     1,
     2,
@@ -12311,7 +12311,7 @@
     0
    ],
    "quantity": "voltage",
-   "full": "MID\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3 N\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3 N\u207b\u00b9\u27e9"
   },
   "I": {
    "cls": "MID-S",
@@ -12351,10 +12351,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 4,
-   "in_degree": 7,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 21,
+   "in_degree": 14,
+   "binding_share": 1.0,
    "dimension": [
     0,
     0,
@@ -12365,7 +12365,7 @@
     0
    ],
    "quantity": "current",
-   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8I\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8I\u27e9"
   },
   "T": {
    "cls": "FAST",
@@ -12405,10 +12405,10 @@
     }
    },
    "influence": "FOLLOW",
-   "locality": "COMMON",
-   "out_degree": 1,
-   "in_degree": 5,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 4,
+   "in_degree": 10,
+   "binding_share": 1.0,
    "dimension": [
     0,
     0,
@@ -12419,7 +12419,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "FAST\u00b7COMMON\u00b7FOLLOW \u27e8\u0398\u27e9"
+   "full": "FAST\u00b7LOCAL\u00b7FOLLOW \u27e8\u0398\u27e9"
   }
  },
  "tags_note": "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix: current <I>, voltage, temperature <\u0398>"

@@ -66,3 +66,24 @@ steam → T cannot be (steam silent); underflow → L finds no fragments at all.
    plant is open.
 4. Bits per event are high (3.0) because the streams are busy and the vocabulary is 40 types; absolute
    levels are not comparable across datasets, gains are.
+
+## v6 regeneration (2026-10-20): gap clipping and syntax motifs
+
+Rules changed in v6: 3.6 (a gap clips the window instead of dropping the target), 3.15 (chains and returns).
+TEP has no gaps, so the card above is unchanged to the third decimal: 567 fragments (186 used), library 3.033
+bits, triviality 3.171, claim **beats baselines**, recovery 2/10.
+
+**Syntax (3.15).** 5,733 chain candidates (two validated fragments sharing a middle type) → 938 with conditional
+lift ≥ 1.5 → 926 above the circular null → **525 admitted, 106 of them returns**. None reduce confirmation bits
+as features on top of the 186 fragment contexts, so the library score is unchanged; the chains are recorded, not
+used. Returns by end role and middle role: cooling-water flow ↔ cooling-water outlet temperature 24, vessel
+temperature ↔ cooling-water outlet 24, underflow valve ↔ vessel temperature 21, cooling-water flow → pressure →
+cooling-water flow 7, cooling-water flow → feed → cooling-water flow 5. The cooling-water loop's strongest
+return is `cw_flow:downq20 -s-> P:downq20 -m-> cw_flow:upq20` (n = 46, conditional lift 3.52, null max 11,
+confirmation 30 / 2.95): the flow falls, the vessel pressure falls, the flow rises. In the tagged alphabet it is
+`SLOW·RELAY.down.q20 -s-> MID·FOLLOW.down.q20 -m-> SLOW·RELAY.up.q20 [return]`.
+
+**Place prefix of a loop.** No return in any dataset is spelled LEAD → FOLLOW → LEAD, and none can be: an
+actuator inside a closed loop is both a context and a target, so the degree rule (3.14) tags it RELAY. LEAD
+appears only at the start of open chains (LEAD → RELAY → RELAY, 76 here: feeds and valves that drive without
+being driven). A loop closing reads RELAY → FOLLOW → RELAY (31 returns here) or RELAY → RELAY → RELAY (47).

@@ -80,8 +80,9 @@ def compositions(frags, rows, min_count=5):
     return [dict(ctx=(a, b), y=y, count=v) for (a, b, y), v in comps.items() if v >= min_count]
 
 
-def library_to_json(frags, comps):
-    return dict(fragments=[dict(prior=f["ctx"][0], lag=f["ctx"][1], target=f["y"], count=f["count"], lift=f["lift"],
+def library_to_json(frags, comps, chains=(), chain_keys_used=()):
+    from .syntax import chains_to_json
+    return dict(chains=chains_to_json(chains, chain_keys_used), fragments=[dict(prior=f["ctx"][0], lag=f["ctx"][1], target=f["y"], count=f["count"], lift=f["lift"],
                                 lift_conf=f["lift_conf"], null_max=f["null_max"], nulls_survived=f["nulls_survived"],
                                 binding_evidence=f.get("binding_evidence"),
                                 first_validated_in=f["first_validated_in"], confirmed_in=f["confirmed_in"], failed_in=f["failed_in"])

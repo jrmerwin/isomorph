@@ -1,5 +1,5 @@
 {
- "method_version": 2,
+ "method_version": 6,
  "profile": "legacy",
  "seed": 0,
  "dataset": "building_b",
@@ -26,7 +26,7 @@
   "types": 22,
   "n_entities": 4,
   "period": 1440.0,
-  "signal_floor": 21,
+  "signal_floor": 22,
   "min_count": 5,
   "lag_edges": [
    5.0,
@@ -59,41 +59,51 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 2.0260853079349497,
-   "non_deterministic": 2.0260853079349497,
+   "all": 2.0260853079349426,
+   "non_deterministic": 2.0260853079349426,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 2.220315686834228,
-   "non_deterministic": 2.220315686834228,
+   "all": 2.2203156868342258,
+   "non_deterministic": 2.2203156868342258,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 1.6881702133364134,
-   "non_deterministic": 1.6881702133364134,
+   "all": 1.6881702133501928,
+   "non_deterministic": 1.6881702133501928,
    "deterministic": null
   },
   "logistic library": {
-   "all": 1.6470978537691823,
-   "non_deterministic": 1.6470978537691823,
+   "all": 1.6470978537694332,
+   "non_deterministic": 1.6470978537694332,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.560162831389597,
-   "non_deterministic": 1.560162831389597,
+   "all": 1.5601628314036693,
+   "non_deterministic": 1.5601628314036693,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.0410723595672311,
-  "over_best_baseline": 0.3789874541657674,
-  "best_baseline_bits": 2.0260853079349497,
+  "over_triviality": 0.04107235958075961,
+  "over_best_baseline": 0.3789874541655094,
+  "best_baseline_bits": 2.0260853079349426,
   "claim": "no gain"
  },
  "library": {
   "fragments": 95,
   "fragments_used": 43,
   "compositions_kept": 201,
+  "chains": 0,
+  "chains_used": 0,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 0,
+   "lift_ok": 0,
+   "null_passed": 0,
+   "admitted": 0,
+   "returns": 0
+  },
   "candidates": 954,
   "nulls_run": [
    "circular"
@@ -148,5 +158,5 @@
  "recovery": "not measured",
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 13.0
+ "elapsed_s": 4.0
 }

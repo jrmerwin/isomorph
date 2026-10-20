@@ -72,16 +72,27 @@ def type_tag(tags, typ, coarse=False):
     return t["coarse"] if coarse else t["cls"]
 
 
+def _part(t, tags, place=False):
+    role, sym = t.split(":", 1)
+    tag = type_tag(tags, t) or "?"
+    if place:   # v6 chain spelling: clock class and place in the coupling web, 'MID·LEAD'
+        infl = (tags.get(role) or {}).get("influence")
+        if infl: tag = f"{tag}·{infl}"
+    if sym in ("peak", "trough", "on", "off", "up", "down"): return f"{tag}.{sym}"
+    d = "up" if sym.startswith("up") else "down"
+    return f"{tag}.{d}.{sym[len(d):]}"
+
+
 def shape_of(prior, lag, target, tags):
     """Type-free, tag-prefixed shape of a fragment: 'MID-R.up.q80 -s-> MID-R.down.q20'."""
-    def part(t):
-        role, sym = t.split(":", 1)
-        tag = type_tag(tags, t) or "?"
-        if sym in ("peak", "trough", "on", "off", "up", "down"): return f"{tag}.{sym}"
-        d = "up" if sym.startswith("up") else "down"
-        return f"{tag}.{d}.{sym[len(d):]}"
     same = prior.split(":")[0] == target.split(":")[0]
-    return f"{part(prior)} -{lag}-> {part(target)}" + (" [same role]" if same else "")
+    return f"{_part(prior, tags)} -{lag}-> {_part(target, tags)}" + (" [same role]" if same else "")
+
+
+def shape_of_chain(a, l1, b, l2, c, tags, is_return=False):
+    """Shape of a chain or return (3.15, v6) in the tagged alphabet with the place prefix:
+    'MID·LEAD.up.q80 -s-> MID·FOLLOW.up.q50 -m-> MID·LEAD.down.q80 [return]'."""
+    return f"{_part(a, tags, True)} -{l1}-> {_part(b, tags, True)} -{l2}-> {_part(c, tags, True)}" + (" [return]" if is_return else "")
 
 
 # ---------------------------------------------------------------------------------------------

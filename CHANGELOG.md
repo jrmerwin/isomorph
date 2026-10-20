@@ -270,3 +270,34 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Decisions behind 3.15: a chain is admitted as a composition of two admitted fragments (library-driven search,
   provenance of links) and must beat its last link by conditional lift; a return requires the same role at both
   ends — a path ending elsewhere is a chain.
+
+### v6 implemented (2026-10-20, Mac)
+- 3.6 gap clipping: `contexts_for_stream` gap mode "clip" (profile v1; legacy ignores gaps as before): the window is
+  [max(t − H, end of the last gap before t), t), Markov history on the far side of a gap is dropped with the
+  contexts, a target is dropped only when a gap covers it. Battery: events dropped 11,436 → 1,120, fragments 12 →
+  47, recovery 2/3 → 3/3, every model about two bits lower (Markov contexts now exist on every row). HAI: 1,234 →
+  133 dropped, fragments 2,096 → 2,165, library 3.844 / triviality 3.805 (non-det.), still no gain. TEP (no gaps)
+  unchanged. Calibration reference re-recorded (buildings: library A 2.164, B′ 1.341); both tests pass.
+- 3.12 cross-scheme spelling: `align.cross_scheme` — same direction, nearest quantile, a tie crosses to nothing
+  (q50 against q10/q90). TEP → HAI maps 142/168 types (was 120); every battery cell carries types (12/12 as receiver).
+- 3.15 chains and returns: `isomorph/mine/syntax.py`. Candidates are pairs of validated fragments sharing the middle
+  type; an instance is B as the target's most recent context at l2 and A's most recent occurrence within l1 of that
+  B with no entity gap between; conditional lift ≥ LIFT_MIN on proposal, triple count above the circular null over
+  N_NULL_DRAWS, confirmation count ≥ CONFIRM_MIN_COUNT at the same lift; indicator features kept only if they reduce
+  confirmation bits. Returns: same role at both ends, opposite direction, different middle role; `[return]` in the
+  shape. Shapes of chains carry the place prefix (`SLOW·RELAY.down.q20 -s-> MID·FOLLOW.down.q20 -m-> SLOW·RELAY.up.q20
+  [return]`); `library_v1.json` gains `chains`; cards gain `library.chains / chains_used / returns / chain_search`.
+  Results: TEP 5,733 candidates → 525 admitted, 106 returns, none used; HAI 38,955 → 1,437, 118 returns, none used;
+  battery 155 → 13, 1 return, all 13 used; building A 15 / 1 return (used), B′ 32 / 0 (used).
+- The returns: TEP's cooling-water loop (`cw_flow:downq20 -s-> P:downq20 -m-> cw_flow:upq20`, n 46, cond. lift 3.52;
+  cw_flow ↔ cw_out and → P → 31 returns) and HAI's level loop (`LIT01:upq80 -s-> LCV01D:upq20 -s-> LIT01:downq80`,
+  n 15, cond. lift 9.01, the strongest of 118) both appear. Neither is LEAD → FOLLOW → LEAD, and no return is: an
+  actuator in a closed loop is context and target, so 3.14's degree rule tags it RELAY; loops read RELAY → FOLLOW →
+  RELAY (TEP) or RELAY → RELAY → RELAY (HAI, battery). LEAD opens chains (LEAD → RELAY → RELAY: TEP 76, HAI 206).
+  Open: a loop-aware place tag (3.14) — a method question.
+- Matrix v6, seed 0, ten seeded permutations: TEP → HAI 0.90, HAI → TEP 13.53 (v5: 0.98, 14.45); TEP → battery 0.25
+  with learned zero-shot 3.68 against permuted 6.35 (the first cross-kind alignment to beat its control by > 2
+  bits), battery → TEP 1.65 through three roles (I ↔ cw_flow, V ↔ AC_valve, T ↔ underflow); HAI ↔ battery 0.05 /
+  0.09. docs/MATRIX.md v6 section and returns table.
+- TCLab withdrawn from the running order (no public recording long enough; re-enters with a 24–48 h recording);
+  the battery set is Rosetta member one. README, METHOD running order, RUNBOOK, cards (v6 sections) updated.

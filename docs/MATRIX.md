@@ -1,9 +1,56 @@
-# Transfer matrix — methods v3 to v5, profile v1 (2026-10-19; v5 seeds 0–4 and the Rosetta pair added 2026-10-20)
+# Transfer matrix — methods v3 to v6, profile v1 (2026-10-19; v5 seeds 0–4, the Rosetta pair and v6 added 2026-10-20)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
+
+## v6 (2026-10-20): gap clipping, cross-scheme spelling, chains and returns — seed 0, ten seeded permutations
+
+Cards regenerated under v6 (3.6 clips a gap instead of dropping the target; 3.15 admits chains and returns);
+alignment under 3.12's cross-scheme spelling (a quantile symbol crosses to the source role's symbol of the same
+direction and nearest quantile). TCLab is withdrawn from the running order; the battery set is Rosetta member one.
+
+| source → receiver | zero-shot (learned) | zero-shot (permuted) | raw cell | control cell | **net cell** | v5 net | types mapped | roles mapped |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Tennessee Eastman → HAI | 7.632 (shared 7.262) | 8.917 | 0.86 | −0.05 | **0.90** | 0.98 | 142/168 (v5: 120) | 37/52 |
+| HAI → Tennessee Eastman | 6.629 (shared 6.381) | 8.410 | 17.91 | 4.38 | **13.53** | 14.45 | 34/40 | 36/39 |
+| Tennessee Eastman → battery | 3.676 (shared 3.676) | 6.346 | 0.04 | −0.21 | **0.25** | 0.00 | 12/12 (v5: 8) | 3/3: I ↔ cw_flow, T ↔ purge_D, V ↔ underflow_valve |
+| battery → Tennessee Eastman | 8.772 (shared 3.504) | 9.006 | 5.59 | 3.94 | **1.65** | 0.00 | 6/40 (v5: 0) | 3/39: AC_valve ↔ V, cw_flow ↔ I, underflow ↔ T |
+| HAI → battery | 4.721 (shared 4.721) | 5.359 | −0.22 | −0.28 | **0.05** | −0.00 | 12/12 (v5: 2) | 3/3: I ↔ LCP01D, T ↔ TIT01, V ↔ FCV01D |
+| battery → HAI | 9.466 (shared 4.201) | 9.514 | −0.13 | −0.22 | **0.09** | −0.00 | 10/168 (v5: 6) | 3/52: B4002 ↔ V, FT03Z ↔ T, LIT01 ↔ I |
+
+- **TEP ↔ HAI holds.** 0.90 and 13.53 against 0.98 and 14.45 under v5, inside the seed spread of the control,
+  with a changed HAI library (2,165 fragments after clipping) and 22 more HAI types carried across by the
+  spelling rule. The result does not depend on which v5-or-v6 instrument measured it.
+- **The spelling rule did what it was for.** Every battery cell now carries types (12/12 as receiver against 2
+  or 8), and TEP → battery is the first cross-kind cell where the learned mapping beats the permuted one by more
+  than two bits of zero-shot (3.68 against 6.35) on a receiver whose own model is near its floor. The net cell
+  is small (0.25) because a 12-type protocol is learned by the receiver's own model within its first day; the
+  zero-shot gap is the evidence, the cell is not. Battery → TEP nets 1.65 through three roles — current ↔
+  cooling-water flow, voltage ↔ the A/C feed valve, temperature ↔ separator underflow — a plausible pairing of
+  an actuator, a setpoint-held quantity and a slow measurement, and too few roles to claim.
+- **HAI ↔ battery stays at zero** (0.05, 0.09): the learned mapping beats the permuted by 0.6 bits as HAI → battery,
+  the mixed curves do not move.
+
+### Returns (3.15) — the loop signature across datasets
+
+| dataset | chains admitted (used) | returns | the loop, as a return | spelled |
+| --- | --- | --- | --- | --- |
+| Tennessee Eastman | 525 (0) | 106 | `cw_flow:downq20 -s-> P:downq20 -m-> cw_flow:upq20` (n 46, cond. lift 3.52, null 11) | SLOW·RELAY → MID·FOLLOW → SLOW·RELAY |
+| HAI | 1,437 (0) | 118 | `LIT01:upq80 -s-> LCV01D:upq20 -s-> LIT01:downq80` (n 15, cond. lift 9.01, null 5) | MID·RELAY → MID·RELAY → MID·RELAY |
+| NASA battery | 13 (13) | 1 | `I:downq10 -s-> V:downq20 -s-> I:upq10` (n 27, cond. lift 2.10, null 4) | MID-S·RELAY → MID·RELAY → MID-S·RELAY |
+| building A | 15 (15) | 1 | `T:down20 -m-> vent:off -s-> T:up20` (n 6, cond. lift 2.65, null 1) | untagged |
+| building B′ | 32 (32) | 0 | — | — |
+
+TEP's cooling-water loop and HAI's level loop both appear as returns, the strongest of their datasets' return
+inventories (cw_flow ↔ cw_out and cw_flow → P → cw_flow: 31 returns; LIT01 ↔ LCV01D: 20). The thesis line
+holds with one correction to its spelling: **neither is LEAD → FOLLOW → LEAD, and no return anywhere is.** An
+actuator inside a closed loop is a context *and* a target — it moves the measurement and is moved by it — so the
+degree rule of 3.14 tags it RELAY by construction. LEAD belongs to open drivers (feeds, schedules, the HIL load:
+chains LEAD → RELAY → RELAY, 76 in TEP and 206 in HAI). A loop closing reads RELAY → FOLLOW → RELAY where the
+measurement only follows (TEP's vessels) and RELAY → RELAY → RELAY where it also drives (HAI's level, the
+battery's voltage). Whether 3.14 should carry a loop-aware place tag is the next method question, not a tuning.
 
 ## v5: place prefix and dimension suffix (alignment hard on kind and dimension, graded on clock and place; control permuted within clock class × dimension)
 

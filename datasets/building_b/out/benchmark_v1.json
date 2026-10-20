@@ -1,5 +1,5 @@
 {
- "method_version": 3,
+ "method_version": 6,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_b",
@@ -59,41 +59,51 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 1.8602582621080042,
-   "non_deterministic": 1.8602582621080042,
+   "all": 1.8602582621076327,
+   "non_deterministic": 1.8602582621076327,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 2.1098300522398854,
-   "non_deterministic": 2.1098300522398854,
+   "all": 2.109830052240662,
+   "non_deterministic": 2.109830052240662,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 1.5297042841236872,
-   "non_deterministic": 1.5297042841236872,
+   "all": 1.529704284140704,
+   "non_deterministic": 1.529704284140704,
    "deterministic": null
   },
   "logistic library": {
-   "all": 1.3653307393190863,
-   "non_deterministic": 1.3653307393190863,
+   "all": 1.3405065730812646,
+   "non_deterministic": 1.3405065730812646,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.354568344036919,
-   "non_deterministic": 1.354568344036919,
+   "all": 1.3545683444107055,
+   "non_deterministic": 1.3545683444107055,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.16437354480460087,
-  "over_best_baseline": 0.49492752278891783,
-  "best_baseline_bits": 1.8602582621080042,
+  "over_triviality": 0.1891977110594394,
+  "over_best_baseline": 0.519751689026368,
+  "best_baseline_bits": 1.8602582621076327,
   "claim": "beats baselines"
  },
  "library": {
   "fragments": 131,
   "fragments_used": 57,
   "compositions_kept": 444,
+  "chains": 32,
+  "chains_used": 32,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 761,
+   "lift_ok": 60,
+   "null_passed": 60,
+   "admitted": 32,
+   "returns": 0
+  },
   "candidates": 1514,
   "nulls_run": [
    "circular",
@@ -152,5 +162,5 @@
  "recovery": "not measured",
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 27.4
+ "elapsed_s": 19.2
 }

@@ -1,4 +1,5 @@
 {
+ "chains": [],
  "fragments": [
   {
    "prior": "Q:upq50",
@@ -6,7 +7,7 @@
    "target": "Q:upq80",
    "count": 3,
    "lift": 12.9375,
-   "lift_conf": 10.35,
+   "lift_conf": 6.9,
    "null_max": {
     "circular": 1,
     "rewire": 3
@@ -26,7 +27,7 @@
    "target": "Q:downq20",
    "count": 4,
    "lift": 5.75,
-   "lift_conf": 6.9,
+   "lift_conf": 6.088235294117648,
    "null_max": {
     "circular": 0,
     "rewire": 4
@@ -39,11 +40,32 @@
    "confirmed_in": [],
    "failed_in": [],
    "shape": "FAST-S.down.q50 -s-> FAST-S.down.q20 [same role]"
+  },
+  {
+   "prior": "Q:upq20",
+   "lag": "s",
+   "target": "Q:upq50",
+   "count": 4,
+   "lift": 2.5090909090909093,
+   "lift_conf": 2.2139037433155084,
+   "null_max": {
+    "circular": 1,
+    "rewire": 4
+   },
+   "nulls_survived": [
+    "circular"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "tclab",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "FAST-S.up.q20 -s-> FAST-S.up.q50 [same role]"
   }
  ],
  "compositions": [],
  "shape_counts": {
   "FAST-S.up.q50 -s-> FAST-S.up.q80 [same role]": 1,
-  "FAST-S.down.q50 -s-> FAST-S.down.q20 [same role]": 1
+  "FAST-S.down.q50 -s-> FAST-S.down.q20 [same role]": 1,
+  "FAST-S.up.q20 -s-> FAST-S.up.q50 [same role]": 1
  }
 }

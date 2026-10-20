@@ -223,9 +223,31 @@ def align_roles(rowsA, toksA, rowsB, toksB, rng, tagsA=None, tagsB=None, use_anc
     for t in toksB:
         ra = role_map.get(role_of(t))
         cand = f"{ra}:{sym_of(t)}" if ra else None
-        mapping[t] = cand if cand in setA else None
+        if cand in setA: mapping[t] = cand
+        elif ra and symbol_kind([sym_of(t)]) == "quantile" and symbol_kind(symsA[ra]) == "quantile":
+            mapping[t] = cross_scheme(ra, sym_of(t), symsA[ra])    # v6: different quantile schemes, by direction and nearest quantile
+        else: mapping[t] = None
     anchor_names = {rolesB[j]: rolesA[i] for j, i in (anchors or {}).items()}
     return mapping, role_map, anchor_names, obj
+
+
+def _quantile(sym):
+    d = "up" if sym.startswith("up") else "down"
+    q = sym[len(d):].lstrip("q")
+    try: return d, float(q)
+    except ValueError: return d, None
+
+
+def cross_scheme(ra, sym, syms_a):
+    """3.12 (v6): a quantile symbol crosses to the source role's symbol of the same direction and nearest
+    quantile (upq10 -> upq20, upq90 -> upq80, q50 -> q50); a tie (q50 against q10/q90) crosses to nothing."""
+    d, q = _quantile(sym)
+    if q is None: return None
+    cands = [(abs(qa - q), sa) for sa in syms_a for da, qa in [_quantile(sa)] if da == d and qa is not None]
+    if not cands: return None
+    cands.sort(); best = cands[0][0]
+    if len(cands) > 1 and cands[1][0] == best: return None
+    return f"{ra}:{cands[0][1]}"
 
 
 def has_roles(toks):

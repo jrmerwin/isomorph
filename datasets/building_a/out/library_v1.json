@@ -1,4 +1,306 @@
 {
+ "chains": [
+  {
+   "a": "setpoint:up",
+   "l1": "l",
+   "b": "CO2:up900",
+   "l2": "m",
+   "c": "RH:down70",
+   "count": 12,
+   "cond_lift": 3.9626373626373623,
+   "count_conf": 11,
+   "cond_lift_conf": 3.0078740157480315,
+   "null_max": 1,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 601,
+    "n_BC": 13,
+    "n_AB": 140
+   },
+   "shape": null
+  },
+  {
+   "a": "setpoint:up",
+   "l1": "m",
+   "b": "T:up20",
+   "l2": "l",
+   "c": "occ:arrive",
+   "count": 149,
+   "cond_lift": 1.9282446837002518,
+   "count_conf": 113,
+   "cond_lift_conf": 2.0710429614843715,
+   "null_max": 18,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 1208,
+    "n_BC": 245,
+    "n_AB": 381
+   },
+   "shape": null
+  },
+  {
+   "a": "setpoint:up",
+   "l1": "l",
+   "b": "vent:on",
+   "l2": "m",
+   "c": "RH:down70",
+   "count": 13,
+   "cond_lift": 3.6523809523809527,
+   "count_conf": 8,
+   "cond_lift_conf": 3.1224489795918364,
+   "null_max": 2,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 413,
+    "n_BC": 14,
+    "n_AB": 105
+   },
+   "shape": null
+  },
+  {
+   "a": "occ:leave",
+   "l1": "m",
+   "b": "T:up20",
+   "l2": "l",
+   "c": "T:down20",
+   "count": 37,
+   "cond_lift": 2.129597865446922,
+   "count_conf": 22,
+   "cond_lift_conf": 1.5784986976083353,
+   "null_max": 11,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 1208,
+    "n_BC": 106,
+    "n_AB": 198
+   },
+   "shape": null
+  },
+  {
+   "a": "T:down20",
+   "l1": "m",
+   "b": "vent:off",
+   "l2": "l",
+   "c": "T:down20",
+   "count": 27,
+   "cond_lift": 1.9035742340926944,
+   "count_conf": 16,
+   "cond_lift_conf": 1.5406965915440494,
+   "null_max": 11,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 718,
+    "n_BC": 76,
+    "n_AB": 134
+   },
+   "shape": null
+  },
+  {
+   "a": "heater:on",
+   "l1": "m",
+   "b": "heater:off",
+   "l2": "m",
+   "c": "RH:up70",
+   "count": 23,
+   "cond_lift": 1.9601374570446735,
+   "count_conf": 22,
+   "cond_lift_conf": 1.9355515587529977,
+   "null_max": 8,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 620,
+    "n_BC": 25,
+    "n_AB": 291
+   },
+   "shape": null
+  },
+  {
+   "a": "vent:off",
+   "l1": "s",
+   "b": "T:up20",
+   "l2": "l",
+   "c": "T:down20",
+   "count": 11,
+   "cond_lift": 2.410740203193033,
+   "count_conf": 11,
+   "cond_lift_conf": 2.353398058252427,
+   "null_max": 3,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 1208,
+    "n_BC": 106,
+    "n_AB": 52
+   },
+   "shape": null
+  },
+  {
+   "a": "vent:on",
+   "l1": "s",
+   "b": "CO2:down900",
+   "l2": "s",
+   "c": "occ:arrive",
+   "count": 24,
+   "cond_lift": 1.7142857142857144,
+   "count_conf": 15,
+   "cond_lift_conf": 1.9722222222222223,
+   "null_max": 2,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 106,
+    "n_BC": 28,
+    "n_AB": 53
+   },
+   "shape": null
+  },
+  {
+   "a": "T:down20",
+   "l1": "m",
+   "b": "vent:off",
+   "l2": "s",
+   "c": "T:up20",
+   "count": 6,
+   "cond_lift": 2.65,
+   "count_conf": 10,
+   "cond_lift_conf": 2.0869565217391304,
+   "null_max": 1,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 106,
+    "n_BC": 12,
+    "n_AB": 20
+   },
+   "shape": null
+  },
+  {
+   "a": "occ:leave",
+   "l1": "s",
+   "b": "CO2:down900",
+   "l2": "s",
+   "c": "occ:leave",
+   "count": 10,
+   "cond_lift": 1.8928571428571428,
+   "count_conf": 7,
+   "cond_lift_conf": 2.9235294117647057,
+   "null_max": 7,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 106,
+    "n_BC": 28,
+    "n_AB": 20
+   },
+   "shape": null
+  },
+  {
+   "a": "CO2:down900",
+   "l1": "s",
+   "b": "occ:leave",
+   "l2": "m",
+   "c": "vent:off",
+   "count": 9,
+   "cond_lift": 1.92,
+   "count_conf": 3,
+   "cond_lift_conf": 1.7196029776674937,
+   "null_max": 1,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 672,
+    "n_BC": 63,
+    "n_AB": 50
+   },
+   "shape": null
+  },
+  {
+   "a": "occ:arrive",
+   "l1": "m",
+   "b": "vent:on",
+   "l2": "m",
+   "c": "RH:down70",
+   "count": 8,
+   "cond_lift": 1.950413223140496,
+   "count_conf": 4,
+   "cond_lift_conf": 1.7,
+   "null_max": 1,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 413,
+    "n_BC": 14,
+    "n_AB": 121
+   },
+   "shape": null
+  },
+  {
+   "a": "occ:leave",
+   "l1": "l",
+   "b": "T:down20",
+   "l2": "m",
+   "c": "CO2:down700",
+   "count": 13,
+   "cond_lift": 1.5108263367211665,
+   "count_conf": 12,
+   "cond_lift_conf": 1.5912328767123287,
+   "null_max": 7,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 263,
+    "n_BC": 31,
+    "n_AB": 73
+   },
+   "shape": null
+  },
+  {
+   "a": "vent:on",
+   "l1": "m",
+   "b": "vent:off",
+   "l2": "s",
+   "c": "T:up20",
+   "count": 7,
+   "cond_lift": 1.5854700854700854,
+   "count_conf": 8,
+   "cond_lift_conf": 1.5999999999999999,
+   "null_max": 1,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 106,
+    "n_BC": 12,
+    "n_AB": 39
+   },
+   "shape": null
+  },
+  {
+   "a": "occ:arrive",
+   "l1": "m",
+   "b": "CO2:up900",
+   "l2": "m",
+   "c": "RH:down70",
+   "count": 5,
+   "cond_lift": 1.8947036569987388,
+   "count_conf": 7,
+   "cond_lift_conf": 2.077700077700078,
+   "null_max": 0,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 601,
+    "n_BC": 13,
+    "n_AB": 122
+   },
+   "shape": null
+  }
+ ],
  "fragments": [
   {
    "prior": "setpoint:up",

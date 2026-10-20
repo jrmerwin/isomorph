@@ -32,7 +32,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     rng = np.random.default_rng(seed)
     entities = sorted(e for e in obs.entity.unique() if e != SYSTEM)
     streams = streams_of(events, entities)
-    gap_mode = "drop" if profile == "v1" else "ignore"
+    gap_mode = "clip" if profile == "v1" else "ignore"      # v6 (3.6): a gap clips the window; v1-v5 dropped the target
     lo, p_hi, c_hi, hi = split_bounds(events, profile)
 
     # lag classes (3.3)
@@ -80,6 +80,20 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         b_with = fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs), rows_prop, rows_conf).mean()
         if b_with >= b_without - 1e-4:
             comp_ctxs = []
+    # syntax (3.15, v6): chains of two validated fragments, and returns; kept as features only if they reduce confirmation bits
+    chains, cinfo, chain_keys_used = [], dict(candidates=0, lift_ok=0, null_passed=0, admitted=0, returns=0), []
+    if profile == "v1" and frags:
+        from .mine.syntax import discover_chains, mark_rows, times_by_tok
+        chains, cinfo = discover_chains(frags, streams, lags, (lo, p_hi, c_hi), rng, gaps, gap_mode, rows_prop, rows_conf, log)
+        if chains:
+            mark_rows(rows_train, times_by_tok(streams, lo, c_hi), lags, chains, gaps)
+            mark_rows(rows_test, times_by_tok(streams, c_hi, hi), lags, chains, gaps)
+            chain_keys = [h["key"] for h in chains]
+            b_without = fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs), rows_prop, rows_conf).mean()
+            b_with = fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs, chain_keys), rows_prop, rows_conf).mean()
+            chain_keys_used = chain_keys if b_with < b_without - 1e-4 else []
+    log(f"[{name}] chains: {cinfo['candidates']} candidates, {cinfo['lift_ok']} with conditional lift, {cinfo['null_passed']} above the null, "
+        f"{cinfo['admitted']} admitted ({cinfo['returns']} returns), {len(chain_keys_used)} used as features")
     unsel_ctxs = list(dict.fromkeys(c for c, y in cands))
     triv_ctxs = B.triviality_contexts(vocab, lags, rows_train)
     triv_pairs = B.alternating_pairs(rows_train)
@@ -95,7 +109,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         "hawkes-like decay features": B.hawkes_bits(rows_train, rows_test, vocab, all_types, tau=lags.edges[1]),
         "logistic markov features": fit_bits(FeatureMap(vocab, True), rows_train, rows_test),
         "logistic triviality library": fit_bits(FeatureMap(vocab, True, triv_ctxs), rows_train, rows_test),
-        "logistic library": fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs), rows_train, rows_test),
+        "logistic library": fit_bits(FeatureMap(vocab, True, frag_ctxs, comp_ctxs, chain_keys_used), rows_train, rows_test),
         "logistic unselected contexts": fit_bits(FeatureMap(vocab, True, unsel_ctxs), rows_train, rows_test),
     }
     def summarise(bits):
@@ -139,6 +153,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         gain=dict(over_triviality=gain_over_triviality, over_best_baseline=gain_over_best_baseline,
                   best_baseline_bits=best_base, claim=("beats baselines" if gain_over_triviality >= K.CLAIM_MIN_GAIN_BITS and gain_over_best_baseline >= K.CLAIM_MIN_GAIN_BITS else "no gain")),
         library=dict(fragments=len(frags), fragments_used=len(frag_ctxs), compositions_kept=len(comp_ctxs),
+                     chains=len(chains), chains_used=len(chain_keys_used), returns=cinfo["returns"], chain_search=cinfo,
                      candidates=len(cands), nulls_run=dinfo["nulls_run"], null_survival=dinfo["null_survival"],
                      trivial_pairs=sorted(list(pq) for pq in triv_pairs),
                      chatty_share=chatty_share),
@@ -146,15 +161,16 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
         elapsed_s=round(time.time() - t0, 1),
     )
     os.makedirs(os.path.join(dataset_dir, "out"), exist_ok=True)
-    lib_json = library_to_json(frags, comps)
+    lib_json = library_to_json(frags, comps, chains, chain_keys_used)
     if side.get("tags"):   # v4+: tag-prefixed shapes travel with the library, so a re-run never strips them
-        from .choose.pos import shape_of
+        from .choose.pos import shape_of, shape_of_chain
         from collections import Counter
         for f in lib_json["fragments"]: f["shape"] = shape_of(f["prior"], f["lag"], f["target"], side["tags"])
         lib_json["shape_counts"] = dict(Counter(f["shape"] for f in lib_json["fragments"]).most_common())
+        for h in lib_json["chains"]: h["shape"] = shape_of_chain(h["a"], h["l1"], h["b"], h["l2"], h["c"], side["tags"], h["is_return"])
     json.dump(lib_json, open(os.path.join(dataset_dir, "out", f"library_{profile}.json"), "w"), indent=1)
     json.dump(card, open(os.path.join(dataset_dir, "out", f"benchmark_{profile}.json"), "w"), indent=1)
-    state = dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, vocab=vocab, all_types=all_types, lags=lags,
+    state = dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, chains=chains, chain_keys_used=chain_keys_used, vocab=vocab, all_types=all_types, lags=lags,
                  rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, gap_mode=gap_mode)
     try:   # state cache for the collection step (not committed; keyed by version/profile/seed in the card)
         import pickle
@@ -190,5 +206,6 @@ def card_markdown(card):
     g = card["gain"]
     lines += ["", f"Gain over triviality: {g['over_triviality']:.3f} bits · over best baseline ({g['best_baseline_bits']:.3f}): {g['over_best_baseline']:.3f} bits · claim: **{g['claim']}**",
               f"Library: {card['library']['fragments']} fragments ({card['library']['fragments_used']} used), {card['library']['compositions_kept']} compositions, chatty share {card['library']['chatty_share']:.2f}",
+              f"Syntax (3.15): {card['library'].get('chains', 0)} chains ({card['library'].get('chains_used', 0)} used), {card['library'].get('returns', 0)} returns",
               f"Recovery: {card['recovery']}"]
     return "\n".join(lines) + "\n"

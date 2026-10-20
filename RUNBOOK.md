@@ -64,14 +64,16 @@ single-process apart from numpy's own threading.
    a seeded transfer rewrites `out/benchmark_v1.json` and `out/library_v1.json` for that seed, and every `run`
    writes the library *without* the tagged shapes — so either re-run `scripts/tag_datasets.py` or restore the
    seed-0 files with `git checkout -- datasets/*/out collection/transfer_*.md` before `git add -A`.
-2. **A Rosetta set** — started 2026-10-20 with TCLab (5, not admitted: 7.6 h of public recordings, no period) and
-   the NASA battery cells (6, admitted: 47.5 days). Ten cells, all net 0.00 where measurable (docs/MATRIX.md).
-   Before the next members (a tank rig, a DC motor, a PhysioNet regulator) three repairs, in this order:
-   (a) a gap rule for observation fragmented at or below the horizon — the battery set mines 838 of 12,274 events
-   under the current rule, and every cycled protocol will look the same; (b) a 24–48 h TCLab recording of both
-   heaters under a setpoint schedule (the kit is cheap; no public recording is long enough); (c) a spelling rule
-   for actuators symbolized by different quantile schemes (3.12 crosses symbols by spelling, so Q q20/50/80 and
-   I q10/90 share no types). `scripts/fetch_tclab.sh`, `fetch_battery.sh`; `ingest_*.py` are resumable; both
-   choice stages take seconds. The negative controls move down the running order, not off it.
-3. **Syntax motifs** (v6): chains A→B→C and the feedback-return motif X↑ → Y → X↓, admitted by confirmation
-   bits with the circular null, written in the tagged alphabet. The expensive step; run it here.
+2. **A Rosetta set** — the NASA battery cells (6) are Rosetta member one (admitted, 47.5 days; recovery 3/3
+   under v6). TCLab (5) is withdrawn from the running order: no public recording is long enough (7.6 h, no
+   period); it re-enters with a 24–48 h recording of both heaters under a setpoint schedule, made on a kit.
+   Of the three repairs the pair asked for, two are in v6 (gap clipping 3.6, cross-scheme spelling 3.12); the
+   recording is the third. Next members: a tank rig, a DC motor, a PhysioNet regulator — each a `*_layout.py`
+   and an `ingest_*.py` (copy `battery_layout.py` for a cycled protocol). The negative controls move down the
+   running order, not off it.
+3. **Syntax motifs — v6, implemented 2026-10-20** (3.15: `isomorph/mine/syntax.py`). Chains of two validated
+   fragments and returns are admitted on every card; TEP 525 chains / 106 returns, HAI 1,437 / 118, battery
+   13 / 1, building A 15 / 1. On the Mac a chain search costs about as much as the pair nulls (TEP ~3 min).
+   Open: the place prefix tags both ends of a closed loop RELAY (an actuator in a loop is context and target),
+   so a loop closing reads RELAY → FOLLOW → RELAY or RELAY → RELAY → RELAY, never LEAD → FOLLOW → LEAD; whether
+   3.14 should carry a loop-aware tag is the next method question.

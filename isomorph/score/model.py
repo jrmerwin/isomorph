@@ -1,5 +1,5 @@
 """Predictive model (METHOD.md 3.9): multinomial logistic regression over
-indicator features (Markov-1/2 adjacent contexts + library contexts [+ compositions])."""
+indicator features (Markov-1/2 adjacent contexts + library contexts [+ compositions] [+ chains, v6])."""
 import numpy as np
 from scipy.sparse import csr_matrix
 from sklearn.linear_model import LogisticRegression
@@ -7,7 +7,7 @@ from .. import constants as K
 
 
 class FeatureMap:
-    def __init__(self, vocab, use_markov=True, frag_ctxs=(), comp_ctxs=()):
+    def __init__(self, vocab, use_markov=True, frag_ctxs=(), comp_ctxs=(), chain_keys=()):
         self.vocab = list(vocab); self.feats = {}
         if use_markov:
             for t in vocab: self.feats[("m1", t)] = len(self.feats)
@@ -15,7 +15,9 @@ class FeatureMap:
                 for b in vocab: self.feats[("m2", a, b)] = len(self.feats)
         for c in frag_ctxs: self.feats.setdefault(("f", c), len(self.feats))
         for c in comp_ctxs: self.feats.setdefault(("c", c), len(self.feats))
+        for h in chain_keys: self.feats.setdefault(("h", h), len(self.feats))     # v6: chains and returns (3.15)
         self.comp_keys = [k for k in self.feats if k[0] == "c"]
+        self.has_chains = any(k[0] == "h" for k in self.feats)
 
     def transform(self, rows):
         data, ri, ci = [], [], []
@@ -29,6 +31,9 @@ class FeatureMap:
                 cset = r["ctx"]
                 for k in self.comp_keys:
                     if k[1][0] in cset and k[1][1] in cset: keys.append(k)
+            if self.has_chains:
+                for h in r.get("chains", ()):
+                    if ("h", h) in self.feats: keys.append(("h", h))
             for k in keys:
                 j = self.feats.get(k)
                 if j is not None: ri.append(i); ci.append(j); data.append(1.0)

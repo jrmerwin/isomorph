@@ -88,3 +88,28 @@ seen a twentieth of the data.
    would find it and lose the thermal lags. One resolution per dataset is the rule; the card records the cost.
 4. Ageing is a slow regime (capacity 1.86 → 1.33 Ah) that none of the baselines or the library can see; it is
    the natural first "regime drift" test when regimes become a field.
+
+## v6 regeneration (2026-10-20): gap clipping and syntax motifs
+
+Rules changed in v6: 3.6 (a gap clips the window instead of dropping the target), 3.15 (chains and returns).
+This is the card the gap rule was changed for, and it is a different card.
+
+| | v5 | v6 |
+| --- | --- | --- |
+| events dropped for gaps | 11,436 (93%) | **1,120 (9%)** |
+| validated fragments (used) | 12 (9) | **47 (24)**, 74 compositions |
+| recovery | 2/3 | **3/3** (current → voltage now found) |
+| logistic library / triviality / best baseline | 2.781 / 2.711 / 2.745 | 0.838 / 0.827 / 1.087 (logistic Markov) |
+| gain over triviality | −0.071 | −0.011 → **no gain** |
+| chains (used), returns | — | 13 (13), 1 |
+
+Every model fell by about two bits because the Markov contexts now exist on every row (under v5 a dropped
+target had none). The triviality baseline still carries the protocol: a cycling protocol is an alternation.
+
+**Syntax (3.15).** 155 candidates → 19 with conditional lift → 19 above the null → **13 admitted, all 13 used**:
+the only dataset so far where chains reduce confirmation bits. The one return is the cutoff loop:
+`I:downq10 -s-> V:downq20 -s-> I:upq10` (n = 27, conditional lift 2.10, null max 4, confirmation 3 / 3.00) —
+the discharge current switches on, the voltage falls through its lower quantile, the discharge switches off.
+Spelled `MID-S·RELAY.down.q10 -s-> MID·RELAY.down.q20 -s-> MID-S·RELAY.up.q10 [return]`. The other chains are
+the charge's constant-voltage phase (`V:upq50 -s-> V:upq80 -s-> T:peak`, n = 121) and the discharge's
+temperature trough preceding the next charge.

@@ -1,5 +1,5 @@
 {
- "method_version": 5,
+ "method_version": 6,
  "profile": "v1",
  "seed": 0,
  "dataset": "tclab",
@@ -65,7 +65,7 @@
    3.276146920569055,
    20.54166666666666
   ],
-  "events_dropped_for_gaps": 210,
+  "events_dropped_for_gaps": 16,
   "test_events": 282,
   "deterministic_types": []
  },
@@ -76,56 +76,66 @@
    "deterministic": null
   },
   "markov-1": {
-   "all": 2.9085951367879153,
-   "non_deterministic": 2.9085951367879153,
+   "all": 2.2426521820856746,
+   "non_deterministic": 2.2426521820856746,
    "deterministic": null
   },
   "markov-2": {
-   "all": 3.176272830950335,
-   "non_deterministic": 3.176272830950335,
+   "all": 1.7758324872713216,
+   "non_deterministic": 1.7758324872713216,
    "deterministic": null
   },
   "markov-3": {
-   "all": 3.3451295972132775,
-   "non_deterministic": 3.3451295972132775,
+   "all": 1.7136650983294528,
+   "non_deterministic": 1.7136650983294528,
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 3.030948104696465,
-   "non_deterministic": 3.030948104696465,
+   "all": 2.5302610409637567,
+   "non_deterministic": 2.5302610409637567,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 2.7747819244848384,
-   "non_deterministic": 2.7747819244848384,
+   "all": 2.0795123328705816,
+   "non_deterministic": 2.0795123328705816,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 2.854505126516822,
-   "non_deterministic": 2.854505126516822,
+   "all": 1.779046823387302,
+   "non_deterministic": 1.779046823387302,
    "deterministic": null
   },
   "logistic library": {
-   "all": 2.7473258266208425,
-   "non_deterministic": 2.7473258266208425,
+   "all": 1.9489117291190747,
+   "non_deterministic": 1.9489117291190747,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.7807791418448713,
-   "non_deterministic": 2.7807791418448713,
+   "all": 1.9558364960539774,
+   "non_deterministic": 1.9558364960539774,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.10717929989597952,
-  "over_best_baseline": 0.027456097863995943,
-  "best_baseline_bits": 2.7747819244848384,
+  "over_triviality": -0.1698649057317727,
+  "over_best_baseline": -0.23524663078962194,
+  "best_baseline_bits": 1.7136650983294528,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 2,
-  "fragments_used": 2,
+  "fragments": 3,
+  "fragments_used": 3,
   "compositions_kept": 0,
+  "chains": 0,
+  "chains_used": 0,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 1,
+   "lift_ok": 0,
+   "null_passed": 0,
+   "admitted": 0,
+   "returns": 0
+  },
   "candidates": 48,
   "nulls_run": [
    "circular",

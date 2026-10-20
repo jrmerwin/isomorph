@@ -1,5 +1,5 @@
 {
- "method_version": 2,
+ "method_version": 6,
  "profile": "v1",
  "seed": 0,
  "dataset": "tennessee_eastman",
@@ -346,7 +346,7 @@
   "types": 40,
   "n_entities": 3,
   "period": null,
-  "signal_floor": 180,
+  "signal_floor": 162,
   "min_count": 3,
   "lag_edges": [
    10.883762260366268,
@@ -379,41 +379,51 @@
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 3.410388759921121,
-   "non_deterministic": 3.410388759921121,
+   "all": 3.4102080906736476,
+   "non_deterministic": 3.4102080906736476,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 4.195840025821796,
-   "non_deterministic": 4.195840025821796,
+   "all": 4.19584174958925,
+   "non_deterministic": 4.19584174958925,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 3.170941163863138,
-   "non_deterministic": 3.170941163863138,
+   "all": 3.171146236217763,
+   "non_deterministic": 3.171146236217763,
    "deterministic": null
   },
   "logistic library": {
-   "all": 3.032947999370494,
-   "non_deterministic": 3.032947999370494,
+   "all": 3.0330102082095745,
+   "non_deterministic": 3.0330102082095745,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 3.175869679957686,
-   "non_deterministic": 3.175869679957686,
+   "all": 3.173886526303596,
+   "non_deterministic": 3.173886526303596,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": 0.1379931644926442,
-  "over_best_baseline": 0.3774407605506269,
-  "best_baseline_bits": 3.410388759921121,
+  "over_triviality": 0.13813602800818847,
+  "over_best_baseline": 0.37719788246407315,
+  "best_baseline_bits": 3.4102080906736476,
   "claim": "beats baselines"
  },
  "library": {
   "fragments": 567,
   "fragments_used": 186,
   "compositions_kept": 0,
+  "chains": 525,
+  "chains_used": 0,
+  "returns": 106,
+  "chain_search": {
+   "candidates": 5733,
+   "lift_ok": 938,
+   "null_passed": 926,
+   "admitted": 525,
+   "returns": 106
+  },
   "candidates": 21863,
   "nulls_run": [
    "circular",
@@ -515,5 +525,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 552.6
+ "elapsed_s": 426.4
 }

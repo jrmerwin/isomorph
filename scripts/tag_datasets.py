@@ -8,7 +8,7 @@ The buildings keep no tags for now (B' has scrambled type names; same-kind align
 import os, sys, json, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT); sys.path.insert(0, os.path.dirname(__file__))
 from collections import Counter
-from isomorph.choose.pos import tag_layout, shape_of, place_tags, DIMENSIONS, full_tag
+from isomorph.choose.pos import tag_layout, shape_of, shape_of_chain, place_tags, DIMENSIONS, full_tag
 from isomorph.canon.ingest import read_dataset
 from isomorph.mine.contexts import streams_of, LagClasses
 
@@ -38,6 +38,7 @@ def write_tags(d, tags, note, dimension=None):
     for lib in glob.glob(os.path.join(d, "out", "library_*.json")):
         L = json.load(open(lib))
         for f in L.get("fragments", []): f["shape"] = shape_of(f["prior"], f["lag"], f["target"], side["tags"])
+        for h in L.get("chains", []): h["shape"] = shape_of_chain(h["a"], h["l1"], h["b"], h["l2"], h["c"], side["tags"], h.get("is_return", False))
         L["shape_counts"] = dict(Counter(f["shape"] for f in L.get("fragments", [])).most_common())
         json.dump(L, open(lib, "w"), indent=1)
     print(d, Counter(t["cls"] for t in tags.values()))

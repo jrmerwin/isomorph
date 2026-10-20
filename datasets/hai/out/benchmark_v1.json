@@ -1,5 +1,5 @@
 {
- "method_version": 2,
+ "method_version": 6,
  "profile": "v1",
  "seed": 0,
  "dataset": "hai",
@@ -337,14 +337,14 @@
   "types": 168,
   "n_entities": 3,
   "period": null,
-  "signal_floor": 13,
+  "signal_floor": 10,
   "min_count": 3,
   "lag_edges": [
    4.986630952238645,
    24.8664882538245,
    124.0
   ],
-  "events_dropped_for_gaps": 1234,
+  "events_dropped_for_gaps": 133,
   "test_events": 7454,
   "deterministic_types": [
    "FT02Z:downq20",
@@ -363,64 +363,74 @@
    "deterministic": 7.389705815623805
   },
   "markov-1": {
-   "all": 5.2756090361042,
-   "non_deterministic": 5.475443261070576,
-   "deterministic": 0.39160601568024367
+   "all": 5.250673970649111,
+   "non_deterministic": 5.449437308900184,
+   "deterministic": 0.392843713939419
   },
   "markov-2": {
-   "all": 5.7714452020273805,
-   "non_deterministic": 5.989562644918582,
-   "deterministic": 0.4405953435158082
+   "all": 5.736927435684826,
+   "non_deterministic": 5.953532881237682,
+   "deterministic": 0.4430312049544619
   },
   "markov-3": {
-   "all": 6.188374245700667,
-   "non_deterministic": 6.422669919202345,
-   "deterministic": 0.4621240138046743
+   "all": 6.156229343350422,
+   "non_deterministic": 6.389075135968621,
+   "deterministic": 0.4654145961186252
   },
   "hawkes-like decay features": {
-   "all": 3.875726390014997,
-   "non_deterministic": 3.9052915353115445,
-   "deterministic": 3.153146166572769
+   "all": 3.8626902880744454,
+   "non_deterministic": 3.892127456166462,
+   "deterministic": 3.1432378624535295
   },
   "logistic markov features": {
-   "all": 4.937445907673636,
-   "non_deterministic": 5.118252004501959,
-   "deterministic": 0.5184955343370542
+   "all": 4.91802095617651,
+   "non_deterministic": 5.097929245959994,
+   "deterministic": 0.5210132321507962
   },
   "logistic triviality library": {
-   "all": 3.695791785988561,
-   "non_deterministic": 3.8261938204504466,
-   "deterministic": 0.5087304590890414
+   "all": 3.674920071337521,
+   "non_deterministic": 3.8051027717462427,
+   "deterministic": 0.49321932858373446
   },
   "logistic library": {
-   "all": 3.720733388793548,
-   "non_deterministic": 3.850673420937877,
-   "deterministic": 0.5449635246790838
+   "all": 3.713633658113036,
+   "non_deterministic": 3.8442840319055036,
+   "deterministic": 0.5205028501681098
   },
   "logistic unselected contexts": {
-   "all": 3.7356740638208574,
-   "non_deterministic": 3.864984902570844,
-   "deterministic": 0.5752818580575156
+   "all": 3.7196546653029716,
+   "non_deterministic": 3.8494014440632505,
+   "deterministic": 0.5486079666601105
   }
  },
  "gain": {
-  "over_triviality": -0.024479600487430364,
-  "over_best_baseline": 0.05461811437366748,
-  "best_baseline_bits": 3.9052915353115445,
+  "over_triviality": -0.03918126015926093,
+  "over_best_baseline": 0.04784342426095822,
+  "best_baseline_bits": 3.892127456166462,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 2096,
-  "fragments_used": 431,
+  "fragments": 2165,
+  "fragments_used": 440,
   "compositions_kept": 0,
-  "candidates": 30982,
+  "chains": 1437,
+  "chains_used": 0,
+  "returns": 118,
+  "chain_search": {
+   "candidates": 38955,
+   "lift_ok": 3393,
+   "null_passed": 3218,
+   "admitted": 1437,
+   "returns": 118
+  },
+  "candidates": 31443,
   "nulls_run": [
    "circular",
    "rewire"
   ],
   "null_survival": {
-   "circular": 0.20069918046879479,
-   "rewire": 0.026992950885437562
+   "circular": 0.20236411967648887,
+   "rewire": 0.3854985577738816
   },
   "trivial_pairs": [
    [
@@ -1176,15 +1186,15 @@
     "VYT03:upq80"
    ]
   ],
-  "chatty_share": 0.2476145038167939
+  "chatty_share": 0.2600461893764434
  },
  "recovery": {
   "recall": 0.4666666666666667,
-  "precision": 0.023377862595419848,
+  "precision": 0.022170900692840646,
   "n_mechanisms": 15,
   "n_found": 7
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 1089.0
+ "elapsed_s": 671.2
 }

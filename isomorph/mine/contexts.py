@@ -8,9 +8,12 @@ For each target event (the entity's own events) the context is the set of
 the horizon, with a strictly positive gap. Adjacent Markov-1/2 contexts are the
 entity's own previous one and two events.
 
-Gap handling (v1): a context window [t - horizon, t) that overlaps a gap of
-the same entity (any type, or the specific prior type) is dropped: the target
-emits no lagged contexts and no Markov contexts. Legacy profile ignores gaps.
+Gap handling. v6 ("clip", METHOD 3.6): a gap of the entity clips the look-back window to
+[max(t - H, end of the last gap before t), t): the target keeps the contexts inside its own
+observed stretch (lagged and Markov) and loses those on the far side of the gap; it is dropped
+only when the clipped window is empty. v1-v5 ("drop"): a window that overlaps any gap of the
+entity drops the whole target. A gap recorded against one prior type removes that type's
+context in both modes. Legacy profile ignores gaps.
 """
 from collections import defaultdict
 import numpy as np
@@ -139,21 +142,28 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
         t_arr, toks, tgt, ids = t_arr[order], toks[order], tgt[order], ids[order]
     gmap = entity_gap_map if entity_gap_map is not None else (entity_gaps(gaps, entity) if gaps is not None and entity is not None else {})
     all_gaps = gmap.get("", []) if gmap else []
-    rows, own_hist, last_seen = [], [], {}
+    rows, own_hist, own_t, last_seen = [], [], [], {}
     H = lags.horizon
     for i in range(len(t_arr)):
         if tgt[i]:
             t = t_arr[i]
-            dropped = False
+            dropped = False; win_lo = t - H
             if gap_mode == "drop" and gmap:
                 if _overlaps(all_gaps, t - H, t):
                     dropped = True
+            elif gap_mode == "clip" and all_gaps:
+                g_end = max((e for s_, e in all_gaps if s_ < t and e > win_lo), default=None)
+                if g_end is not None:
+                    win_lo = max(win_lo, g_end)
+                    if win_lo >= t: dropped = True          # a gap covers the target itself: empty window
+                    while own_hist and own_t[-1] < win_lo:   # own history on the far side of the gap
+                        own_hist.pop(); own_t.pop()
             ctx = set(); gapd = {}
             if not dropped:
                 for tok, tm in last_seen.items():
                     gap = t - tm
-                    if 0 < gap <= H:
-                        if gap_mode == "drop" and gmap and tok in gmap and _overlaps(gmap[tok], tm, t):
+                    if 0 < gap <= H and tm >= win_lo:
+                        if gap_mode in ("drop", "clip") and gmap and tok in gmap and _overlaps(gmap[tok], tm, t):
                             continue
                         c = lags.of(gap)
                         if c is not None:
@@ -163,7 +173,7 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
                              m1=(own_hist[-1] if own_hist and not dropped else None),
                              m2=(tuple(own_hist[-2:]) if len(own_hist) >= 2 and not dropped else None),
                              m3=(tuple(own_hist[-3:]) if len(own_hist) >= 3 and not dropped else None)))
-            own_hist.append(toks[i])
+            own_hist.append(toks[i]); own_t.append(t)
         last_seen[toks[i]] = t_arr[i]
     return rows
 

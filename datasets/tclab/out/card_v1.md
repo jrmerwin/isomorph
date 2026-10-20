@@ -1,19 +1,20 @@
-# Benchmark card — tclab (method v5, profile v1, seed 0)
+# Benchmark card — tclab (method v6, profile v1, seed 0)
 
-Kind: real lab kit (TCLab, two heaters) · entities: h1, h2 · types: 12 · events/day: 1471 · lag edges: [0.5225057352610519, 3.276146920569055, 20.54166666666666] · dropped for gaps: 210
+Kind: real lab kit (TCLab, two heaters) · entities: h1, h2 · types: 12 · events/day: 1471 · lag edges: [0.5225057352610519, 3.276146920569055, 20.54166666666666] · dropped for gaps: 16
 
 | model | all | non-deterministic | deterministic |
 | --- | --- | --- | --- |
 | unigram | 3.069 | 3.069 | None |
-| markov-1 | 2.909 | 2.909 | None |
-| markov-2 | 3.176 | 3.176 | None |
-| markov-3 | 3.345 | 3.345 | None |
-| hawkes-like decay features | 3.031 | 3.031 | None |
-| logistic markov features | 2.775 | 2.775 | None |
-| logistic triviality library | 2.855 | 2.855 | None |
-| logistic library | 2.747 | 2.747 | None |
-| logistic unselected contexts | 2.781 | 2.781 | None |
+| markov-1 | 2.243 | 2.243 | None |
+| markov-2 | 1.776 | 1.776 | None |
+| markov-3 | 1.714 | 1.714 | None |
+| hawkes-like decay features | 2.530 | 2.530 | None |
+| logistic markov features | 2.080 | 2.080 | None |
+| logistic triviality library | 1.779 | 1.779 | None |
+| logistic library | 1.949 | 1.949 | None |
+| logistic unselected contexts | 1.956 | 1.956 | None |
 
-Gain over triviality: 0.107 bits · over best baseline (2.775): 0.027 bits · claim: **no gain**
-Library: 2 fragments (2 used), 0 compositions, chatty share 1.00
+Gain over triviality: -0.170 bits · over best baseline (1.714): -0.235 bits · claim: **no gain**
+Library: 3 fragments (3 used), 0 compositions, chatty share 1.00
+Syntax (3.15): 0 chains (0 used), 0 returns
 Recovery: {'recall': 0.0, 'precision': 0.0, 'n_mechanisms': 3, 'n_found': 0}

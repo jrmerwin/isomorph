@@ -808,9 +808,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 30,
-   "in_degree": 21,
-   "binding_share": 0.1,
+   "out_degree": 33,
+   "in_degree": 17,
+   "binding_share": 0.18,
    "dimension": [
     1,
     -1,
@@ -837,10 +837,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 22,
-   "in_degree": 28,
-   "binding_share": 0.04,
+   "locality": "LOCAL",
+   "out_degree": 25,
+   "in_degree": 30,
+   "binding_share": 0.87,
    "dimension": [
     1,
     -1,
@@ -851,7 +851,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "B3004": {
    "cls": "SET",
@@ -863,11 +863,11 @@
      "cls": "SET"
     }
    },
-   "influence": "RELAY",
+   "influence": "LEAD",
    "locality": "COMMON",
-   "out_degree": 50,
-   "in_degree": 32,
-   "binding_share": 0.03,
+   "out_degree": 64,
+   "in_degree": 31,
+   "binding_share": 0.26,
    "dimension": [
     0,
     1,
@@ -878,7 +878,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SET\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
+   "full": "SET\u00b7COMMON\u00b7LEAD \u27e8L\u27e9"
   },
   "B3005": {
    "cls": "SET",
@@ -948,13 +948,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 95,
-   "in_degree": 108,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 93,
+   "in_degree": 112,
+   "binding_share": 0.67,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "B400B": {
    "cls": "MID-S",
@@ -970,10 +970,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 110,
-   "in_degree": 118,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 107,
+   "in_degree": 120,
+   "binding_share": 0.69,
    "dimension": [
     0,
     3,
@@ -984,7 +984,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "B4022": {
    "cls": "SLOW",
@@ -1000,10 +1000,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 119,
-   "in_degree": 166,
-   "binding_share": 0.02,
+   "locality": "LOCAL",
+   "out_degree": 122,
+   "in_degree": 176,
+   "binding_share": 0.76,
    "dimension": [
     0,
     0,
@@ -1014,7 +1014,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8\u0398\u27e9"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "FCV01D": {
    "cls": "MID-S",
@@ -1030,13 +1030,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 62,
-   "in_degree": 72,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 59,
+   "in_degree": 73,
+   "binding_share": 0.84,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "FCV01Z": {
    "cls": "MID-S",
@@ -1052,13 +1052,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
+   "locality": "LOCAL",
    "out_degree": 52,
-   "in_degree": 44,
-   "binding_share": 0.0,
+   "in_degree": 41,
+   "binding_share": 0.88,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "FCV02D": {
    "cls": "MID-S",
@@ -1096,13 +1096,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
+   "locality": "LOCAL",
    "out_degree": 102,
-   "in_degree": 146,
-   "binding_share": 0.01,
+   "in_degree": 144,
+   "binding_share": 0.65,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "FCV03D": {
    "cls": "MID",
@@ -1119,9 +1119,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 14,
+   "out_degree": 17,
    "in_degree": 9,
-   "binding_share": 0.0,
+   "binding_share": 0.11,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7COMMON\u00b7RELAY"
@@ -1139,14 +1139,14 @@
      "cls": "MID"
     }
    },
-   "influence": "FOLLOW",
-   "locality": "COMMON",
-   "out_degree": 12,
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 14,
    "in_degree": 24,
-   "binding_share": 0.12,
+   "binding_share": 0.62,
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7COMMON\u00b7FOLLOW"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "FT01": {
    "cls": "MID",
@@ -1162,10 +1162,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 48,
-   "in_degree": 65,
-   "binding_share": 0.25,
+   "locality": "LOCAL",
+   "out_degree": 60,
+   "in_degree": 66,
+   "binding_share": 0.52,
    "dimension": [
     1,
     -1,
@@ -1176,7 +1176,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT01Z": {
    "cls": "MID",
@@ -1192,10 +1192,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 25,
-   "in_degree": 24,
-   "binding_share": 0.25,
+   "locality": "LOCAL",
+   "out_degree": 26,
+   "in_degree": 27,
+   "binding_share": 0.63,
    "dimension": [
     0,
     3,
@@ -1206,7 +1206,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "FT02": {
    "cls": "MID-S",
@@ -1222,10 +1222,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 106,
-   "in_degree": 118,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 107,
+   "in_degree": 120,
+   "binding_share": 0.66,
    "dimension": [
     1,
     -1,
@@ -1236,7 +1236,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT02Z": {
    "cls": "MID-S",
@@ -1252,10 +1252,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
+   "locality": "LOCAL",
    "out_degree": 108,
-   "in_degree": 117,
-   "binding_share": 0.0,
+   "in_degree": 120,
+   "binding_share": 0.7,
    "dimension": [
     0,
     3,
@@ -1266,7 +1266,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "FT03": {
    "cls": "MID",
@@ -1282,10 +1282,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 15,
-   "in_degree": 22,
-   "binding_share": 0.09,
+   "locality": "LOCAL",
+   "out_degree": 13,
+   "in_degree": 21,
+   "binding_share": 0.52,
    "dimension": [
     1,
     -1,
@@ -1296,7 +1296,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT03Z": {
    "cls": "MID",
@@ -1313,9 +1313,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 16,
-   "in_degree": 20,
-   "binding_share": 0.1,
+   "out_degree": 17,
+   "in_degree": 21,
+   "binding_share": 0.48,
    "dimension": [
     0,
     3,
@@ -1351,9 +1351,9 @@
    },
    "influence": "RELAY",
    "locality": "LOCAL",
-   "out_degree": 121,
-   "in_degree": 93,
-   "binding_share": 0.68,
+   "out_degree": 125,
+   "in_degree": 114,
+   "binding_share": 0.72,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LOCAL\u00b7RELAY"
@@ -1372,13 +1372,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 90,
-   "in_degree": 101,
-   "binding_share": 0.23,
+   "locality": "LOCAL",
+   "out_degree": 97,
+   "in_degree": 114,
+   "binding_share": 0.69,
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7COMMON\u00b7RELAY"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "LIT01": {
    "cls": "MID",
@@ -1403,9 +1403,9 @@
    },
    "influence": "RELAY",
    "locality": "LOCAL",
-   "out_degree": 88,
-   "in_degree": 77,
-   "binding_share": 0.71,
+   "out_degree": 95,
+   "in_degree": 80,
+   "binding_share": 0.93,
    "dimension": [
     0,
     1,
@@ -1432,13 +1432,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 20,
-   "in_degree": 21,
-   "binding_share": 0.05,
+   "locality": "LOCAL",
+   "out_degree": 18,
+   "in_degree": 27,
+   "binding_share": 0.67,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "PCV01Z": {
    "cls": "MID-S",
@@ -1454,13 +1454,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 21,
-   "in_degree": 22,
-   "binding_share": 0.14,
+   "locality": "LOCAL",
+   "out_degree": 17,
+   "in_degree": 21,
+   "binding_share": 0.81,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "PCV02D": {
    "cls": "SET",
@@ -1496,7 +1496,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 1,
+   "out_degree": 2,
    "in_degree": 0,
    "binding_share": null,
    "dimension": null,
@@ -1525,10 +1525,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 17,
-   "in_degree": 20,
-   "binding_share": 0.3,
+   "locality": "LOCAL",
+   "out_degree": 22,
+   "in_degree": 22,
+   "binding_share": 0.59,
    "dimension": [
     1,
     -1,
@@ -1539,7 +1539,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "PIT02": {
    "cls": "MID",
@@ -1555,10 +1555,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 123,
-   "in_degree": 145,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 127,
+   "in_degree": 142,
+   "binding_share": 0.82,
    "dimension": [
     1,
     -1,
@@ -1569,7 +1569,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "TIT01": {
    "cls": "MID",
@@ -1585,10 +1585,10 @@
     }
    },
    "influence": "LEAD",
-   "locality": "COMMON",
+   "locality": "LOCAL",
    "out_degree": 64,
    "in_degree": 29,
-   "binding_share": 0.03,
+   "binding_share": 0.76,
    "dimension": [
     0,
     0,
@@ -1599,7 +1599,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7COMMON\u00b7LEAD \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7LEAD \u27e8\u0398\u27e9"
   },
   "TIT02": {
    "cls": "MID",
@@ -1615,10 +1615,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
+   "locality": "LOCAL",
    "out_degree": 137,
-   "in_degree": 111,
-   "binding_share": 0.0,
+   "in_degree": 110,
+   "binding_share": 0.61,
    "dimension": [
     0,
     0,
@@ -1629,7 +1629,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "24Vdc": {
    "cls": "SLOW",
@@ -1646,7 +1646,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 1,
+   "out_degree": 2,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [
@@ -1675,13 +1675,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 27,
-   "in_degree": 22,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 24,
+   "in_degree": 24,
+   "binding_share": 0.83,
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7COMMON\u00b7RELAY"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "Emerg": {
    "cls": "SET",
@@ -1715,13 +1715,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 45,
-   "in_degree": 62,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 44,
+   "in_degree": 59,
+   "binding_share": 0.68,
    "dimension": null,
    "quantity": null,
-   "full": "SLOW\u00b7COMMON\u00b7RELAY"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY"
   },
   "OnOff": {
    "cls": "SET",
@@ -1755,10 +1755,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 22,
-   "in_degree": 23,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 19,
+   "in_degree": 21,
+   "binding_share": 0.81,
    "dimension": [
     0,
     0,
@@ -1769,7 +1769,7 @@
     0
    ],
    "quantity": "frequency",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "SIT02": {
    "cls": "MID",
@@ -1785,10 +1785,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 22,
-   "in_degree": 20,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 18,
+   "in_degree": 21,
+   "binding_share": 0.71,
    "dimension": [
     0,
     0,
@@ -1799,7 +1799,7 @@
     0
    ],
    "quantity": "frequency",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "VT01": {
    "cls": "MID-S",
@@ -1815,10 +1815,10 @@
     }
    },
    "influence": "LEAD",
-   "locality": "COMMON",
-   "out_degree": 16,
+   "locality": "LOCAL",
+   "out_degree": 18,
    "in_degree": 6,
-   "binding_share": 0.0,
+   "binding_share": 0.5,
    "dimension": [
     0,
     0,
@@ -1829,7 +1829,7 @@
     0
    ],
    "quantity": "frequency",
-   "full": "MID-S\u00b7COMMON\u00b7LEAD \u27e8T\u207b\u00b9\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7LEAD \u27e8T\u207b\u00b9\u27e9"
   },
   "VXT02": {
    "cls": "SLOW",
@@ -1845,10 +1845,10 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 29,
-   "in_degree": 31,
-   "binding_share": 0.0,
+   "locality": "LOCAL",
+   "out_degree": 31,
+   "in_degree": 40,
+   "binding_share": 0.62,
    "dimension": [
     0,
     1,
@@ -1859,7 +1859,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY \u27e8L\u27e9"
   },
   "VXT03": {
    "cls": "SLOW",
@@ -1876,9 +1876,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 29,
-   "in_degree": 39,
-   "binding_share": 0.0,
+   "out_degree": 28,
+   "in_degree": 34,
+   "binding_share": 0.18,
    "dimension": [
     0,
     1,
@@ -1906,9 +1906,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 38,
-   "in_degree": 36,
-   "binding_share": 0.0,
+   "out_degree": 40,
+   "in_degree": 41,
+   "binding_share": 0.37,
    "dimension": [
     0,
     1,
@@ -1936,9 +1936,9 @@
    },
    "influence": "RELAY",
    "locality": "COMMON",
-   "out_degree": 28,
-   "in_degree": 39,
-   "binding_share": 0.0,
+   "out_degree": 37,
+   "in_degree": 38,
+   "binding_share": 0.47,
    "dimension": [
     0,
     1,
@@ -1992,13 +1992,13 @@
     }
    },
    "influence": "RELAY",
-   "locality": "COMMON",
-   "out_degree": 44,
-   "in_degree": 54,
-   "binding_share": 0.3,
+   "locality": "LOCAL",
+   "out_degree": 54,
+   "in_degree": 59,
+   "binding_share": 0.83,
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7RELAY"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "HT_FD": {
    "cls": "TEX",
@@ -2042,7 +2042,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 9,
+   "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [
@@ -2072,7 +2072,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 6,
+   "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [
@@ -2099,7 +2099,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 4,
+   "out_degree": 3,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [
@@ -2186,7 +2186,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 4,
+   "out_degree": 6,
    "in_degree": 0,
    "binding_share": null,
    "dimension": null,
@@ -2208,7 +2208,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 8,
+   "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [
@@ -2238,7 +2238,7 @@
    },
    "influence": "LEAD",
    "locality": null,
-   "out_degree": 4,
+   "out_degree": 5,
    "in_degree": 0,
    "binding_share": null,
    "dimension": [

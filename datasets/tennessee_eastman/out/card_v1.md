@@ -1,4 +1,4 @@
-# Benchmark card — tennessee_eastman (method v2, profile v1, seed 0)
+# Benchmark card — tennessee_eastman (method v6, profile v1, seed 0)
 
 Kind: simulated plant (Tennessee Eastman) · entities: reactor, separator, stripper · types: 40 · events/day: 2333 · lag edges: [10.883762260366268, 39.48542698005769, 143.25] · dropped for gaps: 0
 
@@ -12,8 +12,9 @@ Kind: simulated plant (Tennessee Eastman) · entities: reactor, separator, strip
 | logistic markov features | 4.196 | 4.196 | None |
 | logistic triviality library | 3.171 | 3.171 | None |
 | logistic library | 3.033 | 3.033 | None |
-| logistic unselected contexts | 3.176 | 3.176 | None |
+| logistic unselected contexts | 3.174 | 3.174 | None |
 
 Gain over triviality: 0.138 bits · over best baseline (3.410): 0.377 bits · claim: **beats baselines**
 Library: 567 fragments (186 used), 0 compositions, chatty share 0.11
+Syntax (3.15): 525 chains (0 used), 106 returns
 Recovery: {'recall': 0.2, 'precision': 0.047619047619047616, 'n_mechanisms': 10, 'n_found': 2}

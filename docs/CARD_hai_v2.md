@@ -79,3 +79,21 @@ contexts, not targets).
 3. The P3 inflow is silent at 1-min means although its pump cycles are the water-treatment mechanism: the resolution
    declaration costs a known mechanism.
 4. 15.3 days is short; the test split is 3.8 days. SWaT (11 days) would face the same shortfall.
+
+## v6 regeneration (2026-10-20): gap clipping and syntax motifs
+
+Rules changed in v6: 3.6 (a gap clips the window instead of dropping the target), 3.15 (chains and returns).
+The seven file boundaries now clip rather than drop: **133 events dropped against 1,234**, and the library grows
+to **2,165 fragments (440 used)** from 2,096. Headline (non-deterministic): library 3.844, triviality 3.805,
+best baseline (Hawkes-like) 3.892 → gain over triviality −0.039 (was −0.024), claim **no gain**; recovery 7/15
+as before.
+
+**Syntax (3.15).** 38,955 chain candidates → 3,393 with conditional lift → 3,218 above the null → **1,437
+admitted, 118 returns**; none reduce confirmation bits, so none are used. The level loop is the dataset's
+clearest return: **LIT01 ↔ LCV01D, 20 returns**, the strongest of all 118 being
+`LIT01:upq80 -s-> LCV01D:upq20 -s-> LIT01:downq80` (n = 15, conditional lift 9.01, null max 5, confirmation
+8 / 6.94): the return-tank level rises, the level-control valve command rises, the level falls. Also present:
+the P3 pump command ↔ inflow pressure (LCP01D ↔ PIT01, 9), the turbine speed loop (HILout ↔ CO_rpm 7, HILout
+↔ SIT01 5), and the boiler's temperature demand ↔ pressure valve (B4022 ↔ PCV01). Every one is spelled
+RELAY → RELAY → RELAY: in HAI the measurements are themselves relays (LIT01 drives LCV01D and is driven by it),
+so the loop's signature is three relays, not LEAD → FOLLOW → LEAD (see the TEP card's note on the place prefix).

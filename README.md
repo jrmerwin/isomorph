@@ -30,10 +30,10 @@ Method **v5** (integer versions; amendments are logged in `CHANGELOG.md`; cards 
 | --- | --- | --- | --- |
 | 1 | building A (synthetic, calibration) | 2.167 vs 2.169 / 2.562 | no gain |
 | 2 | building B′ (synthetic, calibration) | 1.365 vs 1.530 / 1.860 | beats baselines |
-| 3 | Tennessee Eastman, first 120 days ([card](docs/CARD_tennessee_eastman_v1.md)) | 3.033 vs 3.171 / 3.410 | beats baselines |
-| 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.851 vs 3.826 / 3.905 | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it) |
-| 5 | TCLab, nine public recordings of the two-heater kit, 5-second means, 7.6 h ([card](docs/CARD_tclab_v1.md); **not admitted**: no period, far below the 20-day line) | 2.747 vs 2.855 / 2.775 | no gain (recovery 0/3; 2 fragments, the step-test staircase; 45% of events dropped at recording boundaries) |
-| 6 | NASA PCoE battery set FY08Q4, four cells, 1-minute means, 47.5 observed days ([card](docs/CARD_nasa_battery_v1.md)) | 2.781 vs 2.711 / 2.745 | no gain (recovery 2/3: current → temperature and voltage → current found; the cycling protocol is an alternation and 3.11 carries it; 93% of events dropped at cycle boundaries — open item on the gap rule) |
+| 3 | Tennessee Eastman, first 120 days ([card](docs/CARD_tennessee_eastman_v1.md)) | 3.033 vs 3.171 / 3.410 | beats baselines (v6: 525 chains, 106 returns; the cooling-water loop closes as RELAY → FOLLOW → RELAY) |
+| 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.844 vs 3.805 / 3.892 (v6) | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it; v6: 1,437 chains, 118 returns, the level loop LIT01 ↔ LCV01D the strongest) |
+| 5 | TCLab ([card](docs/CARD_tclab_v1.md)) — **withdrawn from the running order 2026-10-20**: no public recording is long enough (7.6 h, no period); re-enters with a 24–48 h recording of both heaters | 1.949 vs 1.779 / 1.714 (v6) | not admitted |
+| 6 | NASA PCoE battery set FY08Q4, four cells, 1-minute means, 47.5 observed days ([card](docs/CARD_nasa_battery_v1.md)) — Rosetta member one | 0.838 vs 0.827 / 1.087 (v6) | no gain (recovery 3/3 under v6 gap clipping, 47 fragments from 12; 13 chains used, 1 return: the discharge cutoff loop) |
 
 Transfer matrix (net bit-days after the permuted-mapping control; [full table and reading](docs/MATRIX.md)):
 
@@ -41,9 +41,11 @@ Transfer matrix (net bit-days after the permuted-mapping control; [full table an
 | --- | --- | --- |
 | building A → B′ | 0.74 | same kind: alignment real (zero-shot 4.6 vs 7.9 permuted) |
 | building B′ → A | 5.53 | the richer system teaches more |
-| Tennessee Eastman → HAI | **0.98** (seed 0 under the seeded ten-permutation control; 0.83 ± 0.00 over seeds 0–4 under the earlier control; v4: 1.67, v3: 0.37) | cross kind; identical role map and cells on every seed; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
-| HAI → Tennessee Eastman | **14.45** (seed 0 under the seeded ten-permutation control; 14.55 ± 0.87 over seeds 0–4 under the earlier control; v4: 10.52, v3: 0.06) | cross kind; raw cell stable to 0.03 across seeds, the spread is the control's; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
-| TCLab (5) ↔ battery (6), and each ↔ TEP, HAI | **0.00** in every measurable direction (ten cells) | the Rosetta pair: libraries of 2 and 12 fragments, actuators spelled by different quantile schemes so role matches carry no types, TCLab too short to be a receiver; battery → TEP raw 25.97 is all regulariser and the control removes all of it |
+| Tennessee Eastman → HAI | **0.90** (v6, seed 0; v5: 0.98, 0.83 ± 0.00 over seeds 0–4 under the earlier control; v4: 1.67, v3: 0.37) | cross kind; identical role map and cells on every seed; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
+| HAI → Tennessee Eastman | **13.53** (v6, seed 0; v5: 14.45, 14.55 ± 0.87 over seeds 0–4 under the earlier control; v4: 10.52, v3: 0.06) | cross kind; raw cell stable to 0.03 across seeds, the spread is the control's; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
+| Tennessee Eastman ↔ battery (6) | **0.25** / **1.65** (v6; v5: 0.00 / 0.00) | the spelling rule carries all 12 battery types; TEP → battery's learned zero-shot beats the permuted by 2.7 bits (3.68 vs 6.35), the first cross-kind alignment to do so; the cell is small because a 12-type protocol is learned in a day |
+| HAI ↔ battery (6) | **0.05** / **0.09** (v6) | at zero both ways |
+| TCLab (5) | withdrawn | no public recording long enough; the v5 cells (all zero) stand in the matrix for the record |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire

@@ -1,5 +1,5 @@
 {
- "method_version": 5,
+ "method_version": 6,
  "profile": "v1",
  "seed": 0,
  "dataset": "nasa_battery",
@@ -89,14 +89,14 @@
   "types": 12,
   "n_entities": 4,
   "period": 239.51998959669007,
-  "signal_floor": 6,
+  "signal_floor": 173,
   "min_count": 3,
   "lag_edges": [
    5.806314960941695,
    33.71329342565535,
    195.75
   ],
-  "events_dropped_for_gaps": 11436,
+  "events_dropped_for_gaps": 1120,
   "test_events": 1371,
   "deterministic_types": []
  },
@@ -107,66 +107,76 @@
    "deterministic": null
   },
   "markov-1": {
-   "all": 2.910102089644898,
-   "non_deterministic": 2.910102089644898,
+   "all": 1.8410159875030847,
+   "non_deterministic": 1.8410159875030847,
    "deterministic": null
   },
   "markov-2": {
-   "all": 2.745221644109797,
-   "non_deterministic": 2.745221644109797,
+   "all": 1.1969997020272176,
+   "non_deterministic": 1.1969997020272176,
    "deterministic": null
   },
   "markov-3": {
-   "all": 2.74999685868849,
-   "non_deterministic": 2.74999685868849,
+   "all": 1.1139587010675998,
+   "non_deterministic": 1.1139587010675998,
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 3.024118114027734,
-   "non_deterministic": 3.024118114027734,
+   "all": 1.597030997249069,
+   "non_deterministic": 1.597030997249069,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 2.8407973324545734,
-   "non_deterministic": 2.8407973324545734,
+   "all": 1.086957106312309,
+   "non_deterministic": 1.086957106312309,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 2.7105309933134873,
-   "non_deterministic": 2.7105309933134873,
+   "all": 0.8274678842552823,
+   "non_deterministic": 0.8274678842552823,
    "deterministic": null
   },
   "logistic library": {
-   "all": 2.7811691027399252,
-   "non_deterministic": 2.7811691027399252,
+   "all": 0.8384126079461168,
+   "non_deterministic": 0.8384126079461168,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.7195667673211026,
-   "non_deterministic": 2.7195667673211026,
+   "all": 0.827467879743071,
+   "non_deterministic": 0.827467879743071,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": -0.07063810942643789,
-  "over_best_baseline": -0.03594745863012827,
-  "best_baseline_bits": 2.745221644109797,
+  "over_triviality": -0.010944723690834546,
+  "over_best_baseline": 0.24854449836619208,
+  "best_baseline_bits": 1.086957106312309,
   "claim": "no gain"
  },
  "library": {
-  "fragments": 12,
-  "fragments_used": 9,
-  "compositions_kept": 0,
-  "candidates": 40,
+  "fragments": 47,
+  "fragments_used": 24,
+  "compositions_kept": 74,
+  "chains": 13,
+  "chains_used": 13,
+  "returns": 1,
+  "chain_search": {
+   "candidates": 155,
+   "lift_ok": 19,
+   "null_passed": 19,
+   "admitted": 13,
+   "returns": 1
+  },
+  "candidates": 211,
   "nulls_run": [
    "circular",
    "cycle",
    "rewire"
   ],
   "null_survival": {
-   "circular": 0.5151515151515151,
-   "cycle": 0.5757575757575758,
-   "rewire": 0.12121212121212122
+   "circular": 0.6774193548387096,
+   "cycle": 0.6989247311827957,
+   "rewire": 1.0
   },
   "trivial_pairs": [
    [
@@ -194,15 +204,15 @@
     "V:upq80"
    ]
   ],
-  "chatty_share": 0.25
+  "chatty_share": 0.3191489361702128
  },
  "recovery": {
-  "recall": 0.6666666666666666,
-  "precision": 0.5,
+  "recall": 1.0,
+  "precision": 0.44680851063829785,
   "n_mechanisms": 3,
-  "n_found": 2
+  "n_found": 3
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 8.9
+ "elapsed_s": 20.4
 }

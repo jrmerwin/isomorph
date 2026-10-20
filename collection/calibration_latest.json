@@ -7,17 +7,17 @@
     "markov-1": 2.778936172552872,
     "markov-2": 2.6005658178955,
     "markov-3": 2.710627204103403,
-    "hawkes-like decay features": 2.2199201779868365,
-    "logistic markov features": 2.318321352968337,
-    "logistic triviality library": 1.8914324193671563,
-    "logistic library": 1.8155110636533072,
-    "logistic unselected contexts": 1.7981791610477151
+    "hawkes-like decay features": 2.219920177986836,
+    "logistic markov features": 2.318321352968266,
+    "logistic triviality library": 1.8914324193671557,
+    "logistic library": 1.8155110636532352,
+    "logistic unselected contexts": 1.7981791610472515
    },
    "fragments": 70,
    "gain": {
-    "over_triviality": 0.07592135571384917,
-    "over_best_baseline": 0.40440911433352933,
-    "best_baseline_bits": 2.2199201779868365,
+    "over_triviality": 0.07592135571392045,
+    "over_best_baseline": 0.4044091143336008,
+    "best_baseline_bits": 2.219920177986836,
     "claim": "no gain"
    }
   },
@@ -27,17 +27,17 @@
     "markov-1": 2.6390827457819155,
     "markov-2": 2.33130909602327,
     "markov-3": 2.353216671430423,
-    "hawkes-like decay features": 2.0260853079349497,
-    "logistic markov features": 2.220315686834228,
-    "logistic triviality library": 1.6881702133364134,
-    "logistic library": 1.6470978537691823,
-    "logistic unselected contexts": 1.560162831389597
+    "hawkes-like decay features": 2.0260853079349426,
+    "logistic markov features": 2.2203156868342258,
+    "logistic triviality library": 1.6881702133501928,
+    "logistic library": 1.6470978537694332,
+    "logistic unselected contexts": 1.5601628314036693
    },
    "fragments": 95,
    "gain": {
-    "over_triviality": 0.0410723595672311,
-    "over_best_baseline": 0.3789874541657674,
-    "best_baseline_bits": 2.0260853079349497,
+    "over_triviality": 0.04107235958075961,
+    "over_best_baseline": 0.3789874541655094,
+    "best_baseline_bits": 2.0260853079349426,
     "claim": "no gain"
    }
   },
@@ -53,164 +53,184 @@
    },
    "learned": {
     "zero_shot": {
-     "all": 3.334195809367332,
-     "shared": 2.922985602444493,
-     "unshared": 9.966501527725995
+     "all": 3.334195809367512,
+     "shared": 2.922985602444683,
+     "unshared": 9.966501527726004,
+     "control": 6.862450385298336
     },
     "curve": [
      {
       "days": 1,
       "lam": 0.5,
-      "own": 2.9664792312033557,
-      "mixed": 2.52024167595094,
+      "own": 2.9664792312033574,
+      "mixed": 2.5202416759510147,
+      "mixed_control": 3.273572037229772,
       "own_shared": 2.8509518680780137,
-      "mixed_shared": 2.321017319895326,
-      "own_unshared": 4.829790934521272,
-      "mixed_unshared": 5.733481069475792
+      "mixed_shared": 2.3210173198954047,
+      "own_unshared": 4.829790934521287,
+      "mixed_unshared": 5.733481069475807
      },
      {
       "days": 2,
       "lam": 0.5,
       "own": 2.3123765577169264,
-      "mixed": 2.2866540409314755,
-      "own_shared": 2.190638309782493,
-      "mixed_shared": 2.1072035330459675,
-      "own_unshared": 4.27586205570703,
-      "mixed_unshared": 5.180966024375859
+      "mixed": 2.2866540409315697,
+      "mixed_control": 2.963646029570553,
+      "own_shared": 2.1906383097824933,
+      "mixed_shared": 2.107203533046068,
+      "own_unshared": 4.275862055707034,
+      "mixed_unshared": 5.180966024375862
      },
      {
       "days": 3,
       "lam": 0.5,
-      "own": 2.2732824818971578,
-      "mixed": 2.26418428740318,
-      "own_shared": 2.141866806278566,
-      "mixed_shared": 2.0776248037037335,
-      "own_unshared": 4.392852770313424,
-      "mixed_unshared": 5.2731551488342925
+      "own": 2.273282481897163,
+      "mixed": 2.2641842874032707,
+      "mixed_control": 2.918769714068223,
+      "own_shared": 2.1418668062785655,
+      "mixed_shared": 2.077624803703825,
+      "own_unshared": 4.392852770313519,
+      "mixed_unshared": 5.273155148834376
      },
      {
       "days": 5,
       "lam": 0.25,
       "own": 2.103173616883258,
-      "mixed": 2.0444638711178937,
+      "mixed": 2.044463871117969,
+      "mixed_control": 2.3528092248537504,
       "own_shared": 1.9912197862593215,
-      "mixed_shared": 1.9050126817097137,
-      "own_unshared": 3.908848715747277,
-      "mixed_unshared": 4.2936369348530015
+      "mixed_shared": 1.905012681709793,
+      "own_unshared": 3.908848715747282,
+      "mixed_unshared": 4.293636934853009
      },
      {
       "days": 10,
       "lam": 0.1,
-      "own": 1.8430011330873284,
-      "mixed": 1.8287690075368566,
-      "own_shared": 1.7357835925629632,
-      "mixed_shared": 1.7119215126310747,
-      "own_unshared": 3.5722858034494407,
-      "mixed_unshared": 3.713372783398187
+      "own": 1.8430011330874194,
+      "mixed": 1.828769007536975,
+      "mixed_control": 1.9320081840900567,
+      "own_shared": 1.73578359256304,
+      "mixed_shared": 1.7119215126311802,
+      "own_unshared": 3.5722858034497595,
+      "mixed_unshared": 3.7133727833985115
      },
      {
       "days": 20,
       "lam": 0.1,
-      "own": 1.7990334644195836,
-      "mixed": 1.7741559906488573,
-      "own_shared": 1.6885546677908332,
-      "mixed_shared": 1.653731161225359,
-      "own_unshared": 3.580918111985577,
-      "mixed_unshared": 3.716457692726275
+      "own": 1.79903346441957,
+      "mixed": 1.7741559906488857,
+      "mixed_control": 1.8835725387209257,
+      "own_shared": 1.6885546677906706,
+      "mixed_shared": 1.6537311612252426,
+      "own_unshared": 3.580918111987973,
+      "mixed_unshared": 3.716457692728638
      },
      {
       "days": 29,
       "lam": 0.0,
-      "own": 1.5660177848904686,
-      "mixed": 1.5660177848904686,
-      "own_shared": 1.4705529781916171,
-      "mixed_shared": 1.4705529781916171,
-      "own_unshared": 3.1057455754742347,
-      "mixed_unshared": 3.1057455754742347
+      "own": 1.5660177848904777,
+      "mixed": 1.5660177848904777,
+      "mixed_control": 1.5660177848904777,
+      "own_shared": 1.4705529781916347,
+      "mixed_shared": 1.4705529781916347,
+      "own_unshared": 3.1057455754741112,
+      "mixed_unshared": 3.1057455754741112
      }
     ],
-    "cell_bit_days": 0.8110496387818388,
+    "cell_bit_days": 0.8110496387807141,
+    "cell_control_bit_days": -4.117445439402804,
+    "cell_net_bit_days": 4.928495078183518,
     "damage": true
    },
    "true_mapping": {
     "zero_shot": {
-     "all": 3.07543917934667,
-     "shared": 2.607806256010271,
-     "unshared": 9.96866679319521
+     "all": 3.075439179347141,
+     "shared": 2.607806256010774,
+     "unshared": 9.96866679319521,
+     "control": 6.932428366226238
     },
     "curve": [
      {
       "days": 1,
       "lam": 0.5,
-      "own": 2.9664792312033557,
-      "mixed": 2.4815215674626185,
+      "own": 2.9664792312033574,
+      "mixed": 2.4815215674628246,
+      "mixed_control": 3.3112140379335733,
       "own_shared": 2.8606521486434,
-      "mixed_shared": 2.2785840079332322,
-      "own_unshared": 4.526442466021512,
-      "mixed_unshared": 5.472959337186719
+      "mixed_shared": 2.2785840079334507,
+      "own_unshared": 4.526442466021533,
+      "mixed_unshared": 5.472959337186737
      },
      {
       "days": 2,
       "lam": 0.75,
       "own": 2.3123765577169264,
-      "mixed": 2.4265105992846667,
-      "own_shared": 2.1945079665312317,
-      "mixed_shared": 2.1911680999528294,
-      "own_unshared": 4.049839826491464,
-      "mixed_unshared": 5.895619240164833
+      "mixed": 2.426510599284942,
+      "mixed_control": 3.712669996780816,
+      "own_shared": 2.194507966531232,
+      "mixed_shared": 2.191168099953124,
+      "own_unshared": 4.049839826491463,
+      "mixed_unshared": 5.895619240164831
      },
      {
       "days": 3,
       "lam": 0.5,
-      "own": 2.2732824818971578,
-      "mixed": 2.249172547292763,
-      "own_shared": 2.138763276374781,
-      "mixed_shared": 2.0499827881660684,
-      "own_unshared": 4.256187140286171,
-      "mixed_unshared": 5.185365187904245
+      "own": 2.273282481897163,
+      "mixed": 2.249172547292946,
+      "mixed_control": 2.9499871023339295,
+      "own_shared": 2.138763276374784,
+      "mixed_shared": 2.049982788166261,
+      "own_unshared": 4.256187140286212,
+      "mixed_unshared": 5.185365187904289
      },
      {
       "days": 5,
       "lam": 0.25,
       "own": 2.103173616883258,
-      "mixed": 2.031486896879279,
+      "mixed": 2.0314868968793904,
+      "mixed_control": 2.358520611057198,
       "own_shared": 2.0289088490689426,
-      "mixed_shared": 1.9255094019638996,
-      "own_unshared": 3.1978868474686695,
-      "mixed_unshared": 3.593667312204037
+      "mixed_shared": 1.9255094019640178,
+      "own_unshared": 3.1978868474686784,
+      "mixed_unshared": 3.593667312204046
      },
      {
       "days": 10,
       "lam": 0.25,
-      "own": 1.8430011330873284,
-      "mixed": 1.844284522456001,
-      "own_shared": 1.7948373048769917,
-      "mixed_shared": 1.7690708072912025,
-      "own_unshared": 2.552968746657847,
-      "mixed_unshared": 2.952985882948451
+      "own": 1.8430011330874194,
+      "mixed": 1.8442845224561504,
+      "mixed_control": 2.12796977628369,
+      "own_shared": 1.7948373048771349,
+      "mixed_shared": 1.769070807291405,
+      "own_unshared": 2.5529687466571684,
+      "mixed_unshared": 2.9529858829478153
      },
      {
       "days": 20,
       "lam": 0.1,
-      "own": 1.7990334644195836,
-      "mixed": 1.7651985406497606,
-      "own_shared": 1.7536979542869893,
-      "mixed_shared": 1.7078071309174723,
-      "own_unshared": 2.4673097442509326,
-      "mixed_unshared": 2.6111869871897344
+      "own": 1.79903346441957,
+      "mixed": 1.765198540649778,
+      "mixed_control": 1.8813147337401976,
+      "own_shared": 1.7536979542868216,
+      "mixed_shared": 1.707807130917339,
+      "own_unshared": 2.4673097442532,
+      "mixed_unshared": 2.611186987191978
      },
      {
       "days": 29,
       "lam": 0.0,
-      "own": 1.5660177848904686,
-      "mixed": 1.5660177848904686,
-      "own_shared": 1.5504467491502445,
-      "mixed_shared": 1.5504467491502445,
-      "own_unshared": 1.7955454511098137,
-      "mixed_unshared": 1.7955454511098137
+      "own": 1.5660177848904777,
+      "mixed": 1.5660177848904777,
+      "mixed_control": 1.5660177848904777,
+      "own_shared": 1.550446749150255,
+      "mixed_shared": 1.550446749150255,
+      "own_unshared": 1.7955454511098077,
+      "mixed_unshared": 1.7955454511098077
      }
     ],
-    "cell_bit_days": 0.7272195677714223,
+    "cell_bit_days": 0.7272195677696549,
+    "cell_control_bit_days": -6.40036913521093,
+    "cell_net_bit_days": 7.127588702980585,
     "damage": true
    }
   }
@@ -223,17 +243,17 @@
     "markov-1": 3.2857385282207456,
     "markov-2": 3.1848662069779685,
     "markov-3": 3.3293507451417614,
-    "hawkes-like decay features": 2.5618218302893623,
-    "logistic markov features": 2.6913065312639413,
-    "logistic triviality library": 2.1693058217121575,
-    "logistic library": 2.1671660189633783,
-    "logistic unselected contexts": 2.002619346457135
+    "hawkes-like decay features": 2.5618218302893627,
+    "logistic markov features": 2.691306531263945,
+    "logistic triviality library": 2.169305821711877,
+    "logistic library": 2.1641098212484,
+    "logistic unselected contexts": 2.0026193464473114
    },
    "fragments": 78,
    "gain": {
-    "over_triviality": 0.0021398027487791182,
-    "over_best_baseline": 0.39465581132598393,
-    "best_baseline_bits": 2.5618218302893623,
+    "over_triviality": 0.005196000463477013,
+    "over_best_baseline": 0.39771200904096293,
+    "best_baseline_bits": 2.5618218302893627,
     "claim": "no gain"
    }
   },
@@ -243,17 +263,17 @@
     "markov-1": 2.550509100131101,
     "markov-2": 2.14878435177395,
     "markov-3": 2.0998613107879205,
-    "hawkes-like decay features": 1.8602582621080042,
-    "logistic markov features": 2.1098300522398854,
-    "logistic triviality library": 1.5297042841236872,
-    "logistic library": 1.3653307393190863,
-    "logistic unselected contexts": 1.354568344461245
+    "hawkes-like decay features": 1.8602582621076327,
+    "logistic markov features": 2.109830052240662,
+    "logistic triviality library": 1.529704284140704,
+    "logistic library": 1.3405065730812646,
+    "logistic unselected contexts": 1.3545683444107055
    },
    "fragments": 131,
    "gain": {
-    "over_triviality": 0.16437354480460087,
-    "over_best_baseline": 0.49492752278891783,
-    "best_baseline_bits": 1.8602582621080042,
+    "over_triviality": 0.1891977110594394,
+    "over_best_baseline": 0.519751689026368,
+    "best_baseline_bits": 1.8602582621076327,
     "claim": "beats baselines"
    }
   },
@@ -269,164 +289,184 @@
    },
    "learned": {
     "zero_shot": {
-     "all": 4.599865095408525,
-     "shared": 4.599865095408525,
-     "unshared": null
+     "all": 4.599865095441694,
+     "shared": 4.599865095441694,
+     "unshared": null,
+     "control": 7.8352562973606386
     },
     "curve": [
      {
       "days": 1,
       "lam": 0.5,
-      "own": 2.9935511394266427,
-      "mixed": 2.646402645531867,
-      "own_shared": 2.9935511394266427,
-      "mixed_shared": 2.646402645531867,
+      "own": 2.99355113943405,
+      "mixed": 2.646402645539556,
+      "mixed_control": 3.23237396289335,
+      "own_shared": 2.99355113943405,
+      "mixed_shared": 2.646402645539556,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 2,
       "lam": 0.25,
-      "own": 2.1705986814765366,
-      "mixed": 2.1900559966494026,
-      "own_shared": 2.1705986814765366,
-      "mixed_shared": 2.1900559966494026,
+      "own": 2.1705986876879892,
+      "mixed": 2.1900559850927186,
+      "mixed_control": 2.429036892157346,
+      "own_shared": 2.1705986876879892,
+      "mixed_shared": 2.1900559850927186,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 3,
       "lam": 0.1,
-      "own": 2.1561037153532405,
-      "mixed": 2.124547521987253,
-      "own_shared": 2.1561037153532405,
-      "mixed_shared": 2.124547521987253,
+      "own": 2.156103716809748,
+      "mixed": 2.124547522634533,
+      "mixed_control": 2.221303229087559,
+      "own_shared": 2.156103716809748,
+      "mixed_shared": 2.124547522634533,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 5,
       "lam": 0.0,
-      "own": 2.015304097388762,
-      "mixed": 2.015304097388762,
-      "own_shared": 2.015304097388762,
-      "mixed_shared": 2.015304097388762,
+      "own": 2.0153040974473955,
+      "mixed": 2.0153040974473955,
+      "mixed_control": 2.0153040974473955,
+      "own_shared": 2.0153040974473955,
+      "mixed_shared": 2.0153040974473955,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 10,
       "lam": 0.0,
-      "own": 1.7273054010042934,
-      "mixed": 1.7273054010042934,
-      "own_shared": 1.7273054010042934,
-      "mixed_shared": 1.7273054010042934,
+      "own": 1.7273054010036304,
+      "mixed": 1.7273054010036304,
+      "mixed_control": 1.7273054010036304,
+      "own_shared": 1.7273054010036304,
+      "mixed_shared": 1.7273054010036304,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 20,
       "lam": 0.0,
-      "own": 1.6811926127644778,
-      "mixed": 1.6811926127644778,
-      "own_shared": 1.6811926127644778,
-      "mixed_shared": 1.6811926127644778,
+      "own": 1.6811926127193186,
+      "mixed": 1.6811926127193186,
+      "mixed_control": 1.6811926127193186,
+      "own_shared": 1.6811926127193186,
+      "mixed_shared": 1.6811926127193186,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
       "days": 44,
       "lam": 0.0,
-      "own": 1.3618396169633757,
-      "mixed": 1.3618396169633757,
-      "own_shared": 1.3618396169633757,
-      "mixed_shared": 1.3618396169633757,
+      "own": 1.3618395818329514,
+      "mixed": 1.3618395818329514,
+      "mixed_control": 1.3618395818329514,
+      "own_shared": 1.3618395818329514,
+      "mixed_shared": 1.3618395818329514,
       "own_unshared": null,
       "mixed_unshared": null
      }
     ],
-    "cell_bit_days": 0.20145122182350272,
+    "cell_bit_days": 0.20145124080533972,
+    "cell_control_bit_days": -0.4756488846157234,
+    "cell_net_bit_days": 0.6771001254210631,
     "damage": false
    },
    "true_mapping": {
     "zero_shot": {
-     "all": 3.2625356456036396,
-     "shared": 2.8484453681587123,
-     "unshared": 9.96866679319521
+     "all": 3.26253564561628,
+     "shared": 2.8484453681721327,
+     "unshared": 9.96866679319521,
+     "control": 7.530529858023064
     },
     "curve": [
      {
       "days": 1,
       "lam": 0.5,
-      "own": 2.9935511394266427,
-      "mixed": 2.445898917760469,
-      "own_shared": 2.8925043975578206,
-      "mixed_shared": 2.2538922057091586,
-      "own_unshared": 4.629988264177232,
-      "mixed_unshared": 5.555419383150259
+      "own": 2.99355113943405,
+      "mixed": 2.445898917769975,
+      "mixed_control": 3.2265557089038546,
+      "own_shared": 2.8925043975602467,
+      "mixed_shared": 2.2538922057141546,
+      "own_unshared": 4.6299882642653145,
+      "mixed_unshared": 5.5554193832328025
      },
      {
       "days": 2,
       "lam": 0.5,
-      "own": 2.1705986814765366,
-      "mixed": 2.159708105396594,
-      "own_shared": 2.03825215032626,
-      "mixed_shared": 1.970829724287986,
-      "own_unshared": 4.313931290730097,
-      "mixed_unshared": 5.218565711217991
+      "own": 2.1705986876879892,
+      "mixed": 2.15970810550824,
+      "mixed_control": 2.873478803802191,
+      "own_shared": 2.0382521503870388,
+      "mixed_shared": 1.9708297181546848,
+      "own_unshared": 4.313931396550811,
+      "mixed_unshared": 5.2185658124656396
      },
      {
       "days": 3,
       "lam": 0.25,
-      "own": 2.1561037153532405,
-      "mixed": 2.0703921830634795,
-      "own_shared": 2.012359705576316,
-      "mixed_shared": 1.8982964047177266,
-      "own_unshared": 4.484016814865567,
-      "mixed_unshared": 4.857458005170255
+      "own": 2.156103716809748,
+      "mixed": 2.070392184004155,
+      "mixed_control": 2.417737592787595,
+      "own_shared": 2.012359707235326,
+      "mixed_shared": 1.8982964059006087,
+      "own_unshared": 4.484016813042577,
+      "mixed_unshared": 4.857458002188418
      },
      {
       "days": 5,
       "lam": 0.25,
-      "own": 2.015304097388762,
-      "mixed": 1.9527582251555065,
-      "own_shared": 1.8931475356400822,
-      "mixed_shared": 1.8041587282558986,
-      "own_unshared": 3.993611650708374,
-      "mixed_unshared": 4.359305224577464
+      "own": 2.0153040974473955,
+      "mixed": 1.95275822519509,
+      "mixed_control": 2.2864612737744614,
+      "own_shared": 1.8931475356564962,
+      "mixed_shared": 1.8041587282541227,
+      "own_unshared": 3.9936116514507463,
+      "mixed_unshared": 4.359305225286861
      },
      {
       "days": 10,
       "lam": 0.1,
-      "own": 1.7273054010042934,
-      "mixed": 1.6988561465441887,
-      "own_shared": 1.677859341358052,
-      "mixed_shared": 1.6387236199366577,
-      "own_unshared": 2.528077065495812,
-      "mixed_unshared": 2.6726935719345333
+      "own": 1.7273054010036304,
+      "mixed": 1.698856146544378,
+      "mixed_control": 1.8244750195390278,
+      "own_shared": 1.6778593413577043,
+      "mixed_shared": 1.6387236199372082,
+      "own_unshared": 2.5280770654900477,
+      "mixed_unshared": 2.6726935719288782
      },
      {
       "days": 20,
       "lam": 0.1,
-      "own": 1.6811926127644778,
-      "mixed": 1.6410723511251963,
-      "own_shared": 1.6336962706938662,
-      "mixed_shared": 1.5823127071979994,
-      "own_unshared": 2.450388887841847,
-      "mixed_unshared": 2.5926761434020427
+      "own": 1.6811926127193186,
+      "mixed": 1.641072351084699,
+      "mixed_control": 1.7698325685788912,
+      "own_shared": 1.6336962707353222,
+      "mixed_shared": 1.5823127072441672,
+      "own_unshared": 2.4503888863939665,
+      "mixed_unshared": 2.592676141958015
      },
      {
       "days": 44,
       "lam": 0.0,
-      "own": 1.3618396169633757,
-      "mixed": 1.3618396169633757,
-      "own_shared": 1.3493992581595897,
-      "mixed_shared": 1.3493992581595897,
-      "own_unshared": 1.5633093983261594,
-      "mixed_unshared": 1.5633093983261594
+      "own": 1.3618395818329514,
+      "mixed": 1.3618395818329514,
+      "mixed_control": 1.3618395818329514,
+      "own_shared": 1.3494004908527575,
+      "mixed_shared": 1.3494004908527575,
+      "own_unshared": 1.5632888309791066,
+      "mixed_unshared": 1.5632888309791066
      }
     ],
-    "cell_bit_days": 1.5276083944826362,
+    "cell_bit_days": 1.5276084013361722,
+    "cell_control_bit_days": -4.396534720588819,
+    "cell_net_bit_days": 5.924143121924991,
     "damage": true
    }
   }
