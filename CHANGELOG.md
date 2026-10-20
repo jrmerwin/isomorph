@@ -259,3 +259,14 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   under one training day; the cell log line and cell card tolerate that; `DIMENSIONS` gains `current` <I>;
   `tag_datasets.py` tags the two new datasets. No rule changed; cards and cached state of datasets 1-4 unchanged.
 - Reproducibility note kept: the tagging re-run on TEP and HAI left their sidecars and libraries byte-identical.
+
+## v6 (2026-10-20) — specified here, implemented on the Mac
+- 3.6 gap clipping: a gap clips the look-back window instead of dropping the target (NASA battery: 93% of
+  events dropped under v5). Per-dataset rule -> cards regenerated (CARD_RULES_VERSION = 6).
+- 3.12 symbols cross between quantile schemes by direction and nearest quantile; never across kinds.
+- 3.15 chains (compositions of two validated fragments with conditional lift >= 1.5, circular null, confirmation
+  count >= 3; admitted as features by confirmation bits) and returns (same role at both ends, opposite
+  direction, a different role in the middle; [return] in the shape); three nodes.
+- Decisions behind 3.15: a chain is admitted as a composition of two admitted fragments (library-driven search,
+  provenance of links) and must beat its last link by conditional lift; a return requires the same role at both
+  ends — a path ending elsewhere is a chain.
