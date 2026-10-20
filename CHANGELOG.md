@@ -210,3 +210,20 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   stricter and the dimension constraint maps fewer TEP->HAI types; HAI->TEP maps more (34/40 vs 22/40) and gains.
 - Choice stage: scheme trials of a role run in forked workers (n_jobs, default min(3, cores)); identical results
   to the sequential run on building A. RUNBOOK: the next round (seeds sweep, Rosetta set, syntax motifs).
+
+### v5, seeds 0–4 (2026-10-20)
+- TEP <-> HAI under v5 on seeds 1–4 (one direction per invocation; seed 0 from 2026-10-19). TEP -> HAI net 0.83 on
+  every seed, with the same role map, anchors and 120/168 types mapped. HAI -> TEP net 15.24 / 15.16 / 13.87 / 15.12
+  (seed 0: 13.37): mean 14.55 ± 0.87. The raw cell is stable (21.60–21.66, zero-shot within 0.02 bits); the spread is
+  the permuted-mapping control (6.36–8.29) and follows one pairing: seeds that map E_feed <-> CO_rpm (0, 3) have
+  controls 8.29 / 7.79, seeds that leave E_feed unmapped (1, 2, 4) have 6.36–6.49. Other role-map differences are
+  rotations among purge/feed <-> VXT/VYT. Found on the way: `_cell` calls `transfer()` without an rng, so the three
+  control permutations come from a fixed generator and the seed reaches the control only through the mapping.
+  Seeds table and reading in docs/MATRIX.md; README rows carry mean ± sd. Open items: seed the control; more permutations.
+- Reproducibility: the seed-0 pipelines re-run under the v5 code reproduce both libraries fragment for fragment
+  (TEP 567, HAI 2,096; lifts and counts identical) and the headline bits within 2e-4 (the descriptive signal floor
+  moved, 180 -> 151 and 13 -> 12, from a changed rng draw order).
+- Operational, found on the way: a seeded `isomorph transfer` re-runs both pipelines (the state cache is keyed by
+  seed through the card) and every `run` rewrites `out/benchmark_v1.json` and `out/library_v1.json` — the library
+  without the tagged shapes that `scripts/tag_datasets.py` adds. The tracked seed-0 files and the seed-0 cell card
+  were restored from git after the sweep; `matrix.json` is keyed by seed and holds all five. RUNBOOK amended.

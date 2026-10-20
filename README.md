@@ -39,8 +39,8 @@ Transfer matrix (net bit-days after the permuted-mapping control; [full table an
 | --- | --- | --- |
 | building A → B′ | 0.74 | same kind: alignment real (zero-shot 4.6 vs 7.9 permuted) |
 | building B′ → A | 5.53 | the richer system teaches more |
-| Tennessee Eastman → HAI | **0.83** (v4: 1.67, v3: 0.37) | cross kind; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
-| HAI → Tennessee Eastman | **13.37** (v4: 10.52, v3: 0.06) | cross kind; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
+| Tennessee Eastman → HAI | **0.83 ± 0.00** over seeds 0–4 (v4: 1.67, v3: 0.37) | cross kind; identical role map and cells on every seed; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
+| HAI → Tennessee Eastman | **14.55 ± 0.87** over seeds 0–4 (seed 0: 13.37; v4: 10.52, v3: 0.06) | cross kind; raw cell stable to 0.03, the spread is the control's and follows whether E_feed ↔ CO_rpm is mapped; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire

@@ -58,10 +58,12 @@ single-process apart from numpy's own threading.
 
 ## The next round (October 2026)
 
-1. **Robustness of the cross-kind cells.** Five seeds of TEP ↔ HAI under v5, one direction per invocation:
-   `for s in 0 1 2 3 4; do isomorph transfer datasets/tennessee_eastman datasets/hai --seed $s --direction ab;
-   isomorph transfer datasets/tennessee_eastman datasets/hai --seed $s --direction ba; done`
-   (seed 0 exists). The matrix is keyed by seed; report mean and spread of the net cells in docs/MATRIX.md.
+1. **Robustness of the cross-kind cells — done 2026-10-20.** Seeds 0–4 of TEP ↔ HAI under v5 are in the matrix:
+   TEP → HAI 0.83 ± 0.00, HAI → TEP 14.55 ± 0.87 (docs/MATRIX.md, seeds table). Each seed is ~25 min on a 24-core Mac Pro:
+   both pipelines (~11 min), TEP → HAI (~11 min), HAI → TEP (~3 min). Two things to know before committing after a sweep:
+   a seeded transfer rewrites `out/benchmark_v1.json` and `out/library_v1.json` for that seed, and every `run`
+   writes the library *without* the tagged shapes — so either re-run `scripts/tag_datasets.py` or restore the
+   seed-0 files with `git checkout -- datasets/*/out collection/transfer_*.md` before `git add -A`.
 2. **A Rosetta set** of real, measured systems that physics says share a grammar, as datasets 5–8: a thermal
    loop (TCLab temperature-control lab runs), an electrochemical one (NASA battery charge/discharge cycles),
    a hydraulic one (a two- or three-tank lab rig), an electromechanical one (DC motor voltage → speed), and a

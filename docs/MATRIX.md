@@ -1,4 +1,4 @@
-# Transfer matrix — methods v3 and v4, profile v1, seed 0 (2026-10-19)
+# Transfer matrix — methods v3 to v5, profile v1 (2026-10-19; v5 seeds 0–4 added 2026-10-20)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
@@ -20,7 +20,40 @@ v4's, and the dimension constraint rules out pairs that v4 had used (120 types m
 halves. Two caveats on the comparison: v5 also fixed a scale bug that had made the "forbidden" penalty only
 partly effective in v3 and v4 (distances were not normalised), so v4's constraints were looser than written;
 and the stricter control is the right control, which means part of v4's 1.67 was credit the grammar had not
-earned. One seed, one pair, as before.
+earned. Five seeds (below), one pair.
+
+### v5 across seeds 0–4 (2026-10-20)
+
+The seed enters the pipeline's null draws and the alignment; the control's three permutations are drawn from a
+fixed generator (`transfer()` is called without an rng), so the seed reaches the control only through the mapping
+it permutes. Each seed is a full re-run of both pipelines followed by both transfer directions.
+
+| seed | TEP → HAI net | HAI → TEP net | HAI → TEP raw | HAI → TEP control | HAI → TEP zero-shot (learned / permuted) | HAI roles mapped |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0.83 | 13.37 | 21.65 | 8.29 | 6.607 / 7.647 | 37/39 |
+| 1 | 0.83 | 15.24 | 21.60 | 6.36 | 6.619 / 7.767 | 36/39 |
+| 2 | 0.83 | 15.16 | 21.63 | 6.47 | 6.621 / 7.778 | 36/39 |
+| 3 | 0.83 | 13.87 | 21.66 | 7.79 | 6.607 / 7.715 | 37/39 |
+| 4 | 0.83 | 15.12 | 21.61 | 6.49 | 6.623 / 7.747 | 36/39 |
+| **mean ± sd** | **0.83 ± 0.00** | **14.55 ± 0.87** | 21.63 ± 0.03 | 7.08 ± 0.89 | | |
+
+- **TEP → HAI is seed-free.** All five seeds give the same role map, the same anchors (B4022 ↔ cw_out,
+  PIT02 ↔ underflow_valve), 120/168 types mapped, and the same cells to two decimals (raw 0.86, control 0.03,
+  net 0.83). The small cell is a property of the pair under v5, not of one draw.
+- **HAI → TEP transfers on every seed; the spread is the control's, and it follows one pairing.** The raw cell is
+  stable (21.60–21.66) and the learned zero-shot moves by 0.02 bits at most, while the control cell ranges
+  6.36–8.29 and the net cell inherits it: 13.37–15.24, mean 14.55 ± 0.87. The split is clean: the two seeds that
+  map E_feed ↔ CO_rpm (0 and 3) have controls 8.29 and 7.79; the three that leave E_feed unmapped have 6.36–6.49.
+  That pairing adds ~1.5 bit-days of regularisation to the control and nothing to the raw cell, so it carries no
+  structure and the net is more honest without it. The lowest seed is still 1.3× the v4 cell (10.52).
+- **The role pairings rotate within a dynamical class.** Seeds 1–4 differ from seed 0 on four or five of the
+  39 HAI roles, all among HAI's purge and feed roles and TEP's valve roles VXT02/VXT03/VYT02/VYT03 (the same
+  tag class, exchanged among themselves), plus E_feed ↔ CO_rpm dropped in three seeds. The alignment is stable
+  where it is confident and indifferent where the candidates are interchangeable, which is what a graded
+  distance should do.
+- **Open items:** (a) the control's permutations should take the run's seed, not a fixed one, so that a seed
+  sweep also samples the control; (b) three permutations is a thin control, and the control's spread (sd 0.89)
+  is now the matrix's largest uncertainty — more permutations per seed would narrow it at low cost.
 
 ## v4: grammar (parts of speech, role-level alignment, symbols by spelling, control permuted within class)
 
