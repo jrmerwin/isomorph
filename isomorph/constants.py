@@ -6,7 +6,8 @@ in minutes, a 30/30 train/test split with a 20/10 proposal/confirmation split
 inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
-METHOD_VERSION = 2   # v2: horizon by recurrence time, lag classes by context gaps (3.3); all cards regenerated
+CARD_RULES_VERSION = 2   # the version at which the per-dataset rules (3.1-3.11) last changed; cards and cached state from it stay valid
+METHOD_VERSION = 3   # v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -17,6 +18,7 @@ ALIGN_RESTARTS = 20
 ALIGN_ITERS = 30
 N_ANCHORS = 2
 LEARNING_CURVE_DAYS = (1, 2, 3, 5, 10, 20, None)   # None = all training days
+N_CONTROL_MAPPINGS = 3                              # permuted-mapping controls per cell (3.12, v3)
 CLAIM_MIN_GAIN_BITS = 0.10
 SUPERFAMILY_RATIO = 2.0
 SUPERFAMILY_MIN_MEMBERS = 3

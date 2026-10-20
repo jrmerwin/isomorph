@@ -171,3 +171,10 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   loads it and takes --direction ab|ba|both, so each cell runs as its own job. The first TEP<->HAI transfer job
   re-ran both pipelines and spent over an hour on the TEP->HAI learning curve (168 receiver classes) before the
   2-hour job limit; nothing was recorded.
+
+## v3 (2026-10-19)
+- 3.12: transfer cells reported net of a permuted-mapping control (3 permutations, same mixing weights, median).
+  Prompted by the first cross-kind cell, TEP -> HAI: zero-shot 8.86 bits (receiver unigram 6.86; the anchors were
+  nonsense pairs) yet "help" at 1-2 receiver days (-0.72, -0.10 bits) — regularisation of a data-starved receiver
+  by any smooth model, which the raw cell cannot distinguish from shared structure. Collection-step change:
+  version incremented, matrix regenerated, cards unchanged (CARD_RULES_VERSION = 2 marks their validity).

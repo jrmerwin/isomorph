@@ -165,7 +165,8 @@ def load_state(dataset_dir, profile="v1", seed=0):
     pk = os.path.join(dataset_dir, "out", f"state_{profile}_{seed}.pkl"); bj = os.path.join(dataset_dir, "out", f"benchmark_{profile}.json")
     if not (os.path.exists(pk) and os.path.exists(bj)): return None
     rec = pickle.load(open(pk, "rb")); card = json.load(open(bj))
-    if rec.get("method_version") != K.METHOD_VERSION or card.get("method_version") != K.METHOD_VERSION or card.get("seed") != seed: return None
+    # valid if produced at or after the last change to the per-dataset rules (collection-step versions do not touch cards)
+    if rec.get("method_version", 0) < K.CARD_RULES_VERSION or card.get("method_version", 0) < K.CARD_RULES_VERSION or card.get("seed") != seed: return None
     return card, rec["state"]
 
 

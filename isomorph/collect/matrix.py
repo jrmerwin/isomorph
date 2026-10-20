@@ -32,9 +32,11 @@ def _cell(src, dst, profile, rng, key_dst=None, log=print):
     shared = sum(1 for t in dst["vocab"] if mapping.get(t) is not None)
     out = dict(mapping=mapping, anchors=anchors, alignment_objective=float(obj), types_mapped=shared, types_total=len(dst["vocab"]),
                zero_shot=tr["zero_shot"], learning_curve=tr.get("curve"), cell_bit_days=tr["cell_bit_days"],
+               cell_control_bit_days=tr.get("cell_control_bit_days"), cell_net_bit_days=tr.get("cell_net_bit_days"),
                damage=tr.get("damage"), mapping_accuracy=acc)
-    log(f"  zero-shot through mapping {tr['zero_shot']['all']:.3f} (shared types {tr['zero_shot']['shared']:.3f}, unshared {tr['zero_shot'].get('unshared')}); "
-        f"cell {tr['cell_bit_days']:.2f} bit-days; {shared}/{len(dst['vocab'])} receiver types mapped; accuracy {acc if isinstance(acc, str) else round(acc['accuracy'], 2)}")
+    log(f"  zero-shot through mapping {tr['zero_shot']['all']:.3f} (shared types {tr['zero_shot']['shared']:.3f}, unshared {tr['zero_shot'].get('unshared')}, "
+        f"permuted-mapping control {tr['zero_shot'].get('control')}); cell {tr['cell_bit_days']:.2f} bit-days, control {tr.get('cell_control_bit_days', float('nan')):.2f}, "
+        f"NET {tr.get('cell_net_bit_days', float('nan')):.2f}; {shared}/{len(dst['vocab'])} receiver types mapped; accuracy {acc if isinstance(acc, str) else round(acc['accuracy'], 2)}")
     return out
 
 
@@ -73,13 +75,15 @@ def transfer_pair(dirA, dirB, profile="v1", seed=0, log=print, direction="both")
 def cell_markdown(rec):
     def row(name, c):
         z = c["zero_shot"]; acc = c["mapping_accuracy"]
-        return (f"| {name} | {z['all']:.3f} | {z['shared']:.3f} | {c['cell_bit_days']:.2f} | {c['types_mapped']}/{c['types_total']} | "
+        ctl = c.get("cell_control_bit_days"); net = c.get("cell_net_bit_days")
+        return (f"| {name} | {z['all']:.3f} | {z['shared']:.3f} | {z.get('control') if z.get('control') is None else f'{z['control']:.3f}'} | {c['cell_bit_days']:.2f} | "
+                f"{'' if ctl is None else f'{ctl:.2f}'} | {'' if net is None else f'**{net:.2f}**'} | {c['types_mapped']}/{c['types_total']} | "
                 f"{acc if isinstance(acc, str) else f'{acc['accuracy']:.2f}'} |")
     lines = [f"# Transfer cells — {rec['A']} ↔ {rec['B']} (method v{rec['method_version']}, profile {rec['profile']}, seed {rec['seed']})", "",
              f"Own libraries: {rec['A']} {rec['headline']['A']['all']:.3f} bits (triviality {rec['triviality']['A']['all']:.3f}); "
              f"{rec['B']} {rec['headline']['B']['all']:.3f} bits (triviality {rec['triviality']['B']['all']:.3f})", "",
-             "| direction | zero-shot bits (all) | zero-shot (shared types) | cell (bit-days) | receiver types mapped | mapping accuracy |",
-             "| --- | --- | --- | --- | --- | --- |"]
+             "| direction | zero-shot (all) | zero-shot (shared) | zero-shot, permuted mapping | cell (bit-days) | control cell | net cell | receiver types mapped | mapping accuracy |",
+             "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     if "A_to_B" in rec: lines.append(row(f"{rec['A']} → {rec['B']}", rec["A_to_B"]))
     if "B_to_A" in rec: lines.append(row(f"{rec['B']} → {rec['A']}", rec["B_to_A"]))
     return "\n".join(lines) + "\n"

@@ -50,15 +50,34 @@ def own_contexts(rows, min_count):
     return [c for c, b in base.items() if b >= min_count and any(v >= min_count for v in cnt[c].values())]
 
 
-def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS, rng=None):
-    """B: dict from pipeline.run's second return (streams, lags, bounds, gaps, gap_mode, rows_test, vocab)."""
+def permuted_mappings(mapping, rng, n):
+    """Random-mapping controls (METHOD 3.12, v3): the same receiver types stay mapped, but their source
+    targets are shuffled among them, so the translated source model keeps its size and smoothness and loses
+    only the correspondence. What a permuted mapping gains is regularisation, not shared structure."""
+    keys = [t for t, v in mapping.items() if v is not None]
+    vals = [mapping[t] for t in keys]
+    out = []
+    for _ in range(n):
+        perm = list(rng.permutation(vals))
+        m = dict(mapping); m.update(dict(zip(keys, perm))); out.append(m)
+    return out
+
+
+def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS, rng=None, n_controls=K.N_CONTROL_MAPPINGS):
+    """B: dict from pipeline.run's second return (streams, lags, bounds, gaps, gap_mode, rows_test, vocab).
+    Reports the learned-mapping curve and cell, the same for `n_controls` permuted mappings (same lambda per
+    day point, median over controls), and the cell NET of the control — the headline transfer figure."""
+    rng = np.random.default_rng(0) if rng is None else rng
     lo, p_hi, c_hi, hi = B["bounds"]
     rows_test = B["rows_test"]
     P_A = proba_through_mapping(modelA, rows_test, mapping, toksB)
+    controls = permuted_mappings(mapping, rng, n_controls)
+    P_C = [proba_through_mapping(modelA, rows_test, m, toksB) for m in controls]
     unshared = np.array([mapping.get(r["tok"]) is None for r in rows_test])
     b0 = bits_of(P_A, rows_test, toksB)
     out = dict(zero_shot=dict(all=float(b0.mean()), shared=float(b0[~unshared].mean()) if (~unshared).any() else None,
-                              unshared=float(b0[unshared].mean()) if unshared.any() else None), curve=[])
+                              unshared=float(b0[unshared].mean()) if unshared.any() else None,
+                              control=float(np.median([bits_of(P, rows_test, toksB).mean() for P in P_C])) if P_C else None), curve=[])
     train_days_total = int((c_hi - lo) // 1440)
     for k in days:
         kd = train_days_total if k is None else min(k, train_days_total)
@@ -80,12 +99,18 @@ def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS,
             lam = LAMBDAS[int(np.argmin(score))]
         P_own = Model(fm).fit(rows_tr).proba(rows_test)
         b_own = bits_of(P_own, rows_test, toksB); b_mix = bits_of(lam * P_A + (1 - lam) * P_own, rows_test, toksB)
+        b_ctl = [bits_of(lam * P + (1 - lam) * P_own, rows_test, toksB).mean() for P in P_C]
         out["curve"].append(dict(days=kd, lam=lam, own=float(b_own.mean()), mixed=float(b_mix.mean()),
+                                 mixed_control=float(np.median(b_ctl)) if b_ctl else None,
                                  own_shared=float(b_own[~unshared].mean()), mixed_shared=float(b_mix[~unshared].mean()),
                                  own_unshared=float(b_own[unshared].mean()) if unshared.any() else None,
                                  mixed_unshared=float(b_mix[unshared].mean()) if unshared.any() else None))
     xs = [c["days"] for c in out["curve"]]; ys = [c["own"] - c["mixed"] for c in out["curve"]]
     out["cell_bit_days"] = float(np.trapezoid(ys, xs)) if len(xs) > 1 else 0.0
+    if P_C:
+        yc = [c["own"] - c["mixed_control"] for c in out["curve"]]
+        out["cell_control_bit_days"] = float(np.trapezoid(yc, xs)) if len(xs) > 1 else 0.0
+        out["cell_net_bit_days"] = out["cell_bit_days"] - out["cell_control_bit_days"]
     out["damage"] = any((c["mixed_unshared"] or 0) > (c["own_unshared"] or 0) + 1e-9 for c in out["curve"] if c["own_unshared"] is not None)
     return out
 
