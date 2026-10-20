@@ -1,9 +1,33 @@
-# Transfer matrix — method v3, profile v1, seed 0 (2026-10-19)
+# Transfer matrix — methods v3 and v4, profile v1, seed 0 (2026-10-19)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
+
+## v4: grammar (parts of speech, role-level alignment, symbols by spelling, control permuted within class)
+
+| source → receiver | zero-shot (learned) | zero-shot (permuted, within class) | raw cell | control cell | **net cell** | v3 net | kind |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Tennessee Eastman → HAI | 7.646 (shared 7.220) | 9.627 | 1.21 | −0.45 | **1.67** | 0.37 | cross kind |
+| HAI → Tennessee Eastman | 6.390 (shared 4.700) | 7.435 | 18.42 | 7.90 | **10.52** | 0.06 | cross kind |
+| building A → B′ | — | — | — | — | 0.74 | 0.74 | same kind; B′ has scrambled type names, so v4's role-level alignment does not apply and the cell is v3's |
+| building B′ → A | — | — | — | — | 5.53 | 5.53 | as above |
+
+Under v4 the mixed curve beats the receiver's own model at **every** point of both cross-kind curves (TEP → HAI:
+−1.07 bits at 1 receiver-day, −0.24 at 2, −0.08 at 3–5, −0.01 to −0.02 at 10–11; HAI → TEP: −0.18 to −0.57
+bits from 1 to 20 days, mixing weight 0.25), and the within-class permuted control is worse than the learned
+mapping at every point (by 0.1–0.6 bits). In v3 the same two cells were at chance. What changed is only the
+spelling of the motifs: a part-of-speech prefix on each role, roles aligned to roles of the same part of speech
+and symbol kind, and symbols carried across by their spelling, so `up` stays `up` and `q80` stays `q80`.
+
+The role pairings are not physical identities (TEP cooling-water flow ↔ HAI temperature demand; TEP level ↔
+HAI pressure; TEP vessel temperature ↔ HAI speed-controller output). They are dynamical: a mid-speed
+controlled variable in one plant stands in for a mid-speed controlled variable in the other. That is the
+thesis as stated — the same form in different substance — and the net cells say the pairing predicts. One
+seed, one pair: the result stands as a first positive, not a universal.
+
+## v3 (type-level alignment, for the record)
 
 | source → receiver | zero-shot (learned mapping) | zero-shot (permuted mapping) | raw cell | control cell | **net cell** | kind |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,7 +56,7 @@ within-kind cells first.
   the largest in the collection — and been false. This is the collection's first negative-control result,
   arriving before the datasets designated as negative controls.
 
-## What this says about the thesis
+## What v3 said about the thesis (superseded by v4 above)
 
 Type-level alignment of lift matrices (3.12) finds correspondences between systems of the same kind and does
 not find them across kinds, with 40 vs 168 types and two signature anchors. It does not yet say whether the
@@ -45,7 +69,7 @@ not the lexicon. That is the next method question, and it is a v4 question, not 
 
 ## Open items raised
 
-1. Shape-level (syntax) alignment and transfer as the cross-kind route (3.12 alternative).
+1. (v4 did the first half) Parts of speech and role-level alignment lifted the cross-kind cells; syntax motifs — chains and the feedback-return motif — are the second half, not yet built.
 2. Pooled lag classes for the pair before alignment (each dataset's own bands reduce comparability).
 3. The learning curve's λ is chosen by 2-fold on the receiver's training days and then reused for the control;
    a control-specific λ would be fairer to the control, i.e. more conservative.

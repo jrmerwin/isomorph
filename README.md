@@ -24,7 +24,7 @@ recorded in [docs/RESULTS_session_2026-10-18.md](docs/RESULTS_session_2026-10-18
 
 ## Status
 
-Method **v3** (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v2, the last change to per-dataset rules):
+Method **v4** (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v2, the last change to per-dataset rules):
 
 | # | dataset | library vs triviality / best baseline (bits per event, test split) | claim |
 | --- | --- | --- | --- |
@@ -33,14 +33,14 @@ Method **v3** (integer versions; amendments are logged in `CHANGELOG.md`; cards 
 | 3 | Tennessee Eastman, first 120 days ([card](docs/CARD_tennessee_eastman_v1.md)) | 3.033 vs 3.171 / 3.410 | beats baselines |
 | 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.851 vs 3.826 / 3.905 | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it) |
 
-Transfer matrix (v3, net bit-days after the permuted-mapping control; [full table and reading](docs/MATRIX_v3.md)):
+Transfer matrix (net bit-days after the permuted-mapping control; [full table and reading](docs/MATRIX.md)):
 
 | source → receiver | net cell | |
 | --- | --- | --- |
 | building A → B′ | 0.74 | same kind: alignment real (zero-shot 4.6 vs 7.9 permuted) |
 | building B′ → A | 5.53 | the richer system teaches more |
-| Tennessee Eastman → HAI | 0.37 | cross kind: mapping at chance; small early-data effect |
-| HAI → Tennessee Eastman | 0.06 | cross kind: raw 8.22 was entirely regularisation |
+| Tennessee Eastman → HAI | **1.67** (v3: 0.37) | cross kind; v4 grammar: roles aligned by part of speech, symbols by spelling |
+| HAI → Tennessee Eastman | **10.52** (v3: 0.06) | cross kind; mixed curve beats TEP's own model at every point to 20 days |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire
@@ -49,7 +49,7 @@ name-free triviality library; alignment and transfer with a global mixing weight
 
 Not yet: per-fragment transfer weights; the collection matrix and lineage files (`collect/matrix.py`,
 `collect/lineage.py`); pooled lag classes for alignment; a horizon tied to system time scales (open item
-from dataset 3). Shape-level (syntax) alignment for cross-kind pairs is the open method question (docs/MATRIX_v3.md).
+from dataset 3). Syntax motifs (chains, the feedback-return motif) are the next grammar step (docs/MATRIX.md).
 
 ## Layout
 

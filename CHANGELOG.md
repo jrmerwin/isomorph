@@ -191,3 +191,7 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   control permutes within tag class. Collection-step change; cards unchanged.
 - scripts/tag_datasets.py writes tags into sidecars and shapes into libraries. Buildings untagged for now
   (B' has scrambled type names and the same-kind pair already aligns).
+- Matrix v4: TEP -> HAI net 1.67 bit-days (v3 0.37), HAI -> TEP net 10.52 (v3 0.06); learned mapping 1.0-2.0 bits
+  better than the within-class permuted control in zero-shot; mixed curve beats the receiver's own model at every
+  point of both curves. The grammar (3.14 + role-level 3.12) moved the cross-kind cells off the floor. Buildings
+  unchanged (B' scrambled names -> type-level). docs/MATRIX.md.
