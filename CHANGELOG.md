@@ -301,3 +301,7 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   0.09. docs/MATRIX.md v6 section and returns table.
 - TCLab withdrawn from the running order (no public recording long enough; re-enters with a 24–48 h recording);
   the battery set is Rosetta member one. README, METHOD running order, RUNBOOK, cards (v6 sections) updated.
+- After v6 (Mac, b1a888f): returns found in every admitted dataset — TEP cooling water (31) and HAI level (20) the
+  strongest families; no LEAD->FOLLOW->LEAD exists because loop members are RELAY by the degree rule. Loop-aware
+  place tag logged as the v7 candidate (timing asymmetry inside returns). Collection step 3.13 scheduled next;
+  138 tagged shapes shared TEP/HAI, 7-9 with the battery.

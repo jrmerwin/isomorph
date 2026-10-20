@@ -77,3 +77,18 @@ single-process apart from numpy's own threading.
    Open: the place prefix tags both ends of a closed loop RELAY (an actuator in a loop is context and target),
    so a loop closing reads RELAY → FOLLOW → RELAY or RELAY → RELAY → RELAY, never LEAD → FOLLOW → LEAD; whether
    3.14 should carry a loop-aware tag is the next method question.
+
+## The round after v6 (October 2026)
+
+1. **The collection step, 3.13.** Build `isomorph/collect/lineage.py`: for every admitted dataset the tagged shape
+   inventory (fragments, chains, returns) with counts and lifts; a shape × dataset character matrix; the similarity
+   tree (hierarchical clustering of a shared-shape distance, with the transfer matrix's net cells as a second
+   distance for comparison); and the inheritance graph — a shape first validated in one dataset and later validated
+   in another is `inherited`, and the lineage records where each shape first appeared, where it recurred, where it
+   was tested and failed (its alignment counterpart's absence under a role match). `isomorph lineage` writes
+   `collection/lineage.json` and `docs/LINEAGE.md`. Returns are the characters that matter most; report them first.
+2. **One more Rosetta member** so the tree has a fourth real leaf: PhysioNet cardiorespiratory records (a
+   biological regulator: heart rate, blood pressure, respiration — the baroreflex as a return), or a hydraulic tank
+   rig if a long public recording exists. Same layout/ingest pattern; the dimension table is the first thing to write.
+3. **The loop-aware place tag** (METHOD open items, v7 candidate) — specified after the return inventories of
+   all datasets are in view; the timing asymmetry inside returns (REACTS / RESPONDS) is the candidate rule.
