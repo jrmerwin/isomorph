@@ -1,0 +1,208 @@
+{
+ "method_version": 5,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "nasa_battery",
+ "identity": {
+  "kind": "real battery test bed (NASA PCoE, 4 cells)",
+  "origin": "scripts/ingest_battery.py",
+  "time_unit": "minute (compressed: unobserved stretches removed; real_minute kept in the cycle list)",
+  "span": [
+   12.0,
+   68364.0
+  ],
+  "entity_key": "cell",
+  "entities": [
+   "B0005",
+   "B0006",
+   "B0007",
+   "B0018"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "V": "q20_50_80",
+    "I": "q10_90",
+    "T": "dsign"
+   },
+   "thresholds": {
+    "V": {
+     "B0005_V": [
+      3.754,
+      4.205,
+      4.206
+     ],
+     "B0006_V": [
+      3.715,
+      4.196,
+      4.199
+     ],
+     "B0007_V": [
+      3.764,
+      4.207,
+      4.212
+     ],
+     "B0018_V": [
+      3.744,
+      4.196,
+      4.199
+     ]
+    },
+    "I": {
+     "B0005_I": [
+      -2.013,
+      1.511
+     ],
+     "B0006_I": [
+      -2.01,
+      1.513
+     ],
+     "B0007_I": [
+      -1.99,
+      1.491
+     ],
+     "B0018_I": [
+      -2.009,
+      1.516
+     ]
+    }
+   },
+   "noise_windows": {
+    "B0005_V": 1,
+    "B0006_V": 1,
+    "B0007_V": 1,
+    "B0018_V": 1,
+    "B0005_I": 1,
+    "B0006_I": 1,
+    "B0007_I": 1,
+    "B0018_I": 1,
+    "B0005_T": 1,
+    "B0006_T": 1,
+    "B0007_T": 1,
+    "B0018_T": 1
+   }
+  }
+ },
+ "scale": {
+  "events": 12274,
+  "events_per_day": 258.5814606741573,
+  "types": 12,
+  "n_entities": 4,
+  "period": 239.51998959669007,
+  "signal_floor": 6,
+  "min_count": 3,
+  "lag_edges": [
+   5.806314960941695,
+   33.71329342565535,
+   195.75
+  ],
+  "events_dropped_for_gaps": 11436,
+  "test_events": 1371,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.50579727941959,
+   "non_deterministic": 3.50579727941959,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.910102089644898,
+   "non_deterministic": 2.910102089644898,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.745221644109797,
+   "non_deterministic": 2.745221644109797,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 2.74999685868849,
+   "non_deterministic": 2.74999685868849,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 3.024118114027734,
+   "non_deterministic": 3.024118114027734,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 2.8407973324545734,
+   "non_deterministic": 2.8407973324545734,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 2.7105309933134873,
+   "non_deterministic": 2.7105309933134873,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 2.7811691027399252,
+   "non_deterministic": 2.7811691027399252,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 2.7195667673211026,
+   "non_deterministic": 2.7195667673211026,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": -0.07063810942643789,
+  "over_best_baseline": -0.03594745863012827,
+  "best_baseline_bits": 2.745221644109797,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 12,
+  "fragments_used": 9,
+  "compositions_kept": 0,
+  "candidates": 40,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.5151515151515151,
+   "cycle": 0.5757575757575758,
+   "rewire": 0.12121212121212122
+  },
+  "trivial_pairs": [
+   [
+    "I:downq10",
+    "I:upq10"
+   ],
+   [
+    "I:downq90",
+    "I:upq90"
+   ],
+   [
+    "T:peak",
+    "T:trough"
+   ],
+   [
+    "V:downq20",
+    "V:upq20"
+   ],
+   [
+    "V:downq50",
+    "V:upq50"
+   ],
+   [
+    "V:downq80",
+    "V:upq80"
+   ]
+  ],
+  "chatty_share": 0.25
+ },
+ "recovery": {
+  "recall": 0.6666666666666666,
+  "precision": 0.5,
+  "n_mechanisms": 3,
+  "n_found": 2
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 8.9
+}

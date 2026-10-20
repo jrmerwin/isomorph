@@ -124,10 +124,12 @@ The first collection, in running order, with the role each plays:
 | 2 | Building B' (this project) | synthetic, answer key, role mapping to A | calibration of the transfer cell against the recorded zero-shot and curve |
 | 3 | Tennessee Eastman process — first 120 days of the 1-year continuous run of Souza et al. (2023), Ricker's revised model; 3-min samples; the fault label is excluded from the events and kept as regime annotations; the answer key is the actuator→measurement pairs of the flowsheet | semi-natural, flowsheet as answer key, labelled faults | first real regulator; recovery and regime fields; days 120–365 held as a continuation |
 | 4 | HAI 21.03 (in place of SWaT, which iTrust distributes on request only) — 1-minute means of the 1-s source; files concatenated with boundaries as gaps; attack labels as regimes; 15.3 days, admitted provisionally | real testbed, attacks as regime changes, point descriptions as answer key | second regulator; the first real transfer cell (3 ↔ 4) |
-| 5 | A real building management log | real, no key | third regulator; first key-free card |
-| 6 | Server or cluster telemetry (e.g. a public cluster trace) | real, no key | negative control: should not join the regulator superfamily |
-| 7 | Clickstream or transaction log | real, no key | second negative control, different kind again |
-| 8 | A biological regulation event series | real or simulated, partial key | the first test of transfer across a kind boundary |
+| 5 | TCLab (Arduino Temperature Control Lab, BYU) — nine public recordings of the two-heater kit, 5-second means, concatenated with boundaries as gaps; 7.6 h, admitted only on the natural-period clause | real lab kit, heater → sensor as answer key | Rosetta set, thermal member: the simplest first-order loop, heater (ACT, dimensionless) → temperature ⟨Θ⟩ |
+| 6 | NASA PCoE Battery Data Set, group FY08Q4 (B0005–7, B0018) — charge/discharge cycles at 1-minute means on a compressed axis, rests and impedance tests as gaps; 47.5 observed days | real test bed, protocol as answer key | Rosetta set, electrochemical member: current (ACT) ⟨I⟩ → voltage, temperature; the first pair physics says shares a grammar (5 ↔ 6) |
+| 7 | A hydraulic and an electromechanical lab rig (tank; DC motor) | real, partial key | Rosetta set, remaining members |
+| 8 | A real building management log | real, no key | third regulator; first key-free card |
+| 9 | Server or cluster telemetry (e.g. a public cluster trace) | real, no key | negative control: should not join the regulator superfamily |
+| 10 | Clickstream or transaction log; a biological regulation series | real, no key / partial key | second negative control; the test across a kind boundary |
 
 The negative controls are not optional. A collection in which everything transfers to everything has failed the triviality baseline or the symbolization step, and the next action is to fix the instrument, not to report a universal.
 

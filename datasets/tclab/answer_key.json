@@ -1,0 +1,21 @@
+{
+ "mechanisms": [
+  {
+   "cause": "Q",
+   "effect": "T",
+   "note": "heater power -> its own sensor temperature (first-order lag, 1-3 min)"
+  },
+  {
+   "cause": "Tsp",
+   "effect": "Q",
+   "note": "setpoint -> PID heater output (closed-loop run only)"
+  },
+  {
+   "cause": "Tsp",
+   "effect": "T",
+   "note": "setpoint -> sensor temperature through the loop (closed-loop run only)"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "heater -> its own sensor is true by construction; the setpoint pairs hold only in the closed-loop recording"
+}

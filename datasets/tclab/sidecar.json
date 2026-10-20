@@ -1,0 +1,253 @@
+{
+ "time_unit": "minute (compressed: separate recordings concatenated)",
+ "entity_key": "heater",
+ "period": "auto",
+ "system_wide_types": [],
+ "tie_rule": "canonical",
+ "kind": "real lab kit (TCLab, two heaters)",
+ "origin": "scripts/ingest_tclab.py",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "Q": "q20_50_80",
+   "T": "dsign",
+   "Tsp": "q10_90"
+  },
+  "thresholds": {
+   "Q": {
+    "Q1": [
+     10.0,
+     43.0,
+     60.0
+    ],
+    "Q2": [
+     10.0,
+     10.0,
+     100.0
+    ]
+   },
+   "Tsp": {
+    "Tsp1": [
+     41.0,
+     67.0
+    ]
+   }
+  },
+  "noise_windows": {
+   "Q1": 3,
+   "Q2": 2,
+   "T1": 1,
+   "T2": 1,
+   "Tsp1": 1
+  }
+ },
+ "sample_minutes": 0.08333333333333333,
+ "files": [
+  {
+   "file": "apm_do_dyn3.csv",
+   "note": "APMonitor dynamic optimisation course: 4-h heater-1 step sequence (sensor 2 absent, T2 = 0)",
+   "start_minute": 0.0,
+   "end_minute": 240.83333333333331,
+   "rows": 2890,
+   "columns": [
+    "Q1",
+    "T1"
+   ]
+  },
+  {
+   "file": "byu_prism_pid_train.csv",
+   "note": "BYU PRISM Transformer_MPC: 90-min closed-loop PID run on heater 1 with setpoint (no time column; 1 s assumed)",
+   "start_minute": 240.83333333333331,
+   "end_minute": 330.8333333333333,
+   "rows": 1080,
+   "columns": [
+    "Q1",
+    "T1",
+    "Tsp1"
+   ]
+  },
+  {
+   "file": "apm_pds_data6.csv",
+   "note": "APMonitor process data science course: 1-h heater-1 step sequence, both sensors",
+   "start_minute": 330.8333333333333,
+   "end_minute": 390.91666666666663,
+   "rows": 721,
+   "columns": [
+    "Q1",
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "apm_pdc_data4.csv",
+   "note": "APMonitor process dynamics and control course: 14-min step test",
+   "start_minute": 390.91666666666663,
+   "end_minute": 404.99999999999994,
+   "rows": 169,
+   "columns": [
+    "Q1",
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "kantor_cbe30338.csv",
+   "note": "Kantor, CBE 30338 (Notre Dame): 13-min step test",
+   "start_minute": 404.99999999999994,
+   "end_minute": 418.41666666666663,
+   "rows": 161,
+   "columns": [
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "apm_do_dyn2.csv",
+   "note": "APMonitor dynamic optimisation course: 10-min two-heater step test (columns H1, H2)",
+   "start_minute": 418.41666666666663,
+   "end_minute": 428.49999999999994,
+   "rows": 121,
+   "columns": [
+    "Q1",
+    "Q2",
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "apm_pdc_data2.csv",
+   "note": "APMonitor process dynamics and control course: 10-min two-heater step test",
+   "start_minute": 428.49999999999994,
+   "end_minute": 438.58333333333326,
+   "rows": 121,
+   "columns": [
+    "Q1",
+    "Q2",
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "apm_pdc_data3.csv",
+   "note": "APMonitor process dynamics and control course: 10-min heater-1 step test, both sensors",
+   "start_minute": 438.58333333333326,
+   "end_minute": 448.6666666666666,
+   "rows": 121,
+   "columns": [
+    "Q1",
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "file": "apm_pds_data5.csv",
+   "note": "APMonitor process data science course: 10-min step test",
+   "start_minute": 448.6666666666666,
+   "end_minute": 458.7499999999999,
+   "rows": 121,
+   "columns": [
+    "Q1",
+    "T1",
+    "T2"
+   ]
+  }
+ ],
+ "source": "APMonitor TCLab course uploads (apmonitor.com/pdc, /do, /pds), BYU-PRISM/Transformer_MPC and jckantor/cbe30338-book on GitHub",
+ "span_note": "7.6 h observed in 9 recordings; far below the 20-day line, admitted only on the natural-period clause",
+ "rosetta": "thermal first-order loop: heater (ACT, dimensionless power) -> sensor temperature <\u0398>",
+ "tags": {
+  "Q": {
+   "cls": "FAST-S",
+   "coarse": "FAST",
+   "per_column": {
+    "Q1": {
+     "const_frac": 0.765,
+     "noise_window": 3,
+     "corr_time": 8,
+     "speed_ratio": 0.032,
+     "saturation": 0.18,
+     "cls": "FAST-S"
+    },
+    "Q2": {
+     "const_frac": 0.971,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 2,
+   "in_degree": 2,
+   "binding_share": 0.0,
+   "dimension": null,
+   "quantity": null,
+   "full": "FAST-S\u00b7COMMON\u00b7RELAY"
+  },
+  "T": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "T1": {
+     "const_frac": 0.075,
+     "noise_window": 1,
+     "corr_time": 39,
+     "speed_ratio": 0.158,
+     "saturation": 0.012,
+     "cls": "MID"
+    },
+    "T2": {
+     "const_frac": 0.194,
+     "noise_window": 1,
+     "corr_time": 31,
+     "speed_ratio": 0.126,
+     "saturation": 0.036,
+     "cls": "MID"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7ISOLATED \u27e8\u0398\u27e9"
+  },
+  "Tsp": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "Tsp1": {
+     "const_frac": 0.977,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7ISOLATED \u27e8\u0398\u27e9"
+  }
+ },
+ "tags_note": "parts of speech (3.14): clock prefix at 5-second means relative to H; place prefix from the v1 library; dimension suffix: heater power dimensionless, temperatures <\u0398>"
+}

@@ -1,4 +1,4 @@
-# Transfer matrix — methods v3 to v5, profile v1 (2026-10-19; v5 seeds 0–4 added 2026-10-20)
+# Transfer matrix — methods v3 to v5, profile v1 (2026-10-19; v5 seeds 0–4 and the Rosetta pair added 2026-10-20)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
@@ -9,8 +9,12 @@ regularisation — and leaves what the correspondence gives.
 
 | source → receiver | zero-shot (learned) | zero-shot (permuted) | raw cell | control cell | **net cell** | v4 net | v3 net | types mapped |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tennessee Eastman → HAI | 7.682 (shared 7.176) | 8.697 | 0.86 | 0.03 | **0.83** | 1.67 | 0.37 | 120/168 |
-| HAI → Tennessee Eastman | 6.607 (shared 5.884) | 7.647 | 21.65 | 8.29 | **13.37** | 10.52 | 0.06 | 34/40 |
+| Tennessee Eastman → HAI | 7.683 (shared 7.177) | 8.986 | 0.86 | −0.12 | **0.98** | 1.67 | 0.37 | 120/168 |
+| HAI → Tennessee Eastman | 6.622 (shared 5.887) | 7.944 | 21.57 | 7.11 | **14.45** | 10.52 | 0.06 | 34/40 |
+
+Seed 0, re-run 2026-10-20 under the current control (ten permutations drawn from the run's seed; the 2026-10-19
+cells, 0.83 and 13.37, were under three permutations from a fixed generator). The learned side is unchanged to the
+third decimal; the control moved (−0.12 against 0.03; 7.11 against 8.29) and both nets moved with it.
 
 Mixed picture, reported as such. HAI → TEP improved: more TEP roles found a dimensionally and dynamically
 compatible HAI counterpart (34 of 40 types mapped against 22), and the mixed curve beats TEP's own model by
@@ -24,9 +28,10 @@ earned. Five seeds (below), one pair.
 
 ### v5 across seeds 0–4 (2026-10-20)
 
-The seed enters the pipeline's null draws and the alignment; the control's three permutations are drawn from a
-fixed generator (`transfer()` is called without an rng), so the seed reaches the control only through the mapping
-it permutes. Each seed is a full re-run of both pipelines followed by both transfer directions.
+Seeds 1–4 were run under the control as it then was: three permutations from a fixed generator, so the seed
+reached the control only through the mapping it permutes (the control has since been seeded and raised to ten
+permutations; seed 0 above is under the new one, seeds 1–4 are not yet). Each seed is a full re-run of both
+pipelines followed by both transfer directions.
 
 | seed | TEP → HAI net | HAI → TEP net | HAI → TEP raw | HAI → TEP control | HAI → TEP zero-shot (learned / permuted) | HAI roles mapped |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -51,9 +56,51 @@ it permutes. Each seed is a full re-run of both pipelines followed by both trans
   tag class, exchanged among themselves), plus E_feed ↔ CO_rpm dropped in three seeds. The alignment is stable
   where it is confident and indifferent where the candidates are interchangeable, which is what a graded
   distance should do.
-- **Open items:** (a) the control's permutations should take the run's seed, not a fixed one, so that a seed
-  sweep also samples the control; (b) three permutations is a thin control, and the control's spread (sd 0.89)
-  is now the matrix's largest uncertainty — more permutations per seed would narrow it at low cost.
+- **Open item (done the same day):** the control now takes the run's seed and ten permutations; seeds 1–4 are
+  to be regenerated under it at the next sweep, and the mean ± sd above will then sample the control as well.
+
+## v5, the Rosetta set's first two members (2026-10-20): TCLab (5) and the NASA battery cells (6)
+
+Seed 0, the seeded ten-permutation control. TCLab is **not admitted** (7.6 h, no period; its card is for the
+record) and has less than one training day, so it cannot carry a learning curve as a receiver: those cells are
+"not measurable" and only the zero-shot is reported. The battery set is admitted (47.5 observed days) but its
+library is 12 fragments built from the 7% of events that survive the gap rule (its card).
+
+| source → receiver | zero-shot (learned) | zero-shot (permuted) | raw cell | control cell | **net cell** | roles mapped | types mapped | role pairings |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TCLab → battery | 6.236 (shared 1.105) | 6.232 | −0.18 | −0.18 | **−0.00** | 2/3 | 2/12 | T ↔ T, Q ↔ I |
+| battery → TCLab | 6.654 (shared 0.901) | 6.715 | — | — | not measurable | 3/3 | 2/12 | Q ↔ I, T ↔ T, Tsp ↔ V |
+| TEP → battery | 3.585 (shared 3.585) | 3.585 | 0.19 | 0.19 | **0.00** | 3/3 | 8/12 | I ↔ cw_flow, T ↔ purge_D, V ↔ purge_B |
+| battery → TEP | 5.322 (shared —) | 5.322 | 25.97 | 25.97 | **0.00** | 3/39 | 0/40 | AC_valve ↔ V, feed ↔ I, prod_H ↔ T |
+| HAI → battery | 3.926 (shared 1.854) | 3.917 | −0.01 | −0.01 | **−0.00** | 3/3 | 2/12 | I ↔ FCV02Z, T ↔ TIT01, V ↔ FCV01D |
+| battery → HAI | 9.063 (shared 2.715) | 9.073 | 0.03 | 0.04 | **−0.00** | 3/52 | 6/168 | B4005 ↔ V, SIT01 ↔ T, VXT03 ↔ I |
+| TEP → TCLab | 3.876 (shared 3.876) | 4.072 | — | — | not measurable | 3/3 | 8/12 | Q ↔ feed, T ↔ purge_D, Tsp ↔ cw_flow |
+| TCLab → TEP | 7.435 (shared 1.240) | 7.443 | 8.79 | 8.82 | **−0.04** | 3/39 | 2/40 | cw_flow ↔ Tsp, feed_C ↔ Q, underflow ↔ T |
+| HAI → TCLab | 3.484 (shared 3.484) | 3.682 | — | — | not measurable | 3/3 | 12/12 | Q ↔ FT01, T ↔ FCV03D, Tsp ↔ B4002 |
+| TCLab → HAI | 9.491 (shared 3.431) | 9.504 | 0.17 | 0.14 | **0.03** | 3/52 | 12/168 | B2016 ↔ T, B4002 ↔ Tsp, B4022 ↔ Q |
+
+**Nothing transfers, and the table says why.** Every net cell is zero to two decimals and every learned zero-shot
+is within 0.2 bits of its permuted control. Three instrument facts sit upstream of the physics:
+
+- **The pair's libraries are too small to carry anything.** TCLab has two fragments (a step-test staircase);
+  the battery set twelve, from one-twentieth of its events. A source with no motifs has nothing to send, and a
+  receiver with 282 test events cannot register what arrives.
+- **Role pairings cross, symbol spellings do not.** Battery → TCLab pairs Q ↔ I, T ↔ T, Tsp ↔ V — the physical
+  correspondence (actuator ↔ actuator, temperature ↔ temperature) — but T ↔ T is forced by the ⟨Θ⟩ suffix and
+  Q, being dimensionless, is free, so with three roles a side this is a coin toss, not evidence. More to the
+  point, Q is spelled q20/50/80 and I is spelled q10/90, so the role match carries no types (2 of 12 mapped, both
+  of them T's peak and trough); the same happens to battery → TEP (3 roles matched, 0 of 40 types). Symbols cross
+  by spelling (3.12), and the symbolization rule chose different spellings for the two actuators.
+- **The regulariser is large and the control takes all of it.** Battery → TEP's raw cell is 25.97 bit-days,
+  the largest raw number in the collection, and the control is 25.97: a three-role model through any mapping
+  smooths TEP's 40-class receiver. The v3 lesson again, at scale, and the control does its job.
+
+What the Rosetta pair tests — whether the thermal and the electrochemical first-order loop share a grammar — is
+not yet tested. The order of repair is the one the cards give: a gap rule for fragmented observation (the
+battery would then mine ~12,000 events instead of 838); a long TCLab recording (24–48 h, both heaters, a setpoint
+schedule); and a decision on whether actuators spelled by different quantile schemes should be allowed to cross
+(a spelling rule, 3.12 — not a tuning). Until then the cells stand as the first all-zero row of the matrix,
+with the control confirming that zero is zero.
 
 ## v4: grammar (parts of speech, role-level alignment, symbols by spelling, control permuted within class)
 

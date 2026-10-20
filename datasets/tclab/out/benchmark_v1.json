@@ -1,0 +1,167 @@
+{
+ "method_version": 5,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "tclab",
+ "identity": {
+  "kind": "real lab kit (TCLab, two heaters)",
+  "origin": "scripts/ingest_tclab.py",
+  "time_unit": "minute (compressed: separate recordings concatenated)",
+  "span": [
+   0.1666666666666666,
+   459.4166666666666
+  ],
+  "entity_key": "heater",
+  "entities": [
+   "h1",
+   "h2"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "Q": "q20_50_80",
+    "T": "dsign",
+    "Tsp": "q10_90"
+   },
+   "thresholds": {
+    "Q": {
+     "Q1": [
+      10.0,
+      43.0,
+      60.0
+     ],
+     "Q2": [
+      10.0,
+      10.0,
+      100.0
+     ]
+    },
+    "Tsp": {
+     "Tsp1": [
+      41.0,
+      67.0
+     ]
+    }
+   },
+   "noise_windows": {
+    "Q1": 3,
+    "Q2": 2,
+    "T1": 1,
+    "T2": 1,
+    "Tsp1": 1
+   }
+  }
+ },
+ "scale": {
+  "events": 469,
+  "events_per_day": 1470.5715841045187,
+  "types": 12,
+  "n_entities": 2,
+  "period": null,
+  "signal_floor": 5,
+  "min_count": 3,
+  "lag_edges": [
+   0.5225057352610519,
+   3.276146920569055,
+   20.54166666666666
+  ],
+  "events_dropped_for_gaps": 210,
+  "test_events": 282,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.0689537011399155,
+   "non_deterministic": 3.0689537011399155,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.9085951367879153,
+   "non_deterministic": 2.9085951367879153,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 3.176272830950335,
+   "non_deterministic": 3.176272830950335,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 3.3451295972132775,
+   "non_deterministic": 3.3451295972132775,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 3.030948104696465,
+   "non_deterministic": 3.030948104696465,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 2.7747819244848384,
+   "non_deterministic": 2.7747819244848384,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 2.854505126516822,
+   "non_deterministic": 2.854505126516822,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 2.7473258266208425,
+   "non_deterministic": 2.7473258266208425,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 2.7807791418448713,
+   "non_deterministic": 2.7807791418448713,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.10717929989597952,
+  "over_best_baseline": 0.027456097863995943,
+  "best_baseline_bits": 2.7747819244848384,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 2,
+  "fragments_used": 2,
+  "compositions_kept": 0,
+  "candidates": 48,
+  "nulls_run": [
+   "circular",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.46153846153846156,
+   "rewire": 0.0
+  },
+  "trivial_pairs": [
+   [
+    "Q:downq20",
+    "Q:upq20"
+   ],
+   [
+    "Q:downq50",
+    "Q:upq50"
+   ],
+   [
+    "Q:downq80",
+    "Q:upq80"
+   ],
+   [
+    "T:peak",
+    "T:trough"
+   ]
+  ],
+  "chatty_share": 1.0
+ },
+ "recovery": {
+  "recall": 0.0,
+  "precision": 0.0,
+  "n_mechanisms": 3,
+  "n_found": 0
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 0.1
+}

@@ -232,3 +232,30 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   control's spread (sd 0.89 bit-days) had become the matrix's largest uncertainty — the control's definition is
   unchanged, only its sample; cells shift slightly and are regenerated at the next sweep. `isomorph run` now
   writes tag-prefixed shapes into the library when the sidecar has tags, so a re-run no longer strips them.
+
+### v5, seed 0 re-run and the Rosetta set's first two members (2026-10-20, Mac)
+- TEP <-> HAI seed 0 re-run under the seeded ten-permutation control: TEP -> HAI net 0.98 (control -0.12; was 0.83
+  with control 0.03), HAI -> TEP net 14.45 (control 7.11; was 13.37 with 8.29). Learned side unchanged to 1e-3; the
+  headline rows in docs/MATRIX.md and the README are under the new control, seeds 1-4 remain under the old one.
+- Dataset 5, TCLab: nine public recordings of the two-heater kit (APMonitor course uploads, BYU-PRISM, Kantor),
+  5-second means, concatenated longest first with boundaries as gaps; 7.6 h, no period -> NOT admitted; card
+  recorded (docs/CARD_tclab_v1.md): 469 events, 12 types, 2 fragments (a step-test staircase), recovery 0/3, 45%
+  of events dropped at recording boundaries. One candidate file (BYU MIMO_240min) was an emulator record and is not
+  used. scripts/tclab_layout.py, ingest_tclab.py, fetch_tclab.sh.
+- Dataset 6, NASA PCoE battery set FY08Q4 (B0005-7, B0018): charge/discharge cycles at 1-minute means on a compressed
+  axis, 469 unobserved stretches as gaps; 47.5 observed days, admitted; period 239.5 min (the cycle), cycle null
+  active; entity = cell by 13.7 bits over one system; 12,274 events, 12 types, 12 fragments, recovery 2/3 (current
+  -> temperature, voltage -> current), no gain over triviality (-0.07: a cycling protocol is an alternation).
+  93% of events dropped at cycle boundaries: the horizon (recurrence, 196 min) is one cycle and the gap rule drops
+  any target whose window spans a boundary. Open item (v6): a gap rule for observation fragmented at the horizon.
+  docs/CARD_nasa_battery_v1.md; scripts/battery_layout.py, ingest_battery.py, fetch_battery.sh.
+- Matrix: ten cells among {TCLab, battery} x {each other, TEP, HAI}, all net 0.00 where measurable; TCLab has
+  under one training day and cannot carry a curve as a receiver ("not measurable", zero-shot only). Role pairings
+  cross the way physics says (battery -> TCLab: Q <-> I, T <-> T, Tsp <-> V) but the two actuators are spelled by
+  different quantile schemes (q20/50/80 vs q10/90) so the role match carries no types; battery -> TEP raw 25.97 =
+  control 25.97. docs/MATRIX.md, Rosetta section. METHOD running order: 5 TCLab, 6 battery, negative controls moved down.
+- Code, found on the way: `contexts_for_stream` returns no rows for an entity with no events in a split (it
+  crashed the circular null on TCLab's h2); `transfer()` returns zero-shot only, cells None, when the receiver has
+  under one training day; the cell log line and cell card tolerate that; `DIMENSIONS` gains `current` <I>;
+  `tag_datasets.py` tags the two new datasets. No rule changed; cards and cached state of datasets 1-4 unchanged.
+- Reproducibility note kept: the tagging re-run on TEP and HAI left their sidecars and libraries byte-identical.

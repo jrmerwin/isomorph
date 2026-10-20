@@ -8,7 +8,10 @@ datasets/*/out/choice_checkpoint.json
 datasets/*/out/state_*.pkl
 datasets/*/raw/*.csv
 datasets/*/raw/*.csv.gz
+datasets/*/raw/*.mat
 datasets/*/raw/*.pdf
+datasets/*/raw/*.txt
+datasets/*/raw/*.zip
 datasets/*/work/
 dist/
 results_*.zip

@@ -88,6 +88,10 @@ def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS,
                               unshared=float(b0[unshared].mean()) if unshared.any() else None,
                               control=float(np.median([bits_of(P, rows_test, toksB).mean() for P in P_C])) if P_C else None), curve=[])
     train_days_total = int((c_hi - lo) // 1440)
+    if train_days_total < 1:   # a receiver with less than one training day has no learning curve: zero-shot only, cells not measurable
+        out.update(cell_bit_days=None, cell_control_bit_days=None, cell_net_bit_days=None, damage=False,
+                   note=f"receiver has {(c_hi - lo) / 1440:.2f} training days; the curve needs at least 1")
+        return out
     for k in days:
         kd = train_days_total if k is None else min(k, train_days_total)
         rows_tr = rows_for(B["streams"], B["lags"], lo, lo + kd * 1440, B["gaps"], B["gap_mode"])

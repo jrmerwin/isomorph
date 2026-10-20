@@ -131,6 +131,7 @@ def contexts_for_stream(s, lags, entity=None, gaps=None, shift=None, gap_mode="d
     shift: optional {type: offset} for the circular null — timestamps shifted modulo the
     stream span (legacy behaviour) or within the entity's observation span (v1, via `span`)."""
     t_arr = s.t.values.astype(float); toks = s.type.values; tgt = s.target.values; ids = s.event_id.values
+    if len(t_arr) == 0: return []      # an entity with no events in this split (TCLab: sensor 2 absent from the proposal split)
     if shift is not None:
         lo, hi = t_arr.min(), t_arr.max() + 1
         t_arr = np.array([lo + ((t + shift.get(tok, 0.0) - lo) % (hi - lo)) for t, tok in zip(t_arr, toks)])

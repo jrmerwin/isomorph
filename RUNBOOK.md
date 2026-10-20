@@ -64,11 +64,14 @@ single-process apart from numpy's own threading.
    a seeded transfer rewrites `out/benchmark_v1.json` and `out/library_v1.json` for that seed, and every `run`
    writes the library *without* the tagged shapes — so either re-run `scripts/tag_datasets.py` or restore the
    seed-0 files with `git checkout -- datasets/*/out collection/transfer_*.md` before `git add -A`.
-2. **A Rosetta set** of real, measured systems that physics says share a grammar, as datasets 5–8: a thermal
-   loop (TCLab temperature-control lab runs), an electrochemical one (NASA battery charge/discharge cycles),
-   a hydraulic one (a two- or three-tank lab rig), an electromechanical one (DC motor voltage → speed), and a
-   physiological regulator (PhysioNet cardiorespiratory records). Each needs a `*_layout.py` with roles,
-   kinds and the dimension table, and an `ingest_*.py`; the method's admission rule (20 days or 20 natural
-   periods) decides what is long enough. The negative controls move down the running order, not off it.
+2. **A Rosetta set** — started 2026-10-20 with TCLab (5, not admitted: 7.6 h of public recordings, no period) and
+   the NASA battery cells (6, admitted: 47.5 days). Ten cells, all net 0.00 where measurable (docs/MATRIX.md).
+   Before the next members (a tank rig, a DC motor, a PhysioNet regulator) three repairs, in this order:
+   (a) a gap rule for observation fragmented at or below the horizon — the battery set mines 838 of 12,274 events
+   under the current rule, and every cycled protocol will look the same; (b) a 24–48 h TCLab recording of both
+   heaters under a setpoint schedule (the kit is cheap; no public recording is long enough); (c) a spelling rule
+   for actuators symbolized by different quantile schemes (3.12 crosses symbols by spelling, so Q q20/50/80 and
+   I q10/90 share no types). `scripts/fetch_tclab.sh`, `fetch_battery.sh`; `ingest_*.py` are resumable; both
+   choice stages take seconds. The negative controls move down the running order, not off it.
 3. **Syntax motifs** (v6): chains A→B→C and the feedback-return motif X↑ → Y → X↓, admitted by confirmation
    bits with the circular null, written in the tagged alphabet. The expensive step; run it here.

@@ -1,0 +1,704 @@
+{
+ "fragments": [
+  {
+   "prior": "I:downq10",
+   "lag": "m",
+   "target": "I:upq10",
+   "count": 4,
+   "lift": 10.31764705882353,
+   "lift_conf": 5.158823529411765,
+   "null_max": {
+    "circular": 1,
+    "cycle": 2,
+    "rewire": 6
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID-S.down.q10 -m-> MID-S.up.q10 [same role]"
+  },
+  {
+   "prior": "V:downq50",
+   "lag": "l",
+   "target": "T:peak",
+   "count": 15,
+   "lift": 5.179949598361947,
+   "lift_conf": 2.0129271301689053,
+   "null_max": {
+    "circular": 11,
+    "cycle": 9,
+    "rewire": 15
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.down.q50 -l-> FAST.peak"
+  },
+  {
+   "prior": "V:downq80",
+   "lag": "l",
+   "target": "T:peak",
+   "count": 15,
+   "lift": 5.001330646694294,
+   "lift_conf": 1.6211898144174715,
+   "null_max": {
+    "circular": 11,
+    "cycle": 8,
+    "rewire": 15
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.down.q80 -l-> FAST.peak"
+  },
+  {
+   "prior": "I:upq10",
+   "lag": "m",
+   "target": "T:peak",
+   "count": 5,
+   "lift": 6.906599464482596,
+   "lift_conf": 1.6735221779323213,
+   "null_max": {
+    "circular": 4,
+    "cycle": 3,
+    "rewire": 6
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID-S.up.q10 -m-> FAST.peak"
+  },
+  {
+   "prior": "I:upq10",
+   "lag": "s",
+   "target": "T:peak",
+   "count": 3,
+   "lift": 9.669239250275634,
+   "lift_conf": 5.371799583486464,
+   "null_max": {
+    "circular": 2,
+    "cycle": 2,
+    "rewire": 6
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID-S.up.q10 -s-> FAST.peak"
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "l",
+   "target": "T:peak",
+   "count": 15,
+   "lift": 3.8168049672140665,
+   "lift_conf": 1.530962881293642,
+   "null_max": {
+    "circular": 12,
+    "cycle": 11,
+    "rewire": 15
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.up.q50 -l-> FAST.peak"
+  },
+  {
+   "prior": "I:downq90",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 5,
+   "lift": 6.069204152249135,
+   "lift_conf": 2.0297010607521697,
+   "null_max": {
+    "circular": 4,
+    "cycle": 2,
+    "rewire": 6
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID-S.down.q90 -l-> MID-S.up.q10 [same role]"
+  },
+  {
+   "prior": "V:upq80",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 7,
+   "lift": 4.513970588235294,
+   "lift_conf": 2.6342928660826033,
+   "null_max": {
+    "circular": 4,
+    "cycle": 6,
+    "rewire": 7
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.up.q80 -l-> MID-S.up.q10"
+  },
+  {
+   "prior": "V:downq50",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 6,
+   "lift": 4.421848739495798,
+   "lift_conf": 2.3013339164662145,
+   "null_max": {
+    "circular": 4,
+    "cycle": 5,
+    "rewire": 7
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.down.q50 -l-> MID-S.up.q10"
+  },
+  {
+   "prior": "V:downq80",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 6,
+   "lift": 4.269371196754564,
+   "lift_conf": 2.224163437830222,
+   "null_max": {
+    "circular": 4,
+    "cycle": 5,
+    "rewire": 7
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.down.q80 -l-> MID-S.up.q10"
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 7,
+   "lift": 3.801238390092879,
+   "lift_conf": 3.0093137254901965,
+   "null_max": {
+    "circular": 3,
+    "cycle": 4,
+    "rewire": 7
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "MID.up.q50 -l-> MID-S.up.q10"
+  },
+  {
+   "prior": "T:peak",
+   "lag": "l",
+   "target": "I:upq10",
+   "count": 7,
+   "lift": 3.611176470588235,
+   "lift_conf": 2.468008598788353,
+   "null_max": {
+    "circular": 5,
+    "cycle": 5,
+    "rewire": 7
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle"
+   ],
+   "binding_evidence": false,
+   "first_validated_in": "nasa_battery",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "FAST.peak -l-> MID-S.up.q10"
+  }
+ ],
+ "compositions": [
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "V:downq80",
+     "l"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 71
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 53
+  },
+  {
+   "priors": [
+    [
+     "V:downq80",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 53
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "I:upq10",
+     "m"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "V:downq80",
+     "l"
+    ],
+    [
+     "I:upq10",
+     "m"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "I:upq10",
+     "m"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "V:upq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 42
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "l"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 43
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 42
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "I:downq90",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 6
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "V:downq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 13
+  },
+  {
+   "priors": [
+    [
+     "I:downq10",
+     "m"
+    ],
+    [
+     "V:downq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 16
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "V:upq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "V:downq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 15
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "V:downq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 17
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "l"
+    ],
+    [
+     "V:downq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 36
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "l"
+    ],
+    [
+     "V:downq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 42
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "V:downq80",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 36
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 36
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 36
+  },
+  {
+   "priors": [
+    [
+     "V:downq80",
+     "l"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 41
+  },
+  {
+   "priors": [
+    [
+     "V:downq80",
+     "l"
+    ],
+    [
+     "T:peak",
+     "l"
+    ]
+   ],
+   "target": "I:upq10",
+   "count": 42
+  },
+  {
+   "priors": [
+    [
+     "V:downq50",
+     "l"
+    ],
+    [
+     "I:upq10",
+     "s"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 8
+  },
+  {
+   "priors": [
+    [
+     "V:downq80",
+     "l"
+    ],
+    [
+     "I:upq10",
+     "s"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 8
+  },
+  {
+   "priors": [
+    [
+     "I:upq10",
+     "s"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 8
+  }
+ ],
+ "shape_counts": {
+  "MID-S.down.q10 -m-> MID-S.up.q10 [same role]": 1,
+  "MID.down.q50 -l-> FAST.peak": 1,
+  "MID.down.q80 -l-> FAST.peak": 1,
+  "MID-S.up.q10 -m-> FAST.peak": 1,
+  "MID-S.up.q10 -s-> FAST.peak": 1,
+  "MID.up.q50 -l-> FAST.peak": 1,
+  "MID-S.down.q90 -l-> MID-S.up.q10 [same role]": 1,
+  "MID.up.q80 -l-> MID-S.up.q10": 1,
+  "MID.down.q50 -l-> MID-S.up.q10": 1,
+  "MID.down.q80 -l-> MID-S.up.q10": 1,
+  "MID.up.q50 -l-> MID-S.up.q10": 1,
+  "FAST.peak -l-> MID-S.up.q10": 1
+ }
+}

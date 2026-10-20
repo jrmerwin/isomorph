@@ -1,0 +1,80 @@
+{
+ "choice": {
+  "Q": "q20_50_80",
+  "T": "dsign",
+  "Tsp": "q10_90"
+ },
+ "thresholds": {
+  "Q": {
+   "Q1": [
+    10.0,
+    43.0,
+    60.0
+   ],
+   "Q2": [
+    10.0,
+    10.0,
+    100.0
+   ]
+  },
+  "Tsp": {
+   "Tsp1": [
+    41.0,
+    67.0
+   ]
+  },
+  "T_window": {
+   "T1": 39,
+   "T2": 31
+  },
+  "noise_windows": {
+   "Q1": 3,
+   "Q2": 2,
+   "T1": 1,
+   "T2": 1,
+   "Tsp1": 1
+  }
+ },
+ "trace": [
+  {
+   "pass_": 0,
+   "role": "Q",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "T",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 601.6131438559885,
+    "dsign": 502.01208017730863
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "Tsp",
+   "scores": {
+    "dsign": Infinity,
+    "q20_50_80": 778.6677519734221,
+    "q10_90": 502.01208017730863
+   },
+   "chosen": "q10_90"
+  }
+ ],
+ "entity": "heater",
+ "entity_scores": {
+  "heater": {
+   "bits": 4.300440368889528,
+   "entities": 2
+  },
+  "sys": {
+   "bits": 5.250957930398975,
+   "entities": 1
+  }
+ },
+ "complete": true
+}

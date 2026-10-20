@@ -32,6 +32,8 @@ Method **v5** (integer versions; amendments are logged in `CHANGELOG.md`; cards 
 | 2 | building B′ (synthetic, calibration) | 1.365 vs 1.530 / 1.860 | beats baselines |
 | 3 | Tennessee Eastman, first 120 days ([card](docs/CARD_tennessee_eastman_v1.md)) | 3.033 vs 3.171 / 3.410 | beats baselines |
 | 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.851 vs 3.826 / 3.905 | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it) |
+| 5 | TCLab, nine public recordings of the two-heater kit, 5-second means, 7.6 h ([card](docs/CARD_tclab_v1.md); **not admitted**: no period, far below the 20-day line) | 2.747 vs 2.855 / 2.775 | no gain (recovery 0/3; 2 fragments, the step-test staircase; 45% of events dropped at recording boundaries) |
+| 6 | NASA PCoE battery set FY08Q4, four cells, 1-minute means, 47.5 observed days ([card](docs/CARD_nasa_battery_v1.md)) | 2.781 vs 2.711 / 2.745 | no gain (recovery 2/3: current → temperature and voltage → current found; the cycling protocol is an alternation and 3.11 carries it; 93% of events dropped at cycle boundaries — open item on the gap rule) |
 
 Transfer matrix (net bit-days after the permuted-mapping control; [full table and reading](docs/MATRIX.md)):
 
@@ -39,8 +41,9 @@ Transfer matrix (net bit-days after the permuted-mapping control; [full table an
 | --- | --- | --- |
 | building A → B′ | 0.74 | same kind: alignment real (zero-shot 4.6 vs 7.9 permuted) |
 | building B′ → A | 5.53 | the richer system teaches more |
-| Tennessee Eastman → HAI | **0.83 ± 0.00** over seeds 0–4 (v4: 1.67, v3: 0.37) | cross kind; identical role map and cells on every seed; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
-| HAI → Tennessee Eastman | **14.55 ± 0.87** over seeds 0–4 (seed 0: 13.37; v4: 10.52, v3: 0.06) | cross kind; raw cell stable to 0.03, the spread is the control's and follows whether E_feed ↔ CO_rpm is mapped; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
+| Tennessee Eastman → HAI | **0.98** (seed 0 under the seeded ten-permutation control; 0.83 ± 0.00 over seeds 0–4 under the earlier control; v4: 1.67, v3: 0.37) | cross kind; identical role map and cells on every seed; v5 control is stricter (within dimension) and the dimension constraint maps fewer types |
+| HAI → Tennessee Eastman | **14.45** (seed 0 under the seeded ten-permutation control; 14.55 ± 0.87 over seeds 0–4 under the earlier control; v4: 10.52, v3: 0.06) | cross kind; raw cell stable to 0.03 across seeds, the spread is the control's; mixed curve beats TEP's own model by 0.3–0.6 bits to 20 days |
+| TCLab (5) ↔ battery (6), and each ↔ TEP, HAI | **0.00** in every measurable direction (ten cells) | the Rosetta pair: libraries of 2 and 12 fragments, actuators spelled by different quantile schemes so role matches carry no types, TCLab too short to be a receiver; battery → TEP raw 25.97 is all regulariser and the control removes all of it |
 
 Implemented: canonical contract; compression-driven entity (3.1) and symbolization (3.2, with noise and
 faithfulness floors); lag classes; period estimation and the cycle null; circular null (gate) and rewire

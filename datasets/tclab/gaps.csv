@@ -1,0 +1,27 @@
+entity,type,start,end,reason
+h1,,240.74999999999997,240.91666666666666,file boundary: separate recording
+h2,,240.74999999999997,240.91666666666666,file boundary: separate recording
+ALL,,240.74999999999997,240.91666666666666,file boundary: separate recording
+h1,,330.75,330.91666666666663,file boundary: separate recording
+h2,,330.75,330.91666666666663,file boundary: separate recording
+ALL,,330.75,330.91666666666663,file boundary: separate recording
+h1,,390.8333333333333,390.99999999999994,file boundary: separate recording
+h2,,390.8333333333333,390.99999999999994,file boundary: separate recording
+ALL,,390.8333333333333,390.99999999999994,file boundary: separate recording
+h1,,404.91666666666663,405.08333333333326,file boundary: separate recording
+h2,,404.91666666666663,405.08333333333326,file boundary: separate recording
+ALL,,404.91666666666663,405.08333333333326,file boundary: separate recording
+h1,,418.3333333333333,418.49999999999994,file boundary: separate recording
+h2,,418.3333333333333,418.49999999999994,file boundary: separate recording
+ALL,,418.3333333333333,418.49999999999994,file boundary: separate recording
+h1,,428.41666666666663,428.58333333333326,file boundary: separate recording
+h2,,428.41666666666663,428.58333333333326,file boundary: separate recording
+ALL,,428.41666666666663,428.58333333333326,file boundary: separate recording
+h1,,438.49999999999994,438.6666666666666,file boundary: separate recording
+h2,,438.49999999999994,438.6666666666666,file boundary: separate recording
+ALL,,438.49999999999994,438.6666666666666,file boundary: separate recording
+h1,,448.58333333333326,448.7499999999999,file boundary: separate recording
+h2,,448.58333333333326,448.7499999999999,file boundary: separate recording
+ALL,,448.58333333333326,448.7499999999999,file boundary: separate recording
+h2,,0.0,240.83333333333331,apm_do_dyn3.csv: no data for h2
+h2,,240.83333333333331,330.8333333333333,byu_prism_pid_train.csv: no data for h2
