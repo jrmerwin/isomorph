@@ -5,3 +5,4 @@ Own libraries: tennessee_eastman 3.033 bits (triviality 3.171); hai 3.721 bits (
 | direction | zero-shot (all) | zero-shot (shared) | zero-shot, permuted mapping | cell (bit-days) | control cell | net cell | receiver types mapped | mapping accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | tennessee_eastman → hai | 8.855 | 8.797 | 9.646 | 0.25 | -0.12 | **0.37** | 164/168 | not measured (no mapping key) |
+| hai → tennessee_eastman | 8.426 | 8.426 | 8.510 | 8.22 | 8.16 | **0.06** | 40/40 | not measured (no mapping key) |

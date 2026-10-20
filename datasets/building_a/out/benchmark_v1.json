@@ -1,5 +1,5 @@
 {
- "method_version": 2,
+ "method_version": 3,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_a",
@@ -25,7 +25,7 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 22,
+  "signal_floor": 26,
   "min_count": 3,
   "lag_edges": [
    5.619954323071132,
@@ -78,8 +78,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.0026193464593067,
-   "non_deterministic": 2.0026193464593067,
+   "all": 2.0026193464590176,
+   "non_deterministic": 2.0026193464590176,
    "deterministic": null
   }
  },
@@ -148,5 +148,5 @@
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 35.0
+ "elapsed_s": 11.0
 }

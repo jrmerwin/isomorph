@@ -178,3 +178,6 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   nonsense pairs) yet "help" at 1-2 receiver days (-0.72, -0.10 bits) — regularisation of a data-starved receiver
   by any smooth model, which the raw cell cannot distinguish from shared structure. Collection-step change:
   version incremented, matrix regenerated, cards unchanged (CARD_RULES_VERSION = 2 marks their validity).
+- Matrix v3 (docs/MATRIX_v3.md): A->B' 0.74, B'->A 5.53 (same kind; learned mapping 3-5 bits better than permuted
+  in zero-shot, permuted model hurts the receiver); TEP->HAI 0.37, HAI->TEP 0.06 (cross kind; mappings at chance;
+  HAI->TEP raw 8.22 was entirely regularisation). First negative-control result of the collection.
