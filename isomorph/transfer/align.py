@@ -50,14 +50,39 @@ def signatures(M):
     return np.array(S)
 
 
-def anchors_by_margin(MA, MB, nB, nA, n_anchors=K.N_ANCHORS):
-    """B types whose best A match beats their second-best by the largest margin (signature distance)."""
+def compatibility(toksA, toksB, tagsA, tagsB, n):
+    """n x n boolean: may B type j map to A type i? Same tag class; a B class with no A counterpart falls
+    back to the coarse class (speed), then to anything. Padded (dummy) nodes are compatible with all.
+    (METHOD 3.12, v4: the prefix keeps an actuator-driven edge from aligning with a sensor-sensor edge.)"""
+    from ..choose.pos import type_tag
+    C = np.ones((n, n), bool)
+    if not tagsA or not tagsB: return C
+    clsA = [type_tag(tagsA, t) for t in toksA]; coA = [type_tag(tagsA, t, coarse=True) for t in toksA]
+    for j, tb in enumerate(toksB):
+        cb, cob = type_tag(tagsB, tb), type_tag(tagsB, tb, coarse=True)
+        if cb is None: continue
+        exact = [i for i, c in enumerate(clsA) if c == cb]
+        coarse = [i for i, c in enumerate(coA) if c == cob]
+        allowed = exact or coarse
+        if not allowed: continue
+        row = np.zeros(n, bool); row[allowed] = True; row[len(toksA):] = True
+        C[j, :] = row
+    return C
+
+
+def anchors_by_margin(MA, MB, nB, nA, n_anchors=K.N_ANCHORS, compat=None):
+    """B types whose best A match beats their second-best by the largest margin (signature distance),
+    among compatible pairs."""
     SA, SB = signatures(MA), signatures(MB)
     scale = SA[:nA].std(0) + 1e-6
     D = (((SA[None, :nA, :] - SB[:nB, None, :]) / scale) ** 2).sum(-1)
+    if compat is not None:
+        D = np.where(compat[:nB, :nA], D, np.inf)
     margins = []
     for j in range(nB):
-        d = np.sort(D[j]); margins.append((d[1] - d[0], j, int(np.argmin(D[j]))))
+        d = np.sort(D[j])
+        if not np.isfinite(d[0]) or len(d) < 2 or not np.isfinite(d[1]): continue
+        margins.append((d[1] - d[0], j, int(np.argmin(D[j]))))
     margins.sort(reverse=True)
     anchors, used = {}, set()
     for _, j, i in margins:            # distinct A targets, greedily by margin
@@ -67,11 +92,13 @@ def anchors_by_margin(MA, MB, nB, nA, n_anchors=K.N_ANCHORS):
     return anchors
 
 
-def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_ITERS):
+def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_ITERS, compat=None):
     n = next(iter(MA.values())).shape[0]
     SA, SB = signatures(MA), signatures(MB)
     scale = SA.std(0) + 1e-6
     D = (((SA[None, :, :] - SB[:, None, :]) / scale) ** 2).sum(-1)
+    forbid = None if compat is None else np.where(compat, 0.0, 1e6)
+    if forbid is not None: D = D + forbid
     if anchors:
         for j, i in anchors.items():
             D[j, :] += 1e6; D[j, i] -= 1e6
@@ -86,6 +113,7 @@ def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_IT
                 rowsA, colsA = A[:, pi], A[pi, :].T
                 for j in range(n):
                     cost[j, :] += ((rowsA - Bm[j, :][None, :]) ** 2).sum(1) + ((colsA - Bm[:, j][None, :]) ** 2).sum(1)
+            if forbid is not None: cost += forbid
             if anchors:
                 for j, i in anchors.items():
                     cost[j, :] += 1e6; cost[j, i] -= 1e6
@@ -103,12 +131,88 @@ def align(MA, MB, rng, anchors=None, restarts=K.ALIGN_RESTARTS, iters=K.ALIGN_IT
     return best, best_obj
 
 
-def align_datasets(rowsA, toksA, rowsB, toksB, rng, use_anchors=True):
-    """Returns mapping {B type: A type or None}, anchors used, accuracy helper inputs."""
+def align_datasets(rowsA, toksA, rowsB, toksB, rng, use_anchors=True, tagsA=None, tagsB=None):
+    """Returns mapping {B type: A type or None}, anchors used, alignment objective. With tags (3.14) a
+    B type may only map to an A type of the same part-of-speech class."""
     n = max(len(toksA), len(toksB))
     MA = zscore(pad(lift_matrices(rowsA, toksA), n)); MB = zscore(pad(lift_matrices(rowsB, toksB), n))
-    anchors = anchors_by_margin(MA, MB, len(toksB), len(toksA)) if use_anchors else None
-    pi, obj = align(MA, MB, rng, anchors)
+    compat = compatibility(toksA, toksB, tagsA, tagsB, n) if (tagsA and tagsB) else None
+    anchors = anchors_by_margin(MA, MB, len(toksB), len(toksA), compat=compat) if use_anchors else None
+    pi, obj = align(MA, MB, rng, anchors, compat=compat)
     mapping = {t: (toksA[pi[j]] if pi[j] < len(toksA) else None) for j, t in enumerate(toksB)}
     anchor_names = {toksB[j]: toksA[i] for j, i in (anchors or {}).items()}
     return mapping, anchor_names, obj
+
+
+# ---------------------------------------------------------------------------------------------
+# Role-level alignment (METHOD 3.12, v4): roles map to roles of the same part of speech and the
+# same symbol kind; symbols cross by their spelling (up stays up, q80 stays q80, peak stays peak).
+# ---------------------------------------------------------------------------------------------
+
+def role_of(t): return t.split(":", 1)[0]
+def sym_of(t): return t.split(":", 1)[1] if ":" in t else ""
+
+
+def symbol_kind(syms):
+    s = set(syms)
+    if s <= {"peak", "trough"}: return "turning"
+    if s <= {"on", "off"}: return "binary"
+    if all(x.startswith(("up", "down")) for x in s): return "quantile"
+    return "other"
+
+
+def role_lift_matrices(rows, toks, roles, labels=LAGS):
+    """Role x role lift per lag class: mean over the symbol pairs of the type-level lift matrix."""
+    M = lift_matrices(rows, toks)
+    idx = {t: i for i, t in enumerate(toks)}
+    members = {r: [idx[t] for t in toks if role_of(t) == r] for r in roles}
+    out = {}
+    for c in labels:
+        R = np.zeros((len(roles), len(roles)))
+        for a, ra in enumerate(roles):
+            for b, rb in enumerate(roles):
+                sub = M[c][np.ix_(members[ra], members[rb])]
+                R[a, b] = sub.mean() if sub.size else 0.0
+        out[c] = R
+    return out
+
+
+def align_roles(rowsA, toksA, rowsB, toksB, rng, tagsA=None, tagsB=None, use_anchors=True):
+    """Returns (type mapping {B type: A type or None}, role mapping, anchors, objective)."""
+    from ..choose.pos import type_tag
+    rolesA = sorted(set(role_of(t) for t in toksA)); rolesB = sorted(set(role_of(t) for t in toksB))
+    symsA = {r: sorted(sym_of(t) for t in toksA if role_of(t) == r) for r in rolesA}
+    symsB = {r: sorted(sym_of(t) for t in toksB if role_of(t) == r) for r in rolesB}
+    n = max(len(rolesA), len(rolesB))
+    MA = zscore(pad(role_lift_matrices(rowsA, toksA, rolesA), n)); MB = zscore(pad(role_lift_matrices(rowsB, toksB, rolesB), n))
+    # compatibility: same symbol kind, and same tag class when tags exist (coarse fallback, then any of the kind)
+    C = np.ones((n, n), bool)
+    for j, rb in enumerate(rolesB):
+        kind_ok = [i for i, ra in enumerate(rolesA) if symbol_kind(symsA[ra]) == symbol_kind(symsB[rb])]
+        allowed = kind_ok
+        if tagsA and tagsB:
+            cb = type_tag(tagsB, rb + ":x"); cob = type_tag(tagsB, rb + ":x", coarse=True)
+            if cb is not None:
+                exact = [i for i in kind_ok if type_tag(tagsA, rolesA[i] + ":x") == cb]
+                coarse = [i for i in kind_ok if type_tag(tagsA, rolesA[i] + ":x", coarse=True) == cob]
+                allowed = exact or coarse or kind_ok
+        row = np.zeros(n, bool); row[allowed] = True; row[len(rolesA):] = True
+        C[j, :] = row
+    anchors = anchors_by_margin(MA, MB, len(rolesB), len(rolesA), compat=C) if use_anchors else None
+    pi, obj = align(MA, MB, rng, anchors, compat=C)
+    role_map = {rb: (rolesA[pi[j]] if pi[j] < len(rolesA) else None) for j, rb in enumerate(rolesB)}
+    setA = set(toksA)
+    mapping = {}
+    for t in toksB:
+        ra = role_map.get(role_of(t))
+        cand = f"{ra}:{sym_of(t)}" if ra else None
+        mapping[t] = cand if cand in setA else None
+    anchor_names = {rolesB[j]: rolesA[i] for j, i in (anchors or {}).items()}
+    return mapping, role_map, anchor_names, obj
+
+
+def has_roles(toks):
+    """Types are role:symbol with at least two symbols per role somewhere (else fall back to type-level)."""
+    from collections import Counter
+    c = Counter(role_of(t) for t in toks if ":" in t)
+    return len(c) >= 2 and max(c.values()) >= 2

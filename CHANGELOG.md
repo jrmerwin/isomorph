@@ -181,3 +181,13 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Matrix v3 (docs/MATRIX_v3.md): A->B' 0.74, B'->A 5.53 (same kind; learned mapping 3-5 bits better than permuted
   in zero-shot, permuted model hurts the receiver); TEP->HAI 0.37, HAI->TEP 0.06 (cross kind; mappings at chance;
   HAI->TEP raw 8.22 was entirely regularisation). First negative-control result of the collection.
+
+## v4 (2026-10-19)
+- 3.14 grammar: parts of speech per role from the series alone, relative to H (SET, TEX, FAST/MID/SLOW, -S);
+  tag-prefixed shapes in every library (TEP 295 distinct shapes over 567 fragments, HAI 1,064 over 2,096,
+  134 shared). Jason's framing: the motifs were written in six grunts, so every system's motifs sounded alike;
+  a prefix on the identity of the data keeps unlike motifs from aligning.
+- 3.12 role-level alignment: roles to roles of the same symbol kind and part of speech, symbols by spelling;
+  control permutes within tag class. Collection-step change; cards unchanged.
+- scripts/tag_datasets.py writes tags into sidecars and shapes into libraries. Buildings untagged for now
+  (B' has scrambled type names and the same-kind pair already aligns).

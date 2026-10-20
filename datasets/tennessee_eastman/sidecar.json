@@ -1039,5 +1039,645 @@
    "prod_G": "XMEAS(40)",
    "prod_H": "XMEAS(41)"
   }
- }
+ },
+ "tags": {
+  "AC_feed": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(4)": {
+     "const_frac": 0.001,
+     "noise_window": 6,
+     "corr_time": 240,
+     "speed_ratio": 5.026,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "AC_valve": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMV(4)": {
+     "const_frac": 0.005,
+     "noise_window": 1,
+     "corr_time": 314,
+     "speed_ratio": 6.576,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "A_feed": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(1)": {
+     "const_frac": 0.002,
+     "noise_window": 1,
+     "corr_time": 253,
+     "speed_ratio": 5.298,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "A_valve": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMV(3)": {
+     "const_frac": 0.004,
+     "noise_window": 1,
+     "corr_time": 253,
+     "speed_ratio": 5.298,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "D_feed": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(2)": {
+     "const_frac": 0.002,
+     "noise_window": 105,
+     "corr_time": 55,
+     "speed_ratio": 1.152,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "D_valve": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMV(1)": {
+     "const_frac": 0.039,
+     "noise_window": 1,
+     "corr_time": 41,
+     "speed_ratio": 0.859,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   }
+  },
+  "E_feed": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(3)": {
+     "const_frac": 0.001,
+     "noise_window": 92,
+     "corr_time": 54,
+     "speed_ratio": 1.131,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "E_valve": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMV(2)": {
+     "const_frac": 0.028,
+     "noise_window": 1,
+     "corr_time": 42,
+     "speed_ratio": 0.88,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "L": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(8)": {
+     "const_frac": 0.001,
+     "noise_window": 58,
+     "corr_time": 27,
+     "speed_ratio": 0.565,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(12)": {
+     "const_frac": 0.0,
+     "noise_window": 18,
+     "corr_time": 23,
+     "speed_ratio": 0.482,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(15)": {
+     "const_frac": 0.0,
+     "noise_window": 2,
+     "corr_time": 32,
+     "speed_ratio": 0.67,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "P": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(7)": {
+     "const_frac": 0.04,
+     "noise_window": 1,
+     "corr_time": 17,
+     "speed_ratio": 0.356,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(13)": {
+     "const_frac": 0.04,
+     "noise_window": 1,
+     "corr_time": 21,
+     "speed_ratio": 0.44,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(16)": {
+     "const_frac": 0.037,
+     "noise_window": 1,
+     "corr_time": 21,
+     "speed_ratio": 0.44,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "T": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(9)": {
+     "const_frac": 0.235,
+     "noise_window": 136,
+     "corr_time": 22,
+     "speed_ratio": 0.461,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(11)": {
+     "const_frac": 0.005,
+     "noise_window": 2,
+     "corr_time": 19,
+     "speed_ratio": 0.398,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(18)": {
+     "const_frac": 0.016,
+     "noise_window": 1,
+     "corr_time": 19,
+     "speed_ratio": 0.398,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   }
+  },
+  "compressor": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(20)": {
+     "const_frac": 0.011,
+     "noise_window": 1,
+     "corr_time": 28,
+     "speed_ratio": 0.586,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   }
+  },
+  "cw_flow": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMV(10)": {
+     "const_frac": 0.003,
+     "noise_window": 4,
+     "corr_time": 230,
+     "speed_ratio": 4.817,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "XMV(11)": {
+     "const_frac": 0.0,
+     "noise_window": 342,
+     "corr_time": 325,
+     "speed_ratio": 6.806,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "cw_out": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(21)": {
+     "const_frac": 0.167,
+     "noise_window": 15,
+     "corr_time": 26,
+     "speed_ratio": 0.545,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(22)": {
+     "const_frac": 0.001,
+     "noise_window": 2,
+     "corr_time": 17,
+     "speed_ratio": 0.356,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(6)": {
+     "const_frac": 0.001,
+     "noise_window": 13,
+     "corr_time": 22,
+     "speed_ratio": 0.461,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed_A": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(23)": {
+     "const_frac": 0.5,
+     "noise_window": 2,
+     "corr_time": 42,
+     "speed_ratio": 0.88,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed_B": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(24)": {
+     "const_frac": 0.501,
+     "noise_window": 2,
+     "corr_time": 60,
+     "speed_ratio": 1.257,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "feed_C": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(25)": {
+     "const_frac": 0.501,
+     "noise_window": 3,
+     "corr_time": 44,
+     "speed_ratio": 0.921,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed_D": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(26)": {
+     "const_frac": 0.5,
+     "noise_window": 15,
+     "corr_time": 14,
+     "speed_ratio": 0.293,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed_E": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(27)": {
+     "const_frac": 0.501,
+     "noise_window": 6,
+     "corr_time": 39,
+     "speed_ratio": 0.817,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "feed_F": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(28)": {
+     "const_frac": 0.501,
+     "noise_window": 1,
+     "corr_time": 254,
+     "speed_ratio": 5.319,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "prod_D": {
+   "cls": "FAST",
+   "coarse": "FAST",
+   "per_column": {
+    "XMEAS(37)": {
+     "const_frac": 0.8,
+     "noise_window": 5,
+     "corr_time": 4,
+     "speed_ratio": 0.084,
+     "saturation": 0.0,
+     "cls": "FAST"
+    }
+   }
+  },
+  "prod_E": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(38)": {
+     "const_frac": 0.8,
+     "noise_window": 1,
+     "corr_time": 37,
+     "speed_ratio": 0.775,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "prod_F": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(39)": {
+     "const_frac": 0.8,
+     "noise_window": 4,
+     "corr_time": 5,
+     "speed_ratio": 0.105,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "prod_G": {
+   "cls": "FAST",
+   "coarse": "FAST",
+   "per_column": {
+    "XMEAS(40)": {
+     "const_frac": 0.8,
+     "noise_window": 5,
+     "corr_time": 4,
+     "speed_ratio": 0.084,
+     "saturation": 0.0,
+     "cls": "FAST"
+    }
+   }
+  },
+  "prod_H": {
+   "cls": "FAST",
+   "coarse": "FAST",
+   "per_column": {
+    "XMEAS(41)": {
+     "const_frac": 0.8,
+     "noise_window": 5,
+     "corr_time": 4,
+     "speed_ratio": 0.084,
+     "saturation": 0.0,
+     "cls": "FAST"
+    }
+   }
+  },
+  "purge": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(10)": {
+     "const_frac": 0.001,
+     "noise_window": 1,
+     "corr_time": 14,
+     "speed_ratio": 0.293,
+     "saturation": 0.006,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_A": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(29)": {
+     "const_frac": 0.501,
+     "noise_window": 1,
+     "corr_time": 44,
+     "speed_ratio": 0.921,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_B": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(30)": {
+     "const_frac": 0.502,
+     "noise_window": 1,
+     "corr_time": 63,
+     "speed_ratio": 1.319,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "purge_C": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(31)": {
+     "const_frac": 0.501,
+     "noise_window": 2,
+     "corr_time": 46,
+     "speed_ratio": 0.963,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_D": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(32)": {
+     "const_frac": 0.5,
+     "noise_window": 18,
+     "corr_time": 14,
+     "speed_ratio": 0.293,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_E": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(33)": {
+     "const_frac": 0.501,
+     "noise_window": 4,
+     "corr_time": 41,
+     "speed_ratio": 0.859,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_F": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "XMEAS(34)": {
+     "const_frac": 0.501,
+     "noise_window": 1,
+     "corr_time": 263,
+     "speed_ratio": 5.508,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "purge_G": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(35)": {
+     "const_frac": 0.5,
+     "noise_window": 4,
+     "corr_time": 24,
+     "speed_ratio": 0.503,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_H": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(36)": {
+     "const_frac": 0.5,
+     "noise_window": 8,
+     "corr_time": 19,
+     "speed_ratio": 0.398,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "purge_valve": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMV(6)": {
+     "const_frac": 0.004,
+     "noise_window": 1,
+     "corr_time": 15,
+     "speed_ratio": 0.314,
+     "saturation": 0.01,
+     "cls": "MID"
+    }
+   }
+  },
+  "recycle": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(5)": {
+     "const_frac": 0.001,
+     "noise_window": 12,
+     "corr_time": 20,
+     "speed_ratio": 0.419,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "steam": {
+   "cls": "TEX",
+   "coarse": "TEX",
+   "per_column": {
+    "XMEAS(19)": {
+     "const_frac": 0.0,
+     "noise_window": null,
+     "cls": "TEX"
+    }
+   }
+  },
+  "underflow": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMEAS(14)": {
+     "const_frac": 0.002,
+     "noise_window": 16,
+     "corr_time": 29,
+     "speed_ratio": 0.607,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMEAS(17)": {
+     "const_frac": 0.002,
+     "noise_window": 134,
+     "corr_time": 46,
+     "speed_ratio": 0.963,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "underflow_valve": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "XMV(7)": {
+     "const_frac": 0.019,
+     "noise_window": 1,
+     "corr_time": 25,
+     "speed_ratio": 0.524,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "XMV(8)": {
+     "const_frac": 0.019,
+     "noise_window": 1,
+     "corr_time": 37,
+     "speed_ratio": 0.775,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  }
+ },
+ "tags_note": "parts of speech (3.14, v4) from the first 120 days, relative to H = recurrence time"
 }

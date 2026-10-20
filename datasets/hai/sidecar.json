@@ -794,5 +794,792 @@
   "attack_P1",
   "attack_P2",
   "attack_P3"
- ]
+ ],
+ "tags": {
+  "B2004": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P1_B2004": {
+     "const_frac": 0.988,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "B2016": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_B2016": {
+     "const_frac": 0.0,
+     "noise_window": 24,
+     "corr_time": 17,
+     "speed_ratio": 0.137,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "B3004": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P1_B3004": {
+     "const_frac": 0.988,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "B3005": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P1_B3005": {
+     "const_frac": 0.988,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "B4002": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P1_B4002": {
+     "const_frac": 0.992,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "B4005": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_B4005": {
+     "const_frac": 0.345,
+     "noise_window": 1,
+     "corr_time": 36,
+     "speed_ratio": 0.29,
+     "saturation": 0.596,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "B400B": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_B400B": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 35,
+     "speed_ratio": 0.282,
+     "saturation": 0.647,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "B4022": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P1_B4022": {
+     "const_frac": 0.0,
+     "noise_window": 3,
+     "corr_time": 167,
+     "speed_ratio": 1.347,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "FCV01D": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV01D": {
+     "const_frac": 0.503,
+     "noise_window": 1,
+     "corr_time": 36,
+     "speed_ratio": 0.29,
+     "saturation": 0.542,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FCV01Z": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV01Z": {
+     "const_frac": 0.103,
+     "noise_window": 1,
+     "corr_time": 36,
+     "speed_ratio": 0.29,
+     "saturation": 0.563,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FCV02D": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV02D": {
+     "const_frac": 0.809,
+     "noise_window": 1,
+     "corr_time": 31,
+     "speed_ratio": 0.25,
+     "saturation": 0.819,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FCV02Z": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV02Z": {
+     "const_frac": 0.116,
+     "noise_window": 1,
+     "corr_time": 29,
+     "speed_ratio": 0.234,
+     "saturation": 0.823,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FCV03D": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV03D": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 68,
+     "speed_ratio": 0.548,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "FCV03Z": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FCV03Z": {
+     "const_frac": 0.052,
+     "noise_window": 1,
+     "corr_time": 68,
+     "speed_ratio": 0.548,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "FT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT01": {
+     "const_frac": 0.0,
+     "noise_window": 7,
+     "corr_time": 68,
+     "speed_ratio": 0.548,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "FT01Z": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT01Z": {
+     "const_frac": 0.0,
+     "noise_window": 7,
+     "corr_time": 65,
+     "speed_ratio": 0.524,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "FT02": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT02": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 35,
+     "speed_ratio": 0.282,
+     "saturation": 0.625,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FT02Z": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT02Z": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 35,
+     "speed_ratio": 0.282,
+     "saturation": 0.646,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "FT03": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT03": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 72,
+     "speed_ratio": 0.581,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "FT03Z": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_FT03Z": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 69,
+     "speed_ratio": 0.556,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "LCV01D": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_LCV01D": {
+     "const_frac": 0.0,
+     "noise_window": 3,
+     "corr_time": 31,
+     "speed_ratio": 0.25,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "P3_LCV01D": {
+     "const_frac": 0.007,
+     "noise_window": 33,
+     "corr_time": 15,
+     "speed_ratio": 0.121,
+     "saturation": 0.205,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "LCV01Z": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_LCV01Z": {
+     "const_frac": 0.026,
+     "noise_window": 3,
+     "corr_time": 32,
+     "speed_ratio": 0.258,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "LIT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_LIT01": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 52,
+     "speed_ratio": 0.419,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "P3_LIT01": {
+     "const_frac": 0.0,
+     "noise_window": 2,
+     "corr_time": 5,
+     "speed_ratio": 0.04,
+     "saturation": 0.027,
+     "cls": "FAST"
+    }
+   }
+  },
+  "PCV01D": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_PCV01D": {
+     "const_frac": 0.023,
+     "noise_window": 1,
+     "corr_time": 56,
+     "speed_ratio": 0.452,
+     "saturation": 0.115,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "PCV01Z": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P1_PCV01Z": {
+     "const_frac": 0.004,
+     "noise_window": 1,
+     "corr_time": 56,
+     "speed_ratio": 0.452,
+     "saturation": 0.148,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "PCV02D": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P1_PCV02D": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "PCV02Z": {
+   "cls": "SLOW-S",
+   "coarse": "SLOW",
+   "per_column": {
+    "P1_PCV02Z": {
+     "const_frac": 0.176,
+     "noise_window": 9,
+     "corr_time": 975,
+     "speed_ratio": 7.863,
+     "saturation": 0.576,
+     "cls": "SLOW-S"
+    }
+   }
+  },
+  "PIT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_PIT01": {
+     "const_frac": 0.0,
+     "noise_window": 14,
+     "corr_time": 15,
+     "speed_ratio": 0.121,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "P3_PIT01": {
+     "const_frac": 0.052,
+     "noise_window": 61,
+     "corr_time": 19,
+     "speed_ratio": 0.153,
+     "saturation": 0.437,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "PIT02": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_PIT02": {
+     "const_frac": 0.002,
+     "noise_window": 1,
+     "corr_time": 13,
+     "speed_ratio": 0.105,
+     "saturation": 0.05,
+     "cls": "MID"
+    }
+   }
+  },
+  "TIT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_TIT01": {
+     "const_frac": 0.001,
+     "noise_window": 1,
+     "corr_time": 21,
+     "speed_ratio": 0.169,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   }
+  },
+  "TIT02": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P1_TIT02": {
+     "const_frac": 0.001,
+     "noise_window": 1,
+     "corr_time": 16,
+     "speed_ratio": 0.129,
+     "saturation": 0.028,
+     "cls": "MID"
+    }
+   }
+  },
+  "24Vdc": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_24Vdc": {
+     "const_frac": 0.0,
+     "noise_window": 8,
+     "corr_time": 428,
+     "speed_ratio": 3.452,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "CO_rpm": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P2_CO_rpm": {
+     "const_frac": 0.0,
+     "noise_window": 30,
+     "corr_time": 21,
+     "speed_ratio": 0.169,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "Emerg": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P2_Emerg": {
+     "binary": true,
+     "cls": "SET"
+    }
+   }
+  },
+  "HILout": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_HILout": {
+     "const_frac": 0.0,
+     "noise_window": 32,
+     "corr_time": 218,
+     "speed_ratio": 1.758,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "OnOff": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P2_OnOff": {
+     "binary": true,
+     "cls": "SET"
+    }
+   }
+  },
+  "SIT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P2_SIT01": {
+     "const_frac": 0.003,
+     "noise_window": 28,
+     "corr_time": 25,
+     "speed_ratio": 0.202,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "SIT02": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P2_SIT02": {
+     "const_frac": 0.0,
+     "noise_window": 28,
+     "corr_time": 25,
+     "speed_ratio": 0.202,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "VT01": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P2_VT01": {
+     "const_frac": 0.0,
+     "noise_window": 31,
+     "corr_time": 22,
+     "speed_ratio": 0.177,
+     "saturation": 0.684,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "VXT02": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_VXT02": {
+     "const_frac": 0.0,
+     "noise_window": 4,
+     "corr_time": 337,
+     "speed_ratio": 2.718,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "VXT03": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_VXT03": {
+     "const_frac": 0.0,
+     "noise_window": 2,
+     "corr_time": 322,
+     "speed_ratio": 2.597,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "VYT02": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_VYT02": {
+     "const_frac": 0.0,
+     "noise_window": 3,
+     "corr_time": 443,
+     "speed_ratio": 3.573,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "VYT03": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "P2_VYT03": {
+     "const_frac": 0.0,
+     "noise_window": 3,
+     "corr_time": 406,
+     "speed_ratio": 3.274,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    }
+   }
+  },
+  "FIT01": {
+   "cls": "TEX",
+   "coarse": "TEX",
+   "per_column": {
+    "P3_FIT01": {
+     "const_frac": 0.0,
+     "noise_window": null,
+     "cls": "TEX"
+    }
+   }
+  },
+  "LCP01D": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P3_LCP01D": {
+     "const_frac": 0.04,
+     "noise_window": 49,
+     "corr_time": 23,
+     "speed_ratio": 0.185,
+     "saturation": 0.216,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "HT_FD": {
+   "cls": "TEX",
+   "coarse": "TEX",
+   "per_column": {
+    "P4_HT_FD": {
+     "const_frac": 0.0,
+     "noise_window": null,
+     "cls": "TEX"
+    }
+   }
+  },
+  "HT_LD": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P4_HT_LD": {
+     "const_frac": 0.078,
+     "noise_window": 40,
+     "corr_time": 17,
+     "speed_ratio": 0.137,
+     "saturation": 0.247,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "HT_PO": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "P4_HT_PO": {
+     "const_frac": 0.013,
+     "noise_window": 33,
+     "corr_time": 15,
+     "speed_ratio": 0.121,
+     "saturation": 0.194,
+     "cls": "MID-S"
+    }
+   }
+  },
+  "HT_PS": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P4_HT_PS": {
+     "const_frac": 0.998,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "LD": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_LD": {
+     "const_frac": 0.0,
+     "noise_window": 40,
+     "corr_time": 21,
+     "speed_ratio": 0.169,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "ST_FD": {
+   "cls": "TEX",
+   "coarse": "TEX",
+   "per_column": {
+    "P4_ST_FD": {
+     "const_frac": 0.0,
+     "noise_window": null,
+     "cls": "TEX"
+    }
+   }
+  },
+  "ST_GOV": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_ST_GOV": {
+     "const_frac": 0.0,
+     "noise_window": 26,
+     "corr_time": 15,
+     "speed_ratio": 0.121,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "ST_LD": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_ST_LD": {
+     "const_frac": 0.0,
+     "noise_window": 33,
+     "corr_time": 19,
+     "speed_ratio": 0.153,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "ST_PO": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_ST_PO": {
+     "const_frac": 0.0,
+     "noise_window": 25,
+     "corr_time": 15,
+     "speed_ratio": 0.121,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "ST_PS": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "P4_ST_PS": {
+     "const_frac": 0.998,
+     "speed": null,
+     "cls": "SET"
+    }
+   }
+  },
+  "ST_PT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_ST_PT01": {
+     "const_frac": 0.045,
+     "noise_window": 14,
+     "corr_time": 14,
+     "speed_ratio": 0.113,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   }
+  },
+  "ST_TT01": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "P4_ST_TT01": {
+     "const_frac": 0.25,
+     "noise_window": 1,
+     "corr_time": 22,
+     "speed_ratio": 0.177,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   }
+  }
+ },
+ "tags_note": "parts of speech (3.14, v4) at 1-minute means, relative to H = recurrence time"
 }

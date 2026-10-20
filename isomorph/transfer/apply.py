@@ -50,20 +50,27 @@ def own_contexts(rows, min_count):
     return [c for c, b in base.items() if b >= min_count and any(v >= min_count for v in cnt[c].values())]
 
 
-def permuted_mappings(mapping, rng, n):
+def permuted_mappings(mapping, rng, n, tagsB=None):
     """Random-mapping controls (METHOD 3.12, v3): the same receiver types stay mapped, but their source
     targets are shuffled among them, so the translated source model keeps its size and smoothness and loses
-    only the correspondence. What a permuted mapping gains is regularisation, not shared structure."""
+    only the correspondence. What a permuted mapping gains is regularisation, not shared structure.
+    With tags (v4) the shuffle is WITHIN each receiver tag class, so the control keeps the grammar and
+    loses only the word-level correspondence — a stricter control."""
+    from ..choose.pos import type_tag
     keys = [t for t, v in mapping.items() if v is not None]
-    vals = [mapping[t] for t in keys]
+    groups = {}
+    for t in keys:
+        groups.setdefault(type_tag(tagsB, t) if tagsB else None, []).append(t)
     out = []
     for _ in range(n):
-        perm = list(rng.permutation(vals))
-        m = dict(mapping); m.update(dict(zip(keys, perm))); out.append(m)
+        m = dict(mapping)
+        for g in groups.values():
+            vals = [mapping[t] for t in g]; perm = list(rng.permutation(vals)); m.update(dict(zip(g, perm)))
+        out.append(m)
     return out
 
 
-def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS, rng=None, n_controls=K.N_CONTROL_MAPPINGS):
+def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS, rng=None, n_controls=K.N_CONTROL_MAPPINGS, tagsB=None):
     """B: dict from pipeline.run's second return (streams, lags, bounds, gaps, gap_mode, rows_test, vocab).
     Reports the learned-mapping curve and cell, the same for `n_controls` permuted mappings (same lambda per
     day point, median over controls), and the cell NET of the control — the headline transfer figure."""
@@ -71,7 +78,7 @@ def transfer(modelA, B, mapping, toksB, min_count=5, days=K.LEARNING_CURVE_DAYS,
     lo, p_hi, c_hi, hi = B["bounds"]
     rows_test = B["rows_test"]
     P_A = proba_through_mapping(modelA, rows_test, mapping, toksB)
-    controls = permuted_mappings(mapping, rng, n_controls)
+    controls = permuted_mappings(mapping, rng, n_controls, tagsB)
     P_C = [proba_through_mapping(modelA, rows_test, m, toksB) for m in controls]
     unshared = np.array([mapping.get(r["tok"]) is None for r in rows_test])
     b0 = bits_of(P_A, rows_test, toksB)

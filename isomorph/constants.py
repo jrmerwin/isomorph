@@ -7,7 +7,7 @@ inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
 CARD_RULES_VERSION = 2   # the version at which the per-dataset rules (3.1-3.11) last changed; cards and cached state from it stay valid
-METHOD_VERSION = 3   # v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
+METHOD_VERSION = 4   # v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -19,6 +19,12 @@ ALIGN_ITERS = 30
 N_ANCHORS = 2
 LEARNING_CURVE_DAYS = (1, 2, 3, 5, 10, 20, None)   # None = all training days
 N_CONTROL_MAPPINGS = 3                              # permuted-mapping controls per cell (3.12, v3)
+
+# parts of speech (3.14, v4): dimensionless, relative to the system's horizon
+POS_CONST_FRAC = 0.9      # share of zero increments at or above which a series is a schedule/setpoint (SET)
+POS_FAST = 0.1            # correlation time / horizon below which a series is FAST
+POS_SLOW = 1.0            # ... above which it is SLOW
+POS_SAT_SHARE = 0.05      # share of samples at the min or max (1% of range) at or above which a series saturates (S)
 CLAIM_MIN_GAIN_BITS = 0.10
 SUPERFAMILY_RATIO = 2.0
 SUPERFAMILY_MIN_MEMBERS = 3
