@@ -396,3 +396,21 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   universal). `isomorph lineage` re-run: five taxa, 4,358 characters.
 - Found on the way: `nulls.py` lacked the constants import (crashed every v7 run once); zsh does not word-split
   unquoted pair strings (a chain of six transfers ran with empty arguments; re-run from bash).
+
+## v8 (2026-10-21) — specified here, implementation on the Mac
+
+- 3.12 control: each control mapping is a derangement (no mapped type keeps its learned counterpart), the
+  permutation group widened from (clock, dimension) to clock to all mapped types only as far as needed; a cell
+  whose control cannot move every type is `uncontrolled` (raw as upper bound, net undefined). Motivated by v7:
+  PhysioNet → TEP 18.08 net through 4 of 40 types with singleton groups, so the control was the learned mapping.
+- 3.12 cell: learning curve on observed training time (gaps excluded) at 1 … 200 receiver horizons, area to
+  200 H or training end, in bit-horizons; `all` point dropped; receivers under 200 H flagged `short`. TEP's
+  200 H = 20 days keeps the v3 convention where it was set. Motivated by v7: TEP → Building 59 100.76 bit-days
+  from an 8-day leading gap and a 273-day trapezoid (9.9 truncated at 20 days).
+- 3.16 loop roles: the timing rule withdrawn from the place prefix and from alignment after failing its checks on
+  TEP (0.55 / 0.25) and HAI (0.33, level loop inverted) and costing HAI → TEP 5.6 bit-days; the gap between
+  threshold crossings measures the quantile grid, not latency. Loop rules are recorded on the card with both
+  checks; the determinism rule (the leg into the controller is the more deterministic one) is the second
+  candidate, with declared predictions; promotion only by the flowsheet check (≥ 0.75 on every keyed dataset
+  with ≥ 10 resolved actuator–measurement returns).
+- Constants untouched until implementation (METHOD_VERSION, CARD_RULES_VERSION stay 7).

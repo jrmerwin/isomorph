@@ -78,6 +78,42 @@ single-process apart from numpy's own threading.
    so a loop closing reads RELAY → FOLLOW → RELAY or RELAY → RELAY → RELAY, never LEAD → FOLLOW → LEAD; whether
    3.14 should carry a loop-aware tag is the next method question.
 
+
+## The v8 round (October 2026) — the brief for the Mac
+
+Three repairs, each from a number v7 produced. METHOD.md 3.12 (v8 paragraph) and 3.16 (v8 paragraph) are the spec.
+No new dataset until these are in: every `X → TEP` cell of v7 is suspect for the first reason below.
+
+1. **Controls as derangements (3.12).** `transfer/apply.permuted_mappings`: each control mapping must give every
+   mapped type a counterpart other than its learned one. Widen the group only as far as needed — within
+   (clock class, dimension) first, then within the clock class across dimensions, then across all mapped types —
+   and record the share of types moved at each width in the transfer json and in `cell_markdown`. A cell with a
+   single mapped type is `uncontrolled`: raw area reported as an upper bound, net `None`, excluded from the transfer
+   tree. Expect the receiver-TEP cells (PhysioNet → TEP 18.08, Building 59 → TEP 19.26, battery → TEP 1.65,
+   HAI → TEP) to move most; TEP → HAI (142 types through 37 roles) least.
+2. **The curve on observed time, to 200 receiver horizons, in bit-horizons (3.12).** `transfer/apply.transfer`:
+   training time measured with gaps excluded (the battery's compressed axis already does this; Building 59 does not);
+   curve points at 1, 2, 3, 5, 10, 20, 50, 100, 200 H of the receiver (`H` from the receiver's state, 3.3); last point
+   min(200 H, training end); drop `all`; areas in bits × H. Rename the fields (`cell_bit_horizons`, etc.) and keep the
+   v7 bit-day cells in MATRIX.md's v7 table for the record. TEP's 200 H is 20.0 days, so HAI → TEP under v8 should
+   read ≈ 10 × its truncated bit-day value before the control change moves it; a receiver below 200 H of training
+   (HAI 11 d ≈ 126 H; PhysioNet) is flagged `short`.
+3. **Loop roles withdrawn from the prefix; the determinism candidate recorded (3.16).** `pos._part` / `full_tag`
+   spell the degree tag again (RELAY); `align.py` drops the loop +1; the sidecar keeps `loop_tags` per rule. In
+   `mine/syntax.py` add the determinism verdict beside the timing one: precision of the leg into Y on the
+   confirmation split, P(Y | X within l₁), against P(X′ | Y within l₂), ratio 1.5, else unresolved; role tags by
+   majority as before. The card's Loop roles block becomes a table with one row per rule: resolved, roles by tag,
+   dimension check, flowsheet check. The declared predictions are in 3.16; write down what came out next to them,
+   whatever it is. Promotion is by the criterion in 3.16 (flowsheet ≥ 0.75 on every keyed dataset with ≥ 10
+   resolved actuator–measurement returns); if the determinism rule meets it, it enters the prefix and alignment in
+   the *next* version, not this one.
+4. **Bump** to 8 (CARD_RULES_VERSION too: the Loop roles block changes). Buildings first; regenerate cards, the whole
+   matrix (both directions for every pair that has one), lineage, `tag_datasets.py`. CHANGELOG `## v8 implemented`.
+5. **Then dataset 9: grid frequency** (Fingrid open data — frequency at 1-min or 10-Hz, activated FCR / aFRR
+   reserve; check what is downloadable without a key). Roles: frequency ⟨T⁻¹⟩, activated reserve ⟨M L² T⁻³⟩,
+   net transfer / imbalance ⟨M L² T⁻³⟩; the whole synchronous area is one entity, so 3.1 has one candidate and the
+   card says so. The loop to look for: frequency drops → reserve activates → frequency recovers, a return whose
+   REACTS side is the only actuator in the system.
 ## The round after v6 (October 2026)
 
 1. **The collection step, 3.13.** Build `isomorph/collect/lineage.py`: for every admitted dataset the tagged shape

@@ -24,7 +24,7 @@ recorded in [docs/RESULTS_session_2026-10-18.md](docs/RESULTS_session_2026-10-18
 
 ## Status
 
-Method **v6** implemented, **v7** specified (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v6). The collection's lineage — returns, the character matrix, similarity trees and the inheritance graph over four taxa — is in [docs/LINEAGE.md](docs/LINEAGE.md).
+Method **v7** implemented, **v8** specified (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v6). The collection's lineage — returns, the character matrix, similarity trees and the inheritance graph over four taxa — is in [docs/LINEAGE.md](docs/LINEAGE.md).
 
 | # | dataset | library vs triviality / best baseline (bits per event, test split) | claim |
 | --- | --- | --- | --- |
@@ -56,8 +56,9 @@ name-free triviality library; alignment and transfer with a global mixing weight
 
 Also implemented: the grammar (parts of speech, place prefix, dimension suffix; 3.14), syntax motifs (chains
 and returns; 3.15), the collection matrix and lineage (`collect/matrix.py`, `collect/lineage.py`; `isomorph
-transfer`, `isomorph lineage`). Not yet: loop roles, the fine-grid period and admission in horizons (v7, specified
-in METHOD.md 3.16 / 3.4 / section 6); per-fragment transfer weights; pooled lag classes for alignment.
+transfer`, `isomorph lineage`). Also: loop roles recorded with their checks, the fine-grid period, admission in horizons (v7). Not yet: derangement
+controls and the cell in bit-horizons to 200 receiver horizons (v8, specified in METHOD.md 3.12 / 3.16); per-fragment
+transfer weights; pooled lag classes for alignment.
 
 ## Layout
 
