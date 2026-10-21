@@ -24,7 +24,7 @@ recorded in [docs/RESULTS_session_2026-10-18.md](docs/RESULTS_session_2026-10-18
 
 ## Status
 
-Method **v5** (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v2, the last change to per-dataset rules):
+Method **v6** implemented, **v7** specified (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v6). The collection's lineage — returns, the character matrix, similarity trees and the inheritance graph over four taxa — is in [docs/LINEAGE.md](docs/LINEAGE.md).
 
 | # | dataset | library vs triviality / best baseline (bits per event, test split) | claim |
 | --- | --- | --- | --- |
@@ -53,9 +53,10 @@ faithfulness floors); lag classes; period estimation and the cycle null; circula
 null (attribute); signal floor (descriptive); fixed baselines incl. Markov-3 and Hawkes-like decay features;
 name-free triviality library; alignment and transfer with a global mixing weight and a permuted-mapping control; the transfer matrix (`isomorph transfer`); calibration gates.
 
-Not yet: per-fragment transfer weights; the collection matrix and lineage files (`collect/matrix.py`,
-`collect/lineage.py`); pooled lag classes for alignment; a horizon tied to system time scales (open item
-from dataset 3). Syntax motifs (chains, the feedback-return motif) are the next grammar step (docs/MATRIX.md).
+Also implemented: the grammar (parts of speech, place prefix, dimension suffix; 3.14), syntax motifs (chains
+and returns; 3.15), the collection matrix and lineage (`collect/matrix.py`, `collect/lineage.py`; `isomorph
+transfer`, `isomorph lineage`). Not yet: loop roles, the fine-grid period and admission in horizons (v7, specified
+in METHOD.md 3.16 / 3.4 / section 6); per-fragment transfer weights; pooled lag classes for alignment.
 
 ## Layout
 
@@ -66,11 +67,11 @@ isomorph/
   mine/               entity streams, lagged contexts, gap handling, discovery, nulls, compositions
   score/              logistic model over contexts; baselines; triviality library
   transfer/           alignment of two vocabularies from structure; zero-shot and learning-curve transfer
-  collect/            calibration gates (matrix and lineage to come)
+  collect/            calibration gates, the transfer matrix, the lineage
   pipeline.py         one deterministic pass over one dataset -> benchmark card
-  cli.py              isomorph run / calibrate
+  cli.py              isomorph run / calibrate / transfer / lineage / bundle
 datasets/<name>/      raw/ (generator or source), events.csv, observation.csv, gaps.csv, sidecar.json, answer_key.json, out/
-collection/           calibration_reference.json (matrix and lineage to come)
+collection/           calibration_reference.json, matrix.json, lineage.json, transfer_*.md
 docs/                 METHOD.md, session results
 scripts/              ingest_buildings.py
 ```

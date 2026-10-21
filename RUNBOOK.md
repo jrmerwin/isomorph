@@ -96,5 +96,53 @@ single-process apart from numpy's own threading.
    oscillation at 1-s sampling, and a reflex that closes below the first lag class. A beat-indexed declaration
    (time in beats) is the per-dataset route; the other two are method items. Keeping or withdrawing the leaf is a
    human call.
-3. **The loop-aware place tag** (METHOD open items, v7 candidate) — specified after the return inventories of
-   all datasets are in view; the timing asymmetry inside returns (REACTS / RESPONDS) is the candidate rule.
+3. **The loop-aware place tag — specified 2026-10-21 as METHOD 3.16 (v7).** See the round below.
+
+## The v7 round (October 2026) — the brief for the Mac
+
+Read METHOD.md 3.16, the v7 note in 3.4, and section 6 before touching code; they are the spec, this is the order of work.
+
+1. **Loop roles (3.16).** In `mine/syntax.py` (or beside it) record, for every admitted return, the median realised
+   gap of each leg over its confirmed triples (`g1`, `g2`), the verdict (`Y reacts` / `X reacts` / `unresolved`,
+   ratio 1.5), and per role the majority loop tag over resolved returns, as end or middle. The loop tag replaces
+   `RELAY` in the place prefix only (`pos.full_tag`, `_part` for chain shapes); LEAD / FOLLOW / ISOLATED stay.
+   Alignment (`transfer/align.py`): graded +1 when the loop tags differ, like clock and place; nothing hard.
+   Cards get a **Loop roles** block: resolved / unresolved returns, roles by tag, the dimension check (share of
+   REACTS roles dimensionless, of RESPONDS roles dimensioned, against 0.5) and, where the answer key names
+   actuators (TEP flowsheet, HAI point descriptions, battery protocol), the flowsheet check (share of
+   actuator–measurement returns with the actuator on the REACTS side). Expected if the reading holds: TEP's
+   `underflow_valve → P → underflow_valve` and `cw_flow → P → cw_flow` put the valve and the flow on REACTS;
+   HAI's `LIT01 → LCV01D → LIT01` puts LCV01D on REACTS. If it comes out inverted, the card says so and nobody
+   fixes it by hand.
+2. **Fine-grid period (3.4).** `mine/nulls.period_estimate` runs twice: the coarse grid as now and a fine grid at
+   δ out to 1,000 δ; `period_fast`, `period_slow` in the card and sidecar; the cycle null gate at each period
+   found. Buildings and TEP should report `period_fast: none`; PhysioNet should find ~4 s (and perhaps ~10 s).
+3. **Admission in horizons (section 6).** `pipeline.py` computes span / H and the card's admission line reads it;
+   nothing else changes. Statuses expected: PhysioNet admitted (12,300 H), HAI still provisional (175 H),
+   TCLab still out (22 H).
+4. **PhysioNet at 0.25 s (per-dataset, no rule change).** The noise floor reads a 4-s wave at 1-s sampling as white
+   noise (acf(1) ≈ 0), and the baroreflex (1–2 beats) closes below the first lag class (3 s). Re-ingest at
+   δ = 0.25 s (beat-interpolated HR and pressures are smooth at that step; respiration keeps acf(1) ≈ 0.7),
+   re-run, and write CARD_physionet_slp_v2.md. The recovery line to watch: does SBP ↔ HR close as a return.
+5. **Bump** METHOD_VERSION and CARD_RULES_VERSION to 7; buildings first (within 0.02 bits); regenerate every card,
+   the matrix (seed 0 both directions for TEP ↔ HAI, TEP ↔ battery, HAI ↔ battery, and PhysioNet against each),
+   `isomorph lineage`; `scripts/tag_datasets.py` so the shapes carry the loop tag. Record in CHANGELOG under
+   `## v7 implemented`. Deviations from the spec go in the commit message and here, as before.
+6. **Two checks on the v6 lineage while you are there.** (a) `PhysioNet → TEP` and `PhysioNet → HAI` report the
+   same row (37 tested, 15 confirmed, 22 failed) — confirm this is two mappings giving the same count and not one
+   result written twice. (b) LINEAGE.md should say in one line that inheritance direction is running order, and the
+   character matrix should separate same-role shapes (function words) from cross-role shapes before counting what
+   is shared; the three shapes present in every taxon are all same-role.
+7. **Dataset 8, the real building** (running order 8; `building_59_layout.py`, `ingest_building_59.py`). Candidate:
+   LBNL Building 59, Berkeley — Luo et al. 2022, *Scientific Data*, "A three-year dataset supporting research on
+   building energy management and occupancy analytics" (2018–2020, HVAC and zone data at 1-min and 15-min; check
+   the host — Dryad or LBNL — and the licence before fetching). Entity by 3.1 between zone and AHU; roles zone
+   temperature ⟨Θ⟩, supply air temperature ⟨Θ⟩, damper / valve position (dimensionless), airflow ⟨L³ T⁻¹⟩, outdoor
+   temperature system-wide; schedules and setpoints as SET. The point: the calibration buildings are synthetic;
+   this is the same kind of system in the real world, so the A/B′ → 59 cells say whether the synthetic generator
+   taught anything, and 59 ↔ TEP / HAI is the third regulator in the matrix. If Building 59 is unreachable, the
+   fallback with the same role is the ASHRAE Great Energy Predictor III meter data (hourly only — coarser than
+   anything admitted so far; say so on the card). After 8: grid frequency regulation (Fingrid open data, 10-Hz or
+   1-min frequency with activated reserve) as a Rosetta member whose dimension is ⟨T⁻¹⟩ and whose loop is the
+   whole Nordic grid.
+

@@ -336,3 +336,22 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Canon fixes found on the way: `assemble` re-ranks ties after the observation-window filter (an event dropped at a
   record's last second left a gap in 0..k-1); `make_events` rounds t to nine decimals before ranking (1/60-minute
   stamps did not survive the csv round trip bit-exactly). Both datasets 1-6 validate unchanged.
+
+## v7 (2026-10-21) — specified here, implementation on the Mac
+
+- 3.16 loop roles: inside an admitted return the leg with the shorter median realised gap marks the side that
+  REACTS, the other the side that RESPONDS (ratio 1.5, else unresolved); a role's loop tag is the majority over
+  its resolved returns and replaces RELAY in the place prefix; graded +1 in alignment. Two checks on every card,
+  not corrections: the dimension check (REACTS dimensionless, RESPONDS dimensioned, against 0.5) and the
+  flowsheet check where actuators are keyed. Motivated by the v6 lineage: 47/106 TEP and 113/118 HAI returns
+  spelled RELAY → RELAY → RELAY; both legs of the strongest returns in the same lag class, so the class cannot
+  tell the sides apart and the gap must.
+- 3.4 fine-grid period: the acf of the event rate at δ bins out to 1,000 δ alongside the 0.1%-of-span grid;
+  period_fast and period_slow; the cycle null at each. Motivated by dataset 7: ~77,000 breathing cycles, `none`.
+- Section 6 admission: 20 days, or 20 slow periods, or 200 recurrence horizons (test split ≥ 50 recurrences).
+  Admitted members stand where they stood (TEP 1,200 H, battery 345 H, HAI 175 H provisional, TCLab 22 H out);
+  PhysioNet (12,300 H) is admitted on regeneration under v7.
+- Open items from the first lineage recorded in METHOD.md: the three shapes present in every taxon are same-role
+  re-crossings (function words); inheritance direction is running order; the Bray–Curtis pairing of battery
+  with PhysioNet is a library-size effect.
+- Constants untouched until implementation (METHOD_VERSION, CARD_RULES_VERSION stay 6).
