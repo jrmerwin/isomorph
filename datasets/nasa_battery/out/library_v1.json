@@ -282,7 +282,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.down.q20 -m-> MID-S.up.q10"
   },
   {
@@ -304,8 +307,12 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
-   "failed_in": [],
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ],
    "shape": "MID-S.down.q10 -s-> MID-S.up.q10 [same role]"
   },
   {
@@ -327,8 +334,12 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
-   "failed_in": [],
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ],
    "shape": "MID.down.q20 -s-> MID-S.down.q10"
   },
   {
@@ -351,7 +362,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.down.q20 -m-> MID-S.down.q10"
   },
   {
@@ -373,7 +387,10 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "failed_in": [],
    "shape": "MID-S.down.q10 -m-> MID-S.up.q10 [same role]"
   },
@@ -397,7 +414,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "MID.down.q50 -s-> MID.up.q50 [same role]"
   },
   {
@@ -420,7 +440,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.up.q20 -s-> MID-S.up.q90"
   },
   {
@@ -443,7 +466,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.down.q20 -l-> FAST.peak"
   },
   {
@@ -466,7 +493,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "FAST.trough -m-> MID-S.down.q90"
   },
   {
@@ -489,7 +519,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q10 -s-> MID.down.q20"
   },
   {
@@ -512,7 +545,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q50 -s-> FAST.peak"
   },
   {
@@ -535,7 +571,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q10 -s-> MID-S.down.q10 [same role]"
   },
   {
@@ -557,7 +596,10 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "failed_in": [],
    "shape": "MID-S.up.q90 -s-> MID-S.down.q90 [same role]"
   },
@@ -581,7 +623,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.down.q20 -s-> MID-S.up.q10"
   },
   {
@@ -603,7 +648,10 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "failed_in": [],
    "shape": "MID-S.up.q90 -m-> MID-S.down.q90 [same role]"
   },
@@ -627,7 +675,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q10 -m-> MID-S.down.q10 [same role]"
   },
   {
@@ -650,7 +701,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q80 -s-> MID.down.q80 [same role]"
   },
   {
@@ -673,7 +728,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q90 -s-> FAST.trough"
   },
   {
@@ -696,7 +754,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.up.q20 -m-> MID-S.up.q90"
   },
   {
@@ -718,8 +779,12 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
-   "failed_in": [],
+   "confirmed_in": [
+    "physionet_slp"
+   ],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID.down.q80 -s-> MID.down.q50 [same role]"
   },
   {
@@ -742,7 +807,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q10 -s-> FAST.peak"
   },
   {
@@ -765,7 +833,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.down.q80 -s-> MID.up.q80 [same role]"
   },
   {
@@ -788,7 +860,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q20 -m-> FAST.trough"
   },
   {
@@ -811,7 +887,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "FAST.trough -s-> MID.down.q50"
   },
   {
@@ -834,7 +913,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q20 -s-> FAST.trough"
   },
   {
@@ -857,7 +940,9 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID-S.down.q90 -s-> MID.up.q50"
   },
   {
@@ -880,7 +965,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "FAST.trough -s-> MID-S.up.q90"
   },
   {
@@ -903,7 +991,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q80 -s-> FAST.peak"
   },
   {
@@ -926,7 +1018,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q50 -l-> MID.down.q80 [same role]"
   },
   {
@@ -948,8 +1043,13 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
-   "failed_in": [],
+   "confirmed_in": [
+    "physionet_slp"
+   ],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID.up.q80 -m-> MID.down.q80 [same role]"
   },
   {
@@ -972,7 +1072,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q90 -l-> MID.down.q80"
   },
   {
@@ -995,7 +1098,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.down.q80 -m-> MID.down.q80 [same role]"
   },
   {
@@ -1018,7 +1125,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q90 -s-> FAST.peak"
   },
   {
@@ -1041,7 +1151,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q90 -l-> MID.down.q80"
   },
   {
@@ -1064,7 +1177,9 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID-S.up.q90 -m-> MID.up.q50"
   },
   {
@@ -1087,7 +1202,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q80 -m-> MID.down.q50 [same role]"
   },
   {
@@ -1110,7 +1228,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q90 -m-> FAST.peak"
   },
   {
@@ -1133,7 +1254,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q90 -l-> MID.up.q80"
   },
   {
@@ -1156,7 +1280,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "FAST.peak -l-> MID.down.q50"
   },
   {
@@ -1178,8 +1305,12 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
-   "failed_in": [],
+   "confirmed_in": [
+    "physionet_slp"
+   ],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID.up.q50 -s-> MID.up.q80 [same role]"
   },
   {
@@ -1202,7 +1333,11 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q80 -m-> MID.up.q80 [same role]"
   },
   {
@@ -1225,7 +1360,9 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID-S.down.q90 -l-> MID.down.q50"
   },
   {
@@ -1248,7 +1385,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "physionet_slp"
+   ],
    "shape": "MID.up.q50 -l-> MID.down.q50 [same role]"
   },
   {
@@ -1271,7 +1411,9 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman"
+   ],
    "shape": "MID-S.up.q90 -l-> MID.down.q50"
   },
   {
@@ -1294,7 +1436,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q90 -s-> MID.up.q80"
   },
   {
@@ -1317,7 +1462,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.down.q90 -m-> MID.down.q80"
   },
   {
@@ -1340,7 +1488,10 @@
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
-   "failed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
    "shape": "MID-S.up.q90 -m-> FAST.peak"
   }
  ],

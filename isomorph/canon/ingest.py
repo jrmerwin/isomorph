@@ -31,6 +31,7 @@ def canonical_tie_rank(df):
 def make_events(rows, tie_rule="canonical"):
     """rows: iterable of dicts with t, entity, type, value (optional), source_order (optional)."""
     df = pd.DataFrame(rows)
+    df["t"] = df["t"].astype(float).round(9)     # ties are ranked on the time as written: nine decimals of the time unit survive the csv round trip exactly
     if "value" not in df:
         df["value"] = np.nan
     if tie_rule == "source" and "source_order" in df:

@@ -87,8 +87,14 @@ single-process apart from numpy's own threading.
    in another is `inherited`, and the lineage records where each shape first appeared, where it recurred, where it
    was tested and failed (its alignment counterpart's absence under a role match). `isomorph lineage` writes
    `collection/lineage.json` and `docs/LINEAGE.md`. Returns are the characters that matter most; report them first.
-2. **One more Rosetta member** so the tree has a fourth real leaf: PhysioNet cardiorespiratory records (a
-   biological regulator: heart rate, blood pressure, respiration — the baroreflex as a return), or a hydraulic tank
-   rig if a long public recording exists. Same layout/ingest pattern; the dimension table is the first thing to write.
+2. **One more Rosetta member — done 2026-10-21, with a caveat.** PhysioNet slpdb (dataset 7: 18 nights, beat-to-beat
+   HR, invasive pressure, respiration, SO2; `scripts/fetch_physionet_slp.sh` from the S3 mirror, `ingest_physionet_slp.py`,
+   needs `pip install wfdb`). 37 fragments, recovery 2/5 (the slow-wave HR → DBP → SBP coupling), 0 returns, no
+   gain; **not admitted as the rule stands** (3.6 days; the period rule's 0.1%-of-span bins cannot see a 4-s
+   breathing cycle) and carried as a provisional leaf, flagged, so the four-leaf tree can be seen. The card lists
+   three instrument limits with numbers: the period rule's resolution floor, the noise floor erasing a 4-s
+   oscillation at 1-s sampling, and a reflex that closes below the first lag class. A beat-indexed declaration
+   (time in beats) is the per-dataset route; the other two are method items. Keeping or withdrawing the leaf is a
+   human call.
 3. **The loop-aware place tag** (METHOD open items, v7 candidate) — specified after the return inventories of
    all datasets are in view; the timing asymmetry inside returns (REACTS / RESPONDS) is the candidate rule.

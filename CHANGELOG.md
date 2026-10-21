@@ -305,3 +305,34 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   strongest families; no LEAD->FOLLOW->LEAD exists because loop members are RELAY by the degree rule. Loop-aware
   place tag logged as the v7 candidate (timing asymmetry inside returns). Collection step 3.13 scheduled next;
   138 tagged shapes shared TEP/HAI, 7-9 with the battery.
+
+### The collection step (3.13) and dataset 7 (2026-10-21, Mac)
+- 3.13 built: `isomorph/collect/lineage.py`, `isomorph lineage` -> `collection/lineage.json`, `docs/LINEAGE.md`. Characters
+  are tagged shapes of fragments, chains and returns; taxa the admitted datasets whose libraries carry them (the
+  buildings are untagged, TCLab withdrawn: inventoried, not taxa). Shape x dataset character matrix; distances
+  from shared shapes (Jaccard over fragment shapes, Bray-Curtis over counts) and from the symmetrised net cell of
+  the current version (1 / (1 + net)); average-linkage trees in Newick; the inheritance graph: a shape first
+  validated in X and validated again in a later Y is inherited in Y, and through each v6 mapping a source
+  fragment whose prior and target both have receiver types mapped onto them is tested, confirmed if the
+  receiver holds the translated fragment at the same lag, else failed. Fragment `confirmed_in` / `failed_in`
+  fields of every library are written by this step. Returns are reported first.
+- Lineage, three admitted taxa: 138 fragment shapes shared TEP/HAI, 7 TEP/battery, 9 HAI/battery, 6 in all three;
+  one return shape shared (TEP, inherited by HAI: `MID·RELAY.up.q80 -m-> MID·RELAY.up.q20 -m-> MID·RELAY.down.q80`);
+  TEP -> HAI 377 fragments tested through the mapping, 81 confirmed; HAI -> TEP 1,849 tested, 89 confirmed. Both
+  distances give ((TEP, HAI), battery).
+- Dataset 7, PhysioNet slpdb (MIT-BIH Polysomnographic): 18 nights at 1-s samples — beat-to-beat HR, invasive SBP/DBP,
+  respiration, SO2; sleep stages and apnea events as regimes; records as entities (2.56 vs 26.1 bits); fetched from
+  the S3 mirror (`scripts/fetch_physionet_slp.sh`; physionet.org throttles to ~5 KB/s), read with `wfdb` (not a
+  package dependency). 78,687 events, 14 types, 37 fragments, recovery 2/5 (HR -> DBP -> SBP at lag s: the slow
+  Mayer-wave coupling), 1 chain, 0 returns, no gain (every Markov model is worse than the unigram). NOT admitted as
+  the rule stands (3.6 days, no period) and carried as a provisional, flagged leaf. Three instrument limits with
+  numbers (docs/CARD_physionet_slp_v1.md): the period rule's 0.1%-of-span bins (5 min) cannot see a 4-s breathing
+  cycle; the noise floor reads a 4-s oscillation at 1-s sampling as white noise (RESP windows 8-91 s) and erases
+  the driver of both reflexes; the baroreflex closes within 1-2 beats, below the first lag class (3 s).
+- Cells with PhysioNet (v6, seed 0): TEP -> slp -0.02, slp -> TEP 3.97 (raw 10.46, control 6.49: receiver-side,
+  not a claim), HAI -> slp -0.02, slp -> HAI 0.21, battery -> slp 0.00, slp -> battery 0.17. With four leaves the
+  three distances disagree on where PhysioNet attaches (Jaccard and transfer: next to (TEP, HAI); Bray-Curtis:
+  next to the battery) — the overlap is 22-26 shapes with TEP/HAI and 3 with the battery, too thin to place it.
+- Canon fixes found on the way: `assemble` re-ranks ties after the observation-window filter (an event dropped at a
+  record's last second left a gap in 0..k-1); `make_events` rounds t to nine decimals before ranking (1/60-minute
+  stamps did not survive the csv round trip bit-exactly). Both datasets 1-6 validate unchanged.

@@ -225,7 +225,9 @@ def assemble(df, layout, choice, cache):
     keep = np.ones(len(ev), bool)
     for ent, (s, e) in obs.items():
         keep &= ~((ev.entity.values == ent) & ((ev.t.values < s) | (ev.t.values >= e)))
-    ev = ev[keep].reset_index(drop=True); ev["event_id"] = np.arange(len(ev))
+    ev = ev[keep].reset_index(drop=True)
+    ev["tie_rank"] = ev.groupby("t").cumcount()          # re-rank: a tied event dropped by the window would leave a gap in 0..k-1
+    ev["event_id"] = np.arange(len(ev))
     return ev
 
 

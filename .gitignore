@@ -15,3 +15,9 @@ datasets/*/raw/*.zip
 datasets/*/work/
 dist/
 results_*.zip
+datasets/*/raw/*.dat
+datasets/*/raw/*.hea
+datasets/*/raw/*.ecg
+datasets/*/raw/*.st
+datasets/*/raw/RECORDS
+datasets/*/raw/README*

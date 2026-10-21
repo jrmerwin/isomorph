@@ -1,0 +1,31 @@
+{
+ "mechanisms": [
+  {
+   "cause": "SBP",
+   "effect": "HR",
+   "note": "baroreflex: a rise in arterial pressure slows the heart within 1-2 beats"
+  },
+  {
+   "cause": "HR",
+   "effect": "SBP",
+   "note": "heart rate -> cardiac output -> arterial pressure"
+  },
+  {
+   "cause": "RESP",
+   "effect": "HR",
+   "note": "respiratory sinus arrhythmia: inspiration speeds the heart"
+  },
+  {
+   "cause": "RESP",
+   "effect": "SBP",
+   "note": "respiratory modulation of arterial pressure (intrathoracic pressure)"
+  },
+  {
+   "cause": "RESP",
+   "effect": "SO2",
+   "note": "apnea -> desaturation, tens of seconds later (records with SO2 only)"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "cause -> effect pairs from cardiorespiratory physiology; the baroreflex closes within 1-2 beats, the respiratory couplings within a breath"
+}

@@ -19,6 +19,19 @@ direction and nearest quantile). TCLab is withdrawn from the running order; the 
 | battery → Tennessee Eastman | 8.772 (shared 3.504) | 9.006 | 5.59 | 3.94 | **1.65** | 0.00 | 6/40 (v5: 0) | 3/39: AC_valve ↔ V, cw_flow ↔ I, underflow ↔ T |
 | HAI → battery | 4.721 (shared 4.721) | 5.359 | −0.22 | −0.28 | **0.05** | −0.00 | 12/12 (v5: 2) | 3/3: I ↔ LCP01D, T ↔ TIT01, V ↔ FCV01D |
 | battery → HAI | 9.466 (shared 4.201) | 9.514 | −0.13 | −0.22 | **0.09** | −0.00 | 10/168 (v5: 6) | 3/52: B4002 ↔ V, FT03Z ↔ T, LIT01 ↔ I |
+| Tennessee Eastman → PhysioNet (7, provisional) | 5.389 (shared 5.389) | 6.022 | 0.93 | 0.95 | **−0.02** | — | 14/14 | 5/5: DBP ↔ L, HR ↔ purge_valve, RESP ↔ feed, SBP ↔ feed_D, SO2 ↔ prod_F |
+| PhysioNet → Tennessee Eastman | 8.087 (shared 2.366) | 8.351 | 10.46 | 6.49 | **3.97** | — | 8/40 | 5/39: L ↔ DBP, feed ↔ RESP, feed_D ↔ SBP, prod_D ↔ SO2, purge_valve ↔ HR |
+| HAI → PhysioNet | 5.515 (shared 5.515) | 5.592 | 0.84 | 0.86 | **−0.02** | — | 14/14 | 5/5: DBP ↔ B2016, HR ↔ SIT01, RESP ↔ FT01, SBP ↔ PIT01, SO2 ↔ ST_GOV |
+| PhysioNet → HAI | 8.625 (shared 3.670) | 8.866 | 0.22 | 0.01 | **0.21** | — | 10/168 | 5/52: LD ↔ SO2, LIT01 ↔ RESP, PCV02Z ↔ DBP, SIT02 ↔ HR, ST_GOV ↔ SBP |
+| battery → PhysioNet | 7.183 (shared 4.251) | 7.269 | 0.74 | 0.74 | **0.00** | — | 8/14 | 2/5: RESP ↔ V, SBP ↔ T |
+| PhysioNet → battery | 9.180 (shared 9.087) | 10.682 | 0.01 | −0.16 | **0.17** | — | 8/12 | 2/3: T ↔ SO2, V ↔ RESP |
+
+PhysioNet (dataset 7, 2026-10-21) is below the admission line and carried as a provisional leaf (its card). Its
+cells: the dimension suffix pairs pressure with pressure and heart rate with turbine speed (HAI → PhysioNet:
+SBP ↔ PIT01, HR ↔ SIT01), every receiver type carries, and the mixed curves do not move (−0.02, −0.02, 0.00). As
+a source into TEP it nets 3.97 bit-days through five roles with a learned zero-shot of 8.09 against 8.35
+permuted — a receiver-side effect of the kind HAI → TEP shows (raw 10.46, control 6.49), on a source library
+of 37 fragments, and not a claim. The lineage with four leaves is in `docs/LINEAGE.md`.
 
 - **TEP ↔ HAI holds.** 0.90 and 13.53 against 0.98 and 14.45 under v5, inside the seed spread of the control,
   with a changed HAI library (2,165 fragments after clipping) and 22 more HAI types carried across by the

@@ -53,7 +53,7 @@ if __name__ == "__main__":
     d = os.path.join(ROOT, "datasets/hai")
     df, bounds, files = HL.load_files(sorted(glob.glob(os.path.join(d, "raw/*.csv.gz"))))
     write_tags(d, tag_layout(df, HL.process_layout(df), horizon_samples(d, HL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix from the technical details", HL.DIMENSION)
-    import tclab_layout as TL, battery_layout as BL
+    import tclab_layout as TL, battery_layout as BL, physionet_slp_layout as PL
     d = os.path.join(ROOT, "datasets/tclab")
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, bounds, files = TL.load_files(os.path.join(d, "raw"))
@@ -62,3 +62,7 @@ if __name__ == "__main__":
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, bounds, cycles = BL.load_cells(sorted(glob.glob(os.path.join(d, "raw/B00*.mat"))))
         write_tags(d, tag_layout(df, BL.cell_layout(df), horizon_samples(d, BL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix: current <I>, voltage, temperature <Θ>", BL.DIMENSION)
+    d = os.path.join(ROOT, "datasets/physionet_slp")
+    if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
+        df, bounds, files, regimes = PL.load_records(os.path.join(d, "raw"))
+        write_tags(d, tag_layout(df, PL.record_layout(df, files), horizon_samples(d, PL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-second samples relative to H; place prefix from the v1 library; dimension suffix: heart rate <T⁻¹>, pressures <M L⁻¹ T⁻²>, respiration and SO2 dimensionless", PL.DIMENSION)

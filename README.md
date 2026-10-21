@@ -34,6 +34,7 @@ Method **v5** (integer versions; amendments are logged in `CHANGELOG.md`; cards 
 | 4 | HAI 21.03, 1-minute means, 15.3 days ([card](docs/CARD_hai_v2.md); provisional: below the 20-day line) | 3.844 vs 3.805 / 3.892 (v6) | no gain (recovery 7/15: the physics is found but the alternation baseline already carries it; v6: 1,437 chains, 118 returns, the level loop LIT01 ↔ LCV01D the strongest) |
 | 5 | TCLab ([card](docs/CARD_tclab_v1.md)) — **withdrawn from the running order 2026-10-20**: no public recording is long enough (7.6 h, no period); re-enters with a 24–48 h recording of both heaters | 1.949 vs 1.779 / 1.714 (v6) | not admitted |
 | 6 | NASA PCoE battery set FY08Q4, four cells, 1-minute means, 47.5 observed days ([card](docs/CARD_nasa_battery_v1.md)) — Rosetta member one | 0.838 vs 0.827 / 1.087 (v6) | no gain (recovery 3/3 under v6 gap clipping, 47 fragments from 12; 13 chains used, 1 return: the discharge cutoff loop) |
+| 7 | MIT-BIH Polysomnographic (PhysioNet slpdb), 18 nights, 1-second samples, 85.6 h ([card](docs/CARD_physionet_slp_v1.md); **not admitted** as the rule stands: 3.6 days, the period rule cannot see a 4-s cycle; carried as a provisional leaf, flagged) | 4.931 vs 4.813 / 4.799 | no gain (recovery 2/5: the slow-wave HR → DBP → SBP coupling is found; the baroreflex closes below the first lag class and respiration is erased by the noise floor; 0 returns) |
 
 Transfer matrix (net bit-days after the permuted-mapping control; [full table and reading](docs/MATRIX.md)):
 

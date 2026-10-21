@@ -6,6 +6,9 @@
       run datasets/building_a and datasets/building_b under both profiles and compare to collection/calibration_reference.json
   isomorph transfer <dataset_A> <dataset_B> [--profile v1] [--seed 0] [--direction both|ab|ba]
       both pipelines (cached state reused), alignment, the ordered cells -> collection/matrix.json, cell card
+  isomorph lineage
+      the collection step (3.13): shape inventory, character matrix, similarity trees, inheritance graph
+      -> collection/lineage.json, docs/LINEAGE.md
   isomorph bundle [--out results_<date>.zip]
       zip of everything a run produces that is worth returning: cards, libraries, sidecars, choices, matrix,
       cell cards, calibration, logs — never raw data or state caches
@@ -22,6 +25,7 @@ def main(argv=None):
     sub.add_parser("calibrate")
     t = sub.add_parser("transfer"); t.add_argument("dataset_a"); t.add_argument("dataset_b"); t.add_argument("--profile", default="v1"); t.add_argument("--seed", type=int, default=0); t.add_argument("--direction", default="both", choices=["both", "ab", "ba"])
     b = sub.add_parser("bundle"); b.add_argument("--out", default=None)
+    sub.add_parser("lineage")
     a = p.parse_args(argv)
     if a.cmd == "bundle":
         import zipfile, glob, time
@@ -43,6 +47,9 @@ def main(argv=None):
     elif a.cmd == "calibrate":
         from .collect.calibrate import calibrate
         sys.exit(0 if calibrate() else 1)
+    elif a.cmd == "lineage":
+        from .collect.lineage import build
+        build()
     elif a.cmd == "transfer":
         from .collect.matrix import transfer_pair, cell_markdown
         rec = transfer_pair(a.dataset_a, a.dataset_b, a.profile, a.seed, direction=a.direction)
