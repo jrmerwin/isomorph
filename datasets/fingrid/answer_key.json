@@ -1,0 +1,41 @@
+{
+ "mechanisms": [
+  {
+   "cause": "f",
+   "effect": "fcrn_up",
+   "note": "frequency below 50 Hz -> FCR-N up-regulation activates (seconds; seen at 3-15 min)"
+  },
+  {
+   "cause": "f",
+   "effect": "fcrn_down",
+   "note": "frequency above 50 Hz -> FCR-N down-regulation activates"
+  },
+  {
+   "cause": "f",
+   "effect": "afrr_up",
+   "note": "sustained deviation -> aFRR up activation (minutes)"
+  },
+  {
+   "cause": "f",
+   "effect": "afrr_down",
+   "note": "sustained deviation -> aFRR down activation"
+  },
+  {
+   "cause": "fcrn_up",
+   "effect": "f",
+   "note": "up-regulation -> frequency recovers (the loop closing)"
+  },
+  {
+   "cause": "fcrn_down",
+   "effect": "f",
+   "note": "down-regulation -> frequency recovers"
+  },
+  {
+   "cause": "net_ie",
+   "effect": "f",
+   "note": "a change in net import/export -> area imbalance -> frequency"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "frequency containment and restoration: a deviation activates the reserve, the reserve returns the frequency; seen at 3-min frequency and 15-min reserve resolution"
+}

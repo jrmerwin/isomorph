@@ -21,7 +21,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "setpoint:up",
@@ -44,7 +47,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "setpoint:up",
@@ -67,7 +73,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "occ:leave",
@@ -90,7 +99,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "T:down20",
@@ -113,7 +125,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "heater:on",
@@ -136,7 +151,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "vent:off",
@@ -159,7 +177,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "vent:on",
@@ -182,7 +203,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "T:down20",
@@ -205,7 +229,10 @@
    "shape": null,
    "g1": 8.0,
    "g2": 2.0,
-   "verdict": "X reacts"
+   "verdict": "X reacts",
+   "p1": 0.08677685950413223,
+   "p2": 0.20833333333333334,
+   "verdict_determinism": "X reacts"
   },
   {
    "a": "occ:leave",
@@ -228,7 +255,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "CO2:down900",
@@ -251,7 +281,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "occ:arrive",
@@ -274,7 +307,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "occ:leave",
@@ -297,7 +333,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "vent:on",
@@ -320,7 +359,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "occ:arrive",
@@ -343,7 +385,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   }
  ],
  "fragments": [

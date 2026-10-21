@@ -26059,8 +26059,16 @@
    "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -26227,8 +26235,16 @@
    "out_degree": 4,
    "in_degree": 9,
    "binding_share": 1.0,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     -1,
@@ -26395,8 +26411,16 @@
    "out_degree": 5,
    "in_degree": 9,
    "binding_share": 1.0,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     -1,
@@ -26563,8 +26587,16 @@
    "out_degree": 6,
    "in_degree": 4,
    "binding_share": 1.0,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "FAST\u00b7LOCAL\u00b7RELAY"
@@ -26619,8 +26651,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"

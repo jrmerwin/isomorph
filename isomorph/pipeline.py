@@ -110,34 +110,38 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
             chain_keys_used = chain_keys if b_with < b_without - 1e-4 else []
     log(f"[{name}] chains: {cinfo['candidates']} candidates, {cinfo['lift_ok']} with conditional lift, {cinfo['null_passed']} above the null, "
         f"{cinfo['admitted']} admitted ({cinfo['returns']} returns), {len(chain_keys_used)} used as features")
-    # loop roles (3.16, v7): verdicts per return, loop tag per role, the dimension check and the flowsheet check
-    loop_roles = dict(returns=cinfo.get("returns", 0), resolved=0, unresolved=0, roles={}, votes={}, dimension_check=None, flowsheet_check=None)
-    if chains:
-        from .mine.syntax import loop_tags
-        rets = [h for h in chains if h["is_return"]]
-        loop_roles["resolved"] = sum(1 for h in rets if h.get("verdict") not in (None, "unresolved")); loop_roles["unresolved"] = len(rets) - loop_roles["resolved"]
-        tags_, votes_ = loop_tags(chains); loop_roles["roles"] = tags_; loop_roles["votes"] = votes_
-        stags = side.get("tags") or {}
+    # loop roles (3.16, v8): every candidate loop rule recorded with its verdicts and both checks; none in the prefix
+    from .mine.syntax import loop_tags, LOOP_RULES
+    loop_roles = dict(returns=cinfo.get("returns", 0), rules={})
+    stags = side.get("tags") or {}
+    actuators, measurements = set(), set()
+    if key and "mechanisms" in key and key.get("match") == "role_prefix":
+        causes = set(m["cause"] for m in key["mechanisms"]); effects = set(m["effect"] for m in key["mechanisms"])
+        actuators, measurements = causes - effects, effects
+    rets = [h for h in chains if h["is_return"]]
+    for rule in LOOP_RULES:
+        vkey = "verdict" if rule == "timing" else f"verdict_{rule}"
+        tags_, votes_ = loop_tags(chains, rule)
+        rec = dict(resolved=sum(1 for h in rets if h.get(vkey) not in (None, "unresolved")), unresolved=sum(1 for h in rets if h.get(vkey) in (None, "unresolved")),
+                   roles=tags_, votes=votes_, dimension_check=None, flowsheet_check=None)
         if tags_ and stags:
             re_ = [r for r, t in tags_.items() if t == "REACTS" and r in stags]; rs_ = [r for r, t in tags_.items() if t == "RESPONDS" and r in stags]
-            loop_roles["dimension_check"] = dict(reacts_dimensionless=(sum(1 for r in re_ if not stags[r].get("dimension")) / len(re_)) if re_ else None,
-                                                 responds_dimensioned=(sum(1 for r in rs_ if stags[r].get("dimension")) / len(rs_)) if rs_ else None,
-                                                 n_reacts=len(re_), n_responds=len(rs_), chance=0.5)
-        if key and "mechanisms" in key and key.get("match") == "role_prefix":
-            causes = set(m["cause"] for m in key["mechanisms"]); effects = set(m["effect"] for m in key["mechanisms"])
-            actuators = causes - effects; measurements = effects
-            n_pairs = 0; n_act_reacts = 0
+            rec["dimension_check"] = dict(reacts_dimensionless=(sum(1 for r in re_ if not stags[r].get("dimension")) / len(re_)) if re_ else None,
+                                          responds_dimensioned=(sum(1 for r in rs_ if stags[r].get("dimension")) / len(rs_)) if rs_ else None,
+                                          n_reacts=len(re_), n_responds=len(rs_), chance=0.5)
+        if actuators:
+            n_pairs = 0; n_act = 0
             for h in rets:
-                if h.get("verdict") in (None, "unresolved"): continue
+                v = h.get(vkey)
+                if v in (None, "unresolved"): continue
                 x, y = h["a"].split(":")[0], h["b"].split(":")[0]
                 if (x in actuators and y in measurements) or (y in actuators and x in measurements):
-                    n_pairs += 1
-                    reacts = y if h["verdict"] == "Y reacts" else x
-                    n_act_reacts += int(reacts in actuators)
-            loop_roles["flowsheet_check"] = dict(actuator_measurement_returns=n_pairs, actuator_reacts=n_act_reacts,
-                                                 share=(n_act_reacts / n_pairs) if n_pairs else None, actuators=sorted(actuators))
-        log(f"[{name}] loop roles: {loop_roles['resolved']} resolved / {loop_roles['unresolved']} unresolved returns; "
-            f"tags {dict(sorted(tags_.items()))}; dimension check {loop_roles['dimension_check']}; flowsheet check {loop_roles['flowsheet_check']}")
+                    n_pairs += 1; n_act += int((y if v == "Y reacts" else x) in actuators)
+            rec["flowsheet_check"] = dict(actuator_measurement_returns=n_pairs, actuator_reacts=n_act, share=(n_act / n_pairs) if n_pairs else None, actuators=sorted(actuators),
+                                          promotable=bool(n_pairs >= 10 and n_act / n_pairs >= K.LOOP_PROMOTION_SHARE))
+        loop_roles["rules"][rule] = rec
+        log(f"[{name}] loop rule {rule}: {rec['resolved']} resolved / {rec['unresolved']} unresolved; tags {dict(sorted(tags_.items()))}; "
+            f"dimension {rec['dimension_check']}; flowsheet {rec['flowsheet_check']}")
     unsel_ctxs = list(dict.fromkeys(c for c, y in cands))
     triv_ctxs = B.triviality_contexts(vocab, lags, rows_train)
     triv_pairs = B.alternating_pairs(rows_train)
@@ -216,7 +220,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     json.dump(lib_json, open(os.path.join(dataset_dir, "out", f"library_{profile}.json"), "w"), indent=1)
     json.dump(card, open(os.path.join(dataset_dir, "out", f"benchmark_{profile}.json"), "w"), indent=1)
     state = dict(frags=frags, frag_ctxs=frag_ctxs, comp_ctxs=comp_ctxs, chains=chains, chain_keys_used=chain_keys_used, vocab=vocab, all_types=all_types, lags=lags,
-                 rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, gap_mode=gap_mode)
+                 rows_train=rows_train, rows_test=rows_test, streams=streams, bounds=(lo, p_hi, c_hi, hi), gaps=gaps, obs=obs, gap_mode=gap_mode)
     try:   # state cache for the collection step (not committed; keyed by version/profile/seed in the card)
         import pickle
         with open(os.path.join(dataset_dir, "out", f"state_{profile}_{seed}.pkl"), "wb") as fh:
@@ -252,8 +256,11 @@ def card_markdown(card):
     lines += ["", f"Gain over triviality: {g['over_triviality']:.3f} bits · over best baseline ({g['best_baseline_bits']:.3f}): {g['over_best_baseline']:.3f} bits · claim: **{g['claim']}**",
               f"Library: {card['library']['fragments']} fragments ({card['library']['fragments_used']} used), {card['library']['compositions_kept']} compositions, chatty share {card['library']['chatty_share']:.2f}",
               f"Syntax (3.15): {card['library'].get('chains', 0)} chains ({card['library'].get('chains_used', 0)} used), {card['library'].get('returns', 0)} returns",
-              (lambda lr: f"Loop roles (3.16): {lr['resolved']} resolved / {lr['unresolved']} unresolved returns · roles {dict(sorted(lr['roles'].items()))} · "
-                          f"dimension check {lr['dimension_check']} · flowsheet check {lr['flowsheet_check']}")(card.get("loop_roles", dict(resolved=0, unresolved=0, roles={}, dimension_check=None, flowsheet_check=None))),
+              "", "Loop roles (3.16, recorded, not in the prefix):", "", "| rule | resolved | unresolved | roles by tag | dimension check (REACTS dimensionless / RESPONDS dimensioned) | flowsheet check |", "| --- | --- | --- | --- | --- | --- |",
+              *[(lambda rule, r: f"| {rule} | {r['resolved']} | {r['unresolved']} | " + ", ".join(f"{k} {v}" for k, v in sorted(r['roles'].items())) + " | "
+                 + (f"{r['dimension_check']['reacts_dimensionless']} / {r['dimension_check']['responds_dimensioned']} (n {r['dimension_check']['n_reacts']} / {r['dimension_check']['n_responds']})" if r.get('dimension_check') else "—") + " | "
+                 + (f"{r['flowsheet_check']['actuator_reacts']} of {r['flowsheet_check']['actuator_measurement_returns']}" + (f" = {r['flowsheet_check']['share']:.2f}" if r['flowsheet_check']['share'] is not None else "") + (" (promotable)" if r['flowsheet_check'].get('promotable') else "") if r.get('flowsheet_check') else "—") + " |")(rule, r)
+                for rule, r in card.get("loop_roles", {}).get("rules", {}).items()], "",
               (lambda ad: f"Admission (section 6): {ad['days']} days · {ad['horizons']} H (test split {ad['test_horizons']} H) · slow periods {ad['slow_periods']} · "
                           f"period_slow {card['scale'].get('period_slow')} · period_fast {card['scale'].get('period_fast')} → **{'admitted' if ad['admitted'] else 'NOT admitted'}**" + (f" (by {ad['by']})" if ad.get('by') else ""))(card["admission"]) if card.get("admission") else "Admission: not measured",
               f"Recovery: {card['recovery']}"]

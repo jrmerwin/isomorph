@@ -140,9 +140,7 @@ def place_tags(fragments, roles, binding_share_common=0.5, lead_ratio=2.0):
 def place_of(t):
     """The place word of a role: its loop tag (3.16, REACTS / RESPONDS) where it has one and the degree rule said
     RELAY; otherwise the degree tag (LEAD / FOLLOW / RELAY / ISOLATED)."""
-    infl = t.get("influence")
-    if infl == "RELAY" and t.get("loop"): return t["loop"]
-    return infl
+    return t.get("influence")      # v8: the timing loop tag is withdrawn from the prefix (3.16); loop tags stay in the sidecar with their checks
 
 
 def full_tag(tags, role):

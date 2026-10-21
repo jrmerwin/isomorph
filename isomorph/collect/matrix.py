@@ -39,13 +39,16 @@ def _cell(src, dst, profile, rng, key_dst=None, log=print, tags_src=None, tags_d
     shared = sum(1 for t in dst["vocab"] if mapping.get(t) is not None)
     out = dict(mapping=mapping, anchors=anchors, alignment_objective=float(obj), types_mapped=shared, types_total=len(dst["vocab"]),
                tag_constrained=bool(tags_src and tags_dst), role_level=role_level, role_map=role_map,
-               zero_shot=tr["zero_shot"], learning_curve=tr.get("curve"), cell_bit_days=tr["cell_bit_days"],
-               cell_control_bit_days=tr.get("cell_control_bit_days"), cell_net_bit_days=tr.get("cell_net_bit_days"),
+               zero_shot=tr["zero_shot"], learning_curve=tr.get("curve"), horizon_minutes=tr.get("horizon_minutes"),
+               cell_bit_horizons=tr.get("cell_bit_horizons"), cell_control_bit_horizons=tr.get("cell_control_bit_horizons"),
+               cell_net_bit_horizons=tr.get("cell_net_bit_horizons"), uncontrolled=tr.get("uncontrolled"), control=tr.get("control"),
+               short=tr.get("short"), observed_training_horizons=tr.get("observed_training_horizons"), note=tr.get("note"),
                damage=tr.get("damage"), mapping_accuracy=acc)
     f3 = lambda v: "n/a" if v is None else f"{v:.3f}"; f2 = lambda v: "n/a" if v is None else f"{v:.2f}"
     log(f"  zero-shot through mapping {f3(tr['zero_shot']['all'])} (shared types {f3(tr['zero_shot']['shared'])}, unshared {tr['zero_shot'].get('unshared')}, "
-        f"permuted-mapping control {tr['zero_shot'].get('control')}); cell {f2(tr['cell_bit_days'])} bit-days, control {f2(tr.get('cell_control_bit_days'))}, "
-        f"NET {f2(tr.get('cell_net_bit_days'))}; {shared}/{len(dst['vocab'])} receiver types mapped; accuracy {acc if isinstance(acc, str) else round(acc['accuracy'], 2)}"
+        f"derangement control {tr['zero_shot'].get('control')}); cell {f2(tr.get('cell_bit_horizons'))} bit-H, control {f2(tr.get('cell_control_bit_horizons'))}, "
+        f"NET {f2(tr.get('cell_net_bit_horizons'))}{' (UNCONTROLLED)' if tr.get('uncontrolled') else ''}{' (short)' if tr.get('short') else ''}; "
+        f"moved {tr.get('control', {}).get('moved_share')}; {shared}/{len(dst['vocab'])} receiver types mapped; accuracy {acc if isinstance(acc, str) else round(acc['accuracy'], 2)}"
         + (f"; {tr['note']}" if tr.get('note') else ""))
     return out
 
@@ -85,20 +88,25 @@ def transfer_pair(dirA, dirB, profile="v1", seed=0, log=print, direction="both")
 
 
 def cell_markdown(rec):
+    def fmt(v, d=2): return "" if v is None else f"{v:.{d}f}"
     def row(name, c):
         z = c["zero_shot"]; acc = c["mapping_accuracy"]
-        ctl = c.get("cell_control_bit_days"); net = c.get("cell_net_bit_days")
-        if c.get("cell_bit_days") is None:   # no learning curve (receiver under one training day)
-            return (f"| {name} | {z['all']:.3f} | {z['shared'] if z['shared'] is None else f'{z['shared']:.3f}'} | {z.get('control') if z.get('control') is None else f'{z['control']:.3f}'} | "
-                    f"not measurable | | | {c['types_mapped']}/{c['types_total']} | {acc if isinstance(acc, str) else f'{acc['accuracy']:.2f}'} |")
-        return (f"| {name} | {z['all']:.3f} | {z['shared'] if z['shared'] is None else f'{z['shared']:.3f}'} | {z.get('control') if z.get('control') is None else f'{z['control']:.3f}'} | {c['cell_bit_days']:.2f} | "
-                f"{'' if ctl is None else f'{ctl:.2f}'} | {'' if net is None else f'**{net:.2f}**'} | {c['types_mapped']}/{c['types_total']} | "
-                f"{acc if isinstance(acc, str) else f'{acc['accuracy']:.2f}'} |")
+        flags = ", ".join(x for x in (("uncontrolled" if c.get("uncontrolled") else ""), ("short" if c.get("short") else ""), ("damage" if c.get("damage") else "")) if x)
+        if c.get("cell_bit_horizons") is None:
+            cell = "not measurable"; ctl = ""; net = ""
+        else:
+            cell = fmt(c["cell_bit_horizons"]); ctl = fmt(c.get("cell_control_bit_horizons"))
+            net = f"**{fmt(c['cell_net_bit_horizons'])}**" if c.get("cell_net_bit_horizons") is not None else "— (raw is an upper bound)"
+        ms = (c.get("control") or {}).get("moved_share") or {}
+        moved = " / ".join(fmt(ms.get(k), 2) for k in ("width_0", "width_1", "width_2")) if ms else ""
+        return (f"| {name} | {fmt(z['all'], 3)} | {fmt(z['shared'], 3)} | {fmt(z.get('control'), 3)} | {cell} | {ctl} | {net} | {moved} | "
+                f"{c['types_mapped']}/{c['types_total']} | {acc if isinstance(acc, str) else f'{acc['accuracy']:.2f}'} | {flags} |")
     lines = [f"# Transfer cells — {rec['A']} ↔ {rec['B']} (method v{rec['method_version']}, profile {rec['profile']}, seed {rec['seed']})", "",
              f"Own libraries: {rec['A']} {rec['headline']['A']['all']:.3f} bits (triviality {rec['triviality']['A']['all']:.3f}); "
              f"{rec['B']} {rec['headline']['B']['all']:.3f} bits (triviality {rec['triviality']['B']['all']:.3f})", "",
-             "| direction | zero-shot (all) | zero-shot (shared) | zero-shot, permuted mapping | cell (bit-days) | control cell | net cell | receiver types mapped | mapping accuracy |",
-             "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+             "Cells in bit-horizons (bits × the receiver's recurrence horizon H) on observed training time to 200 H (3.12, v8); the control is the median of ten derangements, moved share at widths (clock, dimension) / clock / all.", "",
+             "| direction | zero-shot (all) | zero-shot (shared) | zero-shot, derangement | cell (bit-H) | control cell | net cell | types moved by width | receiver types mapped | mapping accuracy | flags |",
+             "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     if "A_to_B" in rec: lines.append(row(f"{rec['A']} → {rec['B']}", rec["A_to_B"]))
     if "B_to_A" in rec: lines.append(row(f"{rec['B']} → {rec['A']}", rec["B_to_A"]))
     return "\n".join(lines) + "\n"

@@ -212,8 +212,6 @@ def align_roles(rowsA, toksA, rowsB, toksB, rng, tagsA=None, tagsB=None, use_anc
                     soft[j, i] += 0.0 if ca == cb else (1.0 if coa == cob else 2.0)
                 if infl and ta.get("influence") not in (None, infl):
                     soft[j, i] += 1.0
-                if tb.get("loop") and ta.get("loop") and ta["loop"] != tb["loop"]:     # v7 (3.16): loop tags graded like clock and place
-                    soft[j, i] += 1.0
         row = np.zeros(n, bool); row[allowed] = True; row[len(rolesA):] = True
         C[j, :] = row
         soft[j, len(rolesA):] += K.ALIGN_UNMATCHED_PENALTY    # mapping to no counterpart costs more than any graded mismatch

@@ -21,7 +21,10 @@
    "shape": "MID\u00b7LEAD.trough -s-> FAST\u00b7RELAY.peak -s-> MID\u00b7RELAY.trough",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "HR:peak",
@@ -44,7 +47,10 @@
    "shape": "MID\u00b7LEAD.peak -s-> FAST\u00b7RELAY.trough -s-> MID\u00b7RELAY.peak",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "HR:peak",
@@ -67,7 +73,10 @@
    "shape": "MID\u00b7LEAD.peak -s-> FAST\u00b7RELAY.trough -s-> MID\u00b7FOLLOW.peak",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   }
  ],
  "fragments": [

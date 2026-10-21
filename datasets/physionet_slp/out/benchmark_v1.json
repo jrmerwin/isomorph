@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "physionet_slp",
@@ -132,7 +132,7 @@
   "period_slow": null,
   "period_fast": null,
   "resolution_delta": 0.004166666666666667,
-  "signal_floor": 967,
+  "signal_floor": 1039,
   "min_count": 3,
   "lag_edges": [
    0.016623148587418504,
@@ -185,8 +185,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 3.3245350795057647,
-   "non_deterministic": 3.3245350795057647,
+   "all": 3.327721913015092,
+   "non_deterministic": 3.327721913015092,
    "deterministic": null
   }
  },
@@ -256,21 +256,42 @@
  },
  "loop_roles": {
   "returns": 0,
-  "resolved": 0,
-  "unresolved": 0,
-  "roles": {},
-  "votes": {},
-  "dimension_check": null,
-  "flowsheet_check": {
-   "actuator_measurement_returns": 0,
-   "actuator_reacts": 0,
-   "share": null,
-   "actuators": [
-    "RESP"
-   ]
+  "rules": {
+   "timing": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "RESP"
+     ],
+     "promotable": false
+    }
+   },
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "RESP"
+     ],
+     "promotable": false
+    }
+   }
   }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 71.7
+ "elapsed_s": 75.6
 }

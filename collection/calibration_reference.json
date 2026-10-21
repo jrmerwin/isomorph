@@ -11,7 +11,7 @@
     "logistic markov features": 2.318321352968266,
     "logistic triviality library": 1.8914324193671557,
     "logistic library": 1.8155110636532352,
-    "logistic unselected contexts": 1.7981791610476567
+    "logistic unselected contexts": 1.798179161047712
    },
    "fragments": 70,
    "gain": {
@@ -31,7 +31,7 @@
     "logistic markov features": 2.2203156868342258,
     "logistic triviality library": 1.6881702133501928,
     "logistic library": 1.6470978537694332,
-    "logistic unselected contexts": 1.5601628314298879
+    "logistic unselected contexts": 1.5601628313942548
    },
    "fragments": 95,
    "gain": {
@@ -53,184 +53,272 @@
    },
    "learned": {
     "zero_shot": {
-     "all": 3.334195809367291,
-     "shared": 2.92298560244445,
-     "unshared": 9.966501527725994,
-     "control": 6.8624503852976435
+     "all": 3.3341958093672317,
+     "shared": 2.922985602444387,
+     "unshared": 9.966501527725988,
+     "control": 7.026532296253656
     },
     "curve": [
      {
-      "days": 1,
+      "horizons": 1.0,
+      "minutes": 90.0,
       "lam": 0.5,
-      "own": 2.9664792312033565,
-      "mixed": 2.5202416759509245,
-      "mixed_control": 3.2735720372296324,
-      "own_shared": 2.8509518680780137,
-      "mixed_shared": 2.3210173198953092,
-      "own_unshared": 4.829790934521283,
-      "mixed_unshared": 5.733481069475801
+      "own": 19.156605474184097,
+      "mixed": 3.6127753056038103,
+      "mixed_control": 5.681238596284201,
+      "own_shared": 18.49066739169664,
+      "mixed_shared": 3.1568363280741583,
+      "own_unshared": 29.89735285398626,
+      "mixed_unshared": 10.966500084278708
      },
      {
-      "days": 2,
-      "lam": 0.5,
-      "own": 2.3123765577169264,
-      "mixed": 2.2866540409314537,
-      "mixed_control": 2.963646029570591,
-      "own_shared": 2.1906383097824933,
-      "mixed_shared": 2.107203533045945,
-      "own_unshared": 4.275862055707032,
-      "mixed_unshared": 5.18096602437586
-     },
-     {
-      "days": 3,
-      "lam": 0.5,
-      "own": 2.2732824818971626,
-      "mixed": 2.264184287403166,
-      "mixed_control": 2.9187697140682607,
-      "own_shared": 2.141866806278566,
-      "mixed_shared": 2.077624803703714,
-      "own_unshared": 4.392852770313505,
-      "mixed_unshared": 5.273155148834362
-     },
-     {
-      "days": 5,
-      "lam": 0.25,
-      "own": 2.103173616883261,
-      "mixed": 2.0444638711178813,
-      "mixed_control": 2.3528092248537393,
-      "own_shared": 1.9912197862593222,
-      "mixed_shared": 1.9050126817096986,
-      "own_unshared": 3.908848715747316,
-      "mixed_unshared": 4.2936369348530405
-     },
-     {
-      "days": 10,
-      "lam": 0.1,
-      "own": 1.8430011330875302,
-      "mixed": 1.8287690075370673,
-      "mixed_control": 1.9320081840902277,
-      "own_shared": 1.735783592563137,
-      "mixed_shared": 1.7119215126312577,
-      "own_unshared": 3.572285803450093,
-      "mixed_unshared": 3.7133727833988526
-     },
-     {
-      "days": 20,
-      "lam": 0.1,
-      "own": 1.7990334644195498,
-      "mixed": 1.774155990648833,
-      "mixed_control": 1.8835725387209026,
-      "own_shared": 1.6885546677905316,
-      "mixed_shared": 1.6537311612250702,
-      "own_unshared": 3.580918111989868,
-      "mixed_unshared": 3.716457692730507
-     },
-     {
-      "days": 29,
+      "horizons": 2.0,
+      "minutes": 180.0,
       "lam": 0.0,
-      "own": 1.5660177848904753,
-      "mixed": 1.5660177848904753,
-      "mixed_control": 1.5660177848904753,
-      "own_shared": 1.47055297819163,
-      "mixed_shared": 1.47055297819163,
-      "own_unshared": 3.105745575474143,
-      "mixed_unshared": 3.105745575474143
+      "own": 19.077017554848116,
+      "mixed": 19.077017554848116,
+      "mixed_control": 19.077017554848116,
+      "own_shared": 18.406144934332932,
+      "mixed_shared": 18.406144934332932,
+      "own_unshared": 29.89735285398626,
+      "mixed_unshared": 29.89735285398626
+     },
+     {
+      "horizons": 3.0,
+      "minutes": 270.0,
+      "lam": 0.5,
+      "own": 17.613935545512515,
+      "mixed": 3.4672085883517862,
+      "mixed_control": 5.452882196743317,
+      "own_shared": 17.208695522755992,
+      "mixed_shared": 3.069681242917385,
+      "own_unshared": 24.149949669160492,
+      "mixed_unshared": 9.878826884643837
+     },
+     {
+      "horizons": 5.0,
+      "minutes": 450.0,
+      "lam": 0.5,
+      "own": 15.635133141574698,
+      "mixed": 3.0313452910210876,
+      "mixed_control": 5.092910590930387,
+      "own_shared": 16.271584113273178,
+      "mixed_shared": 2.8291105820698284,
+      "own_unshared": 5.369975934903483,
+      "mixed_unshared": 6.293137907174998
+     },
+     {
+      "horizons": 10.0,
+      "minutes": 900.0,
+      "lam": 0.75,
+      "own": 3.7014629718380148,
+      "mixed": 2.7563631371199158,
+      "mixed_control": 4.244987907900285,
+      "own_shared": 3.6279815353049125,
+      "mixed_shared": 2.5133254439252437,
+      "own_unshared": 4.886626529325183,
+      "mixed_unshared": 6.67625679543609
+     },
+     {
+      "horizons": 20.0,
+      "minutes": 1800.0,
+      "lam": 0.5,
+      "own": 2.877707601829604,
+      "mixed": 2.4407624614162584,
+      "mixed_control": 3.252898013572244,
+      "own_shared": 2.7636861073946055,
+      "mixed_shared": 2.2438812244248307,
+      "own_unshared": 4.7167315288279426,
+      "mixed_unshared": 5.616210278500223
+     },
+     {
+      "horizons": 50.0,
+      "minutes": 4500.0,
+      "lam": 0.5,
+      "own": 2.276226008755704,
+      "mixed": 2.2672958637978637,
+      "mixed_control": 2.9564743132509115,
+      "own_shared": 2.1417867178485306,
+      "mixed_shared": 2.077968995164635,
+      "own_unshared": 4.444563425591873,
+      "mixed_unshared": 5.320901178878776
+     },
+     {
+      "horizons": 100.0,
+      "minutes": 9000.0,
+      "lam": 0.25,
+      "own": 2.0350599277534145,
+      "mixed": 1.9853673019075408,
+      "mixed_control": 2.3133017759104444,
+      "own_shared": 1.932068509477018,
+      "mixed_shared": 1.8552602395631985,
+      "own_unshared": 3.696182538225455,
+      "mixed_unshared": 4.0838312968617
+     },
+     {
+      "horizons": 200.0,
+      "minutes": 18000.0,
+      "lam": 0.25,
+      "own": 1.8258865102191408,
+      "mixed": 1.8431873048741287,
+      "mixed_control": 2.119968586206632,
+      "own_shared": 1.7189288738655215,
+      "mixed_shared": 1.7137154890568065,
+      "own_unshared": 3.550979251760313,
+      "mixed_unshared": 3.9314055688060696
      }
     ],
-    "cell_bit_days": 0.811049638781795,
-    "cell_control_bit_days": -4.117445439403206,
-    "cell_net_bit_days": 4.928495078185001,
+    "horizon_minutes": 90.0,
+    "control": {
+     "moved_share": {
+      "width_0": 1.0,
+      "width_1": 1.0,
+      "width_2": 1.0
+     },
+     "uncontrolled": false,
+     "n_mapped": 30
+    },
+    "uncontrolled": false,
+    "observed_training_horizons": 479.9277777777778,
+    "short": false,
+    "cell_bit_horizons": 92.15152756962627,
+    "cell_control_bit_horizons": -12.4853774569211,
+    "cell_net_bit_horizons": 104.63690502654737,
     "damage": true
    },
    "true_mapping": {
     "zero_shot": {
-     "all": 3.0754391793465636,
-     "shared": 2.6078062560101576,
+     "all": 3.0754391793464073,
+     "shared": 2.6078062560099906,
      "unshared": 9.96866679319521,
-     "control": 6.932428366225253
+     "control": 6.7957146231098955
     },
     "curve": [
      {
-      "days": 1,
+      "horizons": 1.0,
+      "minutes": 90.0,
       "lam": 0.5,
-      "own": 2.9664792312033565,
-      "mixed": 2.481521567462576,
-      "mixed_control": 3.3112140379337047,
-      "own_shared": 2.860652148643399,
-      "mixed_shared": 2.2785840079331856,
-      "own_unshared": 4.526442466021536,
-      "mixed_unshared": 5.47295933718674
+      "own": 19.156605474184097,
+      "mixed": 3.5362538707107922,
+      "mixed_control": 5.788347540301059,
+      "own_shared": 18.427958840502082,
+      "mixed_shared": 3.0320429986656876,
+      "own_unshared": 29.89735285398626,
+      "mixed_unshared": 10.968665347615529
      },
      {
-      "days": 2,
-      "lam": 0.75,
-      "own": 2.3123765577169264,
-      "mixed": 2.4265105992846046,
-      "mixed_control": 3.7126699967809564,
-      "own_shared": 2.194507966531232,
-      "mixed_shared": 2.191168099952763,
-      "own_unshared": 4.049839826491461,
-      "mixed_unshared": 5.895619240164829
-     },
-     {
-      "days": 3,
-      "lam": 0.5,
-      "own": 2.2732824818971626,
-      "mixed": 2.249172547292724,
-      "mixed_control": 2.9499871023340454,
-      "own_shared": 2.138763276374783,
-      "mixed_shared": 2.049982788166025,
-      "own_unshared": 4.2561871402862055,
-      "mixed_unshared": 5.1853651879042815
-     },
-     {
-      "days": 5,
-      "lam": 0.25,
-      "own": 2.103173616883261,
-      "mixed": 2.0314868968792585,
-      "mixed_control": 2.358520611057192,
-      "own_shared": 2.028908849068941,
-      "mixed_shared": 1.9255094019638728,
-      "own_unshared": 3.1978868474687405,
-      "mixed_unshared": 3.5936673122041065
-     },
-     {
-      "days": 10,
-      "lam": 0.25,
-      "own": 1.8430011330875302,
-      "mixed": 1.8442845224561628,
-      "mixed_control": 2.127969776283884,
-      "own_shared": 1.79483730487731,
-      "mixed_shared": 1.769070807291472,
-      "own_unshared": 2.552968746656331,
-      "mixed_unshared": 2.952985882947028
-     },
-     {
-      "days": 20,
-      "lam": 0.1,
-      "own": 1.7990334644195498,
-      "mixed": 1.765198540649698,
-      "mixed_control": 1.8813147337401421,
-      "own_shared": 1.7536979542866804,
-      "mixed_shared": 1.707807130917135,
-      "own_unshared": 2.467309744254961,
-      "mixed_unshared": 2.61118698719372
-     },
-     {
-      "days": 29,
+      "horizons": 2.0,
+      "minutes": 180.0,
       "lam": 0.0,
-      "own": 1.5660177848904753,
-      "mixed": 1.5660177848904753,
-      "mixed_control": 1.5660177848904753,
-      "own_shared": 1.5504467491502525,
-      "mixed_shared": 1.5504467491502525,
-      "own_unshared": 1.7955454511098032,
-      "mixed_unshared": 1.7955454511098032
+      "own": 19.077017554848116,
+      "mixed": 19.077017554848116,
+      "mixed_control": 19.077017554848116,
+      "own_shared": 18.342971718721863,
+      "mixed_shared": 18.342971718721863,
+      "own_unshared": 29.89735285398626,
+      "mixed_unshared": 29.89735285398626
+     },
+     {
+      "horizons": 3.0,
+      "minutes": 270.0,
+      "lam": 0.5,
+      "own": 17.613935545512515,
+      "mixed": 3.291150787187251,
+      "mixed_control": 5.507727703432055,
+      "own_shared": 17.642133646831194,
+      "mixed_shared": 2.958079648098405,
+      "own_unshared": 17.198276337257408,
+      "mixed_unshared": 8.20084610325379
+     },
+     {
+      "horizons": 5.0,
+      "minutes": 450.0,
+      "lam": 0.75,
+      "own": 15.635133141574698,
+      "mixed": 2.830449707490062,
+      "mixed_control": 5.276543456176366,
+      "own_shared": 16.388057895837466,
+      "mixed_shared": 2.587373904076004,
+      "own_unshared": 4.536509737976827,
+      "mixed_unshared": 6.413552514703762
+     },
+     {
+      "horizons": 10.0,
+      "minutes": 900.0,
+      "lam": 0.9,
+      "own": 3.7014629718380148,
+      "mixed": 2.8301446377322743,
+      "mixed_control": 4.894047398409725,
+      "own_shared": 3.5932178431171584,
+      "mixed_shared": 2.4723694309797084,
+      "own_unshared": 5.297069853063615,
+      "mixed_unshared": 8.103994727545222
+     },
+     {
+      "horizons": 20.0,
+      "minutes": 1800.0,
+      "lam": 0.75,
+      "own": 2.877707601829604,
+      "mixed": 2.507995399245493,
+      "mixed_control": 3.842160298647822,
+      "own_shared": 2.8251222721161917,
+      "mixed_shared": 2.302085861500134,
+      "own_unshared": 3.6528511573295774,
+      "mixed_unshared": 5.543242150937626
+     },
+     {
+      "horizons": 50.0,
+      "minutes": 4500.0,
+      "lam": 0.5,
+      "own": 2.276226008755704,
+      "mixed": 2.25281414808357,
+      "mixed_control": 2.9074227571373226,
+      "own_shared": 2.139021789989928,
+      "mixed_shared": 2.0512347081167426,
+      "own_unshared": 4.298709590076178,
+      "mixed_unshared": 5.224232310965731
+     },
+     {
+      "horizons": 100.0,
+      "minutes": 9000.0,
+      "lam": 0.5,
+      "own": 2.0350599277534145,
+      "mixed": 2.0555582372251493,
+      "mixed_control": 2.694317685878823,
+      "own_shared": 1.9789867509446928,
+      "mixed_shared": 1.9362184354564727,
+      "own_unshared": 2.861616723661557,
+      "mixed_unshared": 3.8147081514652106
+     },
+     {
+      "horizons": 200.0,
+      "minutes": 18000.0,
+      "lam": 0.25,
+      "own": 1.8258865102191408,
+      "mixed": 1.82630555559749,
+      "mixed_control": 2.0858162711759203,
+      "own_shared": 1.7798866055645293,
+      "mixed_shared": 1.7533620649643782,
+      "own_unshared": 2.5039564175670965,
+      "mixed_unshared": 2.901542261121238
      }
     ],
-    "cell_bit_days": 0.7272195677722263,
-    "cell_control_bit_days": -6.400369135211569,
-    "cell_net_bit_days": 7.127588702983795,
+    "horizon_minutes": 90.0,
+    "control": {
+     "moved_share": {
+      "width_0": 1.0,
+      "width_1": 1.0,
+      "width_2": 1.0
+     },
+     "uncontrolled": false,
+     "n_mapped": 30
+    },
+    "uncontrolled": false,
+    "observed_training_horizons": 479.9277777777778,
+    "short": false,
+    "cell_bit_horizons": 87.41802546358383,
+    "cell_control_bit_horizons": -54.82362234920515,
+    "cell_net_bit_horizons": 142.24164781278898,
     "damage": true
    }
   }
@@ -247,7 +335,7 @@
     "logistic markov features": 2.691306531263945,
     "logistic triviality library": 2.169305821711877,
     "logistic library": 2.1641098212484,
-    "logistic unselected contexts": 2.0026193464610373
+    "logistic unselected contexts": 2.002619346429385
    },
    "fragments": 78,
    "gain": {
@@ -267,7 +355,7 @@
     "logistic markov features": 2.109830052240662,
     "logistic triviality library": 1.529704284140704,
     "logistic library": 1.3405065730812646,
-    "logistic unselected contexts": 1.354568344504717
+    "logistic unselected contexts": 1.354568343613302
    },
    "fragments": 131,
    "gain": {
@@ -289,184 +377,272 @@
    },
    "learned": {
     "zero_shot": {
-     "all": 4.599865095198354,
-     "shared": 4.599865095198354,
+     "all": 4.599865095165187,
+     "shared": 4.599865095165187,
      "unshared": null,
-     "control": 7.835256297227996
+     "control": 7.617517798544115
     },
     "curve": [
      {
-      "days": 1,
+      "horizons": 1.0,
+      "minutes": 321.75,
       "lam": 0.5,
-      "own": 2.993551139443143,
-      "mixed": 2.6464026455534664,
-      "mixed_control": 3.232373962892666,
-      "own_shared": 2.993551139443143,
-      "mixed_shared": 2.6464026455534664,
+      "own": 16.013602478387945,
+      "mixed": 4.472428940410078,
+      "mixed_control": 5.887360603623437,
+      "own_shared": 16.013602478387945,
+      "mixed_shared": 4.472428940410078,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
-      "days": 2,
+      "horizons": 2.0,
+      "minutes": 643.5,
+      "lam": 0.75,
+      "own": 9.058898714885087,
+      "mixed": 4.025147762162573,
+      "mixed_control": 5.186589590656146,
+      "own_shared": 9.058898714885087,
+      "mixed_shared": 4.025147762162573,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "horizons": 3.0,
+      "minutes": 965.25,
+      "lam": 0.75,
+      "own": 3.8254956584946065,
+      "mixed": 3.1307795210455565,
+      "mixed_control": 4.302253332247387,
+      "own_shared": 3.8254956584946065,
+      "mixed_shared": 3.1307795210455565,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "horizons": 5.0,
+      "minutes": 1608.75,
       "lam": 0.25,
-      "own": 2.170598686192332,
-      "mixed": 2.1900559878675963,
-      "mixed_control": 2.4290368916724137,
-      "own_shared": 2.170598686192332,
-      "mixed_shared": 2.1900559878675963,
+      "own": 2.919371959499166,
+      "mixed": 2.4444766825304463,
+      "mixed_control": 2.7760934672219792,
+      "own_shared": 2.919371959499166,
+      "mixed_shared": 2.4444766825304463,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
-      "days": 3,
+      "horizons": 10.0,
+      "minutes": 3217.5,
+      "lam": 0.25,
+      "own": 2.1718551798216565,
+      "mixed": 2.1911836524373243,
+      "mixed_control": 2.433739199538179,
+      "own_shared": 2.1718551798216565,
+      "mixed_shared": 2.1911836524373243,
+      "own_unshared": null,
+      "mixed_unshared": null
+     },
+     {
+      "horizons": 20.0,
+      "minutes": 6435.0,
       "lam": 0.1,
-      "own": 2.156103716718983,
-      "mixed": 2.1245475225895754,
-      "mixed_control": 2.2213032290371943,
-      "own_shared": 2.156103716718983,
-      "mixed_shared": 2.1245475225895754,
+      "own": 2.0498675919835234,
+      "mixed": 2.0261932772229634,
+      "mixed_control": 2.124197846081646,
+      "own_shared": 2.0498675919835234,
+      "mixed_shared": 2.0261932772229634,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
-      "days": 5,
+      "horizons": 50.0,
+      "minutes": 16087.5,
       "lam": 0.0,
-      "own": 2.0153040974447305,
-      "mixed": 2.0153040974447305,
-      "mixed_control": 2.0153040974447305,
-      "own_shared": 2.0153040974447305,
-      "mixed_shared": 2.0153040974447305,
+      "own": 1.713491161275514,
+      "mixed": 1.713491161275514,
+      "mixed_control": 1.713491161275514,
+      "own_shared": 1.713491161275514,
+      "mixed_shared": 1.713491161275514,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
-      "days": 10,
+      "horizons": 100.0,
+      "minutes": 32175.0,
       "lam": 0.0,
-      "own": 1.7273054010041806,
-      "mixed": 1.7273054010041806,
-      "mixed_control": 1.7273054010041806,
-      "own_shared": 1.7273054010041806,
-      "mixed_shared": 1.7273054010041806,
+      "own": 1.5802118801882303,
+      "mixed": 1.5802118801882303,
+      "mixed_control": 1.5802118801882303,
+      "own_shared": 1.5802118801882303,
+      "mixed_shared": 1.5802118801882303,
       "own_unshared": null,
       "mixed_unshared": null
      },
      {
-      "days": 20,
+      "horizons": 200.0,
+      "minutes": 64350.0,
       "lam": 0.0,
-      "own": 1.6811926127454155,
-      "mixed": 1.6811926127454155,
-      "mixed_control": 1.6811926127454155,
-      "own_shared": 1.6811926127454155,
-      "mixed_shared": 1.6811926127454155,
-      "own_unshared": null,
-      "mixed_unshared": null
-     },
-     {
-      "days": 44,
-      "lam": 0.0,
-      "own": 1.3616813094481894,
-      "mixed": 1.3616813094481894,
-      "mixed_control": 1.3616813094481894,
-      "own_shared": 1.3616813094481894,
-      "mixed_shared": 1.3616813094481894,
+      "own": 1.3583396014381466,
+      "mixed": 1.3583396014381466,
+      "mixed_control": 1.3583396014381466,
+      "own_shared": 1.3583396014381466,
+      "mixed_shared": 1.3583396014381466,
       "own_unshared": null,
       "mixed_unshared": null
      }
     ],
-    "cell_bit_days": 0.20145123646368557,
-    "cell_control_bit_days": -0.4756488856821601,
-    "cell_net_bit_days": 0.6771001221458457,
+    "horizon_minutes": 321.75,
+    "control": {
+     "moved_share": {
+      "width_0": 1.0,
+      "width_1": 1.0,
+      "width_2": 1.0
+     },
+     "uncontrolled": false,
+     "n_mapped": 30
+    },
+    "uncontrolled": false,
+    "observed_training_horizons": 201.36829836829835,
+    "short": false,
+    "cell_bit_horizons": 13.837068147869234,
+    "cell_control_bit_horizons": 5.2710330441158035,
+    "cell_net_bit_horizons": 8.56603510375343,
     "damage": false
    },
    "true_mapping": {
     "zero_shot": {
-     "all": 3.26253564552396,
-     "shared": 2.8484453680741124,
+     "all": 3.262535645511193,
+     "shared": 2.848445368060557,
      "unshared": 9.96866679319521,
-     "control": 7.5305298578762585
+     "control": 7.3141419394407965
     },
     "curve": [
      {
-      "days": 1,
+      "horizons": 1.0,
+      "minutes": 321.75,
       "lam": 0.5,
-      "own": 2.993551139443143,
-      "mixed": 2.4458989177562804,
-      "mixed_control": 3.226555708926899,
-      "own_shared": 2.892504397563148,
-      "mixed_shared": 2.2538922056932873,
-      "own_unshared": 4.629988264374669,
-      "mixed_unshared": 5.555419383335272
+      "own": 16.013602478387945,
+      "mixed": 3.1338275733024425,
+      "mixed_control": 5.6587730153589675,
+      "own_shared": 16.711793382882075,
+      "mixed_shared": 2.9779917078336746,
+      "own_unshared": 4.706503455238529,
+      "mixed_unshared": 5.65756649753011
      },
      {
-      "days": 2,
+      "horizons": 2.0,
+      "minutes": 643.5,
+      "lam": 0.9,
+      "own": 9.058898714885087,
+      "mixed": 3.038283802507081,
+      "mixed_control": 5.485987287737462,
+      "own_shared": 9.26591523556487,
+      "mixed_shared": 2.7110885585838673,
+      "own_unshared": 5.70629660608201,
+      "mixed_unshared": 8.337162660895885
+     },
+     {
+      "horizons": 3.0,
+      "minutes": 965.25,
+      "lam": 0.9,
+      "own": 3.8254956584946065,
+      "mixed": 2.9051083873695327,
+      "mixed_control": 4.97978976911558,
+      "own_shared": 3.698644710773958,
+      "mixed_shared": 2.5631238571787227,
+      "own_unshared": 5.879828102279371,
+      "mixed_unshared": 8.443497561967021
+     },
+     {
+      "horizons": 5.0,
+      "minutes": 1608.75,
+      "lam": 0.75,
+      "own": 2.919371959499166,
+      "mixed": 2.5187712690930737,
+      "mixed_control": 3.825246947131074,
+      "own_shared": 2.8624095273514776,
+      "mixed_shared": 2.3238247128407377,
+      "own_unshared": 3.8418701713027152,
+      "mixed_unshared": 5.675902078988442
+     },
+     {
+      "horizons": 10.0,
+      "minutes": 3217.5,
       "lam": 0.5,
-      "own": 2.170598686192332,
-      "mixed": 2.159708105463188,
-      "mixed_control": 2.8734788028337284,
-      "own_shared": 2.0382521503722906,
-      "mixed_shared": 1.970829719612138,
-      "own_unshared": 4.313931371072048,
-      "mixed_unshared": 5.218565788087733
+      "own": 2.1718551798216565,
+      "mixed": 2.1609277969616203,
+      "mixed_control": 2.8489000322061564,
+      "own_shared": 2.0403025997997206,
+      "mixed_shared": 1.9729400234867607,
+      "own_unshared": 4.302329867309254,
+      "mixed_unshared": 5.205362143126163
      },
      {
-      "days": 3,
+      "horizons": 20.0,
+      "minutes": 6435.0,
       "lam": 0.25,
-      "own": 2.156103716718983,
-      "mixed": 2.0703921839328947,
-      "mixed_control": 2.417737592766543,
-      "own_shared": 2.0123597071319317,
-      "mixed_shared": 1.8982964058134633,
-      "own_unshared": 4.484016813156352,
-      "mixed_unshared": 4.857458002374423
+      "own": 2.0498675919835234,
+      "mixed": 1.9769117819393605,
+      "mixed_control": 2.3016239411514565,
+      "own_shared": 1.9312866636019665,
+      "mixed_shared": 1.8311083068350298,
+      "own_unshared": 3.97026828875102,
+      "mixed_unshared": 4.338177619566477
      },
      {
-      "days": 5,
-      "lam": 0.25,
-      "own": 2.0153040974447305,
-      "mixed": 1.952758225178539,
-      "mixed_control": 2.286461273775136,
-      "own_shared": 1.8931475356557437,
-      "mixed_shared": 1.8041587282385338,
-      "own_unshared": 3.9936116514171136,
-      "mixed_unshared": 4.359305225254724
-     },
-     {
-      "days": 10,
+      "horizons": 50.0,
+      "minutes": 16087.5,
       "lam": 0.1,
-      "own": 1.7273054010041806,
-      "mixed": 1.6988561465376062,
-      "mixed_control": 1.824475019540798,
-      "own_shared": 1.6778593413579255,
-      "mixed_shared": 1.6387236199296613,
-      "own_unshared": 2.5280770654959195,
-      "mixed_unshared": 2.6726935719346527
+      "own": 1.713491161275514,
+      "mixed": 1.6841330315727943,
+      "mixed_control": 1.8035412373294335,
+      "own_shared": 1.666870722977943,
+      "mixed_shared": 1.6267974069097748,
+      "own_unshared": 2.468502303557872,
+      "mixed_unshared": 2.612675041280882
      },
      {
-      "days": 20,
+      "horizons": 100.0,
+      "minutes": 32175.0,
       "lam": 0.1,
-      "own": 1.6811926127454155,
-      "mixed": 1.6410723510992742,
-      "mixed_control": 1.7698325686011114,
-      "own_shared": 1.633696270711393,
-      "mixed_shared": 1.5823127072081422,
-      "own_unshared": 2.450388887230231,
-      "mixed_unshared": 2.5926761427920537
+      "own": 1.5802118801882303,
+      "mixed": 1.5635593541279764,
+      "mixed_control": 1.6756276194056534,
+      "own_shared": 1.5475607790436925,
+      "mixed_shared": 1.5209581653737712,
+      "own_unshared": 2.1089916615914985,
+      "mixed_unshared": 2.253479341121629
      },
      {
-      "days": 44,
+      "horizons": 200.0,
+      "minutes": 64350.0,
       "lam": 0.0,
-      "own": 1.3616813094481894,
-      "mixed": 1.3616813094481894,
-      "mixed_control": 1.3616813094481894,
-      "own_shared": 1.3492116279066446,
-      "mixed_shared": 1.3492116279066446,
-      "own_unshared": 1.5636259682368108,
-      "mixed_unshared": 1.5636259682368108
+      "own": 1.3583396014381466,
+      "mixed": 1.3583396014381466,
+      "mixed_control": 1.3583396014381466,
+      "own_shared": 1.345596217730411,
+      "mixed_shared": 1.345596217730411,
+      "own_unshared": 1.564716826557906,
+      "mixed_unshared": 1.564716826557906
      }
     ],
-    "cell_bit_days": 1.5276084001670893,
-    "cell_control_bit_days": -4.396534721182492,
-    "cell_net_bit_days": 5.924143121349582,
+    "horizon_minutes": 321.75,
+    "control": {
+     "moved_share": {
+      "width_0": 1.0,
+      "width_1": 1.0,
+      "width_2": 1.0
+     },
+     "uncontrolled": false,
+     "n_mapped": 30
+    },
+    "uncontrolled": false,
+    "observed_training_horizons": 201.36829836829835,
+    "short": false,
+    "cell_bit_horizons": 19.207521902991054,
+    "cell_control_bit_horizons": -17.02282432368695,
+    "cell_net_bit_horizons": 36.23034622667801,
     "damage": true
    }
   }

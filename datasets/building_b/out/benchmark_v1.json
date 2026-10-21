@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_b",
@@ -29,7 +29,7 @@
   "period_slow": 1440.0,
   "period_fast": null,
   "resolution_delta": 1.0,
-  "signal_floor": 47,
+  "signal_floor": 51,
   "min_count": 3,
   "lag_edges": [
    6.852349700950389,
@@ -82,8 +82,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.354568344504717,
-   "non_deterministic": 1.354568344504717,
+   "all": 1.354568343613302,
+   "non_deterministic": 1.354568343613302,
    "deterministic": null
   }
  },
@@ -174,14 +174,26 @@
  },
  "loop_roles": {
   "returns": 0,
-  "resolved": 0,
-  "unresolved": 0,
-  "roles": {},
-  "votes": {},
-  "dimension_check": null,
-  "flowsheet_check": null
+  "rules": {
+   "timing": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   },
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   }
+  }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 19.4
+ "elapsed_s": 20.3
 }

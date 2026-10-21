@@ -79,6 +79,28 @@ single-process apart from numpy's own threading.
    3.14 should carry a loop-aware tag is the next method question.
 
 
+## The v8 round — status (Mac, 2026-10-21)
+
+1. **Derangement controls** — built; every type moved at width 0 in all but three cells (B′ → 59 0.91 → 1.00 at
+   full width; TEP → 59 and HAI → 59 0.99 → 1.00; Building 59 → HAI 0.97: three HAI types share one source
+   counterpart through nearest-quantile crossing and cannot be deranged among themselves — *dev.* at full width
+   each leftover is swapped with a moved type, and that cell was re-run). No cell is uncontrolled in the final matrix.
+   The cells that moved most are the receiver-TEP ones, as expected, but not to zero: PhysioNet → TEP stays large
+   with every type moved (61.9 bit-H), so the v7 reading "its own control" was not the whole story.
+2. **Curve in receiver horizons** — built on observed time (per entity, windows and gaps); `obs` added to the
+   state cache. HAI (126 H), the battery (161 H) and PhysioNet (10 H) are `short` as receivers; Building 59's
+   first-week gap no longer makes empty curve points. TEP's 200 H = 20.0 days as the brief said.
+3. **Loop rules recorded** — timing withdrawn from the prefix and alignment, determinism added; predictions and
+   outcomes on each card and in CHANGELOG. Neither rule reaches 0.75 anywhere; the determinism rule gets HAI's
+   level loop right (LCV01D REACTS 12:2) and TEP's valve and Building 59's valves wrong. Promotion: none.
+4. **Bump to 8** — buildings reproduce v7's headline exactly (only control zero-shots moved); cards, matrix (14
+   pairs both ways), lineage, tags regenerated.
+5. **Dataset 9, Fingrid** — fetched with the user's key through the environment (never stored; rotate it, it was
+   pasted in chat), one year at 3 min with 15-min reserves held; 71 fragments, recovery 6/7, 3 returns on the
+   reserve side; admitted. *dev.* the imbalance series (1 min) begins 2025-06-25 and is left out; the API caps
+   queries at 40,000 rows, so the fetch runs month by month. Open: the 15-min hold fixes the timing rule's verdict
+   (f REACTS by construction); the honest loop declaration is the reserves' own 15 min.
+
 ## The v8 round (October 2026) — the brief for the Mac
 
 Three repairs, each from a number v7 produced. METHOD.md 3.12 (v8 paragraph) and 3.16 (v8 paragraph) are the spec.

@@ -1,0 +1,105 @@
+{
+ "choice": {
+  "f": "dsign",
+  "fcrn_down": "dsign",
+  "fcrn_up": "dsign",
+  "afrr_up": "q20_50_80",
+  "afrr_down": "dsign",
+  "net_ie": "dsign"
+ },
+ "thresholds": {
+  "afrr_up": {
+   "grid_afrr_up": [
+    0.0,
+    1.893,
+    30.221
+   ]
+  },
+  "f_window": {
+   "grid_f": 7
+  },
+  "fcrn_down_window": {
+   "grid_fcrn_down": 7
+  },
+  "fcrn_up_window": {
+   "grid_fcrn_up": 6
+  },
+  "afrr_down_window": {
+   "grid_afrr_down": 8
+  },
+  "net_ie_window": {
+   "grid_net_ie": 346
+  },
+  "noise_windows": {
+   "grid_f": 9,
+   "grid_fcrn_down": 2,
+   "grid_fcrn_up": 3,
+   "grid_afrr_up": 2,
+   "grid_afrr_down": 2,
+   "grid_net_ie": 1
+  }
+ },
+ "trace": [
+  {
+   "pass_": 0,
+   "role": "afrr_up",
+   "scores": {
+    "q20_50_80": "only admissible"
+   },
+   "chosen": "q20_50_80"
+  },
+  {
+   "pass_": 0,
+   "role": "fcrn_up",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 35474.53423817148,
+    "dsign": 27044.62493889377
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "f",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 33842.270390141966,
+    "dsign": 27044.62493889377
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "fcrn_down",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 36125.65440597857,
+    "dsign": 27044.62493889377
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "afrr_down",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 30967.62501339388,
+    "dsign": 27044.62493889377
+   },
+   "chosen": "dsign"
+  },
+  {
+   "pass_": 0,
+   "role": "net_ie",
+   "scores": {
+    "q10_90": Infinity,
+    "q20_50_80": 31673.911688299006,
+    "dsign": 27044.62493889377
+   },
+   "chosen": "dsign"
+  }
+ ],
+ "entity": "grid",
+ "entity_scores": "one candidate: the synchronous area is one system (3.1 not compared)",
+ "complete": true
+}

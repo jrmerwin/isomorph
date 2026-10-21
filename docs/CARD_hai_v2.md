@@ -120,3 +120,24 @@ other returns the two take part in (LCP01D ↔ LCV01D, LCV01Z ↔ LCV01D). 26 ro
 On HAI the fast side of a loop is more often the *measurement* than the command: the commands here are PID
 outputs that move slowly, the measurements answer within a minute. The reading "fast side = controller" fails on
 this plant at 1-minute means; the tag still names a fast side and a slow side, which is all 3.16 claims.
+
+## v8 regeneration (2026-10-21): loop rules recorded, not in the prefix
+
+Unchanged library (2,165 / 1,437 / 118; 3.714); degree tags back in the prefix; admission unchanged (178 H,
+provisional by the standing decision).
+
+| rule | resolved | unresolved | flowsheet check | dimension check | promotable |
+| --- | --- | --- | --- | --- | --- |
+| timing (v7) | 83 | 35 | 7 of 21 = **0.33** | 0.27 / 0.64 (n 15 / 11) | no |
+| determinism (v8 candidate) | 73 | 45 | 5 of 15 = **0.33** | 0.18 / 0.47 (n 11 / 17) | no |
+
+| role | predicted | timing | determinism |
+| --- | --- | --- | --- |
+| LCV01D (level-control valve command) | REACTS | **RESPONDS** (9 : 12) | REACTS (12 : 2) |
+| LIT01 (level) | — | REACTS (10 : 5) | REACTS (9 : 0) |
+
+The determinism rule gets the level loop's command right — the valve command is a function of the level — but
+tags the level REACTS as well (its leg into itself from the pump command is deterministic too), and across the
+plant it does no better than timing on the flowsheet check: HAI's keyed actuators are PID outputs whose
+measurements are themselves deterministic couplings (command → position), so both legs of most returns are
+near-deterministic and the ratio of 1.5 is rarely met (45 unresolved).

@@ -414,3 +414,46 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   candidate, with declared predictions; promotion only by the flowsheet check (≥ 0.75 on every keyed dataset
   with ≥ 10 resolved actuator–measurement returns).
 - Constants untouched until implementation (METHOD_VERSION, CARD_RULES_VERSION stay 7).
+
+## v8 implemented (2026-10-21, Mac)
+- 3.12 controls as derangements: `apply.permuted_mappings` — each control is a permutation in which no mapped
+  receiver type keeps its learned source counterpart, the group widened only as far as needed (within (clock,
+  dimension), then within clock, then across all mapped types), the share of types moved at each width recorded
+  (`control.moved_share`), and a cell whose control cannot move every type `uncontrolled` (raw as an upper bound,
+  net `None`, excluded from the transfer tree). Found on the way: receiver types that share one source counterpart
+  (nearest-quantile crossing: three HAI types → `static_sp:downq20`) cannot be deranged among themselves at any
+  width; at full width each is swapped with a moved type instead — the first run of Building 59 → HAI came out
+  uncontrolled at 0.97 moved and is re-run.
+- 3.12 the curve on observed time in receiver horizons: `apply.transfer` takes the receiver's observed training
+  time (per entity, inside its observation window and outside its gaps, averaged over entities; `obs` now in the
+  state cache) at 1, 2, 3, 5, 10, 20, 50, 100, 200 H and integrates to 200 H or the training end; areas in
+  bit-horizons (`cell_bit_horizons`, `cell_control_bit_horizons`, `cell_net_bit_horizons`); λ chosen 2-fold by the
+  parity of the H-block; receivers under 200 H flagged `short` (HAI 126 H, battery 161 H, PhysioNet 10 H); the
+  `all` point dropped. Calibration: headline bits reproduce the v7 reference exactly; only the control zero-shots
+  moved (the derangement), reference re-recorded. Cell cards and MATRIX.md v8 are in bit-H; the v7 bit-day table
+  stands for the record.
+- 3.16 the timing rule withdrawn from the prefix (`pos.place_of` spells the degree tag) and from alignment (the
+  +1 removed); the determinism rule added (`syntax.determinism_verdict`, `leg_precisions`: P(Y | X within l1)
+  against P(X' | Y within l2) on the confirmation split, ratio 1.5); `loop_tags(chains, rule)`; sidecars carry
+  `loop_tags` per rule; the card's Loop roles block is a table with one row per rule and the promotion flag
+  (flowsheet ≥ 0.75 with ≥ 10 resolved actuator–measurement returns). Declared predictions against outcomes:
+  TEP underflow_valve → REACTS predicted, timing REACTS (9:7), determinism **RESPONDS** (12:4); TEP cw_flow →
+  REACTS predicted, both rules RESPONDS; HAI LCV01D → REACTS predicted, timing RESPONDS, determinism **REACTS**
+  (12:2); Building 59 dampers → REACTS, both rules REACTS (determinism 36:35); Building 59 valves → REACTS,
+  determinism **RESPONDS** (12:4). Flowsheet checks — timing: TEP 0.55, HAI 0.33, Building 59 0.62;
+  determinism: TEP 0.36, HAI 0.33, Building 59 0.48. No rule is promotable anywhere; the prefix keeps the degree tags.
+- Versions 8 / 8; every card regenerated (libraries, chains, returns and headlines unchanged from v7 except the
+  loop block); `tag_datasets.py`; the whole matrix both directions (10 pairs + 4 with Fingrid); `isomorph lineage`.
+- Dataset 9, Fingrid (Nordic grid frequency regulation): series 177, 343, 344, 349, 350, 194 for 2024-07 to 2025-07,
+  fetched month by month with a registered key through `scripts/fetch_fingrid.py` (the key lives in the
+  environment; the API caps a query at 40,000 rows and one call per two seconds; the imbalance series begins
+  2025-06-25 and is left out); 3-minute samples with the 15-minute reserves held within their quarter; one entity
+  (3.1 uncompared). 79,367 events, 16 types, 71 fragments, recovery **6/7** (the containment loop is the top of the
+  library: fcrn_down trough → f peak, lift 9.7), 15 chains, 3 returns on the reserve side, no gain over
+  triviality (+0.97 over every sequence baseline); fast period 15.0 min = the market quarter; timing puts f on
+  REACTS because every leg into a held reserve is a quarter long by declaration. docs/CARD_fingrid_v1.md.
+- Cells in bit-H (docs/MATRIX.md v8): see the table there; HAI → TEP 48.6 and TEP → HAI 13.7 (short) under
+  derangements; PhysioNet → TEP 61.9 with every type moved (the v7 suspicion of a self-controlled cell does not
+  explain it); Building 59 → TEP 71.1, TEP → Building 59 25.0, HAI → Building 59 8.0, A → 59 0.7, B′ → 59 −1.3;
+  Fingrid: HAI → Fingrid 5.9, Building 59 → Fingrid 7.1, Fingrid → TEP 3.2, the rest ≤ 2.
+- Shell lessons kept: a second-chain with `set -- $pair` under zsh runs with empty arguments (bash scripts now).

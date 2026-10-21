@@ -1,0 +1,274 @@
+{
+ "method_version": 8,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "fingrid",
+ "identity": {
+  "kind": "real power system (Nordic synchronous area, Fingrid)",
+  "origin": "scripts/ingest_fingrid.py",
+  "time_unit": "minute",
+  "span": [
+   18.0,
+   525589.0
+  ],
+  "entity_key": "grid",
+  "entities": [
+   "grid"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "f": "dsign",
+    "fcrn_down": "dsign",
+    "fcrn_up": "dsign",
+    "afrr_up": "q20_50_80",
+    "afrr_down": "dsign",
+    "net_ie": "dsign"
+   },
+   "thresholds": {
+    "afrr_up": {
+     "grid_afrr_up": [
+      0.0,
+      1.893,
+      30.221
+     ]
+    }
+   },
+   "noise_windows": {
+    "grid_f": 9,
+    "grid_fcrn_down": 2,
+    "grid_fcrn_up": 3,
+    "grid_afrr_up": 2,
+    "grid_afrr_down": 2,
+    "grid_net_ie": 1
+   }
+  }
+ },
+ "scale": {
+  "events": 79367,
+  "events_per_day": 217.4558337503401,
+  "types": 16,
+  "n_entities": 1,
+  "period": null,
+  "period_slow": null,
+  "period_fast": 14.97478692077291,
+  "resolution_delta": 3.0,
+  "signal_floor": 584,
+  "min_count": 3,
+  "lag_edges": [
+   9.321697517861576,
+   28.96468153816889,
+   90.0
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 21998,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.7832140270322885,
+   "non_deterministic": 3.7832140270322885,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.8283723658932707,
+   "non_deterministic": 2.8283723658932707,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.6593905809401335,
+   "non_deterministic": 2.6593905809401335,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 2.62592827080431,
+   "non_deterministic": 2.62592827080431,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 2.5884873432631155,
+   "non_deterministic": 2.5884873432631155,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 2.6375241255316766,
+   "non_deterministic": 2.6375241255316766,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 1.6029018858811097,
+   "non_deterministic": 1.6029018858811097,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.6147093059369069,
+   "non_deterministic": 1.6147093059369069,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.6029301590259577,
+   "non_deterministic": 1.6029301590259577,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": -0.011807420055797158,
+  "over_best_baseline": 0.9737780373262086,
+  "best_baseline_bits": 2.5884873432631155,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 71,
+  "fragments_used": 30,
+  "compositions_kept": 185,
+  "chains": 15,
+  "chains_used": 15,
+  "returns": 3,
+  "chain_search": {
+   "candidates": 367,
+   "lift_ok": 17,
+   "null_passed": 17,
+   "admitted": 15,
+   "returns": 3,
+   "returns_resolved": 3
+  },
+  "candidates": 664,
+  "nulls_run": [
+   "circular",
+   "cycle"
+  ],
+  "null_survival": {
+   "circular": 0.6890756302521008,
+   "cycle": 0.6470588235294118
+  },
+  "trivial_pairs": [
+   [
+    "afrr_down:peak",
+    "afrr_down:trough"
+   ],
+   [
+    "afrr_up:downq20",
+    "afrr_up:upq20"
+   ],
+   [
+    "afrr_up:downq20",
+    "afrr_up:upq50"
+   ],
+   [
+    "afrr_up:downq50",
+    "afrr_up:upq20"
+   ],
+   [
+    "afrr_up:downq50",
+    "afrr_up:upq50"
+   ],
+   [
+    "afrr_up:downq80",
+    "afrr_up:upq80"
+   ],
+   [
+    "afrr_up:upq20",
+    "afrr_up:upq50"
+   ],
+   [
+    "f:peak",
+    "f:trough"
+   ],
+   [
+    "fcrn_down:peak",
+    "fcrn_down:trough"
+   ],
+   [
+    "fcrn_up:peak",
+    "fcrn_up:trough"
+   ],
+   [
+    "net_ie:peak",
+    "net_ie:trough"
+   ]
+  ],
+  "chatty_share": 0.15492957746478872
+ },
+ "recovery": {
+  "recall": 0.8571428571428571,
+  "precision": 0.28169014084507044,
+  "n_mechanisms": 7,
+  "n_found": 6
+ },
+ "admission": {
+  "days": 364.98,
+  "slow_periods": null,
+  "horizons": 5839.7,
+  "test_horizons": 1459.9,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 3,
+  "rules": {
+   "timing": {
+    "resolved": 3,
+    "unresolved": 0,
+    "roles": {
+     "f": "REACTS",
+     "afrr_up": "RESPONDS",
+     "afrr_down": "REACTS"
+    },
+    "votes": {
+     "f": {
+      "REACTS": 1
+     },
+     "afrr_up": {
+      "RESPONDS": 3
+     },
+     "afrr_down": {
+      "REACTS": 2
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "net_ie"
+     ],
+     "promotable": false
+    }
+   },
+   "determinism": {
+    "resolved": 2,
+    "unresolved": 1,
+    "roles": {
+     "f": "REACTS",
+     "afrr_up": "RESPONDS",
+     "afrr_down": "REACTS"
+    },
+    "votes": {
+     "f": {
+      "REACTS": 1
+     },
+     "afrr_up": {
+      "RESPONDS": 2
+     },
+     "afrr_down": {
+      "REACTS": 1
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "net_ie"
+     ],
+     "promotable": false
+    }
+   }
+  }
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 46.2
+}

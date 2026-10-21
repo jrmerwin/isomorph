@@ -1,9 +1,67 @@
-# Transfer matrix — methods v3 to v7, profile v1 (2026-10-19 to 2026-10-21)
+# Transfer matrix — methods v3 to v8, profile v1 (2026-10-19 to 2026-10-21)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
+
+## v8 (2026-10-21): derangement controls, the curve in receiver horizons — seed 0; datasets 1–9
+
+Cells are now in **bit-horizons** (bits × the receiver's recurrence horizon H) on the receiver's observed training
+time, integrated to 200 H or the end of training (3.12, v8); the control is the median of ten *derangements* (no
+mapped type keeps its learned counterpart), the group widened only as far as needed. *moved* is the share of
+mapped types moved at the narrowest width and at full width. The v7 column is the old bit-day cell, for the
+record; the two units are not convertible across receivers (H is 143 min on TEP, 13.7 h on Building 59, 16 s on
+PhysioNet). `short`: the receiver trains on fewer than 200 H (HAI 126, battery 161, PhysioNet 10). `damage`: the
+receiver's unmapped types got worse under the mixture. The timing loop tag is out of alignment again (3.16, v8).
+
+| source → receiver | zero-shot (learned) | zero-shot (derangement) | raw cell (bit-H) | control cell | **net cell** | moved | v7 net (bit-days) | types mapped | flags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TEP → HAI | 7.630 (shared 7.261) | 9.003 | 39.91 | 26.19 | **13.72** | 1.00/1.00 | 0.90 | 142/168 | short, damage |
+| HAI → TEP | 6.629 (shared 6.381) | 8.471 | 89.42 | 40.83 | **48.59** | 1.00/1.00 | 7.96 | 34/40 | damage |
+| TEP → battery | 3.681 (shared 3.681) | 5.425 | 0.15 | -0.35 | **0.50** | 1.00/1.00 | 0.25 | 12/12 | short |
+| battery → TEP | 8.772 (shared 3.504) | 9.031 | 26.79 | 18.33 | **8.46** | 1.00/1.00 | 1.65 | 6/40 | damage |
+| HAI → battery | 4.721 (shared 4.721) | 4.808 | -0.28 | -0.39 | **0.11** | 1.00/1.00 | -0.03 | 12/12 | short |
+| battery → HAI | 9.466 (shared 4.201) | 9.445 | 29.73 | 29.56 | **0.17** | 1.00/1.00 | 0.09 | 10/168 | short |
+| TEP → PhysioNet | 5.382 (shared 5.382) | 5.355 | 0.00 | 0.00 | **0.00** | 1.00/1.00 | 0.00 | 10/10 |  |
+| PhysioNet → TEP | 6.632 (shared 4.145) | 8.728 | 81.03 | 19.13 | **61.91** | 1.00/1.00 | 18.08 | 4/40 | damage |
+| HAI → PhysioNet | 6.998 (shared 6.998) | 6.781 | 0.00 | 0.00 | **0.00** | 1.00/1.00 | -0.02 | 10/10 |  |
+| PhysioNet → HAI | 7.542 (shared 6.975) | 8.245 | 37.84 | 32.88 | **4.97** | 1.00/1.00 | 0.39 | 4/168 | short, damage |
+| battery → PhysioNet | 4.425 (shared 3.795) | 4.427 | 0.00 | 0.00 | **0.00** | 1.00/1.00 | 0.00 | 2/10 |  |
+| PhysioNet → battery | 6.762 (shared 1.619) | 6.789 | -0.27 | -0.29 | **0.02** | 1.00/1.00 | 0.00 | 2/12 | short, damage |
+| building A → Building 59 | 8.447 (shared 7.001) | 8.503 | 118.64 | 117.96 | **0.68** | 1.00/1.00 | 8.24 | 22/89 |  |
+| Building 59 → building A | 6.126 (shared 4.731) | 6.689 | 20.87 | 16.25 | **4.62** | 1.00/1.00 | 0.30 | 12/20 | damage |
+| building B′ → Building 59 | 8.873 (shared 6.667) | 8.888 | 119.17 | 120.51 | **-1.33** | 0.91/1.00 | -2.89 | 26/89 |  |
+| Building 59 → building B′ | 7.149 (shared 7.149) | 7.880 | 11.28 | 10.94 | **0.34** | 1.00/1.00 | 0.13 | 22/22 |  |
+| TEP → Building 59 | 7.619 (shared 7.619) | 8.349 | 143.70 | 118.68 | **25.03** | 0.99/1.00 | 100.76 | 89/89 |  |
+| Building 59 → TEP | 7.361 (shared 7.138) | 9.023 | 104.16 | 33.03 | **71.13** | 1.00/1.00 | 19.26 | 32/40 | damage |
+| HAI → Building 59 | 7.316 (shared 7.246) | 7.628 | 129.67 | 121.65 | **8.01** | 0.99/1.00 | 31.29 | 85/89 | damage |
+| Building 59 → HAI | 8.460 (shared 7.855) | 10.120 | 49.46 | 23.34 | **26.12** | 0.97/1.00 | 0.72 | 95/168 | short, damage |
+| TEP → Fingrid | 4.207 (shared 4.207) | 4.243 | 18.40 | 18.06 | **0.35** | 1.00/1.00 | — | 16/16 |  |
+| Fingrid → TEP | 8.799 (shared 5.183) | 8.647 | 35.26 | 32.05 | **3.21** | 1.00/1.00 | — | 10/40 | damage |
+| HAI → Fingrid | 4.537 (shared 4.537) | 4.855 | 21.72 | 15.79 | **5.93** | 1.00/1.00 | — | 16/16 |  |
+| Fingrid → HAI | 8.238 (shared 5.483) | 8.505 | 34.37 | 33.05 | **1.31** | 1.00/1.00 | — | 10/168 | short, damage |
+| battery → Fingrid | 7.132 (shared 4.524) | 7.369 | 11.17 | 9.06 | **2.11** | 1.00/1.00 | — | 8/16 | damage |
+| Fingrid → battery | 6.282 (shared 3.395) | 6.426 | -0.22 | -0.27 | **0.05** | 1.00/1.00 | — | 6/12 | short, damage |
+| Building 59 → Fingrid | 6.286 (shared 4.137) | 6.779 | 15.32 | 8.20 | **7.12** | 1.00/1.00 | — | 10/16 | damage |
+| Fingrid → Building 59 | 8.995 (shared 5.403) | 9.123 | 108.18 | 107.98 | **0.20** | 1.00/1.00 | — | 10/89 |  |
+
+- **Every type is moved in every control** after the leftover swap (Building 59 → HAI first came out uncontrolled at
+  0.97: three HAI types share one source counterpart through nearest-quantile crossing). No cell is uncontrolled.
+- **The receiver-TEP cells did not collapse.** With derangements that move every type, PhysioNet → TEP is 61.9
+  bit-H (raw 81.0, control 19.1), Building 59 → TEP 71.1, HAI → TEP 48.6, battery → TEP 8.5, Fingrid → TEP 3.2.
+  The v7 suspicion — that singleton groups made the control the learned mapping — was true of the control and is
+  not what makes these cells: a smooth foreign model whose pairing is right about which quantities are slow helps
+  TEP's 40-class receiver over its first 20 days, and the deranged pairing helps it less. Whether that is grammar
+  is still the open question; it is no longer a control artefact.
+- **Building 59 as a receiver reads sanely now:** TEP → 59 25.0, HAI → 59 8.0, building A → 59 0.7, B′ → 59 −1.3 —
+  the v7 ordering (the two real regulators far ahead of the synthetic generator) with the trapezoid's 100-bit-day
+  artefact gone. Fingrid → 59 0.2.
+- **Fingrid:** HAI → Fingrid 5.9 and Building 59 → Fingrid 7.1 are the two cells into the grid that clear the
+  control by more than the control's own size; TEP → Fingrid 0.35; Fingrid → TEP 3.2, → HAI 1.3 (short), → battery
+  0.05, → Building 59 0.2. Sixteen types through six roles on the receiving side.
+- **Lineage** (docs/LINEAGE.md): six taxa; Fingrid shares 22 cross-role shapes (37 in all) with HAI and none with any other taxon,
+  so both shape trees place it outermost with PhysioNet; the shape trees keep (TEP, Building 59) innermost; the transfer tree on bit-horizons is `(nasa_battery:0.353,(physionet_slp:0.290,(fingrid:0.132,(hai:0.022,(tennessee_eastman:0.010,building_59:0.010):0.022):0.132):0.290):0.353);`.
 
 ## v7 (2026-10-21): loop roles, fine-grid period, admission in horizons — seed 0, ten seeded permutations; datasets 7 (0.25 s) and 8 added
 

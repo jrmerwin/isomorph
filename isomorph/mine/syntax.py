@@ -166,9 +166,11 @@ def discover_chains(frags, streams, lags, splits, rng, gaps, gap_mode, rows_prop
     rets = [h["key"] for h in chains if h["is_return"]]
     if rets:
         lg = leg_gaps(rows_conf, times_by_tok(streams, phi, chi), lags, rets, gaps)
+        lp = leg_precisions(rows_conf, rets)
         for h in chains:
             if h["is_return"]:
                 v, m1, m2 = loop_verdict(*lg[h["key"]]); h["verdict"], h["g1"], h["g2"] = v, m1, m2
+                p1, p2 = lp[h["key"]]; h["p1"], h["p2"] = p1, p2; h["verdict_determinism"] = determinism_verdict(p1, p2)
     chains.sort(key=lambda h: -h["cond_lift"] * np.log(max(h["count"], 2)))
     info["admitted"] = len(chains); info["returns"] = sum(h["is_return"] for h in chains)
     info["returns_resolved"] = sum(1 for h in chains if h["is_return"] and h.get("verdict") != "unresolved")
@@ -195,15 +197,48 @@ def loop_verdict(g1, g2, ratio=K.LOOP_GAP_RATIO):
     return "unresolved", m1, m2
 
 
-def loop_tags(chains):
+LOOP_RULES = ("timing", "determinism")   # 3.16 (v8): candidate loop rules, recorded with checks; none in the prefix until promoted
+
+
+def determinism_verdict(p1, p2, ratio=K.LOOP_GAP_RATIO):
+    """3.16 (v8), the determinism rule: the leg INTO the controller is the deterministic one. p1 = P(Y | X within l1),
+    p2 = P(X' | Y within l2) on the confirmation split; Y reacts when p1 >= ratio * p2, X reacts when p2 >= ratio * p1."""
+    if p1 is None or p2 is None: return "unresolved"
+    if p2 > 0 and p1 >= ratio * p2: return "Y reacts"
+    if p1 > 0 and p2 >= ratio * p1: return "X reacts"
+    return "unresolved"
+
+
+def leg_precisions(rows, keys):
+    """{key: (P(Y | X at l1), P(X' | Y at l2))} over rows: the share of targets carrying the context that are the link's target."""
+    from collections import defaultdict
+    need = set()
+    for a, l1, b, l2, c in keys: need.add((ctx_key(a, l1), b)); need.add((ctx_key(b, l2), c))
+    base = defaultdict(int); hit = defaultdict(int)
+    wanted = defaultdict(set)
+    for ck, tok in need: wanted[ck].add(tok)
+    for r in rows:
+        for ck in r["ctx"]:
+            if ck in wanted:
+                base[ck] += 1
+                if r["tok"] in wanted[ck]: hit[(ck, r["tok"])] += 1
+    out = {}
+    for k in keys:
+        a, l1, b, l2, c = k; c1, c2 = ctx_key(a, l1), ctx_key(b, l2)
+        out[k] = ((hit[(c1, b)] / base[c1]) if base[c1] else None, (hit[(c2, c)] / base[c2]) if base[c2] else None)
+    return out
+
+
+def loop_tags(chains, rule="timing"):
     """Per role: the majority loop tag (REACTS / RESPONDS) over the resolved returns it takes part in, as end or
-    middle; a tie is unresolved (no tag). Returns ({role: tag}, {role: {REACTS: n, RESPONDS: n}})."""
+    middle, under one loop rule; a tie is unresolved (no tag). Returns ({role: tag}, {role: {REACTS: n, RESPONDS: n}})."""
     from collections import Counter, defaultdict
+    vkey = "verdict" if rule == "timing" else f"verdict_{rule}"
     votes = defaultdict(Counter)
     for h in chains:
-        if not h.get("is_return") or h.get("verdict") in (None, "unresolved"): continue
+        if not h.get("is_return") or h.get(vkey) in (None, "unresolved"): continue
         x, y = _role(h["a"]), _role(h["b"])
-        if h["verdict"] == "Y reacts": votes[y]["REACTS"] += 1; votes[x]["RESPONDS"] += 1
+        if h[vkey] == "Y reacts": votes[y]["REACTS"] += 1; votes[x]["RESPONDS"] += 1
         else: votes[x]["REACTS"] += 1; votes[y]["RESPONDS"] += 1
     tags = {}
     for r, c in votes.items():
@@ -216,5 +251,5 @@ def chains_to_json(chains, used_keys=()):
     return [dict(a=h["a"], l1=h["l1"], b=h["b"], l2=h["l2"], c=h["c"], count=h["count"], cond_lift=h["cond_lift"],
                  count_conf=h["count_conf"], cond_lift_conf=h["cond_lift_conf"], null_max=h["null_max"],
                  is_return=h["is_return"], used=(h["key"] in used), link_counts=h["link_counts"], shape=h.get("shape"),
-                 g1=h.get("g1"), g2=h.get("g2"), verdict=h.get("verdict"))
+                 g1=h.get("g1"), g2=h.get("g2"), verdict=h.get("verdict"), p1=h.get("p1"), p2=h.get("p2"), verdict_determinism=h.get("verdict_determinism"))
             for h in chains]

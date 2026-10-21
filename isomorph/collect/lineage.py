@@ -33,6 +33,7 @@ RUNNING_ORDER = [
     ("hai", "admitted (provisional: 15.3 days, 178 H; standing decision, section 6)"), ("tclab", "withdrawn"), ("nasa_battery", "admitted"),
     ("physionet_slp", "admitted (v7: by horizons, 19,419 H)"),
     ("building_59", "admitted (365 days)"),
+    ("fingrid", "admitted (365 days)"),
 ]
 
 
@@ -74,13 +75,14 @@ def _bray_curtis(ca, cb):
 
 
 def transfer_distance(taxa, version=f"v{K.METHOD_VERSION}"):
-    """Symmetrised net cell of the current version, as a distance d = 1 / (1 + max(net, 0)); a missing pair is 1."""
+    """Symmetrised net cell (bit-horizons, v8) of the current version, as a distance d = 1 / (1 + max(net, 0)); a missing or uncontrolled pair is 1."""
     M = json.load(open(MATRIX)).get(version, {}) if os.path.exists(MATRIX) else {}
     net = {}
     for rec in M.values():
         if rec.get("seed") != 0: continue
         a, b = rec["A"], rec["B"]
-        vals = [rec[d].get("cell_net_bit_days") for d in ("A_to_B", "B_to_A") if d in rec and rec[d].get("cell_net_bit_days") is not None]
+        vals = [rec[d].get("cell_net_bit_horizons") for d in ("A_to_B", "B_to_A")
+                if d in rec and rec[d].get("cell_net_bit_horizons") is not None and not rec[d].get("uncontrolled")]   # v8: uncontrolled cells excluded
         if vals: net[frozenset((a, b))] = float(np.mean(vals))
     D = np.ones((len(taxa), len(taxa)))
     for i, a in enumerate(taxa):
@@ -200,7 +202,7 @@ def build(log=print, write_libraries=True):
 
 def markdown(out, inv, libs):
     taxa = out["taxa"]; L = []
-    short = {"tennessee_eastman": "TEP", "hai": "HAI", "nasa_battery": "battery", "tclab": "TCLab", "building_a": "building A", "building_b": "building B′", "physionet_slp": "PhysioNet"}
+    short = {"tennessee_eastman": "TEP", "hai": "HAI", "nasa_battery": "battery", "tclab": "TCLab", "building_a": "building A", "building_b": "building B′", "physionet_slp": "PhysioNet", "fingrid": "Fingrid"}
     nm = lambda d: short.get(d, d)
     L += [f"# Lineage — the collection step (METHOD 3.13), method v{out['method_version']}", "",
           "Characters are tagged shapes (3.14, 3.15); taxa are the admitted datasets whose libraries carry them: " + ", ".join(nm(d) for d in taxa) + ".",
@@ -266,7 +268,7 @@ def markdown(out, inv, libs):
         L += [f"**{name}** — `{t['newick']}`", "", "| | " + " | ".join(nm(d) for d in taxa) + " |", "| --- |" + " --- |" * len(taxa)]
         for i, d in enumerate(taxa): L.append(f"| {nm(d)} | " + " | ".join(f"{x:.3f}" for x in t["distance"][i]) + " |")
         L.append("")
-    L += ["Shape distances: Jaccard over fragment shapes (1 − shared / union), Bray–Curtis over shape counts. Transfer distance: 1 / (1 + symmetrised net cell) of the current version; a pair without a cell is at 1.", ""]
+    L += ["Shape distances: Jaccard over fragment shapes (1 − shared / union), Bray–Curtis over shape counts. Transfer distance: 1 / (1 + symmetrised net cell in bit-horizons) of the current version; a pair without a controlled cell is at 1.", ""]
     # 5. inheritance
     L += ["## 5. Inheritance graph", "",
           "Inheritance is directed by **running order**: a shape belongs to the dataset that validated it first and is inherited by every later dataset that validates it again, so a zero in the reverse direction is the order, not the physics; the symmetric view is the character matrix above. Confirmation through a mapping is directed by the transfer cell and runs both ways.", "",

@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "hai",
@@ -396,19 +396,19 @@
    "deterministic": 0.49321932858373446
   },
   "logistic library": {
-   "all": 3.713632341973868,
-   "non_deterministic": 3.8442826958126113,
-   "deterministic": 0.5205020217034259
+   "all": 3.7136344088018243,
+   "non_deterministic": 3.8442847907149065,
+   "deterministic": 0.520503402386866
   },
   "logistic unselected contexts": {
-   "all": 3.7196553297014434,
-   "non_deterministic": 3.849402069268701,
-   "deterministic": 0.5486095889467266
+   "all": 3.7196549525034652,
+   "non_deterministic": 3.849401714349832,
+   "deterministic": 0.5486086672412417
   }
  },
  "gain": {
-  "over_triviality": -0.03917992406636861,
-  "over_best_baseline": 0.047844760353850546,
+  "over_triviality": -0.0391820189686638,
+  "over_best_baseline": 0.047842665451555355,
   "best_baseline_bits": 3.892127456166462,
   "claim": "no gain"
  },
@@ -1208,162 +1208,315 @@
  },
  "loop_roles": {
   "returns": 118,
-  "resolved": 83,
-  "unresolved": 35,
-  "roles": {
-   "LCV01D": "RESPONDS",
-   "LCP01D": "RESPONDS",
-   "PIT02": "REACTS",
-   "FT02": "RESPONDS",
-   "FCV02Z": "REACTS",
-   "B2016": "REACTS",
-   "LCV01Z": "REACTS",
-   "CO_rpm": "REACTS",
-   "HILout": "RESPONDS",
-   "PIT01": "RESPONDS",
-   "LIT01": "REACTS",
-   "B2004": "RESPONDS",
-   "B4005": "RESPONDS",
-   "TIT01": "REACTS",
-   "FT01Z": "REACTS",
-   "B4022": "RESPONDS",
-   "VYT02": "REACTS",
-   "VYT03": "RESPONDS",
-   "B400B": "RESPONDS",
-   "VXT02": "REACTS",
-   "FCV01D": "REACTS",
-   "TIT02": "RESPONDS",
-   "VXT03": "REACTS",
-   "SIT01": "REACTS",
-   "SIT02": "REACTS",
-   "B3004": "REACTS"
-  },
-  "votes": {
-   "LCV01D": {
-    "REACTS": 9,
-    "RESPONDS": 12
+  "rules": {
+   "timing": {
+    "resolved": 83,
+    "unresolved": 35,
+    "roles": {
+     "LCV01D": "RESPONDS",
+     "LCP01D": "RESPONDS",
+     "PIT02": "REACTS",
+     "FT02": "RESPONDS",
+     "FCV02Z": "REACTS",
+     "B2016": "REACTS",
+     "LCV01Z": "REACTS",
+     "CO_rpm": "REACTS",
+     "HILout": "RESPONDS",
+     "PIT01": "RESPONDS",
+     "LIT01": "REACTS",
+     "B2004": "RESPONDS",
+     "B4005": "RESPONDS",
+     "TIT01": "REACTS",
+     "FT01Z": "REACTS",
+     "B4022": "RESPONDS",
+     "VYT02": "REACTS",
+     "VYT03": "RESPONDS",
+     "B400B": "RESPONDS",
+     "VXT02": "REACTS",
+     "FCV01D": "REACTS",
+     "TIT02": "RESPONDS",
+     "VXT03": "REACTS",
+     "SIT01": "REACTS",
+     "SIT02": "REACTS",
+     "B3004": "REACTS"
+    },
+    "votes": {
+     "LCV01D": {
+      "REACTS": 9,
+      "RESPONDS": 12
+     },
+     "LCP01D": {
+      "RESPONDS": 6,
+      "REACTS": 2
+     },
+     "PIT02": {
+      "REACTS": 19,
+      "RESPONDS": 8
+     },
+     "FT02": {
+      "RESPONDS": 5
+     },
+     "FT02Z": {
+      "RESPONDS": 4,
+      "REACTS": 4
+     },
+     "FCV02Z": {
+      "RESPONDS": 2,
+      "REACTS": 5
+     },
+     "B2016": {
+      "REACTS": 1
+     },
+     "LCV01Z": {
+      "RESPONDS": 4,
+      "REACTS": 8
+     },
+     "CO_rpm": {
+      "REACTS": 2,
+      "RESPONDS": 1
+     },
+     "HILout": {
+      "RESPONDS": 4
+     },
+     "PIT01": {
+      "RESPONDS": 1
+     },
+     "LIT01": {
+      "RESPONDS": 5,
+      "REACTS": 10
+     },
+     "B2004": {
+      "RESPONDS": 6
+     },
+     "B4005": {
+      "RESPONDS": 3,
+      "REACTS": 2
+     },
+     "TIT01": {
+      "REACTS": 2
+     },
+     "FT01": {
+      "RESPONDS": 3,
+      "REACTS": 3
+     },
+     "FT01Z": {
+      "REACTS": 1
+     },
+     "B4022": {
+      "RESPONDS": 9
+     },
+     "VYT02": {
+      "REACTS": 1
+     },
+     "VYT03": {
+      "RESPONDS": 4
+     },
+     "B400B": {
+      "REACTS": 2,
+      "RESPONDS": 3
+     },
+     "VXT02": {
+      "REACTS": 3
+     },
+     "FCV01D": {
+      "REACTS": 2
+     },
+     "FCV01Z": {
+      "RESPONDS": 1,
+      "REACTS": 1
+     },
+     "TIT02": {
+      "RESPONDS": 2
+     },
+     "VXT03": {
+      "REACTS": 1
+     },
+     "SIT01": {
+      "REACTS": 1
+     },
+     "SIT02": {
+      "REACTS": 1
+     },
+     "B3004": {
+      "REACTS": 3
+     }
+    },
+    "dimension_check": {
+     "reacts_dimensionless": 0.26666666666666666,
+     "responds_dimensioned": 0.6363636363636364,
+     "n_reacts": 15,
+     "n_responds": 11,
+     "chance": 0.5
+    },
+    "flowsheet_check": {
+     "actuator_measurement_returns": 21,
+     "actuator_reacts": 7,
+     "share": 0.3333333333333333,
+     "actuators": [
+      "B4005",
+      "CO_rpm",
+      "FCV01D",
+      "FCV02D",
+      "LCP01D",
+      "LCV01D",
+      "PCV01D",
+      "PP01AD",
+      "PP02D"
+     ],
+     "promotable": false
+    }
    },
-   "LCP01D": {
-    "RESPONDS": 6,
-    "REACTS": 2
-   },
-   "PIT02": {
-    "REACTS": 19,
-    "RESPONDS": 8
-   },
-   "FT02": {
-    "RESPONDS": 5
-   },
-   "FT02Z": {
-    "RESPONDS": 4,
-    "REACTS": 4
-   },
-   "FCV02Z": {
-    "RESPONDS": 2,
-    "REACTS": 5
-   },
-   "B2016": {
-    "REACTS": 1
-   },
-   "LCV01Z": {
-    "RESPONDS": 4,
-    "REACTS": 8
-   },
-   "CO_rpm": {
-    "REACTS": 2,
-    "RESPONDS": 1
-   },
-   "HILout": {
-    "RESPONDS": 4
-   },
-   "PIT01": {
-    "RESPONDS": 1
-   },
-   "LIT01": {
-    "RESPONDS": 5,
-    "REACTS": 10
-   },
-   "B2004": {
-    "RESPONDS": 6
-   },
-   "B4005": {
-    "RESPONDS": 3,
-    "REACTS": 2
-   },
-   "TIT01": {
-    "REACTS": 2
-   },
-   "FT01": {
-    "RESPONDS": 3,
-    "REACTS": 3
-   },
-   "FT01Z": {
-    "REACTS": 1
-   },
-   "B4022": {
-    "RESPONDS": 9
-   },
-   "VYT02": {
-    "REACTS": 1
-   },
-   "VYT03": {
-    "RESPONDS": 4
-   },
-   "B400B": {
-    "REACTS": 2,
-    "RESPONDS": 3
-   },
-   "VXT02": {
-    "REACTS": 3
-   },
-   "FCV01D": {
-    "REACTS": 2
-   },
-   "FCV01Z": {
-    "RESPONDS": 1,
-    "REACTS": 1
-   },
-   "TIT02": {
-    "RESPONDS": 2
-   },
-   "VXT03": {
-    "REACTS": 1
-   },
-   "SIT01": {
-    "REACTS": 1
-   },
-   "SIT02": {
-    "REACTS": 1
-   },
-   "B3004": {
-    "REACTS": 3
+   "determinism": {
+    "resolved": 73,
+    "unresolved": 45,
+    "roles": {
+     "PIT01": "REACTS",
+     "LCP01D": "RESPONDS",
+     "LCV01D": "REACTS",
+     "B4022": "REACTS",
+     "FCV01D": "RESPONDS",
+     "PIT02": "REACTS",
+     "FT02": "RESPONDS",
+     "FT02Z": "RESPONDS",
+     "FCV02Z": "RESPONDS",
+     "LIT01": "REACTS",
+     "B2004": "RESPONDS",
+     "PCV01Z": "RESPONDS",
+     "PCV01D": "RESPONDS",
+     "B4005": "RESPONDS",
+     "FT01": "RESPONDS",
+     "FT01Z": "REACTS",
+     "LCV01Z": "RESPONDS",
+     "CO_rpm": "REACTS",
+     "HILout": "RESPONDS",
+     "B400B": "RESPONDS",
+     "SIT01": "REACTS",
+     "VXT02": "REACTS",
+     "VYT03": "RESPONDS",
+     "FCV01Z": "RESPONDS",
+     "TIT02": "RESPONDS",
+     "TIT01": "REACTS",
+     "VXT03": "RESPONDS",
+     "B3004": "REACTS"
+    },
+    "votes": {
+     "PIT01": {
+      "REACTS": 4
+     },
+     "LCP01D": {
+      "RESPONDS": 13
+     },
+     "LCV01D": {
+      "REACTS": 12,
+      "RESPONDS": 2
+     },
+     "B4022": {
+      "REACTS": 11
+     },
+     "FCV01D": {
+      "RESPONDS": 2,
+      "REACTS": 1
+     },
+     "PIT02": {
+      "REACTS": 18,
+      "RESPONDS": 1
+     },
+     "FT02": {
+      "RESPONDS": 5
+     },
+     "FT02Z": {
+      "RESPONDS": 7
+     },
+     "FCV02Z": {
+      "RESPONDS": 5
+     },
+     "LIT01": {
+      "REACTS": 9
+     },
+     "B2004": {
+      "RESPONDS": 6
+     },
+     "PCV01Z": {
+      "RESPONDS": 1
+     },
+     "PCV01D": {
+      "RESPONDS": 1
+     },
+     "B4005": {
+      "RESPONDS": 3
+     },
+     "FT01": {
+      "RESPONDS": 5
+     },
+     "FT01Z": {
+      "REACTS": 1
+     },
+     "LCV01Z": {
+      "RESPONDS": 5,
+      "REACTS": 2
+     },
+     "CO_rpm": {
+      "REACTS": 4
+     },
+     "HILout": {
+      "RESPONDS": 7
+     },
+     "B400B": {
+      "RESPONDS": 3
+     },
+     "SIT01": {
+      "REACTS": 4
+     },
+     "VXT02": {
+      "REACTS": 3
+     },
+     "VYT03": {
+      "RESPONDS": 3
+     },
+     "FCV01Z": {
+      "RESPONDS": 1
+     },
+     "TIT02": {
+      "RESPONDS": 2
+     },
+     "TIT01": {
+      "REACTS": 1
+     },
+     "VXT03": {
+      "RESPONDS": 1
+     },
+     "B3004": {
+      "REACTS": 3
+     }
+    },
+    "dimension_check": {
+     "reacts_dimensionless": 0.18181818181818182,
+     "responds_dimensioned": 0.47058823529411764,
+     "n_reacts": 11,
+     "n_responds": 17,
+     "chance": 0.5
+    },
+    "flowsheet_check": {
+     "actuator_measurement_returns": 15,
+     "actuator_reacts": 5,
+     "share": 0.3333333333333333,
+     "actuators": [
+      "B4005",
+      "CO_rpm",
+      "FCV01D",
+      "FCV02D",
+      "LCP01D",
+      "LCV01D",
+      "PCV01D",
+      "PP01AD",
+      "PP02D"
+     ],
+     "promotable": false
+    }
    }
-  },
-  "dimension_check": {
-   "reacts_dimensionless": 0.26666666666666666,
-   "responds_dimensioned": 0.6363636363636364,
-   "n_reacts": 15,
-   "n_responds": 11,
-   "chance": 0.5
-  },
-  "flowsheet_check": {
-   "actuator_measurement_returns": 21,
-   "actuator_reacts": 7,
-   "share": 0.3333333333333333,
-   "actuators": [
-    "B4005",
-    "CO_rpm",
-    "FCV01D",
-    "FCV02D",
-    "LCP01D",
-    "LCV01D",
-    "PCV01D",
-    "PP01AD",
-    "PP02D"
-   ]
   }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 680.2
+ "elapsed_s": 686.9
 }

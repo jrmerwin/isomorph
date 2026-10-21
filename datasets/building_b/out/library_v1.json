@@ -21,7 +21,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x24",
@@ -44,7 +47,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x09",
@@ -67,7 +73,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x15",
@@ -90,7 +99,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x24",
@@ -113,7 +125,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x04",
@@ -136,7 +151,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x16",
@@ -159,7 +177,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x00",
@@ -182,7 +203,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x09",
@@ -205,7 +229,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x16",
@@ -228,7 +255,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x24",
@@ -251,7 +281,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x00",
@@ -274,7 +307,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x00",
@@ -297,7 +333,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x22",
@@ -320,7 +359,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x15",
@@ -343,7 +385,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x03",
@@ -366,7 +411,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x22",
@@ -389,7 +437,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x05",
@@ -412,7 +463,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x29",
@@ -435,7 +489,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x25",
@@ -458,7 +515,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x00",
@@ -481,7 +541,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x22",
@@ -504,7 +567,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x09",
@@ -527,7 +593,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x22",
@@ -550,7 +619,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x22",
@@ -573,7 +645,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x20",
@@ -596,7 +671,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x15",
@@ -619,7 +697,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x11",
@@ -642,7 +723,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x29",
@@ -665,7 +749,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x28",
@@ -688,7 +775,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x19",
@@ -711,7 +801,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "x03",
@@ -734,7 +827,10 @@
    "shape": null,
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   }
  ],
  "fragments": [

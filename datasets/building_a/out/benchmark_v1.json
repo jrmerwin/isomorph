@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_a",
@@ -28,7 +28,7 @@
   "period_slow": 1440.0,
   "period_fast": null,
   "resolution_delta": 1.0,
-  "signal_floor": 26,
+  "signal_floor": 22,
   "min_count": 3,
   "lag_edges": [
    5.619954323071132,
@@ -81,8 +81,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.0026193464610373,
-   "non_deterministic": 2.0026193464610373,
+   "all": 2.002619346429385,
+   "non_deterministic": 2.002619346429385,
    "deterministic": null
   }
  },
@@ -170,24 +170,46 @@
  },
  "loop_roles": {
   "returns": 1,
-  "resolved": 1,
-  "unresolved": 0,
-  "roles": {
-   "T": "REACTS",
-   "vent": "RESPONDS"
-  },
-  "votes": {
-   "T": {
-    "REACTS": 1
+  "rules": {
+   "timing": {
+    "resolved": 1,
+    "unresolved": 0,
+    "roles": {
+     "T": "REACTS",
+     "vent": "RESPONDS"
+    },
+    "votes": {
+     "T": {
+      "REACTS": 1
+     },
+     "vent": {
+      "RESPONDS": 1
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": null
    },
-   "vent": {
-    "RESPONDS": 1
+   "determinism": {
+    "resolved": 1,
+    "unresolved": 0,
+    "roles": {
+     "T": "REACTS",
+     "vent": "RESPONDS"
+    },
+    "votes": {
+     "T": {
+      "REACTS": 1
+     },
+     "vent": {
+      "RESPONDS": 1
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": null
    }
-  },
-  "dimension_check": null,
-  "flowsheet_check": null
+  }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 6.5
+ "elapsed_s": 7.2
 }

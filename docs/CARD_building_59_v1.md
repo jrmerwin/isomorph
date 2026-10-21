@@ -92,3 +92,24 @@ answers within a sample, the fan's speed ramps.
    question HAI and the battery raised, with the largest numbers yet.
 3. **Setpoint loops at the AHU** step a few times a year and are not recovered; a year is not long enough for
    `SET` roles that change seasonally — the 2018 and 2020 continuations would be the test.
+
+## v8 regeneration (2026-10-21): loop rules recorded, not in the prefix
+
+Unchanged library (1,285 / 1,044 / 299; 2.760); the prefix spells degree tags again.
+
+| rule | resolved | unresolved | flowsheet check | dimension check | promotable |
+| --- | --- | --- | --- | --- | --- |
+| timing (v7) | 214 | 85 | 35 of 56 = **0.62** | 0.50 / 0.80 (n 6 / 5) | no (0.62 < 0.75) |
+| determinism (v8 candidate) | 204 | 95 | 30 of 63 = **0.48** | 0.40 / 0.71 (n 5 / 7) | no |
+
+| role | predicted | timing | determinism |
+| --- | --- | --- | --- |
+| oa_damper | REACTS | REACTS (37 : 24) | REACTS (36 : 35, a near tie) |
+| hw_valve | REACTS | tie (9 : 9), no tag | **RESPONDS** (12 : 4) |
+| fan | — | REACTS (5 : 1) | tie (2 : 2) |
+| T (zone temperature) | — | RESPONDS (11 : 7) | **REACTS** (13 : 1) |
+
+On the one plant where the timing rule's checks passed, the determinism rule inverts the zone loop (the
+temperature REACTS, the valve RESPONDS: a zone's temperature is a deterministic function of its valve within a
+sample, while the valve answers the temperature only at the thermostat's band edges) and the damper comes out
+a coin toss. Neither rule reaches 0.75 anywhere; the prefix keeps the degree tags, as 3.16 (v8) says.

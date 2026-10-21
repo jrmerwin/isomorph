@@ -112,3 +112,25 @@ At 3-minute sampling the loop tag does not separate controller from plant on thi
 at chance and the dimension check below it. The card records it; nothing is corrected by hand. The shapes are
 respelled under the tags (`MID·REACTS.down.q20 -s-> MID·REACTS.down.q80 -s-> MID·REACTS.up.q20 [return]` for the
 valve–pressure return) and so is the lineage.
+
+## v8 regeneration (2026-10-21): loop rules recorded, not in the prefix
+
+Fragments, chains, returns and the headline are unchanged (567 / 525 / 106; library 3.033). The place prefix spells
+the degree tags again (cw_flow `SLOW·LOCAL·RELAY`); the loop rules are recorded with their checks (3.16, v8).
+
+| rule | resolved | unresolved | flowsheet check | dimension check (REACTS dimensionless / RESPONDS dimensioned) | promotable (≥ 0.75, ≥ 10 returns) |
+| --- | --- | --- | --- | --- | --- |
+| timing (v7) | 87 | 19 | 24 of 44 = **0.55** | 0.25 / 0.67 (n 4 / 3) | no |
+| determinism (v8 candidate) | 59 | 47 | 10 of 28 = **0.36** | 0.00 / 0.50 (n 2 / 4) | no |
+
+Declared predictions (3.16) against what came out:
+
+| role | predicted | timing | determinism |
+| --- | --- | --- | --- |
+| underflow_valve | REACTS | REACTS (9 : 7) | **RESPONDS** (12 : 4) |
+| cw_flow | REACTS | **RESPONDS** (25 : 16) | **RESPONDS** (17 : 6) |
+
+The determinism rule does worse than timing on this plant: both actuators land on RESPONDS, and the flowsheet
+check falls below chance. The leg *into* the valve is less deterministic than the leg out of it — on a simulated
+plant the measurement follows the valve almost deterministically while the valve answers a pressure deviation
+only when the controller's deadband is crossed. Neither rule is promotable here; neither enters the prefix.

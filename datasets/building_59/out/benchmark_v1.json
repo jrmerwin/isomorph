@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_59",
@@ -1737,8 +1737,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.7577588760290497,
-   "non_deterministic": 2.7577588760290497,
+   "all": 2.756208094747891,
+   "non_deterministic": 2.756208094747891,
    "deterministic": null
   }
  },
@@ -1966,93 +1966,192 @@
  },
  "loop_roles": {
   "returns": 299,
-  "resolved": 214,
-  "unresolved": 85,
-  "roles": {
-   "plenum_p": "RESPONDS",
-   "sf_spd": "RESPONDS",
-   "rf_spd": "REACTS",
-   "oa_damper": "REACTS",
-   "fan": "REACTS",
-   "T": "RESPONDS",
-   "sa_flow": "REACTS",
-   "ra_t": "RESPONDS",
-   "oa_flow": "REACTS",
-   "ma_t": "RESPONDS",
-   "oa_t": "REACTS"
-  },
-  "votes": {
-   "plenum_p": {
-    "REACTS": 28,
-    "RESPONDS": 34
+  "rules": {
+   "timing": {
+    "resolved": 214,
+    "unresolved": 85,
+    "roles": {
+     "plenum_p": "RESPONDS",
+     "sf_spd": "RESPONDS",
+     "rf_spd": "REACTS",
+     "oa_damper": "REACTS",
+     "fan": "REACTS",
+     "T": "RESPONDS",
+     "sa_flow": "REACTS",
+     "ra_t": "RESPONDS",
+     "oa_flow": "REACTS",
+     "ma_t": "RESPONDS",
+     "oa_t": "REACTS"
+    },
+    "votes": {
+     "plenum_p": {
+      "REACTS": 28,
+      "RESPONDS": 34
+     },
+     "sf_spd": {
+      "RESPONDS": 33,
+      "REACTS": 21
+     },
+     "rf_spd": {
+      "REACTS": 41,
+      "RESPONDS": 39
+     },
+     "oa_damper": {
+      "RESPONDS": 24,
+      "REACTS": 37
+     },
+     "fan": {
+      "REACTS": 5,
+      "RESPONDS": 1
+     },
+     "T": {
+      "RESPONDS": 11,
+      "REACTS": 7
+     },
+     "sa_flow": {
+      "REACTS": 22,
+      "RESPONDS": 20
+     },
+     "ra_t": {
+      "REACTS": 2,
+      "RESPONDS": 3
+     },
+     "oa_flow": {
+      "REACTS": 19,
+      "RESPONDS": 14
+     },
+     "sa_t": {
+      "RESPONDS": 18,
+      "REACTS": 18
+     },
+     "ma_t": {
+      "RESPONDS": 6,
+      "REACTS": 2
+     },
+     "oa_t": {
+      "REACTS": 1
+     },
+     "hw_valve": {
+      "RESPONDS": 9,
+      "REACTS": 9
+     },
+     "Tsp_c": {
+      "REACTS": 2,
+      "RESPONDS": 2
+     }
+    },
+    "dimension_check": {
+     "reacts_dimensionless": 0.5,
+     "responds_dimensioned": 0.8,
+     "n_reacts": 6,
+     "n_responds": 5,
+     "chance": 0.5
+    },
+    "flowsheet_check": {
+     "actuator_measurement_returns": 56,
+     "actuator_reacts": 35,
+     "share": 0.625,
+     "actuators": [
+      "Tsp_c",
+      "Tsp_h",
+      "oa_damper",
+      "sat_sp",
+      "static_sp"
+     ],
+     "promotable": false
+    }
    },
-   "sf_spd": {
-    "RESPONDS": 33,
-    "REACTS": 21
-   },
-   "rf_spd": {
-    "REACTS": 41,
-    "RESPONDS": 39
-   },
-   "oa_damper": {
-    "RESPONDS": 24,
-    "REACTS": 37
-   },
-   "fan": {
-    "REACTS": 5,
-    "RESPONDS": 1
-   },
-   "T": {
-    "RESPONDS": 11,
-    "REACTS": 7
-   },
-   "sa_flow": {
-    "REACTS": 22,
-    "RESPONDS": 20
-   },
-   "ra_t": {
-    "REACTS": 2,
-    "RESPONDS": 3
-   },
-   "oa_flow": {
-    "REACTS": 19,
-    "RESPONDS": 14
-   },
-   "sa_t": {
-    "RESPONDS": 18,
-    "REACTS": 18
-   },
-   "ma_t": {
-    "RESPONDS": 6,
-    "REACTS": 2
-   },
-   "oa_t": {
-    "REACTS": 1
-   },
-   "hw_valve": {
-    "RESPONDS": 9,
-    "REACTS": 9
-   },
-   "Tsp_c": {
-    "REACTS": 2,
-    "RESPONDS": 2
+   "determinism": {
+    "resolved": 204,
+    "unresolved": 95,
+    "roles": {
+     "plenum_p": "REACTS",
+     "sf_spd": "RESPONDS",
+     "rf_spd": "REACTS",
+     "oa_damper": "REACTS",
+     "ma_t": "RESPONDS",
+     "T": "REACTS",
+     "hw_valve": "RESPONDS",
+     "sa_flow": "RESPONDS",
+     "ra_t": "RESPONDS",
+     "sa_t": "RESPONDS",
+     "oa_flow": "REACTS",
+     "Tsp_c": "RESPONDS"
+    },
+    "votes": {
+     "plenum_p": {
+      "REACTS": 72
+     },
+     "sf_spd": {
+      "RESPONDS": 41,
+      "REACTS": 8
+     },
+     "rf_spd": {
+      "REACTS": 32,
+      "RESPONDS": 18
+     },
+     "oa_damper": {
+      "RESPONDS": 35,
+      "REACTS": 36
+     },
+     "ma_t": {
+      "RESPONDS": 14
+     },
+     "T": {
+      "REACTS": 13,
+      "RESPONDS": 1
+     },
+     "fan": {
+      "RESPONDS": 2,
+      "REACTS": 2
+     },
+     "hw_valve": {
+      "RESPONDS": 12,
+      "REACTS": 4
+     },
+     "sa_flow": {
+      "RESPONDS": 37,
+      "REACTS": 3
+     },
+     "ra_t": {
+      "RESPONDS": 7
+     },
+     "sa_t": {
+      "RESPONDS": 25,
+      "REACTS": 20
+     },
+     "oa_flow": {
+      "RESPONDS": 8,
+      "REACTS": 14
+     },
+     "Tsp_c": {
+      "RESPONDS": 4
+     }
+    },
+    "dimension_check": {
+     "reacts_dimensionless": 0.4,
+     "responds_dimensioned": 0.7142857142857143,
+     "n_reacts": 5,
+     "n_responds": 7,
+     "chance": 0.5
+    },
+    "flowsheet_check": {
+     "actuator_measurement_returns": 63,
+     "actuator_reacts": 30,
+     "share": 0.47619047619047616,
+     "actuators": [
+      "Tsp_c",
+      "Tsp_h",
+      "oa_damper",
+      "sat_sp",
+      "static_sp"
+     ],
+     "promotable": false
+    }
    }
-  },
-  "dimension_check": null,
-  "flowsheet_check": {
-   "actuator_measurement_returns": 56,
-   "actuator_reacts": 35,
-   "share": 0.625,
-   "actuators": [
-    "Tsp_c",
-    "Tsp_h",
-    "oa_damper",
-    "sat_sp",
-    "static_sp"
-   ]
   }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 1153.9
+ "elapsed_s": 1156.4
 }

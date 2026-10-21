@@ -1,0 +1,301 @@
+{
+ "time_unit": "minute",
+ "entity_key": "grid",
+ "period": "auto",
+ "system_wide_types": [],
+ "tie_rule": "canonical",
+ "kind": "real power system (Nordic synchronous area, Fingrid)",
+ "origin": "scripts/ingest_fingrid.py",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "f": "dsign",
+   "fcrn_down": "dsign",
+   "fcrn_up": "dsign",
+   "afrr_up": "q20_50_80",
+   "afrr_down": "dsign",
+   "net_ie": "dsign"
+  },
+  "thresholds": {
+   "afrr_up": {
+    "grid_afrr_up": [
+     0.0,
+     1.893,
+     30.221
+    ]
+   }
+  },
+  "noise_windows": {
+   "grid_f": 9,
+   "grid_fcrn_down": 2,
+   "grid_fcrn_up": 3,
+   "grid_afrr_up": 2,
+   "grid_afrr_down": 2,
+   "grid_net_ie": 1
+  }
+ },
+ "sample_minutes": 3.0,
+ "span": {
+  "start": "2024-07-01 00:00:00+00:00",
+  "end": "2025-06-30 23:54:00+00:00"
+ },
+ "entity_note": "one candidate: the Nordic synchronous area is one system with one copy of every role; 3.1 has nothing to compare",
+ "source": "Fingrid open data (data.fingrid.fi, CC BY 4.0): series 177, 343, 344, 349, 350, 194; fetched with a registered key, never stored",
+ "span_note": "365 days at 3-minute samples; the 15-minute reserve series are held within their quarter on the 3-minute grid",
+ "rosetta": "grid frequency regulation: frequency <T\u207b\u00b9> -> activated reserve <M L\u00b2 T\u207b\u00b3> -> frequency; the loop is the whole synchronous area and the reserve is its only actuator",
+ "tags": {
+  "f": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "grid_f": {
+     "const_frac": 0.033,
+     "noise_window": 9,
+     "corr_time": 7,
+     "speed_ratio": 0.233,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 15,
+   "in_degree": 15,
+   "binding_share": 0.0,
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
+   },
+   "dimension": [
+    0,
+    0,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "frequency",
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
+  },
+  "fcrn_down": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "grid_fcrn_down": {
+     "const_frac": 0.8,
+     "noise_window": 2,
+     "corr_time": 7,
+     "speed_ratio": 0.233,
+     "saturation": 0.061,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "LEAD",
+   "locality": "COMMON",
+   "out_degree": 9,
+   "in_degree": 4,
+   "binding_share": 0.0,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7COMMON\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  },
+  "fcrn_up": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "grid_fcrn_up": {
+     "const_frac": 0.803,
+     "noise_window": 3,
+     "corr_time": 6,
+     "speed_ratio": 0.2,
+     "saturation": 0.089,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "LEAD",
+   "locality": "COMMON",
+   "out_degree": 8,
+   "in_degree": 3,
+   "binding_share": 0.0,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7COMMON\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  },
+  "afrr_up": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "grid_afrr_up": {
+     "const_frac": 0.867,
+     "noise_window": 2,
+     "corr_time": 8,
+     "speed_ratio": 0.267,
+     "saturation": 0.506,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 31,
+   "in_degree": 35,
+   "binding_share": 0.0,
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 2
+     }
+    }
+   },
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  },
+  "afrr_down": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "grid_afrr_down": {
+     "const_frac": 0.835,
+     "noise_window": 2,
+     "corr_time": 8,
+     "speed_ratio": 0.267,
+     "saturation": 0.299,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 8,
+   "in_degree": 14,
+   "binding_share": 0.0,
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
+   },
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  },
+  "net_ie": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "grid_net_ie": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 346,
+     "speed_ratio": 11.533,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "SLOW\u00b7ISOLATED \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  }
+ },
+ "tags_note": "parts of speech (3.14): clock prefix at 3-minute samples relative to H; place prefix from the v1 library; dimension suffix: frequency <T\u207b\u00b9>, reserves and net transfer <M L\u00b2 T\u207b\u00b3>"
+}

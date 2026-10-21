@@ -9,7 +9,7 @@ import os, sys, json, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT); sys.path.insert(0, os.path.dirname(__file__))
 from collections import Counter
 from isomorph.choose.pos import tag_layout, shape_of, shape_of_chain, place_tags, DIMENSIONS, full_tag
-from isomorph.mine.syntax import loop_tags
+from isomorph.mine.syntax import loop_tags, LOOP_RULES
 from isomorph.canon.ingest import read_dataset
 from isomorph.mine.contexts import streams_of, LagClasses
 
@@ -30,9 +30,11 @@ def write_tags(d, tags, note, dimension=None):
         L = json.load(open(lib))
         place = place_tags(L.get("fragments", []), list(side["tags"]))
         for r, pt in place.items(): side["tags"][r].update(pt)
-        loop, votes = loop_tags(L.get("chains", []))          # v7 (3.16): the fast side and the slow side of the loops
-        for r in side["tags"]:
-            side["tags"][r]["loop"] = loop.get(r); side["tags"][r]["loop_votes"] = votes.get(r)
+        for rule in LOOP_RULES:                                 # v8 (3.16): every loop rule's tags recorded in the sidecar, none in the prefix
+            loop, votes = loop_tags(L.get("chains", []), rule)
+            for r in side["tags"]:
+                side["tags"][r].setdefault("loop_tags", {})[rule] = dict(tag=loop.get(r), votes=votes.get(r))
+                side["tags"][r].pop("loop", None); side["tags"][r].pop("loop_votes", None)
     for r in side["tags"]:
         q = (dimension or {}).get(r)
         side["tags"][r]["dimension"] = list(DIMENSIONS[q]) if q else None
@@ -58,7 +60,7 @@ if __name__ == "__main__":
     d = os.path.join(ROOT, "datasets/hai")
     df, bounds, files = HL.load_files(sorted(glob.glob(os.path.join(d, "raw/*.csv.gz"))))
     write_tags(d, tag_layout(df, HL.process_layout(df), horizon_samples(d, HL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix from the technical details", HL.DIMENSION)
-    import tclab_layout as TL, battery_layout as BL, physionet_slp_layout as PL, building_59_layout as B59
+    import tclab_layout as TL, battery_layout as BL, physionet_slp_layout as PL, building_59_layout as B59, fingrid_layout as FG
     d = os.path.join(ROOT, "datasets/tclab")
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, bounds, files = TL.load_files(os.path.join(d, "raw"))
@@ -75,3 +77,7 @@ if __name__ == "__main__":
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, units, zones = B59.load_year(os.path.join(d, "raw"))
         write_tags(d, tag_layout(df, B59.unit_layout(df, units, zones), horizon_samples(d, B59.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 5-minute means relative to H; place prefix from the v1 library; dimension suffix from the point units (°F temperatures <Θ>, cfm flows, in. w.c. pressures, % positions and speeds, kW, W/m²)", B59.DIMENSION)
+    d = os.path.join(ROOT, "datasets/fingrid")
+    if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
+        df, span = FG.load_year(os.path.join(d, "raw"))
+        write_tags(d, tag_layout(df, FG.grid_layout(df), horizon_samples(d, FG.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 3-minute samples relative to H; place prefix from the v1 library; dimension suffix: frequency <T⁻¹>, reserves and net transfer <M L² T⁻³>", FG.DIMENSION)

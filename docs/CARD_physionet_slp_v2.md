@@ -68,3 +68,9 @@ cross-role couplings at specific lags, not in the sequence of symbols.
    oscillators are sampled finely, the one whose turning point comes first is the prior. The answer key's
    direction is the causal one; the library's is the temporal one. Recovery should perhaps count either.
 3. **The baroreflex as a pair is absent**, not hidden: the next check is a beat-indexed declaration.
+
+## v8 regeneration (2026-10-21)
+
+Unchanged (22 fragments, 3 chains, 0 returns; 3.136, beats baselines; admitted by horizons). No returns, so no
+loop rule has anything to resolve. As a receiver the dataset is `short` (2.7 observed days ≈ 10 H of training
+against the 200 H the curve wants) and its cells are so flagged.

@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "tclab",
@@ -114,8 +114,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.9558364960539778,
-   "non_deterministic": 1.9558364960539778,
+   "all": 1.9558364960539774,
+   "non_deterministic": 1.9558364960539774,
    "deterministic": null
   }
  },
@@ -185,12 +185,40 @@
  },
  "loop_roles": {
   "returns": 0,
-  "resolved": 0,
-  "unresolved": 0,
-  "roles": {},
-  "votes": {},
-  "dimension_check": null,
-  "flowsheet_check": null
+  "rules": {
+   "timing": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "Tsp"
+     ],
+     "promotable": false
+    }
+   },
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": {
+     "actuator_measurement_returns": 0,
+     "actuator_reacts": 0,
+     "share": null,
+     "actuators": [
+      "Tsp"
+     ],
+     "promotable": false
+    }
+   }
+  }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",

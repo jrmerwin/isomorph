@@ -811,9 +811,19 @@
    "out_degree": 33,
    "in_degree": 17,
    "binding_share": 0.18,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 6
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 6
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 6
+     }
+    }
    },
    "dimension": [
     1,
@@ -825,7 +835,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "SET\u00b7COMMON\u00b7RESPONDS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "SET\u00b7COMMON\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "B2016": {
    "cls": "MID",
@@ -845,9 +855,17 @@
    "out_degree": 25,
    "in_degree": 30,
    "binding_share": 0.87,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
    },
    "dimension": [
     1,
@@ -859,7 +877,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "B3004": {
    "cls": "SET",
@@ -876,9 +894,19 @@
    "out_degree": 64,
    "in_degree": 31,
    "binding_share": 0.26,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 3
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 3
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 3
+     }
+    }
    },
    "dimension": [
     0,
@@ -907,8 +935,16 @@
    "out_degree": 7,
    "in_degree": 11,
    "binding_share": 0.18,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     3,
@@ -936,8 +972,16 @@
    "out_degree": 4,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -968,14 +1012,24 @@
    "out_degree": 93,
    "in_degree": 112,
    "binding_share": 0.67,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 3,
-    "REACTS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3,
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7LOCAL\u00b7RESPONDS"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "B400B": {
    "cls": "MID-S",
@@ -995,10 +1049,20 @@
    "out_degree": 107,
    "in_degree": 120,
    "binding_share": 0.69,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "REACTS": 2,
-    "RESPONDS": 3
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "REACTS": 2,
+      "RESPONDS": 3
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3
+     }
+    }
    },
    "dimension": [
     0,
@@ -1010,7 +1074,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID-S\u00b7LOCAL\u00b7RESPONDS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "B4022": {
    "cls": "SLOW",
@@ -1030,9 +1094,19 @@
    "out_degree": 122,
    "in_degree": 176,
    "binding_share": 0.76,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 9
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 9
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 11
+     }
+    }
    },
    "dimension": [
     0,
@@ -1044,7 +1118,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "SLOW\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "FCV01D": {
    "cls": "MID-S",
@@ -1064,13 +1138,24 @@
    "out_degree": 59,
    "in_degree": 73,
    "binding_share": 0.84,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 2,
+      "REACTS": 1
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7LOCAL\u00b7REACTS"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "FCV01Z": {
    "cls": "MID-S",
@@ -1090,10 +1175,20 @@
    "out_degree": 52,
    "in_degree": 41,
    "binding_share": 0.88,
-   "loop": null,
-   "loop_votes": {
-    "RESPONDS": 1,
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 1,
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 1
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
@@ -1117,8 +1212,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID-S\u00b7ISOLATED"
@@ -1141,14 +1244,24 @@
    "out_degree": 102,
    "in_degree": 144,
    "binding_share": 0.65,
-   "loop": "REACTS",
-   "loop_votes": {
-    "RESPONDS": 2,
-    "REACTS": 5
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 2,
+      "REACTS": 5
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 5
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7LOCAL\u00b7REACTS"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "FCV03D": {
    "cls": "MID",
@@ -1168,8 +1281,16 @@
    "out_degree": 17,
    "in_degree": 9,
    "binding_share": 0.11,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7COMMON\u00b7RELAY"
@@ -1192,8 +1313,16 @@
    "out_degree": 14,
    "in_degree": 24,
    "binding_share": 0.62,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LOCAL\u00b7RELAY"
@@ -1216,10 +1345,20 @@
    "out_degree": 60,
    "in_degree": 66,
    "binding_share": 0.52,
-   "loop": null,
-   "loop_votes": {
-    "RESPONDS": 3,
-    "REACTS": 3
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 3,
+      "REACTS": 3
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 5
+     }
+    }
    },
    "dimension": [
     1,
@@ -1251,9 +1390,19 @@
    "out_degree": 26,
    "in_degree": 27,
    "binding_share": 0.63,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
    },
    "dimension": [
     0,
@@ -1265,7 +1414,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "FT02": {
    "cls": "MID-S",
@@ -1285,9 +1434,19 @@
    "out_degree": 107,
    "in_degree": 120,
    "binding_share": 0.66,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 5
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 5
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 5
+     }
+    }
    },
    "dimension": [
     1,
@@ -1299,7 +1458,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID-S\u00b7LOCAL\u00b7RESPONDS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "FT02Z": {
    "cls": "MID-S",
@@ -1319,10 +1478,20 @@
    "out_degree": 108,
    "in_degree": 120,
    "binding_share": 0.7,
-   "loop": null,
-   "loop_votes": {
-    "RESPONDS": 4,
-    "REACTS": 4
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 4,
+      "REACTS": 4
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 7
+     }
+    }
    },
    "dimension": [
     0,
@@ -1354,8 +1523,16 @@
    "out_degree": 13,
    "in_degree": 21,
    "binding_share": 0.52,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     -1,
@@ -1386,8 +1563,16 @@
    "out_degree": 17,
    "in_degree": 21,
    "binding_share": 0.48,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     3,
@@ -1426,14 +1611,25 @@
    "out_degree": 125,
    "in_degree": 114,
    "binding_share": 0.72,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "REACTS": 9,
-    "RESPONDS": 12
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "REACTS": 9,
+      "RESPONDS": 12
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 12,
+      "RESPONDS": 2
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "LCV01Z": {
    "cls": "MID",
@@ -1453,14 +1649,25 @@
    "out_degree": 97,
    "in_degree": 114,
    "binding_share": 0.69,
-   "loop": "REACTS",
-   "loop_votes": {
-    "RESPONDS": 4,
-    "REACTS": 8
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 4,
+      "REACTS": 8
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 5,
+      "REACTS": 2
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7LOCAL\u00b7REACTS"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "LIT01": {
    "cls": "MID",
@@ -1488,10 +1695,20 @@
    "out_degree": 95,
    "in_degree": 80,
    "binding_share": 0.93,
-   "loop": "REACTS",
-   "loop_votes": {
-    "RESPONDS": 5,
-    "REACTS": 10
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 5,
+      "REACTS": 10
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 9
+     }
+    }
    },
    "dimension": [
     0,
@@ -1503,7 +1720,7 @@
     0
    ],
    "quantity": "length",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8L\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u27e9"
   },
   "PCV01D": {
    "cls": "MID-S",
@@ -1523,8 +1740,18 @@
    "out_degree": 18,
    "in_degree": 27,
    "binding_share": 0.67,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 1
+     }
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID-S\u00b7LOCAL\u00b7RELAY"
@@ -1547,8 +1774,18 @@
    "out_degree": 17,
    "in_degree": 21,
    "binding_share": 0.81,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 1
+     }
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID-S\u00b7LOCAL\u00b7RELAY"
@@ -1568,8 +1805,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "SET\u00b7ISOLATED"
@@ -1592,8 +1837,16 @@
    "out_degree": 2,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "SLOW-S\u00b7LEAD"
@@ -1624,9 +1877,19 @@
    "out_degree": 22,
    "in_degree": 22,
    "binding_share": 0.59,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 4
+     }
+    }
    },
    "dimension": [
     1,
@@ -1638,7 +1901,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "PIT02": {
    "cls": "MID",
@@ -1658,10 +1921,21 @@
    "out_degree": 127,
    "in_degree": 142,
    "binding_share": 0.82,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 19,
-    "RESPONDS": 8
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 19,
+      "RESPONDS": 8
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 18,
+      "RESPONDS": 1
+     }
+    }
    },
    "dimension": [
     1,
@@ -1673,7 +1947,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "TIT01": {
    "cls": "MID",
@@ -1693,9 +1967,19 @@
    "out_degree": 64,
    "in_degree": 29,
    "binding_share": 0.76,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
    },
    "dimension": [
     0,
@@ -1727,9 +2011,19 @@
    "out_degree": 137,
    "in_degree": 110,
    "binding_share": 0.61,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 2
+     }
+    }
    },
    "dimension": [
     0,
@@ -1741,7 +2035,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "24Vdc": {
    "cls": "SLOW",
@@ -1761,8 +2055,16 @@
    "out_degree": 2,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -1793,14 +2095,24 @@
    "out_degree": 24,
    "in_degree": 24,
    "binding_share": 0.83,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 2,
-    "RESPONDS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 2,
+      "RESPONDS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 4
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7LOCAL\u00b7REACTS"
+   "full": "MID\u00b7LOCAL\u00b7RELAY"
   },
   "Emerg": {
    "cls": "SET",
@@ -1816,8 +2128,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "SET\u00b7ISOLATED"
@@ -1840,13 +2160,23 @@
    "out_degree": 44,
    "in_degree": 59,
    "binding_share": 0.68,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 4
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 4
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 7
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "SLOW\u00b7LOCAL\u00b7RESPONDS"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY"
   },
   "OnOff": {
    "cls": "SET",
@@ -1862,8 +2192,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "SET\u00b7ISOLATED"
@@ -1886,9 +2224,19 @@
    "out_degree": 19,
    "in_degree": 21,
    "binding_share": 0.81,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 4
+     }
+    }
    },
    "dimension": [
     0,
@@ -1900,7 +2248,7 @@
     0
    ],
    "quantity": "frequency",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "SIT02": {
    "cls": "MID",
@@ -1920,9 +2268,17 @@
    "out_degree": 18,
    "in_degree": 21,
    "binding_share": 0.71,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
    },
    "dimension": [
     0,
@@ -1934,7 +2290,7 @@
     0
    ],
    "quantity": "frequency",
-   "full": "MID\u00b7LOCAL\u00b7REACTS \u27e8T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8T\u207b\u00b9\u27e9"
   },
   "VT01": {
    "cls": "MID-S",
@@ -1954,8 +2310,16 @@
    "out_degree": 18,
    "in_degree": 6,
    "binding_share": 0.5,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -1986,9 +2350,19 @@
    "out_degree": 31,
    "in_degree": 40,
    "binding_share": 0.62,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 3
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 3
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 3
+     }
+    }
    },
    "dimension": [
     0,
@@ -2000,7 +2374,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SLOW\u00b7LOCAL\u00b7REACTS \u27e8L\u27e9"
+   "full": "SLOW\u00b7LOCAL\u00b7RELAY \u27e8L\u27e9"
   },
   "VXT03": {
    "cls": "SLOW",
@@ -2020,9 +2394,19 @@
    "out_degree": 28,
    "in_degree": 34,
    "binding_share": 0.18,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 1
+     }
+    }
    },
    "dimension": [
     0,
@@ -2034,7 +2418,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SLOW\u00b7COMMON\u00b7REACTS \u27e8L\u27e9"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "VYT02": {
    "cls": "SLOW",
@@ -2054,9 +2438,17 @@
    "out_degree": 40,
    "in_degree": 41,
    "binding_share": 0.37,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
    },
    "dimension": [
     0,
@@ -2068,7 +2460,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SLOW\u00b7COMMON\u00b7REACTS \u27e8L\u27e9"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "VYT03": {
    "cls": "SLOW",
@@ -2088,9 +2480,19 @@
    "out_degree": 37,
    "in_degree": 38,
    "binding_share": 0.47,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 4
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 4
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3
+     }
+    }
    },
    "dimension": [
     0,
@@ -2102,7 +2504,7 @@
     0
    ],
    "quantity": "length",
-   "full": "SLOW\u00b7COMMON\u00b7RESPONDS \u27e8L\u27e9"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u27e9"
   },
   "FIT01": {
    "cls": "TEX",
@@ -2119,8 +2521,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     3,
@@ -2151,14 +2561,24 @@
    "out_degree": 54,
    "in_degree": 59,
    "binding_share": 0.83,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 6,
-    "REACTS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 6,
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 13
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7LOCAL\u00b7RESPONDS"
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
   },
   "HT_FD": {
    "cls": "TEX",
@@ -2175,8 +2595,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -2207,8 +2635,16 @@
    "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2239,8 +2675,16 @@
    "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2268,8 +2712,16 @@
    "out_degree": 3,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2300,8 +2752,16 @@
    "out_degree": 5,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2329,8 +2789,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -2361,8 +2829,16 @@
    "out_degree": 6,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LEAD"
@@ -2385,8 +2861,16 @@
    "out_degree": 7,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2417,8 +2901,16 @@
    "out_degree": 5,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2446,8 +2938,16 @@
    "out_degree": 6,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -2478,8 +2978,16 @@
    "out_degree": 11,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     -1,
@@ -2510,8 +3018,16 @@
    "out_degree": 59,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,

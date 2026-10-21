@@ -1,4 +1,4 @@
-# Benchmark card — tclab (method v7, profile v1, seed 0)
+# Benchmark card — tclab (method v8, profile v1, seed 0)
 
 Kind: real lab kit (TCLab, two heaters) · entities: h1, h2 · types: 12 · events/day: 1471 · lag edges: [0.5225057352610519, 3.276146920569055, 20.54166666666666] · dropped for gaps: 16
 
@@ -17,6 +17,13 @@ Kind: real lab kit (TCLab, two heaters) · entities: h1, h2 · types: 12 · even
 Gain over triviality: -0.170 bits · over best baseline (1.714): -0.235 bits · claim: **no gain**
 Library: 3 fragments (3 used), 0 compositions, chatty share 1.00
 Syntax (3.15): 0 chains (0 used), 0 returns
-Loop roles (3.16): 0 resolved / 0 unresolved returns · roles {} · dimension check None · flowsheet check None
+
+Loop roles (3.16, recorded, not in the prefix):
+
+| rule | resolved | unresolved | roles by tag | dimension check (REACTS dimensionless / RESPONDS dimensioned) | flowsheet check |
+| --- | --- | --- | --- | --- | --- |
+| timing | 0 | 0 |  | — | 0 of 0 |
+| determinism | 0 | 0 |  | — | 0 of 0 |
+
 Admission (section 6): 0.32 days · 22.4 H (test split 5.6 H) · slow periods None · period_slow None · period_fast None → **NOT admitted**
 Recovery: {'recall': 0.0, 'precision': 0.0, 'n_mechanisms': 3, 'n_found': 0}

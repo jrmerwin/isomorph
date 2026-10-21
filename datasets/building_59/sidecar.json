@@ -1750,10 +1750,21 @@
    "out_degree": 64,
    "in_degree": 85,
    "binding_share": 0.64,
-   "loop": null,
-   "loop_votes": {
-    "RESPONDS": 18,
-    "REACTS": 18
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 18,
+      "REACTS": 18
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 25,
+      "REACTS": 20
+     }
+    }
    },
    "dimension": [
     0,
@@ -1797,8 +1808,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -1853,10 +1872,20 @@
    "out_degree": 27,
    "in_degree": 26,
    "binding_share": 0.62,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 6,
-    "REACTS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 6,
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 14
+     }
+    }
    },
    "dimension": [
     0,
@@ -1868,7 +1897,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "ra_t": {
    "cls": "MID",
@@ -1912,10 +1941,20 @@
    "out_degree": 17,
    "in_degree": 15,
    "binding_share": 0.53,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "REACTS": 2,
-    "RESPONDS": 3
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "REACTS": 2,
+      "RESPONDS": 3
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 7
+     }
+    }
    },
    "dimension": [
     0,
@@ -1927,7 +1966,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "oa_t": {
    "cls": "MID",
@@ -1971,9 +2010,17 @@
    "out_degree": 24,
    "in_degree": 12,
    "binding_share": 0.25,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
    },
    "dimension": [
     0,
@@ -2029,14 +2076,25 @@
    "out_degree": 137,
    "in_degree": 130,
    "binding_share": 0.47,
-   "loop": "REACTS",
-   "loop_votes": {
-    "RESPONDS": 24,
-    "REACTS": 37
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 24,
+      "REACTS": 37
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 35,
+      "REACTS": 36
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "MID-S\u00b7COMMON\u00b7REACTS"
+   "full": "MID-S\u00b7COMMON\u00b7RELAY"
   },
   "oa_flow": {
    "cls": "MID",
@@ -2080,10 +2138,21 @@
    "out_degree": 106,
    "in_degree": 126,
    "binding_share": 0.33,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 19,
-    "RESPONDS": 14
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 19,
+      "RESPONDS": 14
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "RESPONDS": 8,
+      "REACTS": 14
+     }
+    }
    },
    "dimension": [
     0,
@@ -2095,7 +2164,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID\u00b7COMMON\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "sa_flow": {
    "cls": "SLOW",
@@ -2139,10 +2208,21 @@
    "out_degree": 111,
    "in_degree": 162,
    "binding_share": 0.47,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 22,
-    "RESPONDS": 20
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 22,
+      "RESPONDS": 20
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 37,
+      "REACTS": 3
+     }
+    }
    },
    "dimension": [
     0,
@@ -2154,7 +2234,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "SLOW\u00b7COMMON\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "sf_spd": {
    "cls": "SLOW",
@@ -2198,14 +2278,25 @@
    "out_degree": 129,
    "in_degree": 156,
    "binding_share": 0.43,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 33,
-    "REACTS": 21
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 33,
+      "REACTS": 21
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 41,
+      "REACTS": 8
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "SLOW\u00b7COMMON\u00b7RESPONDS"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY"
   },
   "rf_spd": {
    "cls": "SLOW",
@@ -2249,14 +2340,25 @@
    "out_degree": 146,
    "in_degree": 189,
    "binding_share": 0.5,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 41,
-    "RESPONDS": 39
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 41,
+      "RESPONDS": 39
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 32,
+      "RESPONDS": 18
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "SLOW\u00b7COMMON\u00b7REACTS"
+   "full": "SLOW\u00b7COMMON\u00b7RELAY"
   },
   "plenum_p": {
    "cls": "MID",
@@ -2300,10 +2402,20 @@
    "out_degree": 115,
    "in_degree": 137,
    "binding_share": 0.65,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "REACTS": 28,
-    "RESPONDS": 34
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "REACTS": 28,
+      "RESPONDS": 34
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 72
+     }
+    }
    },
    "dimension": [
     1,
@@ -2315,7 +2427,7 @@
     0
    ],
    "quantity": "pressure",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
   },
   "econ_sp": {
    "cls": "SET",
@@ -2347,8 +2459,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -2376,8 +2496,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     -1,
@@ -2808,10 +2936,21 @@
    "out_degree": 79,
    "in_degree": 98,
    "binding_share": 0.85,
-   "loop": "RESPONDS",
-   "loop_votes": {
-    "RESPONDS": 11,
-    "REACTS": 7
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 11,
+      "REACTS": 7
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 13,
+      "RESPONDS": 1
+     }
+    }
    },
    "dimension": [
     0,
@@ -2823,7 +2962,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
   },
   "fan": {
    "cls": "SET",
@@ -3080,14 +3219,25 @@
    "out_degree": 36,
    "in_degree": 51,
    "binding_share": 0.55,
-   "loop": "REACTS",
-   "loop_votes": {
-    "REACTS": 5,
-    "RESPONDS": 1
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 5,
+      "RESPONDS": 1
+     }
+    },
+    "determinism": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 2,
+      "REACTS": 2
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
-   "full": "SET\u00b7LOCAL\u00b7REACTS"
+   "full": "SET\u00b7LOCAL\u00b7RELAY"
   },
   "hw_valve": {
    "cls": "MID-S",
@@ -3378,10 +3528,21 @@
    "out_degree": 41,
    "in_degree": 54,
    "binding_share": 0.89,
-   "loop": null,
-   "loop_votes": {
-    "RESPONDS": 9,
-    "REACTS": 9
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "RESPONDS": 9,
+      "REACTS": 9
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 12,
+      "REACTS": 4
+     }
+    }
    },
    "dimension": null,
    "quantity": null,
@@ -3587,10 +3748,20 @@
    "out_degree": 26,
    "in_degree": 41,
    "binding_share": 0.54,
-   "loop": null,
-   "loop_votes": {
-    "REACTS": 2,
-    "RESPONDS": 2
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": {
+      "REACTS": 2,
+      "RESPONDS": 2
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 4
+     }
+    }
    },
    "dimension": [
     0,
@@ -3804,8 +3975,16 @@
    "out_degree": 7,
    "in_degree": 3,
    "binding_share": 0.67,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -3916,8 +4095,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -3940,8 +4127,16 @@
    "out_degree": 61,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     0,
     0,
@@ -3972,8 +4167,16 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     0,
@@ -4004,8 +4207,16 @@
    "out_degree": 61,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7LEAD"
@@ -4028,8 +4239,16 @@
    "out_degree": 42,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,
@@ -4060,8 +4279,16 @@
    "out_degree": 56,
    "in_degree": 0,
    "binding_share": null,
-   "loop": null,
-   "loop_votes": null,
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
    "dimension": [
     1,
     2,

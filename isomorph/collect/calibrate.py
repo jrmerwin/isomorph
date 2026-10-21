@@ -41,7 +41,7 @@ def measure(profile, log=print):
                transfer_A_to_B=dict(mapping_accuracy=acc, anchors=anchors, learned=tr_learned, true_mapping=tr_true))
     log(f"[transfer A->B] mapping accuracy {acc['accuracy']:.2f} on {acc['n_scorable']} types (anchors {anchors}); "
         f"zero-shot learned {tr_learned['zero_shot']['all']:.3f} / shared {tr_learned['zero_shot']['shared']:.3f}; "
-        f"true {tr_true['zero_shot']['all']:.3f} / {tr_true['zero_shot']['shared']:.3f}; cell {tr_learned['cell_bit_days']:.2f} bit-days")
+        f"true {tr_true['zero_shot']['all']:.3f} / {tr_true['zero_shot']['shared']:.3f}; cell {tr_learned.get('cell_bit_horizons')} bit-H")
     return out
 
 
@@ -64,7 +64,7 @@ def calibrate(record=False, profiles=("legacy", "v1"), log=print):
     for p in profiles:
         a, b = flatten(ref.get(p, {})), flatten(results[p])
         for k in sorted(set(a) & set(b)):
-            if any(s in k for s in ("headline", "zero_shot", "cell_bit_days", "accuracy")):
+            if any(s in k for s in ("headline", "zero_shot", "cell_bit", "accuracy")):
                 d = abs(a[k] - b[k])
                 tol = K.CALIBRATION_TOLERANCE_BITS if "accuracy" not in k and "cell" not in k else 0.05
                 flag = "" if d <= tol else "   <-- OUT OF TOLERANCE"

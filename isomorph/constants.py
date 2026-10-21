@@ -6,8 +6,8 @@ in minutes, a 30/30 train/test split with a 20/10 proposal/confirmation split
 inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
-CARD_RULES_VERSION = 7   # the version at which the per-dataset rules (3.1-3.11, 3.15, 3.16) last changed; cards and cached state from it stay valid (v7: loop roles, fine-grid period, admission in horizons)
-METHOD_VERSION = 7   # v7: loop roles REACTS/RESPONDS (3.16), fine-grid period (3.4), admission in horizons (section 6); v6: gap clipping (3.6), cross-scheme spelling (3.12), chains and returns (3.15) — spec in METHOD.md, built on the Mac; v5: structural prefix (place) and dimension suffix in alignment and control (3.14, 3.12); v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
+CARD_RULES_VERSION = 8   # v8: the Loop roles block changed (two rules, checks);  the version at which the per-dataset rules (3.1-3.11, 3.15, 3.16) last changed; cards and cached state from it stay valid (v7: loop roles, fine-grid period, admission in horizons)
+METHOD_VERSION = 8   # v8: derangement controls and uncontrolled cells, curve on observed time to 200 receiver horizons in bit-horizons (3.12), timing loop rule withdrawn from prefix and alignment, determinism rule as candidate (3.16); v7: loop roles REACTS/RESPONDS (3.16), fine-grid period (3.4), admission in horizons (section 6); v6: gap clipping (3.6), cross-scheme spelling (3.12), chains and returns (3.15) — spec in METHOD.md, built on the Mac; v5: structural prefix (place) and dimension suffix in alignment and control (3.14, 3.12); v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -19,6 +19,7 @@ ALIGN_ITERS = 30
 N_ANCHORS = 2
 ALIGN_UNMATCHED_PENALTY = 3.0     # role-level alignment (v5): penalty, in units of the typical signature distance, for leaving a role unmatched
 LEARNING_CURVE_DAYS = (1, 2, 3, 5, 10, 20, None)   # None = all training days
+LEARNING_CURVE_HORIZONS = (1, 2, 3, 5, 10, 20, 50, 100, 200)   # v8 (3.12): curve points in receiver recurrence horizons H on observed training time; area to 200 H or training end, in bit-horizons
 N_CONTROL_MAPPINGS = 10                             # permuted-mapping controls per cell (3.12, v3; 3 until the seeds sweep showed the control's spread was the matrix's largest uncertainty)
 
 # parts of speech (3.14, v4): dimensionless, relative to the system's horizon
@@ -27,6 +28,7 @@ POS_FAST = 0.1            # correlation time / horizon below which a series is F
 POS_SLOW = 1.0            # ... above which it is SLOW
 POS_SAT_SHARE = 0.05      # share of samples at the min or max (1% of range) at or above which a series saturates (S)
 CHAIN_MAX_NODES = 3       # syntax motifs (3.15, v6): chains of two validated fragments; longer paths wait for evidence
+LOOP_PROMOTION_SHARE = 0.75  # 3.16 (v8): a loop rule enters the prefix only at flowsheet >= 0.75 on every keyed dataset with >= 10 resolved actuator-measurement returns
 LOOP_GAP_RATIO = 1.5      # loop roles (3.16, v7): the leg with the shorter median realised gap reacts, if shorter by this ratio; else unresolved
 PERIOD_FINE_LAGS = 1000   # fine-grid period (3.4, v7): acf of the event rate binned at the resolution delta, lags out to this many delta
 ADMISSION_DAYS = 20       # section 6: 20 days, or 20 slow periods, or ADMISSION_HORIZONS recurrence horizons (test split >= 50)

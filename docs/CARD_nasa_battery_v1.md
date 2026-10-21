@@ -125,3 +125,9 @@ the protocol: the cycler switches the current the minute the voltage reaches cut
 by construction (a current source is an actuator with a dimension: REACTS dimensionless 0 of 1, RESPONDS
 dimensioned 1 of 1) and the flowsheet check has no actuator–measurement return to count (the key's actuator is I
 itself and both ends of the return are I). The card says so; the reading holds here where the check does not.
+
+## v8 regeneration (2026-10-21): loop rules recorded
+
+Unchanged (47 fragments, 13 chains, 1 return; 0.838). Timing: I REACTS, V RESPONDS (as in v7). Determinism:
+**unresolved** — P(V down | I down within s) and P(I up | V down within s) are within the ratio of 1.5 of each
+other: in a cycling protocol both legs are deterministic. No prediction was declared for the battery.

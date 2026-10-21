@@ -1,5 +1,5 @@
 {
- "method_version": 7,
+ "method_version": 8,
  "profile": "v1",
  "seed": 0,
  "dataset": "nasa_battery",
@@ -92,7 +92,7 @@
   "period_slow": 239.51998959669007,
   "period_fast": null,
   "resolution_delta": 1.0,
-  "signal_floor": 168,
+  "signal_floor": 161,
   "min_count": 3,
   "lag_edges": [
    5.806314960941695,
@@ -145,8 +145,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 0.827467879716075,
-   "non_deterministic": 0.827467879716075,
+   "all": 0.8274678797746622,
+   "non_deterministic": 0.8274678797746622,
    "deterministic": null
   }
  },
@@ -226,35 +226,42 @@
  },
  "loop_roles": {
   "returns": 1,
-  "resolved": 1,
-  "unresolved": 0,
-  "roles": {
-   "I": "REACTS",
-   "V": "RESPONDS"
-  },
-  "votes": {
-   "I": {
-    "REACTS": 1
+  "rules": {
+   "timing": {
+    "resolved": 1,
+    "unresolved": 0,
+    "roles": {
+     "I": "REACTS",
+     "V": "RESPONDS"
+    },
+    "votes": {
+     "I": {
+      "REACTS": 1
+     },
+     "V": {
+      "RESPONDS": 1
+     }
+    },
+    "dimension_check": {
+     "reacts_dimensionless": 0.0,
+     "responds_dimensioned": 1.0,
+     "n_reacts": 1,
+     "n_responds": 1,
+     "chance": 0.5
+    },
+    "flowsheet_check": null
    },
-   "V": {
-    "RESPONDS": 1
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 1,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
    }
-  },
-  "dimension_check": {
-   "reacts_dimensionless": 0.0,
-   "responds_dimensioned": 1.0,
-   "n_reacts": 1,
-   "n_responds": 1,
-   "chance": 0.5
-  },
-  "flowsheet_check": {
-   "actuator_measurement_returns": 0,
-   "actuator_reacts": 0,
-   "share": null,
-   "actuators": []
   }
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 19.5
+ "elapsed_s": 20.3
 }

@@ -18,10 +18,13 @@
     "n_BC": 193,
     "n_AB": 121
    },
-   "shape": "MID\u00b7RESPONDS.up.q50 -s-> MID\u00b7RESPONDS.up.q80 -s-> FAST\u00b7FOLLOW.peak",
+   "shape": "MID\u00b7RELAY.up.q50 -s-> MID\u00b7RELAY.up.q80 -s-> FAST\u00b7FOLLOW.peak",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "I:downq90",
@@ -41,10 +44,13 @@
     "n_BC": 193,
     "n_AB": 67
    },
-   "shape": "MID-S\u00b7REACTS.down.q90 -s-> MID\u00b7RESPONDS.up.q80 -s-> FAST\u00b7FOLLOW.peak",
+   "shape": "MID-S\u00b7RELAY.down.q90 -s-> MID\u00b7RELAY.up.q80 -s-> FAST\u00b7FOLLOW.peak",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:downq80",
@@ -64,10 +70,13 @@
     "n_BC": 668,
     "n_AB": 434
    },
-   "shape": "MID\u00b7RESPONDS.down.q80 -s-> MID\u00b7RESPONDS.up.q80 -m-> MID\u00b7RESPONDS.up.q80",
+   "shape": "MID\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.up.q80 -m-> MID\u00b7RELAY.up.q80",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:downq20",
@@ -87,10 +96,13 @@
     "n_BC": 52,
     "n_AB": 41
    },
-   "shape": "MID\u00b7RESPONDS.down.q20 -m-> MID-S\u00b7REACTS.up.q10 -s-> MID-S\u00b7REACTS.down.q10",
+   "shape": "MID\u00b7RELAY.down.q20 -m-> MID-S\u00b7RELAY.up.q10 -s-> MID-S\u00b7RELAY.down.q10",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:upq20",
@@ -110,10 +122,13 @@
     "n_BC": 46,
     "n_AB": 28
    },
-   "shape": "MID\u00b7RESPONDS.up.q20 -m-> FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7REACTS.up.q90",
+   "shape": "MID\u00b7RELAY.up.q20 -m-> FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7RELAY.up.q90",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:upq80",
@@ -133,10 +148,13 @@
     "n_BC": 325,
     "n_AB": 127
    },
-   "shape": "MID\u00b7RESPONDS.up.q80 -s-> MID\u00b7RESPONDS.down.q80 -s-> MID\u00b7RESPONDS.up.q80",
+   "shape": "MID\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.up.q80",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:upq80",
@@ -156,10 +174,13 @@
     "n_BC": 383,
     "n_AB": 183
    },
-   "shape": "MID\u00b7RESPONDS.up.q80 -m-> MID\u00b7RESPONDS.up.q80 -s-> MID\u00b7RESPONDS.down.q80",
+   "shape": "MID\u00b7RELAY.up.q80 -m-> MID\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.down.q80",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:downq80",
@@ -179,10 +200,13 @@
     "n_BC": 383,
     "n_AB": 134
    },
-   "shape": "MID\u00b7RESPONDS.down.q80 -s-> MID\u00b7RESPONDS.up.q80 -s-> MID\u00b7RESPONDS.down.q80",
+   "shape": "MID\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.down.q80",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:downq20",
@@ -202,10 +226,13 @@
     "n_BC": 130,
     "n_AB": 57
    },
-   "shape": "MID\u00b7RESPONDS.down.q20 -m-> MID-S\u00b7REACTS.down.q10 -s-> MID-S\u00b7REACTS.up.q10",
+   "shape": "MID\u00b7RELAY.down.q20 -m-> MID-S\u00b7RELAY.down.q10 -s-> MID-S\u00b7RELAY.up.q10",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "I:downq10",
@@ -225,10 +252,13 @@
     "n_BC": 35,
     "n_AB": 33
    },
-   "shape": "MID-S\u00b7REACTS.down.q10 -s-> MID\u00b7RESPONDS.down.q20 -s-> MID-S\u00b7REACTS.up.q10 [return]",
+   "shape": "MID-S\u00b7RELAY.down.q10 -s-> MID\u00b7RELAY.down.q20 -s-> MID-S\u00b7RELAY.up.q10 [return]",
    "g1": 3.0,
    "g2": 1.0,
-   "verdict": "X reacts"
+   "verdict": "X reacts",
+   "p1": 0.2542372881355932,
+   "p2": 0.3333333333333333,
+   "verdict_determinism": "unresolved"
   },
   {
    "a": "V:upq20",
@@ -248,10 +278,13 @@
     "n_BC": 46,
     "n_AB": 10
    },
-   "shape": "MID\u00b7RESPONDS.up.q20 -s-> FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7REACTS.up.q90",
+   "shape": "MID\u00b7RELAY.up.q20 -s-> FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7RELAY.up.q90",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "T:trough",
@@ -271,10 +304,13 @@
     "n_BC": 84,
     "n_AB": 7
    },
-   "shape": "FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7REACTS.up.q90 -s-> MID-S\u00b7REACTS.down.q90",
+   "shape": "FAST\u00b7FOLLOW.trough -s-> MID-S\u00b7RELAY.up.q90 -s-> MID-S\u00b7RELAY.down.q90",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   },
   {
    "a": "V:downq20",
@@ -294,10 +330,13 @@
     "n_BC": 130,
     "n_AB": 17
    },
-   "shape": "MID\u00b7RESPONDS.down.q20 -s-> MID-S\u00b7REACTS.down.q10 -s-> MID-S\u00b7REACTS.up.q10",
+   "shape": "MID\u00b7RELAY.down.q20 -s-> MID-S\u00b7RELAY.down.q10 -s-> MID-S\u00b7RELAY.up.q10",
    "g1": null,
    "g2": null,
-   "verdict": null
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
   }
  ],
  "fragments": [
@@ -454,7 +493,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "MID.down.q50 -s-> MID.up.q50 [same role]"
   },
@@ -506,7 +546,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.down.q20 -l-> FAST.peak"
   },
@@ -583,7 +624,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "MID.up.q50 -s-> FAST.peak"
   },
@@ -739,7 +781,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.up.q80 -s-> MID.down.q80 [same role]"
   },
@@ -814,7 +857,9 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "fingrid"
+   ],
    "failed_in": [
     "tennessee_eastman"
    ],
@@ -868,7 +913,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.down.q80 -s-> MID.up.q80 [same role]"
   },
@@ -894,7 +940,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.up.q20 -m-> FAST.trough"
   },
@@ -919,7 +966,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "FAST.trough -s-> MID.down.q50"
   },
@@ -942,7 +990,9 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "fingrid"
+   ],
    "failed_in": [
     "tennessee_eastman",
     "hai"
@@ -1022,7 +1072,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.up.q80 -s-> FAST.peak"
   },
@@ -1047,7 +1098,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "MID.up.q50 -l-> MID.down.q80 [same role]"
   },
@@ -1070,7 +1122,9 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "fingrid"
+   ],
    "failed_in": [
     "tennessee_eastman",
     "hai"
@@ -1125,7 +1179,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.down.q80 -m-> MID.down.q80 [same role]"
   },
@@ -1227,7 +1282,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "MID.up.q80 -m-> MID.down.q50 [same role]"
   },
@@ -1304,7 +1360,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "FAST.peak -l-> MID.down.q50"
   },
@@ -1327,7 +1384,9 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "nasa_battery",
-   "confirmed_in": [],
+   "confirmed_in": [
+    "fingrid"
+   ],
    "failed_in": [
     "tennessee_eastman"
    ],
@@ -1355,7 +1414,8 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai"
+    "hai",
+    "fingrid"
    ],
    "shape": "MID.up.q80 -m-> MID.up.q80 [same role]"
   },
@@ -1405,7 +1465,8 @@
    "first_validated_in": "nasa_battery",
    "confirmed_in": [],
    "failed_in": [
-    "tennessee_eastman"
+    "tennessee_eastman",
+    "fingrid"
    ],
    "shape": "MID.up.q50 -l-> MID.down.q50 [same role]"
   },
