@@ -113,3 +113,15 @@ the discharge current switches on, the voltage falls through its lower quantile,
 Spelled `MID-S·RELAY.down.q10 -s-> MID·RELAY.down.q20 -s-> MID-S·RELAY.up.q10 [return]`. The other chains are
 the charge's constant-voltage phase (`V:upq50 -s-> V:upq80 -s-> T:peak`, n = 121) and the discharge's
 temperature trough preceding the next charge.
+
+## v7 regeneration (2026-10-21): loop roles, fine-grid period, admission in horizons
+
+Unchanged from v6 (47 fragments, 13 chains, 1 return, library 0.838); the slow period 239.5 min is found again and
+no fast one. Admission: 47.5 days, **349 H** (test 87 H), 285 slow periods → admitted by days.
+
+**Loop roles (3.16).** The one return, `I:downq10 -s-> V:downq20 -s-> I:upq10`, has g1 = 3.0 min (current → voltage)
+and g2 = 1.0 min (voltage → current): the current reacts, the voltage responds — **I REACTS, V RESPONDS**. That is
+the protocol: the cycler switches the current the minute the voltage reaches cutoff. The dimension check fails
+by construction (a current source is an actuator with a dimension: REACTS dimensionless 0 of 1, RESPONDS
+dimensioned 1 of 1) and the flowsheet check has no actuator–measurement return to count (the key's actuator is I
+itself and both ends of the return are I). The card says so; the reading holds here where the check does not.

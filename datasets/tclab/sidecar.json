@@ -179,6 +179,8 @@
    "out_degree": 3,
    "in_degree": 3,
    "binding_share": 0.0,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "FAST-S\u00b7COMMON\u00b7RELAY"
@@ -209,6 +211,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     0,
@@ -236,6 +240,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     0,

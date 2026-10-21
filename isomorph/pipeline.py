@@ -11,7 +11,7 @@ from .canon.ingest import read_dataset, SYSTEM
 from .canon.validate import validate
 from .mine.contexts import LagClasses, streams_of, inter_event_gaps
 from .mine.library import discover, compositions, rows_for, library_to_json
-from .mine.nulls import period_estimate
+from .mine.nulls import period_estimate, period_estimate_fine
 from .score.model import FeatureMap, Model, fit_bits
 from .score import baselines as B
 
@@ -49,12 +49,28 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
     period = side.get("period")
     if profile == "v1" and (period in (None, "auto")):
         period = period_estimate(events, lo, p_hi)
+    period_slow = period if isinstance(period, (int, float)) else None
+    # v7 (3.4): the fast period on the fine grid at the data's resolution delta
+    delta = side.get("sample_minutes")
+    if not isinstance(delta, (int, float)) or delta <= 0:
+        dts = np.diff(np.sort(events.t.values.astype(float))); dts = dts[dts > 0]; delta = float(dts.min()) if len(dts) else None
+    period_fast = period_estimate_fine(events, lo, p_hi, delta) if profile == "v1" else None
+    if period_fast is not None and period_slow is not None and abs(period_fast - period_slow) < 0.05 * period_slow: period_fast = None   # the same cycle seen twice
     nulls = ("circular", "cycle", "rewire") if profile == "v1" else ("circular",)
     frags, cands, rows_prop, rows_conf, dinfo = discover(streams, lags, (lo, p_hi, c_hi), rng, gaps, gap_mode,
                                                          min_count=prof["min_count"], dataset_name=name, nulls=nulls,
-                                                         period=period if isinstance(period, (int, float)) else None,
+                                                         period=[p for p in (period_slow, period_fast) if p],
                                                          events=events, entities=entities, floor_mode=prof["min_count_mode"])
-    log(f"[{name}] period={period} floor={dinfo['signal_floor']} min_count={dinfo['min_count']} nulls={dinfo['nulls_run']} survival={ {k: (round(v, 2) if v is not None else None) for k, v in dinfo['null_survival'].items()} }")
+    log(f"[{name}] period_slow={period_slow} period_fast={period_fast} (delta {delta}) floor={dinfo['signal_floor']} min_count={dinfo['min_count']} nulls={dinfo['nulls_run']} survival={ {k: (round(v, 2) if v is not None else None) for k, v in dinfo['null_survival'].items()} }")
+    # section 6 (v7): admission in the system's own clock
+    span_days = (hi - lo) / 1440.0; horizons = (hi - lo) / lags.horizon; test_horizons = (hi - c_hi) / lags.horizon
+    slow_periods = ((hi - lo) / period_slow) if period_slow else None
+    admitted = (span_days >= K.ADMISSION_DAYS or (slow_periods or 0) >= K.ADMISSION_PERIODS
+                or (horizons >= K.ADMISSION_HORIZONS and test_horizons >= K.ADMISSION_TEST_HORIZONS))
+    admission = dict(days=round(span_days, 2), slow_periods=(round(slow_periods, 1) if slow_periods else None), horizons=round(horizons, 1),
+                     test_horizons=round(test_horizons, 1), admitted=bool(admitted),
+                     by=("days" if span_days >= K.ADMISSION_DAYS else "slow periods" if (slow_periods or 0) >= K.ADMISSION_PERIODS else "horizons" if admitted else None))
+    log(f"[{name}] admission: {span_days:.1f} days, {horizons:.0f} H (test {test_horizons:.0f} H), slow periods {admission['slow_periods']} -> {'admitted' if admitted else 'NOT admitted'} ({admission['by']})")
     rows_train = rows_prop + rows_conf
     rows_test = rows_for(streams, lags, c_hi, hi, gaps, gap_mode)
     for r in rows_train + rows_test:
@@ -94,6 +110,34 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
             chain_keys_used = chain_keys if b_with < b_without - 1e-4 else []
     log(f"[{name}] chains: {cinfo['candidates']} candidates, {cinfo['lift_ok']} with conditional lift, {cinfo['null_passed']} above the null, "
         f"{cinfo['admitted']} admitted ({cinfo['returns']} returns), {len(chain_keys_used)} used as features")
+    # loop roles (3.16, v7): verdicts per return, loop tag per role, the dimension check and the flowsheet check
+    loop_roles = dict(returns=cinfo.get("returns", 0), resolved=0, unresolved=0, roles={}, votes={}, dimension_check=None, flowsheet_check=None)
+    if chains:
+        from .mine.syntax import loop_tags
+        rets = [h for h in chains if h["is_return"]]
+        loop_roles["resolved"] = sum(1 for h in rets if h.get("verdict") not in (None, "unresolved")); loop_roles["unresolved"] = len(rets) - loop_roles["resolved"]
+        tags_, votes_ = loop_tags(chains); loop_roles["roles"] = tags_; loop_roles["votes"] = votes_
+        stags = side.get("tags") or {}
+        if tags_ and stags:
+            re_ = [r for r, t in tags_.items() if t == "REACTS" and r in stags]; rs_ = [r for r, t in tags_.items() if t == "RESPONDS" and r in stags]
+            loop_roles["dimension_check"] = dict(reacts_dimensionless=(sum(1 for r in re_ if not stags[r].get("dimension")) / len(re_)) if re_ else None,
+                                                 responds_dimensioned=(sum(1 for r in rs_ if stags[r].get("dimension")) / len(rs_)) if rs_ else None,
+                                                 n_reacts=len(re_), n_responds=len(rs_), chance=0.5)
+        if key and "mechanisms" in key and key.get("match") == "role_prefix":
+            causes = set(m["cause"] for m in key["mechanisms"]); effects = set(m["effect"] for m in key["mechanisms"])
+            actuators = causes - effects; measurements = effects
+            n_pairs = 0; n_act_reacts = 0
+            for h in rets:
+                if h.get("verdict") in (None, "unresolved"): continue
+                x, y = h["a"].split(":")[0], h["b"].split(":")[0]
+                if (x in actuators and y in measurements) or (y in actuators and x in measurements):
+                    n_pairs += 1
+                    reacts = y if h["verdict"] == "Y reacts" else x
+                    n_act_reacts += int(reacts in actuators)
+            loop_roles["flowsheet_check"] = dict(actuator_measurement_returns=n_pairs, actuator_reacts=n_act_reacts,
+                                                 share=(n_act_reacts / n_pairs) if n_pairs else None, actuators=sorted(actuators))
+        log(f"[{name}] loop roles: {loop_roles['resolved']} resolved / {loop_roles['unresolved']} unresolved returns; "
+            f"tags {dict(sorted(tags_.items()))}; dimension check {loop_roles['dimension_check']}; flowsheet check {loop_roles['flowsheet_check']}")
     unsel_ctxs = list(dict.fromkeys(c for c, y in cands))
     triv_ctxs = B.triviality_contexts(vocab, lags, rows_train)
     triv_pairs = B.alternating_pairs(rows_train)
@@ -146,7 +190,8 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
                       span=[lo, hi], entity_key=side.get("entity_key"), entities=entities,
                       symbolization=side.get("symbolization", "fixed (declared in sidecar)")),
         scale=dict(events=int(len(events)), events_per_day=float(len(events) / ((hi - lo) / 1440)), types=len(vocab),
-                   n_entities=len(entities), period=period, signal_floor=dinfo["signal_floor"], min_count=dinfo["min_count"],
+                   n_entities=len(entities), period=period_slow, period_slow=period_slow, period_fast=period_fast, resolution_delta=delta,
+                   signal_floor=dinfo["signal_floor"], min_count=dinfo["min_count"],
                    lag_edges=[float(e) for e in lags.edges], events_dropped_for_gaps=int(n_dropped),
                    test_events=len(rows_test), deterministic_types=sorted(det)),
         headline_bits=headline,
@@ -157,7 +202,7 @@ def run(dataset_dir, profile="v1", seed=0, log=print, extra_rows=None):
                      candidates=len(cands), nulls_run=dinfo["nulls_run"], null_survival=dinfo["null_survival"],
                      trivial_pairs=sorted(list(pq) for pq in triv_pairs),
                      chatty_share=chatty_share),
-        recovery=recovery, transfer="not measured (collection step)", lineage="not measured (collection step)",
+        recovery=recovery, admission=admission, loop_roles=loop_roles, transfer="not measured (collection step)", lineage="not measured (collection step)",
         elapsed_s=round(time.time() - t0, 1),
     )
     os.makedirs(os.path.join(dataset_dir, "out"), exist_ok=True)
@@ -207,5 +252,9 @@ def card_markdown(card):
     lines += ["", f"Gain over triviality: {g['over_triviality']:.3f} bits · over best baseline ({g['best_baseline_bits']:.3f}): {g['over_best_baseline']:.3f} bits · claim: **{g['claim']}**",
               f"Library: {card['library']['fragments']} fragments ({card['library']['fragments_used']} used), {card['library']['compositions_kept']} compositions, chatty share {card['library']['chatty_share']:.2f}",
               f"Syntax (3.15): {card['library'].get('chains', 0)} chains ({card['library'].get('chains_used', 0)} used), {card['library'].get('returns', 0)} returns",
+              (lambda lr: f"Loop roles (3.16): {lr['resolved']} resolved / {lr['unresolved']} unresolved returns · roles {dict(sorted(lr['roles'].items()))} · "
+                          f"dimension check {lr['dimension_check']} · flowsheet check {lr['flowsheet_check']}")(card.get("loop_roles", dict(resolved=0, unresolved=0, roles={}, dimension_check=None, flowsheet_check=None))),
+              (lambda ad: f"Admission (section 6): {ad['days']} days · {ad['horizons']} H (test split {ad['test_horizons']} H) · slow periods {ad['slow_periods']} · "
+                          f"period_slow {card['scale'].get('period_slow')} · period_fast {card['scale'].get('period_fast')} → **{'admitted' if ad['admitted'] else 'NOT admitted'}**" + (f" (by {ad['by']})" if ad.get('by') else ""))(card["admission"]) if card.get("admission") else "Admission: not measured",
               f"Recovery: {card['recovery']}"]
     return "\n".join(lines) + "\n"

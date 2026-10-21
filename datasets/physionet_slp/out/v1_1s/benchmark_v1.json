@@ -1,0 +1,334 @@
+{
+ "method_version": 6,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "physionet_slp",
+ "identity": {
+  "kind": "real physiological records (MIT-BIH polysomnographic, 18 nights)",
+  "origin": "scripts/ingest_physionet_slp.py",
+  "time_unit": "minute (compressed: records concatenated)",
+  "span": [
+   0.016666667,
+   5137.966666667
+  ],
+  "entity_key": "record",
+  "entities": [
+   "slp01a",
+   "slp01b",
+   "slp02a",
+   "slp02b",
+   "slp03",
+   "slp04",
+   "slp14",
+   "slp16",
+   "slp32",
+   "slp37",
+   "slp41",
+   "slp45",
+   "slp48",
+   "slp59",
+   "slp60",
+   "slp61",
+   "slp66",
+   "slp67x"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "HR": "dsign",
+    "SBP": "dsign",
+    "DBP": "dsign",
+    "RESP": "q20_50_80",
+    "SO2": "dsign"
+   },
+   "thresholds": {
+    "RESP": {
+     "slp01a_RESP": [
+      0.024,
+      0.037,
+      0.048
+     ],
+     "slp01b_RESP": [
+      -0.066,
+      -0.036,
+      -0.006
+     ],
+     "slp02a_RESP": [
+      -0.401,
+      -0.362,
+      -0.323
+     ],
+     "slp02b_RESP": [
+      -0.432,
+      -0.374,
+      -0.321
+     ],
+     "slp04_RESP": [
+      -0.011,
+      -0.008,
+      -0.006
+     ],
+     "slp14_RESP": [
+      -0.003,
+      -0.001,
+      0.064
+     ],
+     "slp32_RESP": [
+      -0.054,
+      -0.046,
+      0.004
+     ],
+     "slp37_RESP": [
+      -0.17,
+      -0.169,
+      -0.071
+     ],
+     "slp41_RESP": [
+      -0.029,
+      -0.027,
+      -0.024
+     ],
+     "slp45_RESP": [
+      -0.18,
+      -0.177,
+      -0.039
+     ],
+     "slp48_RESP": [
+      -0.28,
+      -0.246,
+      -0.217
+     ],
+     "slp59_RESP": [
+      0.167,
+      0.18,
+      0.192
+     ],
+     "slp60_RESP": [
+      -0.706,
+      -0.425,
+      -0.267
+     ],
+     "slp61_RESP": [
+      -0.256,
+      -0.17,
+      -0.113
+     ],
+     "slp67x_RESP": [
+      0.062,
+      0.064,
+      0.151
+     ]
+    }
+   },
+   "noise_windows": {
+    "slp01a_HR": 2,
+    "slp01b_HR": 1,
+    "slp02a_HR": 8,
+    "slp02b_HR": 5,
+    "slp03_HR": 2,
+    "slp04_HR": 4,
+    "slp14_HR": 2,
+    "slp16_HR": 2,
+    "slp32_HR": 2,
+    "slp37_HR": 2,
+    "slp41_HR": 2,
+    "slp45_HR": 3,
+    "slp48_HR": 2,
+    "slp59_HR": 2,
+    "slp60_HR": 3,
+    "slp61_HR": 2,
+    "slp66_HR": 2,
+    "slp67x_HR": 2,
+    "slp01a_SBP": 2,
+    "slp01b_SBP": 1,
+    "slp02a_SBP": 3,
+    "slp02b_SBP": 3,
+    "slp03_SBP": 2,
+    "slp04_SBP": 2,
+    "slp14_SBP": 3,
+    "slp16_SBP": 2,
+    "slp32_SBP": 2,
+    "slp37_SBP": 8,
+    "slp41_SBP": 2,
+    "slp45_SBP": 5,
+    "slp48_SBP": 2,
+    "slp59_SBP": 2,
+    "slp60_SBP": 2,
+    "slp61_SBP": 3,
+    "slp66_SBP": 2,
+    "slp67x_SBP": 2,
+    "slp01a_DBP": 1,
+    "slp01b_DBP": 1,
+    "slp02a_DBP": 2,
+    "slp02b_DBP": 5,
+    "slp03_DBP": 2,
+    "slp04_DBP": 2,
+    "slp14_DBP": 3,
+    "slp16_DBP": 2,
+    "slp32_DBP": 2,
+    "slp37_DBP": 5,
+    "slp41_DBP": 2,
+    "slp45_DBP": 3,
+    "slp48_DBP": 1,
+    "slp59_DBP": 1,
+    "slp60_DBP": 2,
+    "slp61_DBP": 2,
+    "slp66_DBP": 1,
+    "slp67x_DBP": 2,
+    "slp01a_RESP": 43,
+    "slp01b_RESP": 20,
+    "slp02a_RESP": 14,
+    "slp02b_RESP": 17,
+    "slp03_RESP": null,
+    "slp04_RESP": 55,
+    "slp14_RESP": 91,
+    "slp16_RESP": null,
+    "slp32_RESP": 44,
+    "slp37_RESP": 52,
+    "slp41_RESP": 39,
+    "slp45_RESP": 35,
+    "slp48_RESP": 19,
+    "slp59_RESP": 23,
+    "slp60_RESP": 8,
+    "slp61_RESP": 12,
+    "slp66_RESP": null,
+    "slp67x_RESP": 30,
+    "slp59_SO2": 1,
+    "slp60_SO2": 1,
+    "slp61_SO2": 1,
+    "slp66_SO2": 1,
+    "slp67x_SO2": 2
+   }
+  }
+ },
+ "scale": {
+  "events": 78687,
+  "events_per_day": 22053.402621668174,
+  "types": 14,
+  "n_entities": 18,
+  "period": null,
+  "signal_floor": 322,
+  "min_count": 3,
+  "lag_edges": [
+   0.048733627663697154,
+   0.14249799361776522,
+   0.41666666650007755
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 24196,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 4.799054044213834,
+   "non_deterministic": 4.799054044213834,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 5.474924620031761,
+   "non_deterministic": 5.474924620031761,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 6.181202860546321,
+   "non_deterministic": 6.181202860546321,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 6.775076925669069,
+   "non_deterministic": 6.775076925669069,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 5.28435961446286,
+   "non_deterministic": 5.28435961446286,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 5.362178655318351,
+   "non_deterministic": 5.362178655318351,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 4.813034619806793,
+   "non_deterministic": 4.813034619806793,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 4.930567714758607,
+   "non_deterministic": 4.930567714758607,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 4.812733533760772,
+   "non_deterministic": 4.812733533760772,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": -0.1175330949518143,
+  "over_best_baseline": -0.1315136705447726,
+  "best_baseline_bits": 4.799054044213834,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 37,
+  "fragments_used": 27,
+  "compositions_kept": 42,
+  "chains": 1,
+  "chains_used": 0,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 114,
+   "lift_ok": 9,
+   "null_passed": 9,
+   "admitted": 1,
+   "returns": 0
+  },
+  "candidates": 396,
+  "nulls_run": [
+   "circular",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.6575342465753424,
+   "rewire": 1.0
+  },
+  "trivial_pairs": [
+   [
+    "DBP:peak",
+    "DBP:trough"
+   ],
+   [
+    "HR:peak",
+    "HR:trough"
+   ],
+   [
+    "RESP:downq20",
+    "RESP:upq20"
+   ],
+   [
+    "RESP:downq50",
+    "RESP:upq50"
+   ],
+   [
+    "RESP:downq80",
+    "RESP:upq80"
+   ],
+   [
+    "SBP:peak",
+    "SBP:trough"
+   ]
+  ],
+  "chatty_share": 0.16216216216216217
+ },
+ "recovery": {
+  "recall": 0.4,
+  "precision": 0.21621621621621623,
+  "n_mechanisms": 5,
+  "n_found": 2
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 25.2
+}

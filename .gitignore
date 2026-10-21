@@ -21,3 +21,5 @@ datasets/*/raw/*.ecg
 datasets/*/raw/*.st
 datasets/*/raw/RECORDS
 datasets/*/raw/README*
+datasets/*/raw/*.ttl
+datasets/*/raw/*.json

@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_b",
@@ -26,7 +26,10 @@
   "types": 22,
   "n_entities": 4,
   "period": 1440.0,
-  "signal_floor": 52,
+  "period_slow": 1440.0,
+  "period_fast": null,
+  "resolution_delta": 1.0,
+  "signal_floor": 47,
   "min_count": 3,
   "lag_edges": [
    6.852349700950389,
@@ -79,8 +82,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.3545683444107055,
-   "non_deterministic": 1.3545683444107055,
+   "all": 1.354568344504717,
+   "non_deterministic": 1.354568344504717,
    "deterministic": null
   }
  },
@@ -102,7 +105,8 @@
    "lift_ok": 60,
    "null_passed": 60,
    "admitted": 32,
-   "returns": 0
+   "returns": 0,
+   "returns_resolved": 0
   },
   "candidates": 1514,
   "nulls_run": [
@@ -160,7 +164,24 @@
   "chatty_share": 0.19083969465648856
  },
  "recovery": "not measured",
+ "admission": {
+  "days": 59.99,
+  "slow_periods": 60.0,
+  "horizons": 268.5,
+  "test_horizons": 67.1,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 0,
+  "resolved": 0,
+  "unresolved": 0,
+  "roles": {},
+  "votes": {},
+  "dimension_check": null,
+  "flowsheet_check": null
+ },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 19.2
+ "elapsed_s": 19.4
 }

@@ -30,8 +30,9 @@ OUT_MD = os.path.join(ROOT, "docs", "LINEAGE.md")
 # view; a withdrawn dataset is inventoried for the record and is not a taxon.
 RUNNING_ORDER = [
     ("building_a", "synthetic"), ("building_b", "synthetic"), ("tennessee_eastman", "admitted"),
-    ("hai", "admitted (provisional)"), ("tclab", "withdrawn"), ("nasa_battery", "admitted"),
-    ("physionet_slp", "provisional (not admitted as the rule stands: 3.6 days, no period found; flagged)"),
+    ("hai", "admitted (provisional: 15.3 days, 178 H; standing decision, section 6)"), ("tclab", "withdrawn"), ("nasa_battery", "admitted"),
+    ("physionet_slp", "admitted (v7: by horizons, 19,419 H)"),
+    ("building_59", "admitted (365 days)"),
 ]
 
 
@@ -239,23 +240,26 @@ def markdown(out, inv, libs):
         i = out["inventory"][d]
         L.append(f"| {nm(d)} | {out['status'][d]} | v{i['method_version']} | {i['fragments']} ({i['fragments_tagged']}) | {i['shapes']} | {i['chains']} | {i['chain_shapes']} | {i['returns']} | {i['return_shapes']} | {i['library_bits']:.3f} |")
     L.append("")
-    # 3. character matrix
-    L += ["## 3. The character matrix (shape × dataset)", ""]
-    L += ["| pair | fragment shapes shared | chain shapes shared | return shapes shared |", "| --- | --- | --- | --- |"]
+    # 3. character matrix — same-role shapes (function words of any bounded variable) counted apart from cross-role shapes
+    same = lambda sh: "[same role]" in sh
+    L += ["## 3. The character matrix (shape × dataset)", "",
+          "Same-role shapes (`[same role]`: a variable re-crossing its own thresholds, the function words of any bounded series) are counted apart from cross-role shapes; only a cross-role shape can be a finding about two systems.", "",
+          "| pair | fragment shapes shared: cross-role | same-role | chain shapes shared | return shapes shared |", "| --- | --- | --- | --- | --- |"]
     for k, v in out["shared"].items():
-        a, b = k.split("|"); L.append(f"| {nm(a)} ↔ {nm(b)} | {len(v['fragment'])} | {len(v['chain'])} | {len(v['ret'])} |")
+        a, b = k.split("|"); cross = [x for x in v["fragment"] if not same(x)]
+        L.append(f"| {nm(a)} ↔ {nm(b)} | **{len(cross)}** | {len(v['fragment']) - len(cross)} | {len(v['chain'])} | {len(v['ret'])} |")
     L.append("")
     allsh = [s for s, c in out["characters"].items() if all(d in c for d in taxa)]
-    L += [f"Shapes present in every taxon: **{len(allsh)}**.", ""]
+    L += [f"Shapes present in every taxon: **{len(allsh)}** ({sum(1 for x in allsh if not same(x))} cross-role, {sum(1 for x in allsh if same(x))} same-role).", ""]
     if allsh:
         L += ["| shape | " + " | ".join(nm(d) for d in taxa) + " |", "| --- |" + " --- |" * len(taxa)]
         for s in sorted(allsh, key=lambda s: -sum(out["characters"][s].values()))[:40]:
             L.append(f"| `{s}` | " + " | ".join(str(out["characters"][s].get(d, 0)) for d in taxa) + " |")
         L.append("")
     for k, v in out["shared"].items():
-        a, b = k.split("|")
-        if len(v["fragment"]) and len(v["fragment"]) <= 12:
-            L += [f"Fragment shapes shared by {nm(a)} and {nm(b)} ({len(v['fragment'])}):", ""] + [f"- `{s}` ({nm(a)} × {out['characters'][s].get(a, 0)}, {nm(b)} × {out['characters'][s].get(b, 0)})" for s in v["fragment"]] + [""]
+        a, b = k.split("|"); cross = [x for x in v["fragment"] if not same(x)]
+        if cross and len(cross) <= 30:
+            L += [f"Cross-role fragment shapes shared by {nm(a)} and {nm(b)} ({len(cross)}):", ""] + [f"- `{s}` ({nm(a)} × {out['characters'][s].get(a, 0)}, {nm(b)} × {out['characters'][s].get(b, 0)})" for s in cross] + [""]
     # 4. trees
     L += ["## 4. Similarity trees", ""]
     for name, t in out["trees"].items():
@@ -264,7 +268,9 @@ def markdown(out, inv, libs):
         L.append("")
     L += ["Shape distances: Jaccard over fragment shapes (1 − shared / union), Bray–Curtis over shape counts. Transfer distance: 1 / (1 + symmetrised net cell) of the current version; a pair without a cell is at 1.", ""]
     # 5. inheritance
-    L += ["## 5. Inheritance graph", "", "| from → to | shapes recurred (inherited) | of them returns | fragments tested through the mapping | confirmed | failed |", "| --- | --- | --- | --- | --- | --- |"]
+    L += ["## 5. Inheritance graph", "",
+          "Inheritance is directed by **running order**: a shape belongs to the dataset that validated it first and is inherited by every later dataset that validates it again, so a zero in the reverse direction is the order, not the physics; the symmetric view is the character matrix above. Confirmation through a mapping is directed by the transfer cell and runs both ways.", "",
+          "| from → to | shapes recurred (inherited) | of them returns | fragments tested through the mapping | confirmed | failed |", "| --- | --- | --- | --- | --- | --- |"]
     for k, e in out["inheritance"]["edges"].items():
         a, b = k.split("->"); L.append(f"| {nm(a)} → {nm(b)} | {e['shapes_recurred']} | {e['returns_recurred']} | {e['fragments_tested']} | {e['fragments_confirmed']} | {e['fragments_failed']} |")
     L.append("")

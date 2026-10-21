@@ -12301,6 +12301,10 @@
    "out_degree": 22,
    "in_degree": 23,
    "binding_share": 1.0,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 1
+   },
    "dimension": [
     1,
     2,
@@ -12311,7 +12315,7 @@
     0
    ],
    "quantity": "voltage",
-   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3 N\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8M L\u00b2 T\u207b\u00b3 N\u207b\u00b9\u27e9"
   },
   "I": {
    "cls": "MID-S",
@@ -12355,6 +12359,10 @@
    "out_degree": 21,
    "in_degree": 14,
    "binding_share": 1.0,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 1
+   },
    "dimension": [
     0,
     0,
@@ -12365,7 +12373,7 @@
     0
    ],
    "quantity": "current",
-   "full": "MID-S\u00b7LOCAL\u00b7RELAY \u27e8I\u27e9"
+   "full": "MID-S\u00b7LOCAL\u00b7REACTS \u27e8I\u27e9"
   },
   "T": {
    "cls": "FAST",
@@ -12409,6 +12417,8 @@
    "out_degree": 4,
    "in_degree": 10,
    "binding_share": 1.0,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     0,

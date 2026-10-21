@@ -14,7 +14,39 @@ rewire    within each type, entity labels permuted across events (per-entity, pe
 """
 from collections import defaultdict
 import numpy as np
+from .. import constants as K
 from .contexts import contexts_for_stream, streams_of, pair_counts
+
+
+def _peaks(acf, max_lag, bin_width, threshold, prominence, harmonic_ratio):
+    peaks = []
+    for k in range(2, min(max_lag, len(acf) - 1)):
+        if acf[k] > threshold and acf[k] >= acf[k - 1] and acf[k] >= acf[k + 1] and acf[k] - acf[1:k].min() >= prominence:
+            a, b, c = acf[k - 1], acf[k], acf[k + 1]
+            off = 0.5 * (a - c) / (a - 2 * b + c) if (a - 2 * b + c) != 0 else 0.0
+            peaks.append((float((k + off) * bin_width), float(b)))
+    if not peaks:
+        return None
+    strongest = max(a for _, a in peaks)
+    return min(p for p, a in peaks if a >= harmonic_ratio * strongest)
+
+
+def period_estimate_fine(events, lo, hi, delta, max_lags=K.PERIOD_FINE_LAGS, threshold=0.2, prominence=0.1, harmonic_ratio=0.8):
+    """3.4 (v7), the fast period: the same peak rule on the event rate binned at the data's resolution `delta`,
+    autocorrelation (FFT) out to `max_lags` bins and never beyond an eighth of the span. A 4-s breathing cycle
+    in a 3.6-day recording is invisible to the 0.1%-of-span grid (5-min bins) and visible here."""
+    span = hi - lo
+    if delta is None or delta <= 0 or span / delta < 16: return None
+    nb = int(span // delta)
+    ent_events = events[events.entity != "ALL"] if (events.entity != "ALL").any() else events
+    counts, _ = np.histogram(ent_events.t.values, bins=nb, range=(lo, lo + nb * delta))
+    x = counts - counts.mean()
+    if x.std() == 0: return None
+    n = 1
+    while n < 2 * nb: n *= 2
+    f = np.fft.rfft(x, n); ac = np.fft.irfft(f * np.conj(f), n)[:nb] / (x.var() * nb)
+    max_lag = min(max_lags, nb // 8)
+    return _peaks(ac, max_lag, delta, threshold, prominence, harmonic_ratio)
 
 
 def period_estimate(events, lo, hi, resolution=0.001, threshold=0.2, prominence=0.1, harmonic_ratio=0.8):

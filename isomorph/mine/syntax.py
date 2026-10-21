@@ -72,9 +72,10 @@ def _index(chains):
     return by_link
 
 
-def _instances(r, times, lags, by_link, gaps, gcache):
-    """Yield (key, hit_link) for every chain whose last link (B at l2) is in the row's context; hit_link is
-    True when the first link also holds (A at l1 before that B, no entity gap between)."""
+def _instances(r, times, lags, by_link, gaps, gcache, want_gaps=False):
+    """Yield (key, hit_link[, g1, g2]) for every chain whose last link (B at l2) is in the row's context; hit_link is
+    True when the first link also holds (A at l1 before that B, no entity gap between). With want_gaps the realised
+    gaps of the two legs follow: g1 = tb - ta (the leg into B), g2 = t - tb (the leg into C)."""
     z = r["entity"]; H = lags.horizon
     tz = times.get(z, {})
     for ck in r["ctx"]:
@@ -82,8 +83,8 @@ def _instances(r, times, lags, by_link, gaps, gcache):
         if not lst: continue
         for key in lst:
             a, l1, b, l2, c = key
-            tb = r["t"] - r["gaps"][b]
-            ta_arr = tz.get(a); ok = False
+            g2 = r["gaps"][b]; tb = r["t"] - g2
+            ta_arr = tz.get(a); ok = False; d = None
             if ta_arr is not None and len(ta_arr):
                 i = bisect_left(ta_arr, tb) - 1
                 if i >= 0:
@@ -93,7 +94,7 @@ def _instances(r, times, lags, by_link, gaps, gcache):
                         else:
                             if z not in gcache: gcache[z] = entity_gaps(gaps, z).get("", [])
                             ok = not _overlaps(gcache[z], ta_arr[i], tb)
-            yield key, ok
+            yield (key, ok, d, g2) if want_gaps else (key, ok)
 
 
 def count_triples(rows, times, lags, chains, gaps=None):
@@ -161,14 +162,59 @@ def discover_chains(frags, streams, lags, splits, rng, gaps, gap_mode, rows_prop
                                count_conf=int(n_c[k][3]), cond_lift_conf=float(cond_lift(n_c[k])), null_max=int(mx[k]),
                                is_return=bool(is_return(a, b, c)),
                                link_counts=dict(n_B=int(n_p[k][0]), n_BC=int(n_p[k][1]), n_AB=int(n_p[k][2]))))
+    # 3.16 (v7): the fast side and the slow side of every return, from the realised gaps of its confirmed triples
+    rets = [h["key"] for h in chains if h["is_return"]]
+    if rets:
+        lg = leg_gaps(rows_conf, times_by_tok(streams, phi, chi), lags, rets, gaps)
+        for h in chains:
+            if h["is_return"]:
+                v, m1, m2 = loop_verdict(*lg[h["key"]]); h["verdict"], h["g1"], h["g2"] = v, m1, m2
     chains.sort(key=lambda h: -h["cond_lift"] * np.log(max(h["count"], 2)))
     info["admitted"] = len(chains); info["returns"] = sum(h["is_return"] for h in chains)
+    info["returns_resolved"] = sum(1 for h in chains if h["is_return"] and h.get("verdict") != "unresolved")
     return chains, info
+
+
+def leg_gaps(rows, times, lags, keys, gaps=None):
+    """{key: ([g1...], [g2...])} over the confirmed triples (first link holds, target is C) of each chain."""
+    by_link = _index(keys); out = {k: ([], []) for k in keys}; gcache = {}
+    for r in rows:
+        for key, ok, g1, g2 in _instances(r, times, lags, by_link, gaps, gcache, want_gaps=True):
+            if ok and r["tok"] == key[4]:
+                out[key][0].append(g1); out[key][1].append(g2)
+    return out
+
+
+def loop_verdict(g1, g2, ratio=K.LOOP_GAP_RATIO):
+    """3.16: the leg with the shorter median realised gap marks the side that reacts. g1: into the middle (Y);
+    g2: into the far end (X'). 'Y reacts' when g1 <= g2 / ratio, 'X reacts' when g2 <= g1 / ratio, else unresolved."""
+    if not g1 or not g2: return "unresolved", None, None
+    m1, m2 = float(np.median(g1)), float(np.median(g2))
+    if m1 <= m2 / ratio: return "Y reacts", m1, m2
+    if m2 <= m1 / ratio: return "X reacts", m1, m2
+    return "unresolved", m1, m2
+
+
+def loop_tags(chains):
+    """Per role: the majority loop tag (REACTS / RESPONDS) over the resolved returns it takes part in, as end or
+    middle; a tie is unresolved (no tag). Returns ({role: tag}, {role: {REACTS: n, RESPONDS: n}})."""
+    from collections import Counter, defaultdict
+    votes = defaultdict(Counter)
+    for h in chains:
+        if not h.get("is_return") or h.get("verdict") in (None, "unresolved"): continue
+        x, y = _role(h["a"]), _role(h["b"])
+        if h["verdict"] == "Y reacts": votes[y]["REACTS"] += 1; votes[x]["RESPONDS"] += 1
+        else: votes[x]["REACTS"] += 1; votes[y]["RESPONDS"] += 1
+    tags = {}
+    for r, c in votes.items():
+        if c["REACTS"] != c["RESPONDS"]: tags[r] = "REACTS" if c["REACTS"] > c["RESPONDS"] else "RESPONDS"
+    return tags, {r: dict(c) for r, c in votes.items()}
 
 
 def chains_to_json(chains, used_keys=()):
     used = set(used_keys)
     return [dict(a=h["a"], l1=h["l1"], b=h["b"], l2=h["l2"], c=h["c"], count=h["count"], cond_lift=h["cond_lift"],
                  count_conf=h["count_conf"], cond_lift_conf=h["cond_lift_conf"], null_max=h["null_max"],
-                 is_return=h["is_return"], used=(h["key"] in used), link_counts=h["link_counts"], shape=h.get("shape"))
+                 is_return=h["is_return"], used=(h["key"] in used), link_counts=h["link_counts"], shape=h.get("shape"),
+                 g1=h.get("g1"), g2=h.get("g2"), verdict=h.get("verdict"))
             for h in chains]

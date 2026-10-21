@@ -6,7 +6,7 @@ channels (nasal thermistor, chest/abdominal effort or their sum), EEG, and in fi
 stages and apnea events annotated every 30 s (.st). ~89 h in all. Dataset 7 of the collection, the physiological
 member of the Rosetta set: the baroreflex (pressure -> heart rate -> pressure) as a return in flesh.
 
-Declared at 1-second samples. Beat-level quantities — heart rate from the beat annotations, systolic and
+Declared at 0.25-second samples (v2; the v1 card was at 1 s). Beat-level quantities — heart rate from the beat annotations, systolic and
 diastolic pressure as the maximum and minimum of the arterial waveform between successive beats — are
 interpolated linearly to the 1-s grid (the usual beat-to-beat resampling); respiration is the 1-s mean of the
 waveform (uncalibrated, dimensionless); SO2 the 1-s mean where recorded. Implausible beats (RR outside 0.3–2 s)
@@ -22,7 +22,7 @@ import os
 import numpy as np
 import pandas as pd
 
-SAMPLE_SEC = 1
+SAMPLE_SEC = 0.25           # v2 card (2026-10-21): 0.25-s samples; at 1 s a 4-s breathing wave has acf(1) ~ 0 and the noise floor erases it
 SAMPLE_MIN = SAMPLE_SEC / 60.0
 FS = 250
 BEAT_SYMBOLS = set("NLRBAaJSVrFejnE/fQ?")       # wfdb beat annotation symbols; everything else is a non-beat marker
@@ -51,8 +51,8 @@ def read_record(raw_dir, rec):
     p = os.path.join(raw_dir, rec)
     r = wfdb.rdrecord(p)
     sig = r.p_signal; names = list(r.sig_name)
-    n_sec = int(np.ceil(r.sig_len / FS))
-    out = pd.DataFrame(dict(sec=np.arange(n_sec, dtype=float)))
+    n_sec = int(np.ceil(r.sig_len / (FS * SAMPLE_SEC)))          # number of samples at the declared step
+    out = pd.DataFrame(dict(sec=np.arange(n_sec, dtype=float) * SAMPLE_SEC))
     # beats -> HR, SBP, DBP on the beat grid, then to 1 s
     ann = wfdb.rdann(p, "ecg")
     beats = np.array([s for s, sym in zip(ann.sample, ann.symbol) if sym in BEAT_SYMBOLS], float)
@@ -70,7 +70,7 @@ def read_record(raw_dir, rec):
                     sbp[i], dbp[i] = np.nanmax(w), np.nanmin(w)
         bad = ~((sbp >= 40) & (sbp <= 250) & (dbp >= 20) & (dbp <= 200)); sbp[bad] = np.nan; dbp[bad] = np.nan
     tb = t_beat[1:]
-    grid = out.sec.values + 0.5
+    grid = out.sec.values + SAMPLE_SEC / 2
     for col, v in (("HR", hr), ("SBP", sbp), ("DBP", dbp)):
         ok = np.isfinite(v)
         out[col] = np.interp(grid, tb[ok], v[ok], left=np.nan, right=np.nan) if ok.sum() > 2 else np.nan
@@ -80,10 +80,10 @@ def read_record(raw_dir, rec):
             far = np.minimum(np.abs(grid - tb[ok][lo]), np.abs(tb[ok][hi] - grid)) > 2.0
             out.loc[far, col] = np.nan
     # waveform channels -> 1-s means
-    def mean_1s(x):
-        m = np.full(n_sec, np.nan); k = len(x) // FS
-        m[:k] = x[: k * FS].reshape(k, FS).mean(1)
-        if len(x) > k * FS: m[k] = x[k * FS:].mean()
+    def mean_1s(x):   # mean of the waveform within each declared step (a step of 0.25 s is 62.5 samples: binned by time)
+        idx = np.floor(np.arange(len(x)) / (FS * SAMPLE_SEC)).astype(int)
+        m = np.full(n_sec, np.nan); sums = np.bincount(idx, weights=x, minlength=n_sec)[:n_sec]; cnt = np.bincount(idx, minlength=n_sec)[:n_sec]
+        ok = cnt > 0; m[ok] = sums[ok] / cnt[ok]
         return m
     resp_ch = next((c for c in RESP_PREFERENCE if c in names), None)
     out["RESP"] = mean_1s(sig[:, names.index(resp_ch)]) if resp_ch else np.nan
@@ -110,7 +110,7 @@ def load_records(raw_dir, records=None):
     for rec in recs:
         if not os.path.exists(os.path.join(raw_dir, rec + ".dat")): continue
         d, stages, events, meta = read_record(raw_dir, rec)
-        n = len(d); d = d.copy(); t0 = t0s / 60.0; d["minute"] = (t0s + d.sec.values) / 60.0
+        n = len(d); d = d.copy(); t0 = t0s / 60.0; d["minute"] = (t0s + d.sec.values) / 60.0      # t0s in whole seconds
         cols = [c for c in ROLES if c in d.columns and d[c].notna().any()]
         for c in ROLES:
             if c in d.columns and c not in cols: d[c] = np.nan
@@ -124,7 +124,7 @@ def load_records(raw_dir, records=None):
             return runs
         for s, e, lab in _runs(stages): regimes.append(dict(record=rec, kind="stage", label=lab, start=float(t0 + s / 60), end=float(t0 + e / 60)))
         for s, e, lab in _runs(events): regimes.append(dict(record=rec, kind="event", label=lab, start=float(t0 + s / 60), end=float(t0 + e / 60)))
-        t0s += n; bounds.append(t0s / 60.0); out.append(d.drop(columns=["sec"]))
+        t0s += int(np.ceil(n * SAMPLE_SEC)); bounds.append(t0s / 60.0); out.append(d.drop(columns=["sec"]))
     df = pd.concat(out, ignore_index=True)
     return df, bounds[:-1], files, regimes
 

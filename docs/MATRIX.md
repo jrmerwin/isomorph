@@ -1,9 +1,70 @@
-# Transfer matrix — methods v3 to v6, profile v1 (2026-10-19; v5 seeds 0–4, the Rosetta pair and v6 added 2026-10-20)
+# Transfer matrix — methods v3 to v7, profile v1 (2026-10-19 to 2026-10-21)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
+
+## v7 (2026-10-21): loop roles, fine-grid period, admission in horizons — seed 0, ten seeded permutations; datasets 7 (0.25 s) and 8 added
+
+Cards regenerated under v7 (3.16 loop tags in the place prefix and graded in alignment; 3.4 fine grid; section 6
+admission in horizons). PhysioNet is now the 0.25-s card (admitted by horizons) and Building 59 is dataset 8. The
+column *net ≤ 20 d* is the same cell truncated at the 20-day point, for receivers whose "all" point differs
+(Building 59 trains on 273 days, TEP on 60, HAI on 11, the battery on 36, PhysioNet on 2.7).
+
+| source → receiver | zero-shot (learned) | zero-shot (permuted) | raw cell | control cell | **net cell** | net ≤ 20 d | v6 net | types mapped | roles mapped |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TEP → HAI | 7.629 (shared 7.260) | 8.919 | 0.86 | -0.05 | **0.90** | 0.90 | 0.90 | 142/168 | 37/52 |
+| HAI → TEP | 7.034 (shared 6.730) | 8.015 | 14.69 | 6.73 | **7.96** | 2.54 | 13.53 | 32/40 | 34/39 |
+| TEP → battery | 3.682 (shared 3.682) | 6.340 | 0.04 | -0.21 | **0.25** | 0.25 | 0.25 | 12/12 | 3/3 |
+| battery → TEP | 8.772 (shared 3.504) | 9.006 | 5.58 | 3.93 | **1.65** | 0.71 | 1.65 | 6/40 | 3/39 |
+| HAI → battery | 4.650 (shared 4.650) | 4.730 | -0.25 | -0.23 | **-0.03** | -0.03 | 0.05 | 12/12 | 3/3 |
+| battery → HAI | 9.466 (shared 4.201) | 9.514 | -0.13 | -0.22 | **0.09** | 0.09 | 0.09 | 10/168 | 3/52 |
+| TEP → PhysioNet | 5.378 (shared 5.378) | 5.355 | 1.02 | 1.02 | **0.00** | 0.00 | -0.02 | 10/10 | 5/5 |
+| PhysioNet → TEP | 6.634 (shared 4.134) | 8.750 | 17.44 | -0.64 | **18.08** | 6.65 | 3.97 | 4/40 | 5/39 |
+| HAI → PhysioNet | 6.998 (shared 6.998) | 6.544 | 0.27 | 0.29 | **-0.02** | -0.02 | -0.02 | 10/10 | 5/5 |
+| PhysioNet → HAI | 7.542 (shared 7.018) | 8.373 | 0.64 | 0.25 | **0.39** | 0.39 | 0.21 | 4/168 | 5/52 |
+| battery → PhysioNet | 4.425 (shared 3.795) | 4.425 | 0.94 | 0.94 | **0.00** | 0.00 | 0.00 | 2/10 | 1/5 |
+| PhysioNet → battery | 6.762 (shared 1.619) | 6.762 | -0.28 | -0.28 | **0.00** | 0.00 | 0.17 | 2/12 | 1/3 |
+| building A → Building 59 | 8.447 (shared 7.001) | 8.563 | 461.21 | 452.97 | **8.24** | 0.77 | — | 22/89 | 6/23 |
+| Building 59 → building A | 6.126 (shared 4.726) | 6.667 | 0.41 | 0.11 | **0.30** | 0.30 | — | 12/20 | 6/10 |
+| building B′ → Building 59 | 8.873 (shared 6.667) | 8.980 | 464.30 | 467.19 | **-2.89** | -0.13 | — | 26/89 | type-level |
+| Building 59 → building B′ | 7.134 (shared 7.134) | 7.725 | -0.16 | -0.29 | **0.13** | 0.13 | — | 22/22 | type-level |
+| TEP → Building 59 | 7.627 (shared 7.627) | 8.489 | 562.31 | 461.55 | **100.76** | 9.89 | — | 89/89 | 23/23 |
+| Building 59 → TEP | 7.356 (shared 7.133) | 8.997 | 21.48 | 2.22 | **19.26** | 7.06 | — | 32/40 | 22/39 |
+| HAI → Building 59 | 7.333 (shared 7.276) | 7.831 | 494.06 | 462.77 | **31.29** | 3.09 | — | 85/89 | 23/23 |
+| Building 59 → HAI | 8.949 (shared 8.246) | 9.881 | 0.71 | -0.01 | **0.72** | 0.72 | — | 93/168 | 23/52 |
+
+- **TEP ↔ HAI under the loop tag.** TEP → HAI holds (0.90); HAI → TEP falls from 13.53 to **7.96**: the +1 on
+  differing loop tags moved two of the HAI → TEP role pairings (32 of 40 types against 34) and the mixed curve
+  gives up part of its 0.3–0.6 bit advantage. A graded penalty built from tags that fail their own checks on
+  both plants (TEP flowsheet 0.55, HAI 0.33) costs a cell; that is the tag's first measured effect, recorded.
+- **Building 59 as a receiver: the cells are an artefact of the curve's end point.** Raw areas of 460–560 bit-days
+  come from two things the cards show: the zones' first eight days of 2019 are a gap, so the receiver's own model at
+  2, 3 and 5 training days is fitted on almost nothing (27.5 bits per event, λ chosen 0, mixed = own = control, no
+  credit either way), and the last curve point is 273 days, so the 20-day gap of ~0.7 bits is carried over 253 days
+  by the trapezoid. Truncated at 20 days the cells are TEP → 59 **9.9**, HAI → 59
+  **3.1**, building A → 59 **0.8**, building B′ → 59
+  -0.1. The question the brief asked — did the synthetic generator teach anything — reads: a little from A
+  (type-level, 22 of 89 types through 6 roles), nothing from B′, and far more from the two real regulators. Open
+  item: the cell should integrate to a fixed last point (20 days) or be reported per training day; the "all" point
+  is a building's number as the day count was.
+- **Building 59 as a source: 59 → TEP 19.26** (mixed beats TEP's own by 0.3–0.6 bits from 2 to 20 days, the
+  control by 0.05–0.25), of the HAI → TEP kind; **59 → HAI 0.72**, 93 of 168 types.
+- **PhysioNet at 0.25 s → TEP 18.08**, through five roles (HR ↔ feed_D, SBP ↔ purge_valve, DBP ↔ L, RESP ↔ underflow,
+  SO2 ↔ prod_D) and 4 of 40 types: the learned mixture beats TEP's own by 0.3–0.6 bits from 2 to 20 days where the
+  within-class permutation (the pressures swapped, the dimensionless pair swapped) does not. The same receiver-side
+  shape as HAI → TEP and 59 → TEP: TEP's 40-class model at 1–20 days is helped by a smooth foreign prior whose
+  pairing is right about which quantities are slow; whether that is grammar or regularisation the control cannot
+  separate when the class has only two members to permute. Damage is flagged (unshared types got worse).
+- **The rest at zero**, as before: TEP/HAI ↔ battery, X → PhysioNet, battery ↔ PhysioNet.
+
+The lineage under v7 (docs/LINEAGE.md): 4,358 characters over five taxa; Building 59 shares **104 cross-role
+shapes with TEP and 128 with HAI** (and 42 / 58 same-role), the most of any pair; the shape trees put
+(TEP, Building 59) together, then HAI, then the battery, with PhysioNet the outgroup, and the transfer tree agrees
+on (TEP, Building 59). No shape is present in every taxon; no return shape is shared once the loop tags respell
+them. Returns by place signature: Building 59 REACTS → RESPONDS → REACTS 87 of 299; HAI RESPONDS → REACTS →
+RESPONDS 42 and REACTS → RESPONDS → REACTS 33 of 118; TEP RESPONDS → RESPONDS → RESPONDS 29 of 106.
 
 ## v6 (2026-10-20): gap clipping, cross-scheme spelling, chains and returns — seed 0, ten seeded permutations
 

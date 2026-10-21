@@ -355,3 +355,44 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   re-crossings (function words); inheritance direction is running order; the Bray–Curtis pairing of battery
   with PhysioNet is a library-size effect.
 - Constants untouched until implementation (METHOD_VERSION, CARD_RULES_VERSION stay 6).
+
+## v7 implemented (2026-10-21, Mac)
+- 3.16 loop roles: `mine/syntax.py` records per return the median realised gap of each leg over its confirmed
+  triples (g1, g2), the verdict (ratio 1.5, else unresolved) and per role the majority tag; `pos.place_of` puts
+  REACTS / RESPONDS in place of RELAY (LEAD / FOLLOW / ISOLATED stay), chain shapes and `full_tag` follow,
+  `align_roles` adds +1 when loop tags differ, `tag_datasets.py` writes `loop` and `loop_votes` into sidecars. Cards
+  carry a Loop roles block with the dimension check and the flowsheet check. Results: TEP 87/106 resolved, valve
+  REACTS (9:7), cw_flow RESPONDS (25:16), flowsheet 24/44 = 0.55, dimension 0.25 / 0.67 — gaps are multiples of the
+  3-min sample; HAI 83/118, LIT01 REACTS / LCV01D RESPONDS (inverted), flowsheet 7/21 = 0.33, dimension 0.27 / 0.64;
+  battery I REACTS / V RESPONDS (the cycler reacts to the cutoff voltage); building A T REACTS / vent RESPONDS;
+  **Building 59** 214/299, oa_damper and fan REACTS, T / ma_t / plenum_p RESPONDS, flowsheet 35/56 = 0.63,
+  dimension 0.50 / 0.80 — the first plant where the checks pass; the economizer loop reads REACTS → RESPONDS → REACTS.
+- 3.4 fine grid: `nulls.period_estimate_fine` (FFT autocorrelation at δ out to 1,000 δ, same peak rule); cards
+  and sidecars carry `period_fast` and `period_slow`; `discover` runs the cycle null at each period found.
+  Fast period `none` everywhere, including PhysioNet at 0.25 s (pooled acf peaks 0.13–0.15 at 1.5–4.5 s against
+  0.2: 18 subjects, 18 breathing rates; a per-entity period is the open item).
+- Section 6 admission in horizons: `pipeline.run` computes days, slow periods, span / H and test-split / H; the
+  card states the clause. PhysioNet admitted (19,419 H); HAI not admitted under the rule (178 H, 15.3 d), kept
+  provisional by the standing decision and flagged; TCLab 22 H out; Building 59 365 d, 641 H.
+- PhysioNet at 0.25 s (per-dataset, no rule change; CARD_physionet_slp_v2.md): all roles turning points, 221,062
+  events, 22 fragments, library 3.136 vs triviality 3.328 → beats baselines (+0.19); RESP → SBP/DBP and HR → SBP
+  found, RSA spelled HR → RESP by sub-second lead; no baroreflex return (SBP → HR absent as a pair).
+- Versions 7 / 7; buildings reproduce the v6 reference exactly and the reference is re-recorded; every card
+  regenerated; matrix v7 seed 0 for TEP ↔ HAI (0.90 / **7.96**, the loop-tag penalty's first measured cost),
+  TEP ↔ battery (0.25 / 1.65), HAI ↔ battery (−0.03 / 0.09), PhysioNet × {TEP, HAI, battery} (slp → TEP 18.08
+  through five roles, receiver-side), and Building 59: A → 59 8.24, B′ → 59 −2.89, TEP → 59 100.76, HAI → 59 31.29
+  (artefacts of a 273-day end point and an empty first week: truncated at 20 days TEP 11, HAI 3.5, A 0.9, B′ < 0;
+  open item: a fixed last curve point), 59 → TEP 19.26, 59 → HAI 0.72. docs/MATRIX.md.
+- Dataset 8, LBNL Building 59 (Luo et al. 2022; CC0; fetched from Zenodo 5951008 — Dryad's streams refuse
+  unauthenticated downloads): year 2019 at 5-min means, entity `unit` (55) over `zone` by 3.1; no `sys` candidate
+  (299 roles → ~1,800 types; the Markov-only comparison segfaults on the vocabulary-squared feature map — open
+  item). 276,110 events, 89 types, slow period 1,367 min, 1,285 fragments, 1,044 chains, 299 returns, recovery
+  **9/11**, no gain over triviality (50 thermostatic zones), +0.48 over the Markov baselines. Shares 104 cross-role
+  shapes with TEP and 128 with HAI; the shape trees pair it with TEP. scripts/building_59_layout.py,
+  ingest_building_59.py, fetch_building_59.sh; docs/CARD_building_59_v1.md. `DIMENSIONS` gains `irradiance`.
+- Lineage checks (RUNBOOK item 6): the two PhysioNet rows were two mappings with equal counts by coincidence
+  (confirmed sets differ by one fragment each way); LINEAGE.md states the running-order direction and counts
+  same-role and cross-role shapes apart (under v6 all three universal shapes were same-role; under v7 none is
+  universal). `isomorph lineage` re-run: five taxa, 4,358 characters.
+- Found on the way: `nulls.py` lacked the constants import (crashed every v7 run once); zsh does not word-split
+  unquoted pair strings (a chain of six transfers ran with empty arguments; re-run from bash).

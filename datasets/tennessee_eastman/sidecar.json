@@ -1059,6 +1059,8 @@
    "out_degree": 16,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     3,
@@ -1089,6 +1091,8 @@
    "out_degree": 33,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7LEAD"
@@ -1111,6 +1115,8 @@
    "out_degree": 27,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     3,
@@ -1141,6 +1147,8 @@
    "out_degree": 25,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7LEAD"
@@ -1163,6 +1171,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     1,
     0,
@@ -1193,6 +1203,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1215,6 +1227,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     1,
     0,
@@ -1245,6 +1259,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1283,6 +1299,8 @@
    "out_degree": 4,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LEAD"
@@ -1321,6 +1339,11 @@
    "out_degree": 43,
    "in_degree": 116,
    "binding_share": 0.2,
+   "loop": "REACTS",
+   "loop_votes": {
+    "RESPONDS": 2,
+    "REACTS": 7
+   },
    "dimension": [
     1,
     -1,
@@ -1367,6 +1390,11 @@
    "out_degree": 52,
    "in_degree": 106,
    "binding_share": 0.37,
+   "loop": "REACTS",
+   "loop_votes": {
+    "RESPONDS": 12,
+    "REACTS": 27
+   },
    "dimension": [
     0,
     0,
@@ -1397,6 +1425,8 @@
    "out_degree": 42,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     1,
     2,
@@ -1435,9 +1465,14 @@
    "out_degree": 71,
    "in_degree": 107,
    "binding_share": 0.5,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 25,
+    "REACTS": 16
+   },
    "dimension": null,
    "quantity": null,
-   "full": "SLOW\u00b7LOCAL\u00b7RELAY"
+   "full": "SLOW\u00b7LOCAL\u00b7RESPONDS"
   },
   "cw_out": {
    "cls": "MID",
@@ -1465,6 +1500,11 @@
    "out_degree": 78,
    "in_degree": 108,
    "binding_share": 0.52,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 36,
+    "REACTS": 21
+   },
    "dimension": [
     0,
     0,
@@ -1475,7 +1515,7 @@
     0
    ],
    "quantity": "temperature",
-   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
   },
   "feed": {
    "cls": "MID",
@@ -1495,6 +1535,11 @@
    "out_degree": 65,
    "in_degree": 60,
    "binding_share": 0.15,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 7,
+    "RESPONDS": 4
+   },
    "dimension": [
     0,
     3,
@@ -1505,7 +1550,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID\u00b7COMMON\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7COMMON\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "feed_A": {
    "cls": "MID",
@@ -1525,6 +1570,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1547,6 +1594,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7ISOLATED"
@@ -1569,6 +1618,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1591,6 +1642,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1613,6 +1666,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1635,6 +1690,8 @@
    "out_degree": 2,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7LEAD"
@@ -1657,6 +1714,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "FAST\u00b7ISOLATED"
@@ -1679,6 +1738,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1701,6 +1762,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1723,6 +1786,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "FAST\u00b7ISOLATED"
@@ -1745,6 +1810,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "FAST\u00b7ISOLATED"
@@ -1767,6 +1834,8 @@
    "out_degree": 10,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     3,
@@ -1797,6 +1866,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1819,6 +1890,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7ISOLATED"
@@ -1841,6 +1914,8 @@
    "out_degree": 30,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LEAD"
@@ -1863,6 +1938,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1885,6 +1962,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1907,6 +1986,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "SLOW\u00b7ISOLATED"
@@ -1929,6 +2010,8 @@
    "out_degree": 1,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LEAD"
@@ -1951,6 +2034,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7ISOLATED"
@@ -1973,6 +2058,8 @@
    "out_degree": 10,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": null,
    "quantity": null,
    "full": "MID\u00b7LEAD"
@@ -1995,6 +2082,8 @@
    "out_degree": 5,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     0,
     3,
@@ -2022,6 +2111,8 @@
    "out_degree": 0,
    "in_degree": 0,
    "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
    "dimension": [
     1,
     0,
@@ -2060,6 +2151,10 @@
    "out_degree": 7,
    "in_degree": 8,
    "binding_share": 1.0,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 1
+   },
    "dimension": [
     0,
     3,
@@ -2070,7 +2165,7 @@
     0
    ],
    "quantity": "volume_flow",
-   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
   },
   "underflow_valve": {
    "cls": "MID",
@@ -2098,9 +2193,14 @@
    "out_degree": 46,
    "in_degree": 62,
    "binding_share": 0.84,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 9,
+    "RESPONDS": 7
+   },
    "dimension": null,
    "quantity": null,
-   "full": "MID\u00b7LOCAL\u00b7RELAY"
+   "full": "MID\u00b7LOCAL\u00b7REACTS"
   }
  },
  "tags_note": "parts of speech (3.14): clock prefix from the first 120 days relative to H; place prefix from the v1 library; dimension suffix from Downs & Vogel"

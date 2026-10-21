@@ -97,3 +97,26 @@ the P3 pump command ↔ inflow pressure (LCP01D ↔ PIT01, 9), the turbine speed
 ↔ SIT01 5), and the boiler's temperature demand ↔ pressure valve (B4022 ↔ PCV01). Every one is spelled
 RELAY → RELAY → RELAY: in HAI the measurements are themselves relays (LIT01 drives LCV01D and is driven by it),
 so the loop's signature is three relays, not LEAD → FOLLOW → LEAD (see the TEP card's note on the place prefix).
+
+## v7 regeneration (2026-10-21): loop roles, fine-grid period, admission in horizons
+
+Fragments, chains and the headline are unchanged from v6 (2,165 fragments, 1,437 chains, 118 returns, library
+3.714). No period on either grid. Admission: 15.3 days, **178 H** (test split 44 H) → **not admitted under the rule
+as written** (20 days, 20 slow periods or 200 H); HAI stays in the collection as the provisional member it has
+been since dataset 4, by the standing decision in section 6, and every view flags it.
+
+**Loop roles (3.16).** 83 of 118 returns resolved, 35 unresolved. The level loop: of the 20 LIT01 ↔ LCV01D
+returns 12 are unresolved (the strongest, `LIT01:upq80 -s-> LCV01D:upq20 -s-> LIT01:downq80`, has g1 = 2.5 and
+g2 = 3.0 min, inside the ratio), 5 say the valve command reacts and 3 say the level reacts; the role tags come
+out **LIT01 REACTS, LCV01D RESPONDS** — the expectation (LCV01D on REACTS) is inverted at the role level, by the
+other returns the two take part in (LCP01D ↔ LCV01D, LCV01Z ↔ LCV01D). 26 roles carry a tag.
+
+| check | result | chance |
+| --- | --- | --- |
+| dimension: REACTS roles dimensionless | 4 of 15 (0.27) | 0.5 |
+| dimension: RESPONDS roles dimensioned | 7 of 11 (0.64) | 0.5 |
+| flowsheet: actuator on the REACTS side (keyed actuators: commands and pump/speed outputs) | 7 of 21 (**0.33**) | 0.5 |
+
+On HAI the fast side of a loop is more often the *measurement* than the command: the commands here are PID
+outputs that move slowly, the measurements answer within a minute. The reading "fast side = controller" fails on
+this plant at 1-minute means; the tag still names a fast side and a slow side, which is all 3.16 claims.

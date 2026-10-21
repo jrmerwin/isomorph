@@ -87,3 +87,28 @@ confirmation 30 / 2.95): the flow falls, the vessel pressure falls, the flow ris
 actuator inside a closed loop is both a context and a target, so the degree rule (3.14) tags it RELAY. LEAD
 appears only at the start of open chains (LEAD → RELAY → RELAY, 76 here: feeds and valves that drive without
 being driven). A loop closing reads RELAY → FOLLOW → RELAY (31 returns here) or RELAY → RELAY → RELAY (47).
+
+## v7 regeneration (2026-10-21): loop roles, fine-grid period, admission in horizons
+
+Fragments, chains and the headline are unchanged (567 fragments, 525 chains, 106 returns, library 3.033). The fine
+grid finds no fast period (`period_fast: none`, as expected of a plant without a cycle). Admission: 120 days,
+**1,206 H** (test split 302 H) → admitted by days.
+
+**Loop roles (3.16).** 87 of 106 returns resolved, 19 unresolved. The realised gaps inside the fast lag class are
+multiples of the 3-minute sample (g1 takes the values 3, 6, 9 … min; the strongest return,
+`underflow_valve:downq20 -s-> P:downq80 -s-> underflow_valve:upq20`, has g1 = g2 = 6.0 and is unresolved), so the
+verdicts rest on one or two samples' difference. Tags: **underflow_valve REACTS** (9 votes to 7), P REACTS, T
+REACTS, feed REACTS; **cw_flow RESPONDS** (25 to 16), cw_out RESPONDS, underflow RESPONDS. The expectation that
+both the valve and the cooling-water flow land on REACTS holds for the valve and is inverted for the flow: in the
+cooling-water returns the pressure or temperature answers the flow faster than the flow answers them.
+
+| check | result | chance |
+| --- | --- | --- |
+| dimension: REACTS roles dimensionless | 1 of 4 (0.25) | 0.5 |
+| dimension: RESPONDS roles dimensioned | 2 of 3 (0.67) | 0.5 |
+| flowsheet: actuator on the REACTS side of actuator–measurement returns | 24 of 44 (**0.55**) | 0.5 |
+
+At 3-minute sampling the loop tag does not separate controller from plant on this plant: the flowsheet check is
+at chance and the dimension check below it. The card records it; nothing is corrected by hand. The shapes are
+respelled under the tags (`MID·REACTS.down.q20 -s-> MID·REACTS.down.q80 -s-> MID·REACTS.up.q20 [return]` for the
+valve–pressure return) and so is the lineage.

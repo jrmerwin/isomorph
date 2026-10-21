@@ -32,8 +32,10 @@ def discover(streams, lags, splits, rng, gaps=None, gap_mode="drop", min_count=5
     n_p = len(rows_prop)
     nm = {}
     nm["circular"] = null_max_circular(streams, lags, plo, phi, rng, K.N_NULL_DRAWS, gaps, gap_mode)
-    if "cycle" in nulls and period:
-        nm["cycle"] = null_max_circular(streams, lags, plo, phi, rng, K.N_NULL_DRAWS, gaps, gap_mode, period=period)
+    periods = [p for p in (period if isinstance(period, (list, tuple)) else [period]) if p]
+    if "cycle" in nulls and periods:          # v7: the cycle null gate at each period found (slow, then fast)
+        for i, p in enumerate(periods):
+            nm["cycle" if i == 0 else "cycle_fast"] = null_max_circular(streams, lags, plo, phi, rng, K.N_NULL_DRAWS, gaps, gap_mode, period=p)
     if "rewire" in nulls and events is not None and entities is not None and len(entities) > 1:
         nm["rewire"] = null_max_rewire(events, entities, lags, plo, phi, rng, K.N_NULL_DRAWS, gaps, gap_mode)
     floor = signal_floor(nm["circular"], cnt_p, rng, K.FLOOR_PAIRS)

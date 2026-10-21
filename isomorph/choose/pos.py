@@ -75,8 +75,8 @@ def type_tag(tags, typ, coarse=False):
 def _part(t, tags, place=False):
     role, sym = t.split(":", 1)
     tag = type_tag(tags, t) or "?"
-    if place:   # v6 chain spelling: clock class and place in the coupling web, 'MID·LEAD'
-        infl = (tags.get(role) or {}).get("influence")
+    if place:   # v6 chain spelling: clock class and place in the coupling web, 'MID·LEAD'; v7: the loop tag replaces RELAY
+        infl = place_of(tags.get(role) or {})
         if infl: tag = f"{tag}·{infl}"
     if sym in ("peak", "trough", "on", "off", "up", "down"): return f"{tag}.{sym}"
     d = "up" if sym.startswith("up") else "down"
@@ -105,7 +105,7 @@ DIMENSIONS = {
     "volume_flow": (0, 3, -1, 0, 0, 0, 0), "mass_flow": (1, 0, -1, 0, 0, 0, 0), "power": (1, 2, -3, 0, 0, 0, 0),
     "frequency": (0, 0, -1, 0, 0, 0, 0), "velocity": (0, 1, -1, 0, 0, 0, 0), "voltage": (1, 2, -3, 0, -1, 0, 0),
     "time": (0, 0, 1, 0, 0, 0, 0), "mass": (1, 0, 0, 0, 0, 0, 0), "volume": (0, 3, 0, 0, 0, 0, 0),
-    "current": (0, 0, 0, 0, 0, 1, 0),
+    "current": (0, 0, 0, 0, 0, 1, 0), "irradiance": (1, 0, -3, 0, 0, 0, 0),
 }
 
 
@@ -137,13 +137,21 @@ def place_tags(fragments, roles, binding_share_common=0.5, lead_ratio=2.0):
     return tags
 
 
+def place_of(t):
+    """The place word of a role: its loop tag (3.16, REACTS / RESPONDS) where it has one and the degree rule said
+    RELAY; otherwise the degree tag (LEAD / FOLLOW / RELAY / ISOLATED)."""
+    infl = t.get("influence")
+    if infl == "RELAY" and t.get("loop"): return t["loop"]
+    return infl
+
+
 def full_tag(tags, role):
-    """'MID·LOCAL·LEAD ⟨M L⁻¹ T⁻²⟩' — clock prefix · place prefix · dimension suffix."""
+    """'MID·LOCAL·LEAD ⟨M L⁻¹ T⁻²⟩' — clock prefix · place prefix · dimension suffix (v7: REACTS / RESPONDS in place of RELAY)."""
     t = tags.get(role)
     if not t: return None
     parts = [t["cls"]]
     if t.get("locality"): parts.append(t["locality"])
-    if t.get("influence"): parts.append(t["influence"])
+    if place_of(t): parts.append(place_of(t))
     s = "·".join(parts)
     if t.get("dimension"): s += f" ⟨{dim_label(tuple(t['dimension']))}⟩"
     return s

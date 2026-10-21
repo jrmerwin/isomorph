@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "v1",
  "seed": 0,
  "dataset": "physionet_slp",
@@ -9,7 +9,7 @@
   "time_unit": "minute (compressed: records concatenated)",
   "span": [
    0.016666667,
-   5137.966666667
+   5137.9875
   ],
   "entity_key": "record",
   "entities": [
@@ -38,260 +38,186 @@
     "HR": "dsign",
     "SBP": "dsign",
     "DBP": "dsign",
-    "RESP": "q20_50_80",
+    "RESP": "dsign",
     "SO2": "dsign"
    },
-   "thresholds": {
-    "RESP": {
-     "slp01a_RESP": [
-      0.024,
-      0.037,
-      0.048
-     ],
-     "slp01b_RESP": [
-      -0.066,
-      -0.036,
-      -0.006
-     ],
-     "slp02a_RESP": [
-      -0.401,
-      -0.362,
-      -0.323
-     ],
-     "slp02b_RESP": [
-      -0.432,
-      -0.374,
-      -0.321
-     ],
-     "slp04_RESP": [
-      -0.011,
-      -0.008,
-      -0.006
-     ],
-     "slp14_RESP": [
-      -0.003,
-      -0.001,
-      0.064
-     ],
-     "slp32_RESP": [
-      -0.054,
-      -0.046,
-      0.004
-     ],
-     "slp37_RESP": [
-      -0.17,
-      -0.169,
-      -0.071
-     ],
-     "slp41_RESP": [
-      -0.029,
-      -0.027,
-      -0.024
-     ],
-     "slp45_RESP": [
-      -0.18,
-      -0.177,
-      -0.039
-     ],
-     "slp48_RESP": [
-      -0.28,
-      -0.246,
-      -0.217
-     ],
-     "slp59_RESP": [
-      0.167,
-      0.18,
-      0.192
-     ],
-     "slp60_RESP": [
-      -0.706,
-      -0.425,
-      -0.267
-     ],
-     "slp61_RESP": [
-      -0.256,
-      -0.17,
-      -0.113
-     ],
-     "slp67x_RESP": [
-      0.062,
-      0.064,
-      0.151
-     ]
-    }
-   },
+   "thresholds": {},
    "noise_windows": {
-    "slp01a_HR": 2,
+    "slp01a_HR": 1,
     "slp01b_HR": 1,
-    "slp02a_HR": 8,
-    "slp02b_HR": 5,
-    "slp03_HR": 2,
-    "slp04_HR": 4,
-    "slp14_HR": 2,
-    "slp16_HR": 2,
-    "slp32_HR": 2,
-    "slp37_HR": 2,
-    "slp41_HR": 2,
-    "slp45_HR": 3,
-    "slp48_HR": 2,
-    "slp59_HR": 2,
-    "slp60_HR": 3,
-    "slp61_HR": 2,
-    "slp66_HR": 2,
-    "slp67x_HR": 2,
-    "slp01a_SBP": 2,
+    "slp02a_HR": 1,
+    "slp02b_HR": 1,
+    "slp03_HR": 1,
+    "slp04_HR": 1,
+    "slp14_HR": 1,
+    "slp16_HR": 1,
+    "slp32_HR": 1,
+    "slp37_HR": 1,
+    "slp41_HR": 1,
+    "slp45_HR": 1,
+    "slp48_HR": 1,
+    "slp59_HR": 1,
+    "slp60_HR": 1,
+    "slp61_HR": 1,
+    "slp66_HR": 1,
+    "slp67x_HR": 1,
+    "slp01a_SBP": 1,
     "slp01b_SBP": 1,
-    "slp02a_SBP": 3,
-    "slp02b_SBP": 3,
-    "slp03_SBP": 2,
-    "slp04_SBP": 2,
-    "slp14_SBP": 3,
-    "slp16_SBP": 2,
-    "slp32_SBP": 2,
-    "slp37_SBP": 8,
-    "slp41_SBP": 2,
-    "slp45_SBP": 5,
-    "slp48_SBP": 2,
-    "slp59_SBP": 2,
-    "slp60_SBP": 2,
-    "slp61_SBP": 3,
-    "slp66_SBP": 2,
-    "slp67x_SBP": 2,
+    "slp02a_SBP": 1,
+    "slp02b_SBP": 1,
+    "slp03_SBP": 1,
+    "slp04_SBP": 1,
+    "slp14_SBP": 1,
+    "slp16_SBP": 1,
+    "slp32_SBP": 1,
+    "slp37_SBP": 1,
+    "slp41_SBP": 1,
+    "slp45_SBP": 1,
+    "slp48_SBP": 1,
+    "slp59_SBP": 1,
+    "slp60_SBP": 1,
+    "slp61_SBP": 1,
+    "slp66_SBP": 1,
+    "slp67x_SBP": 1,
     "slp01a_DBP": 1,
     "slp01b_DBP": 1,
-    "slp02a_DBP": 2,
-    "slp02b_DBP": 5,
-    "slp03_DBP": 2,
-    "slp04_DBP": 2,
-    "slp14_DBP": 3,
-    "slp16_DBP": 2,
-    "slp32_DBP": 2,
-    "slp37_DBP": 5,
-    "slp41_DBP": 2,
-    "slp45_DBP": 3,
+    "slp02a_DBP": 1,
+    "slp02b_DBP": 1,
+    "slp03_DBP": 1,
+    "slp04_DBP": 1,
+    "slp14_DBP": 1,
+    "slp16_DBP": 1,
+    "slp32_DBP": 1,
+    "slp37_DBP": 1,
+    "slp41_DBP": 1,
+    "slp45_DBP": 1,
     "slp48_DBP": 1,
     "slp59_DBP": 1,
-    "slp60_DBP": 2,
-    "slp61_DBP": 2,
+    "slp60_DBP": 1,
+    "slp61_DBP": 1,
     "slp66_DBP": 1,
-    "slp67x_DBP": 2,
-    "slp01a_RESP": 43,
-    "slp01b_RESP": 20,
-    "slp02a_RESP": 14,
-    "slp02b_RESP": 17,
-    "slp03_RESP": null,
-    "slp04_RESP": 55,
-    "slp14_RESP": 91,
-    "slp16_RESP": null,
-    "slp32_RESP": 44,
-    "slp37_RESP": 52,
-    "slp41_RESP": 39,
-    "slp45_RESP": 35,
-    "slp48_RESP": 19,
-    "slp59_RESP": 23,
-    "slp60_RESP": 8,
-    "slp61_RESP": 12,
-    "slp66_RESP": null,
-    "slp67x_RESP": 30,
+    "slp67x_DBP": 1,
+    "slp01a_RESP": 2,
+    "slp01b_RESP": 2,
+    "slp02a_RESP": 3,
+    "slp02b_RESP": 3,
+    "slp03_RESP": 5,
+    "slp04_RESP": 2,
+    "slp14_RESP": 3,
+    "slp16_RESP": 4,
+    "slp32_RESP": 3,
+    "slp37_RESP": 4,
+    "slp41_RESP": 4,
+    "slp45_RESP": 4,
+    "slp48_RESP": 2,
+    "slp59_RESP": 2,
+    "slp60_RESP": 2,
+    "slp61_RESP": 1,
+    "slp66_RESP": 4,
+    "slp67x_RESP": 3,
     "slp59_SO2": 1,
     "slp60_SO2": 1,
     "slp61_SO2": 1,
     "slp66_SO2": 1,
-    "slp67x_SO2": 2
+    "slp67x_SO2": 1
    }
   }
  },
  "scale": {
-  "events": 78687,
-  "events_per_day": 22053.402621668174,
-  "types": 14,
+  "events": 221062,
+  "events_per_day": 61956.22558516937,
+  "types": 10,
   "n_entities": 18,
   "period": null,
-  "signal_floor": 322,
+  "period_slow": null,
+  "period_fast": null,
+  "resolution_delta": 0.004166666666666667,
+  "signal_floor": 967,
   "min_count": 3,
   "lag_edges": [
-   0.048733627663697154,
-   0.14249799361776522,
-   0.41666666650007755
+   0.016623148587418504,
+   0.06631898716214531,
+   0.26458333299996184
   ],
   "events_dropped_for_gaps": 0,
-  "test_events": 24196,
+  "test_events": 49204,
   "deterministic_types": []
  },
  "headline_bits": {
   "unigram": {
-   "all": 4.799054044213834,
-   "non_deterministic": 4.799054044213834,
+   "all": 3.4342423168288976,
+   "non_deterministic": 3.4342423168288976,
    "deterministic": null
   },
   "markov-1": {
-   "all": 5.474924620031761,
-   "non_deterministic": 5.474924620031761,
+   "all": 3.7180191768190465,
+   "non_deterministic": 3.7180191768190465,
    "deterministic": null
   },
   "markov-2": {
-   "all": 6.181202860546321,
-   "non_deterministic": 6.181202860546321,
+   "all": 4.067971181573634,
+   "non_deterministic": 4.067971181573634,
    "deterministic": null
   },
   "markov-3": {
-   "all": 6.775076925669069,
-   "non_deterministic": 6.775076925669069,
+   "all": 4.435321736521875,
+   "non_deterministic": 4.435321736521875,
    "deterministic": null
   },
   "hawkes-like decay features": {
-   "all": 5.28435961446286,
-   "non_deterministic": 5.28435961446286,
+   "all": 3.5587995238645176,
+   "non_deterministic": 3.5587995238645176,
    "deterministic": null
   },
   "logistic markov features": {
-   "all": 5.362178655318351,
-   "non_deterministic": 5.362178655318351,
+   "all": 3.3731786551260847,
+   "non_deterministic": 3.3731786551260847,
    "deterministic": null
   },
   "logistic triviality library": {
-   "all": 4.813034619806793,
-   "non_deterministic": 4.813034619806793,
+   "all": 3.328113853882505,
+   "non_deterministic": 3.328113853882505,
    "deterministic": null
   },
   "logistic library": {
-   "all": 4.930567714758607,
-   "non_deterministic": 4.930567714758607,
+   "all": 3.136028590164798,
+   "non_deterministic": 3.136028590164798,
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 4.812733533760772,
-   "non_deterministic": 4.812733533760772,
+   "all": 3.3245350795057647,
+   "non_deterministic": 3.3245350795057647,
    "deterministic": null
   }
  },
  "gain": {
-  "over_triviality": -0.1175330949518143,
-  "over_best_baseline": -0.1315136705447726,
-  "best_baseline_bits": 4.799054044213834,
-  "claim": "no gain"
+  "over_triviality": 0.19208526371770684,
+  "over_best_baseline": 0.23715006496128677,
+  "best_baseline_bits": 3.3731786551260847,
+  "claim": "beats baselines"
  },
  "library": {
-  "fragments": 37,
-  "fragments_used": 27,
-  "compositions_kept": 42,
-  "chains": 1,
+  "fragments": 22,
+  "fragments_used": 17,
+  "compositions_kept": 32,
+  "chains": 3,
   "chains_used": 0,
   "returns": 0,
   "chain_search": {
-   "candidates": 114,
-   "lift_ok": 9,
-   "null_passed": 9,
-   "admitted": 1,
-   "returns": 0
+   "candidates": 53,
+   "lift_ok": 4,
+   "null_passed": 4,
+   "admitted": 3,
+   "returns": 0,
+   "returns_resolved": 0
   },
-  "candidates": 396,
+  "candidates": 177,
   "nulls_run": [
    "circular",
    "rewire"
   ],
   "null_survival": {
-   "circular": 0.6575342465753424,
+   "circular": 0.8529411764705882,
    "rewire": 1.0
   },
   "trivial_pairs": [
@@ -304,31 +230,47 @@
     "HR:trough"
    ],
    [
-    "RESP:downq20",
-    "RESP:upq20"
-   ],
-   [
-    "RESP:downq50",
-    "RESP:upq50"
-   ],
-   [
-    "RESP:downq80",
-    "RESP:upq80"
+    "RESP:peak",
+    "RESP:trough"
    ],
    [
     "SBP:peak",
     "SBP:trough"
    ]
   ],
-  "chatty_share": 0.16216216216216217
+  "chatty_share": 0.18181818181818182
  },
  "recovery": {
   "recall": 0.4,
-  "precision": 0.21621621621621623,
+  "precision": 0.18181818181818182,
   "n_mechanisms": 5,
   "n_found": 2
  },
+ "admission": {
+  "days": 3.57,
+  "slow_periods": null,
+  "horizons": 19419.1,
+  "test_horizons": 4854.8,
+  "admitted": true,
+  "by": "horizons"
+ },
+ "loop_roles": {
+  "returns": 0,
+  "resolved": 0,
+  "unresolved": 0,
+  "roles": {},
+  "votes": {},
+  "dimension_check": null,
+  "flowsheet_check": {
+   "actuator_measurement_returns": 0,
+   "actuator_reacts": 0,
+   "share": null,
+   "actuators": [
+    "RESP"
+   ]
+  }
+ },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 25.2
+ "elapsed_s": 71.7
 }

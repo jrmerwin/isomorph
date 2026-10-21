@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "v1",
  "seed": 0,
  "dataset": "tennessee_eastman",
@@ -346,7 +346,10 @@
   "types": 40,
   "n_entities": 3,
   "period": null,
-  "signal_floor": 162,
+  "period_slow": null,
+  "period_fast": null,
+  "resolution_delta": 3.0,
+  "signal_floor": 173,
   "min_count": 3,
   "lag_edges": [
    10.883762260366268,
@@ -399,8 +402,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 3.173886526303596,
-   "non_deterministic": 3.173886526303596,
+   "all": 3.175378897213583,
+   "non_deterministic": 3.175378897213583,
    "deterministic": null
   }
  },
@@ -422,7 +425,8 @@
    "lift_ok": 938,
    "null_passed": 926,
    "admitted": 525,
-   "returns": 106
+   "returns": 106,
+   "returns_resolved": 87
   },
   "candidates": 21863,
   "nulls_run": [
@@ -523,7 +527,80 @@
   "n_mechanisms": 10,
   "n_found": 2
  },
+ "admission": {
+  "days": 120.0,
+  "slow_periods": null,
+  "horizons": 1206.2,
+  "test_horizons": 301.6,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 106,
+  "resolved": 87,
+  "unresolved": 19,
+  "roles": {
+   "underflow_valve": "REACTS",
+   "T": "REACTS",
+   "P": "REACTS",
+   "cw_flow": "RESPONDS",
+   "cw_out": "RESPONDS",
+   "feed": "REACTS",
+   "underflow": "RESPONDS"
+  },
+  "votes": {
+   "underflow_valve": {
+    "REACTS": 9,
+    "RESPONDS": 7
+   },
+   "T": {
+    "RESPONDS": 12,
+    "REACTS": 27
+   },
+   "P": {
+    "RESPONDS": 2,
+    "REACTS": 7
+   },
+   "cw_flow": {
+    "RESPONDS": 25,
+    "REACTS": 16
+   },
+   "cw_out": {
+    "RESPONDS": 36,
+    "REACTS": 21
+   },
+   "feed": {
+    "REACTS": 7,
+    "RESPONDS": 4
+   },
+   "underflow": {
+    "RESPONDS": 1
+   }
+  },
+  "dimension_check": {
+   "reacts_dimensionless": 0.25,
+   "responds_dimensioned": 0.6666666666666666,
+   "n_reacts": 4,
+   "n_responds": 3,
+   "chance": 0.5
+  },
+  "flowsheet_check": {
+   "actuator_measurement_returns": 44,
+   "actuator_reacts": 24,
+   "share": 0.5454545454545454,
+   "actuators": [
+    "AC_valve",
+    "A_valve",
+    "D_valve",
+    "E_valve",
+    "cw_flow",
+    "purge_valve",
+    "steam",
+    "underflow_valve"
+   ]
+  }
+ },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 426.4
+ "elapsed_s": 429.9
 }

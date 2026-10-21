@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "legacy",
  "seed": 0,
  "dataset": "building_a",
@@ -25,6 +25,9 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
+  "period_slow": 1440.0,
+  "period_fast": null,
+  "resolution_delta": 1.0,
   "signal_floor": 14,
   "min_count": 5,
   "lag_edges": [
@@ -78,8 +81,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.7981791610472515,
-   "non_deterministic": 1.7981791610472515,
+   "all": 1.7981791610476567,
+   "non_deterministic": 1.7981791610476567,
    "deterministic": null
   }
  },
@@ -160,7 +163,24 @@
   "n_mechanisms": 12,
   "n_found": 10
  },
+ "admission": {
+  "days": 59.97,
+  "slow_periods": 60.0,
+  "horizons": 959.5,
+  "test_horizons": 479.8,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 0,
+  "resolved": 0,
+  "unresolved": 0,
+  "roles": {},
+  "votes": {},
+  "dimension_check": null,
+  "flowsheet_check": null
+ },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 1.7
+ "elapsed_s": 1.5
 }

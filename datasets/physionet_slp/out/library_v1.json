@@ -1,88 +1,86 @@
 {
  "chains": [
   {
-   "a": "RESP:downq80",
+   "a": "HR:trough",
    "l1": "s",
-   "b": "RESP:downq50",
+   "b": "RESP:peak",
    "l2": "s",
-   "c": "RESP:downq20",
-   "count": 51,
-   "cond_lift": 1.6969944240446075,
-   "count_conf": 78,
-   "cond_lift_conf": 1.538335113813789,
-   "null_max": 10,
+   "c": "DBP:trough",
+   "count": 343,
+   "cond_lift": 2.5276769646748876,
+   "count_conf": 70,
+   "cond_lift_conf": 3.3285321100917433,
+   "null_max": 83,
    "is_return": false,
    "used": false,
    "link_counts": {
-    "n_B": 1468,
-    "n_BC": 342,
-    "n_AB": 129
+    "n_B": 9779,
+    "n_BC": 1963,
+    "n_AB": 676
    },
-   "shape": "MID\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.down.q50 -s-> MID\u00b7RELAY.down.q20"
+   "shape": "MID\u00b7LEAD.trough -s-> FAST\u00b7RELAY.peak -s-> MID\u00b7RELAY.trough",
+   "g1": null,
+   "g2": null,
+   "verdict": null
+  },
+  {
+   "a": "HR:peak",
+   "l1": "s",
+   "b": "RESP:trough",
+   "l2": "s",
+   "c": "DBP:peak",
+   "count": 342,
+   "cond_lift": 2.3078069902049667,
+   "count_conf": 103,
+   "cond_lift_conf": 2.528276687851156,
+   "null_max": 82,
+   "is_return": false,
+   "used": false,
+   "link_counts": {
+    "n_B": 9505,
+    "n_BC": 1553,
+    "n_AB": 907
+   },
+   "shape": "MID\u00b7LEAD.peak -s-> FAST\u00b7RELAY.trough -s-> MID\u00b7RELAY.peak",
+   "g1": null,
+   "g2": null,
+   "verdict": null
+  },
+  {
+   "a": "HR:peak",
+   "l1": "s",
+   "b": "RESP:trough",
+   "l2": "s",
+   "c": "SBP:peak",
+   "count": 219,
+   "cond_lift": 1.5982124485201756,
+   "count_conf": 55,
+   "cond_lift_conf": 1.5047995482778092,
+   "null_max": 86,
+   "is_return": false,
+   "used": false,
+   "link_counts": {
+    "n_B": 9505,
+    "n_BC": 1436,
+    "n_AB": 907
+   },
+   "shape": "MID\u00b7LEAD.peak -s-> FAST\u00b7RELAY.trough -s-> MID\u00b7FOLLOW.peak",
+   "g1": null,
+   "g2": null,
+   "verdict": null
   }
  ],
  "fragments": [
   {
-   "prior": "RESP:upq80",
-   "lag": "m",
-   "target": "RESP:downq80",
-   "count": 840,
-   "lift": 9.399941816066038,
-   "lift_conf": 6.761303150337315,
-   "null_max": {
-    "circular": 150,
-    "rewire": 173
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "failed_in": [],
-   "shape": "MID.up.q80 -m-> MID.down.q80 [same role]"
-  },
-  {
-   "prior": "RESP:downq20",
-   "lag": "m",
-   "target": "RESP:upq20",
-   "count": 1016,
-   "lift": 6.60636751874128,
-   "lift_conf": 6.160959708879091,
-   "null_max": {
-    "circular": 221,
-    "rewire": 183
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q20 -m-> MID.up.q20 [same role]"
-  },
-  {
    "prior": "DBP:peak",
    "lag": "s",
    "target": "SBP:peak",
-   "count": 1107,
-   "lift": 4.907576563026735,
-   "lift_conf": 5.569796528476862,
+   "count": 711,
+   "lift": 6.34764782358825,
+   "lift_conf": 10.966856731127614,
    "null_max": {
-    "circular": 409,
-    "rewire": 190
+    "circular": 182,
+    "rewire": 118
    },
    "nulls_survived": [
     "circular",
@@ -96,17 +94,65 @@
     "hai"
    ],
    "shape": "MID.peak -s-> MID.peak"
+  },
+  {
+   "prior": "RESP:peak",
+   "lag": "s",
+   "target": "DBP:trough",
+   "count": 1963,
+   "lift": 4.531769804998151,
+   "lift_conf": 3.7981950550673744,
+   "null_max": {
+    "circular": 1466,
+    "rewire": 285
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "FAST.peak -s-> MID.trough"
+  },
+  {
+   "prior": "RESP:peak",
+   "lag": "s",
+   "target": "SBP:trough",
+   "count": 1638,
+   "lift": 4.527057220777531,
+   "lift_conf": 5.251033564684838,
+   "null_max": {
+    "circular": 1164,
+    "rewire": 208
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "FAST.peak -s-> MID.trough"
   },
   {
    "prior": "DBP:trough",
    "lag": "s",
    "target": "SBP:trough",
-   "count": 809,
-   "lift": 4.853940060208859,
-   "lift_conf": 6.085566956495803,
+   "count": 600,
+   "lift": 5.031384151909919,
+   "lift_conf": 5.692287190249307,
    "null_max": {
-    "circular": 408,
-    "rewire": 140
+    "circular": 185,
+    "rewire": 96
    },
    "nulls_survived": [
     "circular",
@@ -122,15 +168,15 @@
    "shape": "MID.trough -s-> MID.trough"
   },
   {
-   "prior": "RESP:downq80",
-   "lag": "m",
-   "target": "RESP:upq80",
-   "count": 432,
-   "lift": 5.351473423890655,
-   "lift_conf": 3.6719461603019736,
+   "prior": "RESP:trough",
+   "lag": "s",
+   "target": "SBP:peak",
+   "count": 1436,
+   "lift": 4.0841474429712425,
+   "lift_conf": 4.277314175162027,
    "null_max": {
-    "circular": 158,
-    "rewire": 97
+    "circular": 1158,
+    "rewire": 184
    },
    "nulls_survived": [
     "circular",
@@ -141,46 +187,20 @@
    "confirmed_in": [],
    "failed_in": [
     "tennessee_eastman",
-    "hai",
-    "nasa_battery"
+    "hai"
    ],
-   "shape": "MID.down.q80 -m-> MID.up.q80 [same role]"
+   "shape": "FAST.trough -s-> MID.peak"
   },
   {
-   "prior": "RESP:upq50",
-   "lag": "s",
-   "target": "RESP:upq80",
-   "count": 247,
-   "lift": 5.8087722247908875,
-   "lift_conf": 9.610607166661378,
-   "null_max": {
-    "circular": 159,
-    "rewire": 49
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "failed_in": [],
-   "shape": "MID.up.q50 -s-> MID.up.q80 [same role]"
-  },
-  {
-   "prior": "HR:peak",
+   "prior": "RESP:trough",
    "lag": "s",
    "target": "DBP:peak",
-   "count": 1472,
-   "lift": 4.2132152689932285,
-   "lift_conf": 3.155863757080868,
+   "count": 1553,
+   "lift": 3.6900536086394937,
+   "lift_conf": 3.9830337429717564,
    "null_max": {
-    "circular": 499,
-    "rewire": 251
+    "circular": 1445,
+    "rewire": 214
    },
    "nulls_survived": [
     "circular",
@@ -193,247 +213,18 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.peak -s-> MID.peak"
+   "shape": "FAST.trough -s-> MID.peak"
   },
   {
-   "prior": "RESP:downq50",
-   "lag": "s",
-   "target": "RESP:downq20",
-   "count": 342,
-   "lift": 4.969892660996699,
-   "lift_conf": 8.38495811669555,
-   "null_max": {
-    "circular": 148,
-    "rewire": 48
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q50 -s-> MID.down.q20 [same role]"
-  },
-  {
-   "prior": "RESP:downq80",
-   "lag": "s",
-   "target": "RESP:downq20",
-   "count": 175,
-   "lift": 5.310429922762314,
-   "lift_conf": 4.205925178004685,
-   "null_max": {
-    "circular": 107,
-    "rewire": 40
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q80 -s-> MID.down.q20 [same role]"
-  },
-  {
-   "prior": "HR:trough",
-   "lag": "s",
-   "target": "DBP:trough",
-   "count": 1169,
-   "lift": 3.8362662763540962,
-   "lift_conf": 3.4121137770057537,
-   "null_max": {
-    "circular": 518,
-    "rewire": 209
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.trough -s-> MID.trough"
-  },
-  {
-   "prior": "RESP:upq20",
-   "lag": "s",
-   "target": "RESP:upq80",
-   "count": 176,
-   "lift": 5.215451949790312,
-   "lift_conf": 4.410258673735646,
-   "null_max": {
-    "circular": 89,
-    "rewire": 41
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q20 -s-> MID.up.q80 [same role]"
-  },
-  {
-   "prior": "RESP:upq20",
-   "lag": "s",
-   "target": "RESP:upq50",
-   "count": 366,
-   "lift": 4.515266896317403,
-   "lift_conf": 3.751950888256083,
-   "null_max": {
-    "circular": 156,
-    "rewire": 55
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q20 -s-> MID.up.q50 [same role]"
-  },
-  {
-   "prior": "RESP:upq50",
-   "lag": "m",
-   "target": "RESP:downq50",
-   "count": 1863,
-   "lift": 3.5206564966205893,
-   "lift_conf": 2.479176477783554,
-   "null_max": {
-    "circular": 763,
-    "rewire": 412
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q50 -m-> MID.down.q50 [same role]"
-  },
-  {
-   "prior": "RESP:upq20",
-   "lag": "m",
-   "target": "RESP:downq20",
-   "count": 503,
-   "lift": 3.801054227130325,
-   "lift_conf": 2.0792685869732135,
-   "null_max": {
-    "circular": 258,
-    "rewire": 97
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q20 -m-> MID.down.q20 [same role]"
-  },
-  {
-   "prior": "RESP:downq80",
-   "lag": "s",
-   "target": "RESP:downq50",
-   "count": 231,
-   "lift": 3.9331953125180115,
-   "lift_conf": 4.3159509573338015,
-   "null_max": {
-    "circular": 141,
-    "rewire": 46
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "failed_in": [],
-   "shape": "MID.down.q80 -s-> MID.down.q50 [same role]"
-  },
-  {
-   "prior": "RESP:downq50",
-   "lag": "m",
-   "target": "RESP:upq50",
-   "count": 1437,
-   "lift": 2.83987550467984,
-   "lift_conf": 2.2124204576246154,
-   "null_max": {
-    "circular": 722,
-    "rewire": 338
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q50 -m-> MID.up.q50 [same role]"
-  },
-  {
-   "prior": "RESP:downq80",
+   "prior": "RESP:peak",
    "lag": "l",
-   "target": "RESP:upq80",
-   "count": 423,
-   "lift": 3.0610594319093964,
-   "lift_conf": 1.8721193270182384,
+   "target": "RESP:peak",
+   "count": 17596,
+   "lift": 2.091732818287918,
+   "lift_conf": 1.973592085404451,
    "null_max": {
-    "circular": 257,
-    "rewire": 161
+    "circular": 17592,
+    "rewire": 12173
    },
    "nulls_survived": [
     "circular",
@@ -441,25 +232,24 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman"
-   ],
+   "confirmed_in": [],
    "failed_in": [
+    "tennessee_eastman",
     "hai",
     "nasa_battery"
    ],
-   "shape": "MID.down.q80 -l-> MID.up.q80 [same role]"
+   "shape": "FAST.peak -l-> FAST.peak [same role]"
   },
   {
-   "prior": "RESP:upq20",
+   "prior": "RESP:trough",
    "lag": "l",
-   "target": "RESP:downq20",
-   "count": 716,
-   "lift": 2.7446995566808523,
-   "lift_conf": 1.7152801172177823,
+   "target": "RESP:trough",
+   "count": 17588,
+   "lift": 1.998416812205477,
+   "lift_conf": 2.2082828478353735,
    "null_max": {
-    "circular": 449,
-    "rewire": 187
+    "circular": 17585,
+    "rewire": 12123
    },
    "nulls_survived": [
     "circular",
@@ -467,121 +257,24 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
+   "confirmed_in": [],
    "failed_in": [
+    "tennessee_eastman",
+    "hai",
     "nasa_battery"
    ],
-   "shape": "MID.up.q20 -l-> MID.down.q20 [same role]"
-  },
-  {
-   "prior": "HR:peak",
-   "lag": "s",
-   "target": "SBP:peak",
-   "count": 694,
-   "lift": 2.5505564234120617,
-   "lift_conf": 3.2876112461054543,
-   "null_max": {
-    "circular": 396,
-    "rewire": 135
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.peak -s-> MID.peak"
-  },
-  {
-   "prior": "HR:peak",
-   "lag": "m",
-   "target": "HR:trough",
-   "count": 1742,
-   "lift": 2.1832054400025416,
-   "lift_conf": 1.6276604563037818,
-   "null_max": {
-    "circular": 1048,
-    "rewire": 320
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.peak -m-> MID.trough [same role]"
-  },
-  {
-   "prior": "SBP:trough",
-   "lag": "s",
-   "target": "HR:peak",
-   "count": 414,
-   "lift": 2.701593624089913,
-   "lift_conf": 1.6311783811874756,
-   "null_max": {
-    "circular": 384,
-    "rewire": 72
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.trough -s-> MID.peak"
-  },
-  {
-   "prior": "HR:trough",
-   "lag": "s",
-   "target": "SBP:trough",
-   "count": 598,
-   "lift": 2.5190800037782184,
-   "lift_conf": 2.1842615518258555,
-   "null_max": {
-    "circular": 402,
-    "rewire": 102
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.trough -s-> MID.trough"
+   "shape": "FAST.trough -l-> FAST.trough [same role]"
   },
   {
    "prior": "HR:peak",
    "lag": "m",
    "target": "SBP:peak",
-   "count": 1413,
-   "lift": 2.1593868164874364,
-   "lift_conf": 2.274397542035682,
+   "count": 1860,
+   "lift": 2.533095285972141,
+   "lift_conf": 3.91529674106263,
    "null_max": {
-    "circular": 748,
-    "rewire": 242
+    "circular": 869,
+    "rewire": 306
    },
    "nulls_survived": [
     "circular",
@@ -597,15 +290,63 @@
    "shape": "MID.peak -m-> MID.peak"
   },
   {
+   "prior": "HR:peak",
+   "lag": "m",
+   "target": "DBP:peak",
+   "count": 1965,
+   "lift": 2.2357095640349183,
+   "lift_conf": 2.9665283564197495,
+   "null_max": {
+    "circular": 898,
+    "rewire": 302
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.peak -m-> MID.peak"
+  },
+  {
+   "prior": "SBP:trough",
+   "lag": "l",
+   "target": "SBP:peak",
+   "count": 3059,
+   "lift": 2.106017173518572,
+   "lift_conf": 2.028048438938249,
+   "null_max": {
+    "circular": 1959,
+    "rewire": 616
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.trough -l-> MID.peak [same role]"
+  },
+  {
    "prior": "DBP:peak",
    "lag": "m",
-   "target": "HR:trough",
-   "count": 1461,
-   "lift": 2.111238958623896,
-   "lift_conf": 1.6684229944970836,
+   "target": "SBP:peak",
+   "count": 1029,
+   "lift": 2.3446786577591223,
+   "lift_conf": 3.229001386134575,
    "null_max": {
-    "circular": 959,
-    "rewire": 257
+    "circular": 495,
+    "rewire": 155
    },
    "nulls_survived": [
     "circular",
@@ -618,92 +359,90 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.peak -m-> MID.trough"
-  },
-  {
-   "prior": "RESP:upq80",
-   "lag": "l",
-   "target": "RESP:downq80",
-   "count": 358,
-   "lift": 2.421982073486832,
-   "lift_conf": 2.987784991958733,
-   "null_max": {
-    "circular": 279,
-    "rewire": 150
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q80 -l-> MID.down.q80 [same role]"
-  },
-  {
-   "prior": "RESP:downq20",
-   "lag": "l",
-   "target": "RESP:upq20",
-   "count": 544,
-   "lift": 2.0833260391694526,
-   "lift_conf": 2.1446876079199253,
-   "null_max": {
-    "circular": 465,
-    "rewire": 168
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai",
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q20 -l-> MID.up.q20 [same role]"
-  },
-  {
-   "prior": "SBP:peak",
-   "lag": "l",
-   "target": "SBP:trough",
-   "count": 2250,
-   "lift": 1.6892953480721136,
-   "lift_conf": 1.7757625407591795,
-   "null_max": {
-    "circular": 1814,
-    "rewire": 565
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [],
-   "failed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "shape": "MID.peak -l-> MID.trough [same role]"
+   "shape": "MID.peak -m-> MID.peak"
   },
   {
    "prior": "HR:trough",
    "lag": "m",
    "target": "SBP:trough",
-   "count": 1115,
-   "lift": 1.8304386453076988,
-   "lift_conf": 2.811284745766239,
+   "count": 1571,
+   "lift": 2.185918915777947,
+   "lift_conf": 2.535387275731876,
    "null_max": {
-    "circular": 733,
-    "rewire": 194
+    "circular": 871,
+    "rewire": 255
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.trough -m-> MID.trough"
+  },
+  {
+   "prior": "HR:trough",
+   "lag": "s",
+   "target": "RESP:peak",
+   "count": 2628,
+   "lift": 2.0067469251795136,
+   "lift_conf": 1.637215426118836,
+   "null_max": {
+    "circular": 2092,
+    "rewire": 334
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.trough -s-> FAST.peak"
+  },
+  {
+   "prior": "HR:peak",
+   "lag": "s",
+   "target": "RESP:trough",
+   "count": 3233,
+   "lift": 1.9349906760978535,
+   "lift_conf": 1.5841132363690313,
+   "null_max": {
+    "circular": 2109,
+    "rewire": 388
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.peak -s-> FAST.trough"
+  },
+  {
+   "prior": "HR:trough",
+   "lag": "m",
+   "target": "DBP:trough",
+   "count": 1783,
+   "lift": 2.072309708967373,
+   "lift_conf": 2.95028771821929,
+   "null_max": {
+    "circular": 926,
+    "rewire": 268
    },
    "nulls_survived": [
     "circular",
@@ -721,13 +460,13 @@
   {
    "prior": "DBP:peak",
    "lag": "l",
-   "target": "SBP:trough",
-   "count": 2196,
-   "lift": 1.554397635371379,
-   "lift_conf": 1.816401658486097,
+   "target": "DBP:trough",
+   "count": 3480,
+   "lift": 1.8575583762353298,
+   "lift_conf": 1.802006147847238,
    "null_max": {
-    "circular": 1637,
-    "rewire": 411
+    "circular": 2469,
+    "rewire": 652
    },
    "nulls_survived": [
     "circular",
@@ -740,18 +479,42 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.peak -l-> MID.trough"
+   "shape": "MID.peak -l-> MID.trough [same role]"
+  },
+  {
+   "prior": "DBP:trough",
+   "lag": "l",
+   "target": "DBP:peak",
+   "count": 3692,
+   "lift": 1.8411208744584002,
+   "lift_conf": 1.6919763892924649,
+   "null_max": {
+    "circular": 2463,
+    "rewire": 679
+   },
+   "nulls_survived": [
+    "circular",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "physionet_slp",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "shape": "MID.trough -l-> MID.peak [same role]"
   },
   {
    "prior": "HR:peak",
-   "lag": "l",
-   "target": "SBP:trough",
-   "count": 2059,
-   "lift": 1.5390463566083568,
-   "lift_conf": 1.7074300819476784,
+   "lag": "s",
+   "target": "DBP:peak",
+   "count": 509,
+   "lift": 2.4004147478197124,
+   "lift_conf": 3.2136960916442043,
    "null_max": {
-    "circular": 1602,
-    "rewire": 367
+    "circular": 307,
+    "rewire": 81
    },
    "nulls_survived": [
     "circular",
@@ -764,18 +527,18 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.peak -l-> MID.trough"
+   "shape": "MID.peak -s-> MID.peak"
   },
   {
    "prior": "SBP:peak",
-   "lag": "m",
-   "target": "HR:trough",
-   "count": 959,
-   "lift": 1.6741409489577193,
-   "lift_conf": 2.2114123287512215,
+   "lag": "l",
+   "target": "SBP:trough",
+   "count": 2468,
+   "lift": 1.8169109540986959,
+   "lift_conf": 1.9925916014142542,
    "null_max": {
-    "circular": 774,
-    "rewire": 169
+    "circular": 1951,
+    "rewire": 496
    },
    "nulls_survived": [
     "circular",
@@ -788,44 +551,18 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.peak -m-> MID.trough"
-  },
-  {
-   "prior": "RESP:downq20",
-   "lag": "m",
-   "target": "RESP:upq50",
-   "count": 500,
-   "lift": 1.8239783582426465,
-   "lift_conf": 1.525095878898166,
-   "null_max": {
-    "circular": 286,
-    "rewire": 76
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q20 -m-> MID.up.q50 [same role]"
+   "shape": "MID.peak -l-> MID.trough [same role]"
   },
   {
    "prior": "SBP:trough",
-   "lag": "m",
-   "target": "HR:peak",
-   "count": 1090,
-   "lift": 1.6111127566745387,
-   "lift_conf": 1.8249294527981792,
+   "lag": "s",
+   "target": "DBP:trough",
+   "count": 263,
+   "lift": 2.4047871715784606,
+   "lift_conf": 3.9755199721223877,
    "null_max": {
-    "circular": 755,
-    "rewire": 200
+    "circular": 171,
+    "rewire": 48
    },
    "nulls_survived": [
     "circular",
@@ -838,18 +575,18 @@
     "tennessee_eastman",
     "hai"
    ],
-   "shape": "MID.trough -m-> MID.peak"
+   "shape": "MID.trough -s-> MID.trough"
   },
   {
-   "prior": "RESP:downq50",
-   "lag": "m",
-   "target": "RESP:upq20",
-   "count": 496,
-   "lift": 1.7472037601747683,
-   "lift_conf": 2.1097164534687747,
+   "prior": "SBP:peak",
+   "lag": "s",
+   "target": "DBP:peak",
+   "count": 226,
+   "lift": 2.2715312076191037,
+   "lift_conf": 3.5608200597312094,
    "null_max": {
-    "circular": 278,
-    "rewire": 74
+    "circular": 176,
+    "rewire": 40
    },
    "nulls_survived": [
     "circular",
@@ -857,136 +594,42 @@
    ],
    "binding_evidence": true,
    "first_validated_in": "physionet_slp",
-   "confirmed_in": [
+   "confirmed_in": [],
+   "failed_in": [
     "tennessee_eastman",
     "hai"
    ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q50 -m-> MID.up.q20 [same role]"
-  },
-  {
-   "prior": "RESP:downq80",
-   "lag": "l",
-   "target": "RESP:upq20",
-   "count": 343,
-   "lift": 1.8419079409656944,
-   "lift_conf": 2.348003986780675,
-   "null_max": {
-    "circular": 328,
-    "rewire": 78
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "hai"
-   ],
-   "failed_in": [
-    "tennessee_eastman",
-    "nasa_battery"
-   ],
-   "shape": "MID.down.q80 -l-> MID.up.q20 [same role]"
-  },
-  {
-   "prior": "RESP:upq50",
-   "lag": "m",
-   "target": "RESP:downq80",
-   "count": 393,
-   "lift": 1.7844052568986835,
-   "lift_conf": 1.726547346147064,
-   "null_max": {
-    "circular": 300,
-    "rewire": 74
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q50 -m-> MID.down.q80 [same role]"
-  },
-  {
-   "prior": "RESP:upq80",
-   "lag": "l",
-   "target": "RESP:downq20",
-   "count": 344,
-   "lift": 1.726292151872105,
-   "lift_conf": 2.2105599203714767,
-   "null_max": {
-    "circular": 328,
-    "rewire": 80
-   },
-   "nulls_survived": [
-    "circular",
-    "rewire"
-   ],
-   "binding_evidence": true,
-   "first_validated_in": "physionet_slp",
-   "confirmed_in": [
-    "tennessee_eastman",
-    "hai"
-   ],
-   "failed_in": [
-    "nasa_battery"
-   ],
-   "shape": "MID.up.q80 -l-> MID.down.q20 [same role]"
+   "shape": "MID.peak -s-> MID.peak"
   }
  ],
  "compositions": [
   {
    "priors": [
     [
-     "HR:peak",
-     "m"
-    ],
-    [
-     "SBP:peak",
-     "m"
-    ]
-   ],
-   "target": "HR:trough",
-   "count": 667
-  },
-  {
-   "priors": [
-    [
-     "SBP:peak",
-     "l"
-    ],
-    [
-     "HR:trough",
-     "m"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 1503
-  },
-  {
-   "priors": [
-    [
-     "SBP:peak",
+     "RESP:trough",
      "l"
     ],
     [
      "HR:peak",
+     "s"
+    ]
+   ],
+   "target": "RESP:trough",
+   "count": 1748
+  },
+  {
+   "priors": [
+    [
+     "HR:peak",
+     "m"
+    ],
+    [
+     "SBP:trough",
      "l"
     ]
    ],
-   "target": "SBP:trough",
-   "count": 2553
+   "target": "SBP:peak",
+   "count": 1887
   },
   {
    "priors": [
@@ -995,143 +638,101 @@
      "m"
     ],
     [
-     "HR:peak",
+     "SBP:peak",
      "l"
     ]
    ],
    "target": "SBP:trough",
-   "count": 1620
+   "count": 1207
   },
   {
    "priors": [
     [
-     "HR:trough",
+     "RESP:trough",
+     "s"
+    ],
+    [
+     "SBP:trough",
+     "l"
+    ]
+   ],
+   "target": "SBP:peak",
+   "count": 1526
+  },
+  {
+   "priors": [
+    [
+     "HR:peak",
+     "m"
+    ],
+    [
+     "DBP:peak",
+     "m"
+    ]
+   ],
+   "target": "SBP:peak",
+   "count": 749
+  },
+  {
+   "priors": [
+    [
+     "SBP:trough",
+     "l"
+    ],
+    [
+     "DBP:peak",
+     "m"
+    ]
+   ],
+   "target": "SBP:peak",
+   "count": 1269
+  },
+  {
+   "priors": [
+    [
+     "RESP:trough",
      "s"
     ],
     [
      "HR:peak",
+     "m"
+    ]
+   ],
+   "target": "SBP:peak",
+   "count": 874
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
      "l"
+    ],
+    [
+     "HR:trough",
+     "s"
+    ]
+   ],
+   "target": "RESP:peak",
+   "count": 1389
+  },
+  {
+   "priors": [
+    [
+     "DBP:trough",
+     "s"
+    ],
+    [
+     "HR:trough",
+     "m"
     ]
    ],
    "target": "SBP:trough",
-   "count": 550
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq20",
-     "m"
-    ],
-    [
-     "RESP:downq50",
-     "m"
-    ]
-   ],
-   "target": "RESP:upq20",
-   "count": 756
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
-     "m"
-    ],
-    [
-     "RESP:downq20",
-     "m"
-    ]
-   ],
-   "target": "RESP:upq50",
-   "count": 442
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq80",
-     "m"
-    ],
-    [
-     "RESP:upq50",
-     "m"
-    ]
-   ],
-   "target": "RESP:downq80",
-   "count": 533
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq20",
-     "l"
-    ],
-    [
-     "RESP:downq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:upq20",
    "count": 406
   },
   {
    "priors": [
     [
-     "SBP:peak",
-     "l"
-    ],
-    [
-     "DBP:peak",
-     "l"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 3051
-  },
-  {
-   "priors": [
-    [
-     "DBP:peak",
-     "l"
-    ],
-    [
-     "HR:peak",
-     "l"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 2536
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq20",
-     "m"
-    ],
-    [
-     "RESP:downq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:upq20",
-   "count": 297
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
-     "m"
-    ],
-    [
-     "RESP:downq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:upq20",
-   "count": 137
-  },
-  {
-   "priors": [
-    [
-     "HR:trough",
+     "DBP:trough",
      "s"
     ],
     [
@@ -1140,49 +741,35 @@
     ]
    ],
    "target": "SBP:trough",
-   "count": 477
+   "count": 626
   },
   {
    "priors": [
     [
-     "DBP:trough",
+     "RESP:peak",
      "s"
     ],
     [
-     "HR:trough",
-     "m"
+     "SBP:peak",
+     "l"
     ]
    ],
    "target": "SBP:trough",
-   "count": 730
+   "count": 1520
   },
   {
    "priors": [
     [
-     "DBP:trough",
+     "RESP:trough",
      "s"
     ],
     [
      "HR:peak",
-     "l"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 1049
-  },
-  {
-   "priors": [
-    [
-     "DBP:peak",
-     "m"
-    ],
-    [
-     "SBP:peak",
      "m"
     ]
    ],
-   "target": "HR:trough",
-   "count": 1008
+   "target": "DBP:peak",
+   "count": 901
   },
   {
    "priors": [
@@ -1191,54 +778,26 @@
      "m"
     ],
     [
+     "SBP:trough",
+     "s"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 124
+  },
+  {
+   "priors": [
+    [
      "DBP:peak",
-     "l"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 1484
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
      "s"
     ],
     [
-     "RESP:downq80",
+     "RESP:trough",
      "s"
     ]
    ],
-   "target": "RESP:downq20",
-   "count": 167
-  },
-  {
-   "priors": [
-    [
-     "DBP:trough",
-     "s"
-    ],
-    [
-     "SBP:peak",
-     "l"
-    ]
-   ],
-   "target": "SBP:trough",
-   "count": 1107
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq50",
-     "s"
-    ],
-    [
-     "RESP:downq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:upq80",
-   "count": 205
+   "target": "SBP:peak",
+   "count": 449
   },
   {
    "priors": [
@@ -1252,217 +811,7 @@
     ]
    ],
    "target": "SBP:peak",
-   "count": 791
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq20",
-     "s"
-    ],
-    [
-     "RESP:downq20",
-     "m"
-    ]
-   ],
-   "target": "RESP:upq50",
-   "count": 291
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq50",
-     "m"
-    ],
-    [
-     "RESP:downq80",
-     "s"
-    ]
-   ],
-   "target": "RESP:downq50",
-   "count": 114
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq20",
-     "l"
-    ],
-    [
-     "RESP:upq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 350
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
-     "s"
-    ],
-    [
-     "RESP:upq20",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 271
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq80",
-     "s"
-    ],
-    [
-     "RESP:upq20",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 140
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq20",
-     "s"
-    ],
-    [
-     "RESP:downq50",
-     "m"
-    ]
-   ],
-   "target": "RESP:upq50",
-   "count": 171
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq50",
-     "s"
-    ],
-    [
-     "RESP:upq20",
-     "s"
-    ]
-   ],
-   "target": "RESP:upq80",
-   "count": 164
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq20",
-     "s"
-    ],
-    [
-     "RESP:downq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:upq80",
-   "count": 146
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq80",
-     "m"
-    ],
-    [
-     "RESP:upq50",
-     "s"
-    ]
-   ],
-   "target": "RESP:upq80",
-   "count": 61
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
-     "s"
-    ],
-    [
-     "RESP:upq20",
-     "m"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 88
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq50",
-     "s"
-    ],
-    [
-     "RESP:upq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 287
-  },
-  {
-   "priors": [
-    [
-     "RESP:upq20",
-     "m"
-    ],
-    [
-     "RESP:upq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 45
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq80",
-     "s"
-    ],
-    [
-     "RESP:upq80",
-     "l"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 159
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq80",
-     "m"
-    ],
-    [
-     "RESP:upq20",
-     "s"
-    ]
-   ],
-   "target": "RESP:upq80",
-   "count": 52
-  },
-  {
-   "priors": [
-    [
-     "RESP:downq80",
-     "s"
-    ],
-    [
-     "RESP:upq20",
-     "m"
-    ]
-   ],
-   "target": "RESP:downq20",
-   "count": 47
+   "count": 546
   },
   {
    "priors": [
@@ -1471,101 +820,250 @@
      "s"
     ],
     [
-     "HR:peak",
-     "s"
+     "SBP:trough",
+     "l"
     ]
    ],
    "target": "SBP:peak",
-   "count": 510
+   "count": 914
   },
   {
    "priors": [
     [
-     "DBP:trough",
+     "RESP:trough",
      "s"
     ],
     [
-     "HR:trough",
+     "DBP:trough",
+     "l"
+    ]
+   ],
+   "target": "DBP:peak",
+   "count": 1662
+  },
+  {
+   "priors": [
+    [
+     "HR:peak",
+     "m"
+    ],
+    [
+     "DBP:trough",
+     "l"
+    ]
+   ],
+   "target": "DBP:peak",
+   "count": 1992
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
+     "s"
+    ],
+    [
+     "DBP:trough",
      "s"
     ]
    ],
    "target": "SBP:trough",
+   "count": 337
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
+     "s"
+    ],
+    [
+     "HR:trough",
+     "m"
+    ]
+   ],
+   "target": "SBP:trough",
+   "count": 847
+  },
+  {
+   "priors": [
+    [
+     "DBP:peak",
+     "l"
+    ],
+    [
+     "SBP:trough",
+     "s"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 390
+  },
+  {
+   "priors": [
+    [
+     "RESP:trough",
+     "s"
+    ],
+    [
+     "DBP:peak",
+     "m"
+    ]
+   ],
+   "target": "SBP:peak",
+   "count": 494
+  },
+  {
+   "priors": [
+    [
+     "HR:trough",
+     "m"
+    ],
+    [
+     "DBP:peak",
+     "l"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 1695
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
+     "s"
+    ],
+    [
+     "DBP:peak",
+     "l"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 1930
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
+     "s"
+    ],
+    [
+     "HR:trough",
+     "m"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 912
+  },
+  {
+   "priors": [
+    [
+     "RESP:trough",
+     "s"
+    ],
+    [
+     "HR:peak",
+     "s"
+    ]
+   ],
+   "target": "DBP:peak",
    "count": 260
   },
   {
    "priors": [
     [
+     "RESP:trough",
+     "s"
+    ],
+    [
+     "SBP:peak",
+     "s"
+    ]
+   ],
+   "target": "DBP:peak",
+   "count": 99
+  },
+  {
+   "priors": [
+    [
      "HR:peak",
      "m"
     ],
     [
-     "DBP:peak",
-     "m"
+     "SBP:peak",
+     "s"
     ]
    ],
-   "target": "HR:trough",
-   "count": 1114
+   "target": "DBP:peak",
+   "count": 122
   },
   {
    "priors": [
     [
      "DBP:trough",
-     "s"
+     "l"
     ],
     [
-     "DBP:peak",
-     "l"
+     "HR:peak",
+     "s"
     ]
    ],
-   "target": "SBP:trough",
-   "count": 1186
+   "target": "DBP:peak",
+   "count": 477
   },
   {
    "priors": [
     [
-     "HR:trough",
+     "HR:peak",
      "s"
     ],
     [
-     "DBP:peak",
-     "l"
+     "SBP:peak",
+     "s"
     ]
    ],
-   "target": "SBP:trough",
-   "count": 512
+   "target": "DBP:peak",
+   "count": 15
+  },
+  {
+   "priors": [
+    [
+     "RESP:peak",
+     "s"
+    ],
+    [
+     "SBP:trough",
+     "s"
+    ]
+   ],
+   "target": "DBP:trough",
+   "count": 144
+  },
+  {
+   "priors": [
+    [
+     "DBP:trough",
+     "l"
+    ],
+    [
+     "SBP:peak",
+     "s"
+    ]
+   ],
+   "target": "DBP:peak",
+   "count": 291
   }
  ],
  "shape_counts": {
   "MID.peak -s-> MID.peak": 3,
-  "MID.trough -s-> MID.trough": 3,
-  "MID.peak -m-> MID.trough": 2,
-  "MID.peak -l-> MID.trough": 2,
-  "MID.up.q80 -m-> MID.down.q80 [same role]": 1,
-  "MID.down.q20 -m-> MID.up.q20 [same role]": 1,
-  "MID.down.q80 -m-> MID.up.q80 [same role]": 1,
-  "MID.up.q50 -s-> MID.up.q80 [same role]": 1,
-  "MID.down.q50 -s-> MID.down.q20 [same role]": 1,
-  "MID.down.q80 -s-> MID.down.q20 [same role]": 1,
-  "MID.up.q20 -s-> MID.up.q80 [same role]": 1,
-  "MID.up.q20 -s-> MID.up.q50 [same role]": 1,
-  "MID.up.q50 -m-> MID.down.q50 [same role]": 1,
-  "MID.up.q20 -m-> MID.down.q20 [same role]": 1,
-  "MID.down.q80 -s-> MID.down.q50 [same role]": 1,
-  "MID.down.q50 -m-> MID.up.q50 [same role]": 1,
-  "MID.down.q80 -l-> MID.up.q80 [same role]": 1,
-  "MID.up.q20 -l-> MID.down.q20 [same role]": 1,
-  "MID.peak -m-> MID.trough [same role]": 1,
-  "MID.trough -s-> MID.peak": 1,
-  "MID.peak -m-> MID.peak": 1,
-  "MID.up.q80 -l-> MID.down.q80 [same role]": 1,
-  "MID.down.q20 -l-> MID.up.q20 [same role]": 1,
-  "MID.peak -l-> MID.trough [same role]": 1,
-  "MID.trough -m-> MID.trough": 1,
-  "MID.down.q20 -m-> MID.up.q50 [same role]": 1,
-  "MID.trough -m-> MID.peak": 1,
-  "MID.down.q50 -m-> MID.up.q20 [same role]": 1,
-  "MID.down.q80 -l-> MID.up.q20 [same role]": 1,
-  "MID.up.q50 -m-> MID.down.q80 [same role]": 1,
-  "MID.up.q80 -l-> MID.down.q20 [same role]": 1
+  "MID.peak -m-> MID.peak": 3,
+  "FAST.peak -s-> MID.trough": 2,
+  "MID.trough -s-> MID.trough": 2,
+  "FAST.trough -s-> MID.peak": 2,
+  "MID.trough -l-> MID.peak [same role]": 2,
+  "MID.trough -m-> MID.trough": 2,
+  "MID.peak -l-> MID.trough [same role]": 2,
+  "FAST.peak -l-> FAST.peak [same role]": 1,
+  "FAST.trough -l-> FAST.trough [same role]": 1,
+  "MID.trough -s-> FAST.peak": 1,
+  "MID.peak -s-> FAST.trough": 1
  }
 }

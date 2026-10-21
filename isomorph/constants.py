@@ -6,8 +6,8 @@ in minutes, a 30/30 train/test split with a 20/10 proposal/confirmation split
 inside the training days) and exists only to prove the reorganised code is
 faithful to those numbers.
 """
-CARD_RULES_VERSION = 6   # the version at which the per-dataset rules (3.1-3.11, 3.15) last changed; cards and cached state from it stay valid (v6: gap clipping, chains)
-METHOD_VERSION = 6   # v6: gap clipping (3.6), cross-scheme spelling (3.12), chains and returns (3.15) — spec in METHOD.md, built on the Mac; v5: structural prefix (place) and dimension suffix in alignment and control (3.14, 3.12); v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
+CARD_RULES_VERSION = 7   # the version at which the per-dataset rules (3.1-3.11, 3.15, 3.16) last changed; cards and cached state from it stay valid (v7: loop roles, fine-grid period, admission in horizons)
+METHOD_VERSION = 7   # v7: loop roles REACTS/RESPONDS (3.16), fine-grid period (3.4), admission in horizons (section 6); v6: gap clipping (3.6), cross-scheme spelling (3.12), chains and returns (3.15) — spec in METHOD.md, built on the Mac; v5: structural prefix (place) and dimension suffix in alignment and control (3.14, 3.12); v4: grammar — parts of speech, tagged shapes, tag-constrained alignment (3.14, 3.12); v3: transfer cells net of the random-mapping control (3.12); v2: horizon by recurrence time, geometric lag bands (3.3)
 
 LIFT_MIN = 1.5                 # proposal and confirmation
 N_NULL_DRAWS = 19              # per null; pass = observed count exceeds every draw
@@ -27,6 +27,12 @@ POS_FAST = 0.1            # correlation time / horizon below which a series is F
 POS_SLOW = 1.0            # ... above which it is SLOW
 POS_SAT_SHARE = 0.05      # share of samples at the min or max (1% of range) at or above which a series saturates (S)
 CHAIN_MAX_NODES = 3       # syntax motifs (3.15, v6): chains of two validated fragments; longer paths wait for evidence
+LOOP_GAP_RATIO = 1.5      # loop roles (3.16, v7): the leg with the shorter median realised gap reacts, if shorter by this ratio; else unresolved
+PERIOD_FINE_LAGS = 1000   # fine-grid period (3.4, v7): acf of the event rate binned at the resolution delta, lags out to this many delta
+ADMISSION_DAYS = 20       # section 6: 20 days, or 20 slow periods, or ADMISSION_HORIZONS recurrence horizons (test split >= 50)
+ADMISSION_PERIODS = 20
+ADMISSION_HORIZONS = 200
+ADMISSION_TEST_HORIZONS = 50
 CLAIM_MIN_GAIN_BITS = 0.10
 SUPERFAMILY_RATIO = 2.0
 SUPERFAMILY_MIN_MEMBERS = 3

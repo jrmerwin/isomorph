@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "v1",
  "seed": 0,
  "dataset": "building_a",
@@ -25,7 +25,10 @@
   "types": 20,
   "n_entities": 3,
   "period": 1440.0,
-  "signal_floor": 23,
+  "period_slow": 1440.0,
+  "period_fast": null,
+  "resolution_delta": 1.0,
+  "signal_floor": 26,
   "min_count": 3,
   "lag_edges": [
    5.619954323071132,
@@ -78,8 +81,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 2.0026193464473114,
-   "non_deterministic": 2.0026193464473114,
+   "all": 2.0026193464610373,
+   "non_deterministic": 2.0026193464610373,
    "deterministic": null
   }
  },
@@ -101,7 +104,8 @@
    "lift_ok": 35,
    "null_passed": 35,
    "admitted": 15,
-   "returns": 1
+   "returns": 1,
+   "returns_resolved": 1
   },
   "candidates": 915,
   "nulls_run": [
@@ -156,7 +160,34 @@
   "n_mechanisms": 12,
   "n_found": 9
  },
+ "admission": {
+  "days": 59.97,
+  "slow_periods": 60.0,
+  "horizons": 486.5,
+  "test_horizons": 121.6,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 1,
+  "resolved": 1,
+  "unresolved": 0,
+  "roles": {
+   "T": "REACTS",
+   "vent": "RESPONDS"
+  },
+  "votes": {
+   "T": {
+    "REACTS": 1
+   },
+   "vent": {
+    "RESPONDS": 1
+   }
+  },
+  "dimension_check": null,
+  "flowsheet_check": null
+ },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",
- "elapsed_s": 6.7
+ "elapsed_s": 6.5
 }

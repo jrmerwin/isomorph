@@ -18,7 +18,10 @@
     "n_BC": 13,
     "n_AB": 140
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "setpoint:up",
@@ -38,7 +41,10 @@
     "n_BC": 245,
     "n_AB": 381
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "setpoint:up",
@@ -58,7 +64,10 @@
     "n_BC": 14,
     "n_AB": 105
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "occ:leave",
@@ -78,7 +87,10 @@
     "n_BC": 106,
     "n_AB": 198
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "T:down20",
@@ -98,7 +110,10 @@
     "n_BC": 76,
     "n_AB": 134
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "heater:on",
@@ -118,7 +133,10 @@
     "n_BC": 25,
     "n_AB": 291
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "vent:off",
@@ -138,7 +156,10 @@
     "n_BC": 106,
     "n_AB": 52
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "vent:on",
@@ -158,7 +179,10 @@
     "n_BC": 28,
     "n_AB": 53
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "T:down20",
@@ -178,7 +202,10 @@
     "n_BC": 12,
     "n_AB": 20
    },
-   "shape": null
+   "shape": null,
+   "g1": 8.0,
+   "g2": 2.0,
+   "verdict": "X reacts"
   },
   {
    "a": "occ:leave",
@@ -198,7 +225,10 @@
     "n_BC": 28,
     "n_AB": 20
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "CO2:down900",
@@ -218,7 +248,10 @@
     "n_BC": 63,
     "n_AB": 50
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "occ:arrive",
@@ -238,7 +271,10 @@
     "n_BC": 14,
     "n_AB": 121
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "occ:leave",
@@ -258,7 +294,10 @@
     "n_BC": 31,
     "n_AB": 73
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "vent:on",
@@ -278,7 +317,10 @@
     "n_BC": 12,
     "n_AB": 39
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   },
   {
    "a": "occ:arrive",
@@ -298,7 +340,10 @@
     "n_BC": 13,
     "n_AB": 122
    },
-   "shape": null
+   "shape": null,
+   "g1": null,
+   "g2": null,
+   "verdict": null
   }
  ],
  "fragments": [

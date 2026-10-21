@@ -1,0 +1,4079 @@
+{
+ "time_unit": "minute",
+ "entity_key": "unit",
+ "period": "auto",
+ "system_wide_types": [
+  "T_out:downq20",
+  "T_out:downq50",
+  "T_out:downq80",
+  "T_out:upq20",
+  "T_out:upq50",
+  "T_out:upq80",
+  "hvac_kw_N:downq10",
+  "hvac_kw_N:downq90",
+  "hvac_kw_N:upq10",
+  "hvac_kw_N:upq90",
+  "hvac_kw_S:downq20",
+  "hvac_kw_S:downq50",
+  "hvac_kw_S:downq80",
+  "hvac_kw_S:upq20",
+  "hvac_kw_S:upq50",
+  "hvac_kw_S:upq80",
+  "rh_out:downq20",
+  "rh_out:downq50",
+  "rh_out:downq80",
+  "rh_out:upq20",
+  "rh_out:upq50",
+  "rh_out:upq80"
+ ],
+ "tie_rule": "canonical",
+ "kind": "real office building (LBNL Building 59, 4 RTUs, ~50 zones)",
+ "origin": "scripts/ingest_building_59.py",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "sa_t": "q20_50_80",
+   "sat_sp": "q10_90",
+   "ma_t": "dsign",
+   "ra_t": "dsign",
+   "oa_t": "dsign",
+   "oa_damper": "q10_90",
+   "oa_flow": "q20_50_80",
+   "sa_flow": "q20_50_80",
+   "sf_spd": "q20_50_80",
+   "rf_spd": "q20_50_80",
+   "plenum_p": "q20_50_80",
+   "econ_sp": "q20_50_80",
+   "static_sp": "q20_50_80",
+   "T": "q20_50_80",
+   "fan": "q10_90",
+   "hw_valve": "q10_90",
+   "Tsp_c": "q20_50_80",
+   "Tsp_h": "q20_50_80",
+   "co2": "q20_50_80",
+   "T_out": "q20_50_80",
+   "solar": null,
+   "rh_out": "q20_50_80",
+   "hvac_kw_N": "q10_90",
+   "hvac_kw_S": "q20_50_80"
+  },
+  "thresholds": {
+   "sa_t": {
+    "rtu1_sa_t": [
+     65.78,
+     66.7,
+     68.84
+    ],
+    "rtu2_sa_t": [
+     64.9,
+     65.82,
+     67.9
+    ],
+    "rtu3_sa_t": [
+     64.88,
+     65.68,
+     67.4
+    ],
+    "rtu4_sa_t": [
+     65.84,
+     66.46,
+     68.08
+    ]
+   },
+   "sat_sp": {
+    "rtu1_sat_sp": [
+     66.0,
+     68.0
+    ],
+    "rtu2_sat_sp": [
+     65.0,
+     68.0
+    ],
+    "rtu3_sat_sp": [
+     65.0,
+     68.0
+    ],
+    "rtu4_sat_sp": [
+     66.0,
+     68.0
+    ]
+   },
+   "oa_damper": {
+    "rtu1_oa_damper": [
+     10.0,
+     85.88
+    ],
+    "rtu2_oa_damper": [
+     10.0,
+     94.88
+    ],
+    "rtu3_oa_damper": [
+     10.0,
+     100.0
+    ],
+    "rtu4_oa_damper": [
+     10.0,
+     73.0
+    ]
+   },
+   "oa_flow": {
+    "rtu1_oa_flow": [
+     5361.764,
+     6760.643,
+     8490.164
+    ],
+    "rtu2_oa_flow": [
+     4224.128,
+     5460.316,
+     7028.464
+    ],
+    "rtu3_oa_flow": [
+     5146.792,
+     6566.654,
+     8372.025
+    ],
+    "rtu4_oa_flow": [
+     5776.234,
+     7304.283,
+     9201.961
+    ]
+   },
+   "sa_flow": {
+    "rtu1_sa_flow": [
+     12038.904,
+     14137.093,
+     15125.444
+    ],
+    "rtu2_sa_flow": [
+     11440.92,
+     13549.646,
+     14528.62
+    ],
+    "rtu3_sa_flow": [
+     10737.471,
+     12886.133,
+     13964.035
+    ],
+    "rtu4_sa_flow": [
+     8529.336,
+     10330.491,
+     11112.274
+    ]
+   },
+   "sf_spd": {
+    "rtu1_sf_spd": [
+     65.2,
+     75.42,
+     81.04
+    ],
+    "rtu2_sf_spd": [
+     66.08,
+     76.3,
+     81.96
+    ],
+    "rtu3_sf_spd": [
+     64.3,
+     74.9,
+     80.64
+    ],
+    "rtu4_sf_spd": [
+     63.2,
+     74.98,
+     80.7
+    ]
+   },
+   "rf_spd": {
+    "rtu1_rf_spd": [
+     55.48,
+     61.7,
+     68.48
+    ],
+    "rtu2_rf_spd": [
+     47.72,
+     55.92,
+     60.98
+    ],
+    "rtu3_rf_spd": [
+     41.12,
+     51.6,
+     57.54
+    ],
+    "rtu4_rf_spd": [
+     66.94,
+     80.86,
+     88.12
+    ]
+   },
+   "plenum_p": {
+    "rtu1_plenum_p": [
+     0.031,
+     0.04,
+     0.046
+    ],
+    "rtu2_plenum_p": [
+     0.043,
+     0.053,
+     0.058
+    ],
+    "rtu3_plenum_p": [
+     0.037,
+     0.049,
+     0.056
+    ],
+    "rtu4_plenum_p": [
+     0.04,
+     0.05,
+     0.056
+    ]
+   },
+   "econ_sp": {
+    "rtu1_econ_sp": [
+     66.0,
+     68.0,
+     68.0
+    ],
+    "rtu2_econ_sp": [
+     65.0,
+     66.0,
+     68.0
+    ],
+    "rtu3_econ_sp": [
+     65.0,
+     66.0,
+     68.0
+    ],
+    "rtu4_econ_sp": [
+     66.0,
+     66.0,
+     68.0
+    ]
+   },
+   "static_sp": {
+    "rtu3_static_sp": [
+     0.06,
+     0.06,
+     0.06
+    ]
+   },
+   "T": {
+    "zone016_T": [
+     70.2,
+     71.737,
+     73.3
+    ],
+    "zone017_T": [
+     69.8,
+     70.3,
+     71.1
+    ],
+    "zone018_T": [
+     69.8,
+     70.58,
+     71.12
+    ],
+    "zone019_T": [
+     71.2,
+     73.2,
+     75.62
+    ],
+    "zone021_T": [
+     69.0,
+     70.6,
+     72.22
+    ],
+    "zone022_T": [
+     70.9,
+     71.38,
+     72.7
+    ],
+    "zone023_T": [
+     69.9,
+     70.4,
+     71.5
+    ],
+    "zone024_T": [
+     69.94,
+     70.24,
+     71.66
+    ],
+    "zone025_T": [
+     69.5,
+     70.18,
+     71.04
+    ],
+    "zone026_T": [
+     69.78,
+     70.3,
+     71.4
+    ],
+    "zone027_T": [
+     70.52,
+     71.5,
+     73.2
+    ],
+    "zone028_T": [
+     71.08,
+     71.4,
+     73.72
+    ],
+    "zone030_T": [
+     71.3,
+     71.8,
+     72.5
+    ],
+    "zone032_T": [
+     69.6,
+     70.28,
+     71.0
+    ],
+    "zone033_T": [
+     67.4,
+     68.5,
+     69.7
+    ],
+    "zone035_T": [
+     69.1,
+     69.9,
+     70.7
+    ],
+    "zone036_T": [
+     70.9,
+     71.6,
+     72.5
+    ],
+    "zone037_T": [
+     71.0,
+     73.1,
+     74.82
+    ],
+    "zone038_T": [
+     70.8,
+     72.4,
+     74.5
+    ],
+    "zone039_T": [
+     68.3,
+     69.6,
+     72.34
+    ],
+    "zone040_T": [
+     71.16,
+     72.52,
+     74.4
+    ],
+    "zone041_T": [
+     70.5,
+     71.28,
+     72.7
+    ],
+    "zone042_T": [
+     69.9,
+     71.3,
+     73.64
+    ],
+    "zone043_T": [
+     71.3,
+     74.8,
+     76.2
+    ],
+    "zone044_T": [
+     71.02,
+     71.2,
+     72.02
+    ],
+    "zone045_T": [
+     70.0,
+     71.9,
+     73.2
+    ],
+    "zone046_T": [
+     70.0,
+     70.62,
+     71.3
+    ],
+    "zone047_T": [
+     70.0,
+     70.7,
+     71.4
+    ],
+    "zone048_T": [
+     70.5,
+     71.1,
+     71.26
+    ],
+    "zone049_T": [
+     71.0,
+     71.5,
+     72.2
+    ],
+    "zone051_T": [
+     68.7,
+     69.9,
+     70.98
+    ],
+    "zone052_T": [
+     69.2,
+     70.136,
+     70.96
+    ],
+    "zone053_T": [
+     70.72,
+     71.16,
+     71.96
+    ],
+    "zone054_T": [
+     69.0,
+     69.4,
+     70.6
+    ],
+    "zone055_T": [
+     68.3,
+     69.2,
+     70.3
+    ],
+    "zone056_T": [
+     68.3,
+     69.3,
+     70.88
+    ],
+    "zone057_T": [
+     69.2,
+     70.2,
+     71.7
+    ],
+    "zone058_T": [
+     69.86,
+     70.6,
+     72.3
+    ],
+    "zone059_T": [
+     70.8,
+     71.42,
+     72.4
+    ],
+    "zone061_T": [
+     69.7,
+     70.7,
+     72.1
+    ],
+    "zone062_T": [
+     69.9,
+     70.9,
+     72.52
+    ],
+    "zone063_T": [
+     71.2,
+     71.8,
+     72.28
+    ],
+    "zone064_T": [
+     71.2,
+     71.9,
+     72.72
+    ],
+    "zone065_T": [
+     70.0,
+     70.4,
+     71.22
+    ],
+    "zone066_T": [
+     70.5,
+     71.8,
+     73.4
+    ],
+    "zone067_T": [
+     70.9,
+     71.2,
+     72.1
+    ],
+    "zone068_T": [
+     71.0,
+     72.4,
+     74.2
+    ],
+    "zone069_T": [
+     70.5,
+     71.4,
+     72.52
+    ],
+    "zone070_T": [
+     69.8,
+     70.5,
+     71.4
+    ],
+    "zone071_T": [
+     69.92,
+     70.4,
+     71.58
+    ],
+    "zone072_T": [
+     71.0,
+     71.2,
+     72.0
+    ]
+   },
+   "fan": {
+    "zone016_fan": [
+     0.0,
+     25.0
+    ],
+    "zone017_fan": [
+     20.0,
+     40.0
+    ],
+    "zone018_fan": [
+     20.0,
+     40.0
+    ],
+    "zone019_fan": [
+     100.0,
+     100.0
+    ],
+    "zone021_fan": [
+     20.0,
+     70.0
+    ],
+    "zone023_fan": [
+     0.0,
+     20.0
+    ],
+    "zone024_fan": [
+     0.0,
+     20.24
+    ],
+    "zone025_fan": [
+     0.0,
+     20.0
+    ],
+    "zone026_fan": [
+     0.0,
+     24.0
+    ],
+    "zone027_fan": [
+     0.0,
+     34.0
+    ],
+    "zone028_fan": [
+     0.0,
+     45.0
+    ],
+    "zone030_fan": [
+     31.0,
+     31.0
+    ],
+    "zone032_fan": [
+     31.0,
+     31.0
+    ],
+    "zone033_fan": [
+     0.0,
+     20.0
+    ],
+    "zone035_fan": [
+     20.0,
+     40.0
+    ],
+    "zone036_fan": [
+     20.0,
+     40.0
+    ],
+    "zone037_fan": [
+     20.0,
+     45.0
+    ],
+    "zone038_fan": [
+     0.0,
+     38.0
+    ],
+    "zone039_fan": [
+     0.0,
+     44.0
+    ],
+    "zone040_fan": [
+     0.0,
+     55.0
+    ],
+    "zone041_fan": [
+     0.0,
+     46.62
+    ],
+    "zone042_fan": [
+     0.0,
+     60.0
+    ],
+    "zone043_fan": [
+     0.0,
+     55.0
+    ],
+    "zone044_fan": [
+     0.0,
+     33.0
+    ],
+    "zone045_fan": [
+     47.0,
+     60.0
+    ],
+    "zone046_fan": [
+     20.0,
+     20.0
+    ],
+    "zone047_fan": [
+     20.0,
+     20.0
+    ],
+    "zone048_fan": [
+     20.0,
+     20.0
+    ],
+    "zone049_fan": [
+     0.0,
+     0.0
+    ],
+    "zone051_fan": [
+     20.0,
+     20.0
+    ],
+    "zone052_fan": [
+     20.0,
+     54.0
+    ],
+    "zone053_fan": [
+     20.0,
+     24.92
+    ],
+    "zone054_fan": [
+     20.0,
+     20.0
+    ],
+    "zone055_fan": [
+     20.0,
+     23.636
+    ],
+    "zone056_fan": [
+     20.0,
+     54.0
+    ],
+    "zone057_fan": [
+     20.0,
+     36.0
+    ],
+    "zone058_fan": [
+     20.0,
+     65.0
+    ],
+    "zone059_fan": [
+     31.0,
+     31.0
+    ],
+    "zone061_fan": [
+     69.0,
+     100.0
+    ],
+    "zone062_fan": [
+     30.0,
+     60.0
+    ],
+    "zone063_fan": [
+     20.0,
+     20.0
+    ],
+    "zone064_fan": [
+     20.0,
+     50.0
+    ],
+    "zone065_fan": [
+     25.0,
+     25.0
+    ],
+    "zone067_fan": [
+     20.0,
+     20.0
+    ],
+    "zone068_fan": [
+     20.0,
+     70.0
+    ],
+    "zone069_fan": [
+     20.0,
+     20.0
+    ],
+    "zone070_fan": [
+     20.0,
+     20.0
+    ],
+    "zone071_fan": [
+     20.0,
+     50.0
+    ],
+    "zone072_fan": [
+     40.0,
+     40.0
+    ]
+   },
+   "hw_valve": {
+    "zone016_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone017_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone018_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone021_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone022_hw_valve": [
+     0.0,
+     86.8
+    ],
+    "zone023_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone024_hw_valve": [
+     0.0,
+     70.7
+    ],
+    "zone025_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone026_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone027_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone028_hw_valve": [
+     0.0,
+     53.0
+    ],
+    "zone035_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone036_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone037_hw_valve": [
+     0.0,
+     95.7
+    ],
+    "zone038_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone039_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone040_hw_valve": [
+     0.0,
+     24.0
+    ],
+    "zone041_hw_valve": [
+     0.0,
+     63.7
+    ],
+    "zone042_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone043_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone044_hw_valve": [
+     0.0,
+     66.0
+    ],
+    "zone046_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone047_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone048_hw_valve": [
+     0.0,
+     57.4
+    ],
+    "zone051_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone052_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone053_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone054_hw_valve": [
+     0.0,
+     57.646
+    ],
+    "zone055_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone056_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone057_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone058_hw_valve": [
+     0.0,
+     67.0
+    ],
+    "zone063_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone064_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone065_hw_valve": [
+     0.0,
+     88.3
+    ],
+    "zone066_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone067_hw_valve": [
+     0.0,
+     50.814
+    ],
+    "zone068_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone069_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone070_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone071_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone072_hw_valve": [
+     0.0,
+     99.2
+    ]
+   },
+   "Tsp_c": {
+    "zone016_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone017_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone018_Tsp_c": [
+     73.0,
+     74.0,
+     74.0
+    ],
+    "zone019_Tsp_c": [
+     78.0,
+     78.0,
+     78.0
+    ],
+    "zone021_Tsp_c": [
+     73.0,
+     74.0,
+     74.0
+    ],
+    "zone023_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone024_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone025_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone026_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone027_Tsp_c": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone030_Tsp_c": [
+     73.0,
+     74.0,
+     74.0
+    ],
+    "zone035_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone036_Tsp_c": [
+     74.0,
+     74.0,
+     75.0
+    ],
+    "zone037_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone038_Tsp_c": [
+     74.0,
+     74.0,
+     75.0
+    ],
+    "zone039_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone041_Tsp_c": [
+     73.0,
+     74.0,
+     75.0
+    ],
+    "zone042_Tsp_c": [
+     74.0,
+     74.0,
+     75.0
+    ],
+    "zone043_Tsp_c": [
+     74.0,
+     74.0,
+     75.0
+    ],
+    "zone046_Tsp_c": [
+     75.0,
+     75.0,
+     75.0
+    ],
+    "zone047_Tsp_c": [
+     73.0,
+     74.0,
+     75.0
+    ],
+    "zone048_Tsp_c": [
+     74.0,
+     75.0,
+     75.0
+    ],
+    "zone049_Tsp_c": [
+     84.0,
+     84.0,
+     85.0
+    ],
+    "zone051_Tsp_c": [
+     75.0,
+     75.0,
+     75.0
+    ],
+    "zone054_Tsp_c": [
+     72.0,
+     73.0,
+     73.0
+    ],
+    "zone055_Tsp_c": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone056_Tsp_c": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone057_Tsp_c": [
+     71.0,
+     72.0,
+     72.0
+    ],
+    "zone059_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone061_Tsp_c": [
+     69.0,
+     69.0,
+     69.0
+    ],
+    "zone063_Tsp_c": [
+     74.0,
+     75.0,
+     75.0
+    ],
+    "zone064_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone065_Tsp_c": [
+     73.0,
+     73.0,
+     74.0
+    ],
+    "zone066_Tsp_c": [
+     73.0,
+     74.0,
+     74.0
+    ],
+    "zone067_Tsp_c": [
+     73.0,
+     74.0,
+     74.0
+    ],
+    "zone069_Tsp_c": [
+     73.0,
+     74.0,
+     75.0
+    ],
+    "zone070_Tsp_c": [
+     71.5,
+     72.5,
+     72.5
+    ],
+    "zone071_Tsp_c": [
+     71.0,
+     71.0,
+     72.0
+    ]
+   },
+   "Tsp_h": {
+    "zone016_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone017_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone018_Tsp_h": [
+     70.0,
+     71.0,
+     71.0
+    ],
+    "zone019_Tsp_h": [
+     64.0,
+     64.0,
+     64.0
+    ],
+    "zone021_Tsp_h": [
+     69.0,
+     70.0,
+     71.0
+    ],
+    "zone023_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone024_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone025_Tsp_h": [
+     70.0,
+     70.0,
+     70.0
+    ],
+    "zone026_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone027_Tsp_h": [
+     70.0,
+     70.0,
+     70.0
+    ],
+    "zone030_Tsp_h": [
+     67.0,
+     68.0,
+     68.0
+    ],
+    "zone035_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone036_Tsp_h": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone037_Tsp_h": [
+     70.0,
+     70.0,
+     70.0
+    ],
+    "zone038_Tsp_h": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone039_Tsp_h": [
+     69.0,
+     70.0,
+     70.0
+    ],
+    "zone041_Tsp_h": [
+     70.0,
+     71.0,
+     72.0
+    ],
+    "zone042_Tsp_h": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone043_Tsp_h": [
+     71.0,
+     71.0,
+     72.0
+    ],
+    "zone046_Tsp_h": [
+     72.0,
+     72.0,
+     72.0
+    ],
+    "zone047_Tsp_h": [
+     70.0,
+     71.0,
+     72.0
+    ],
+    "zone048_Tsp_h": [
+     70.0,
+     71.0,
+     71.0
+    ],
+    "zone049_Tsp_h": [
+     63.0,
+     63.0,
+     64.0
+    ],
+    "zone051_Tsp_h": [
+     72.0,
+     72.0,
+     72.0
+    ],
+    "zone054_Tsp_h": [
+     68.0,
+     69.0,
+     69.0
+    ],
+    "zone055_Tsp_h": [
+     67.0,
+     67.0,
+     68.0
+    ],
+    "zone056_Tsp_h": [
+     67.0,
+     67.0,
+     68.0
+    ],
+    "zone057_Tsp_h": [
+     67.0,
+     68.0,
+     68.0
+    ],
+    "zone059_Tsp_h": [
+     67.0,
+     67.0,
+     68.0
+    ],
+    "zone061_Tsp_h": [
+     64.0,
+     64.0,
+     64.0
+    ],
+    "zone063_Tsp_h": [
+     71.0,
+     72.0,
+     72.0
+    ],
+    "zone064_Tsp_h": [
+     70.0,
+     70.0,
+     70.0
+    ],
+    "zone065_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ],
+    "zone066_Tsp_h": [
+     70.0,
+     71.0,
+     71.0
+    ],
+    "zone067_Tsp_h": [
+     70.0,
+     71.0,
+     71.0
+    ],
+    "zone069_Tsp_h": [
+     70.0,
+     71.0,
+     72.0
+    ],
+    "zone070_Tsp_h": [
+     70.0,
+     71.0,
+     71.0
+    ],
+    "zone071_Tsp_h": [
+     70.0,
+     70.0,
+     71.0
+    ]
+   },
+   "co2": {
+    "zone022_co2": [
+     413.8,
+     426.4,
+     461.4
+    ],
+    "zone028_co2": [
+     416.2,
+     432.0,
+     464.4
+    ],
+    "zone033_co2": [
+     414.6,
+     426.0,
+     453.6
+    ],
+    "zone040_co2": [
+     410.8,
+     424.2,
+     451.6
+    ],
+    "zone044_co2": [
+     413.0,
+     424.4,
+     452.6
+    ],
+    "zone045_co2": [
+     412.2,
+     423.8,
+     452.0
+    ],
+    "zone052_co2": [
+     415.8,
+     428.6,
+     462.2
+    ],
+    "zone058_co2": [
+     408.4,
+     420.0,
+     449.8
+    ],
+    "zone062_co2": [
+     411.4,
+     425.8,
+     459.6
+    ],
+    "zone068_co2": [
+     412.8,
+     425.6,
+     452.0
+    ],
+    "zone072_co2": [
+     408.4,
+     420.4,
+     450.4
+    ]
+   },
+   "T_out": {
+    "sys_T_out": [
+     9.993,
+     13.137,
+     18.72
+    ]
+   },
+   "rh_out": {
+    "sys_rh_out": [
+     47.156,
+     70.827,
+     86.033
+    ]
+   },
+   "hvac_kw_N": {
+    "sys_hvac_kw_N": [
+     0.0,
+     35.21
+    ]
+   },
+   "hvac_kw_S": {
+    "sys_hvac_kw_S": [
+     0.0,
+     8.663,
+     21.295
+    ]
+   }
+  },
+  "noise_windows": {
+   "rtu1_sa_t": 1,
+   "rtu2_sa_t": 1,
+   "rtu3_sa_t": 1,
+   "rtu4_sa_t": 1,
+   "rtu1_sat_sp": 1,
+   "rtu2_sat_sp": 1,
+   "rtu3_sat_sp": 1,
+   "rtu4_sat_sp": 1,
+   "rtu1_ma_t": 1,
+   "rtu2_ma_t": 1,
+   "rtu3_ma_t": 1,
+   "rtu4_ma_t": 1,
+   "rtu1_ra_t": 1,
+   "rtu2_ra_t": 1,
+   "rtu3_ra_t": 1,
+   "rtu4_ra_t": 1,
+   "rtu1_oa_t": 1,
+   "rtu2_oa_t": 1,
+   "rtu3_oa_t": 1,
+   "rtu4_oa_t": 1,
+   "rtu1_oa_damper": 1,
+   "rtu2_oa_damper": 1,
+   "rtu3_oa_damper": 1,
+   "rtu4_oa_damper": 2,
+   "rtu1_oa_flow": 1,
+   "rtu2_oa_flow": 1,
+   "rtu3_oa_flow": 1,
+   "rtu4_oa_flow": 1,
+   "rtu1_sa_flow": 1,
+   "rtu2_sa_flow": 1,
+   "rtu3_sa_flow": 1,
+   "rtu4_sa_flow": 1,
+   "rtu1_sf_spd": 1,
+   "rtu2_sf_spd": 1,
+   "rtu3_sf_spd": 1,
+   "rtu4_sf_spd": 1,
+   "rtu1_rf_spd": 1,
+   "rtu2_rf_spd": 1,
+   "rtu3_rf_spd": 1,
+   "rtu4_rf_spd": 1,
+   "rtu1_plenum_p": 3,
+   "rtu2_plenum_p": 5,
+   "rtu3_plenum_p": 2,
+   "rtu4_plenum_p": 4,
+   "rtu1_econ_sp": 1,
+   "rtu2_econ_sp": 1,
+   "rtu3_econ_sp": 1,
+   "rtu4_econ_sp": 1,
+   "rtu3_static_sp": 1,
+   "zone016_T": 1,
+   "zone017_T": 1,
+   "zone018_T": 1,
+   "zone019_T": 1,
+   "zone021_T": 1,
+   "zone022_T": 1,
+   "zone023_T": 1,
+   "zone024_T": 1,
+   "zone025_T": 1,
+   "zone026_T": 1,
+   "zone027_T": 1,
+   "zone028_T": 1,
+   "zone030_T": 1,
+   "zone032_T": 1,
+   "zone033_T": 1,
+   "zone035_T": 1,
+   "zone036_T": 1,
+   "zone037_T": 1,
+   "zone038_T": 1,
+   "zone039_T": 1,
+   "zone040_T": 1,
+   "zone041_T": 1,
+   "zone042_T": 1,
+   "zone043_T": 1,
+   "zone044_T": 1,
+   "zone045_T": 1,
+   "zone046_T": 1,
+   "zone047_T": 1,
+   "zone048_T": 1,
+   "zone049_T": 1,
+   "zone051_T": 1,
+   "zone052_T": 1,
+   "zone053_T": 1,
+   "zone054_T": 1,
+   "zone055_T": 1,
+   "zone056_T": 1,
+   "zone057_T": 1,
+   "zone058_T": 1,
+   "zone059_T": 1,
+   "zone061_T": 1,
+   "zone062_T": 1,
+   "zone063_T": 1,
+   "zone064_T": 1,
+   "zone065_T": 1,
+   "zone066_T": 1,
+   "zone067_T": 1,
+   "zone068_T": 1,
+   "zone069_T": 1,
+   "zone070_T": 1,
+   "zone071_T": 1,
+   "zone072_T": 1,
+   "zone016_fan": 1,
+   "zone017_fan": 1,
+   "zone018_fan": 1,
+   "zone019_fan": 20,
+   "zone021_fan": 1,
+   "zone023_fan": 1,
+   "zone024_fan": 1,
+   "zone025_fan": 1,
+   "zone026_fan": 1,
+   "zone027_fan": 1,
+   "zone028_fan": 1,
+   "zone030_fan": 1,
+   "zone032_fan": 1,
+   "zone033_fan": 1,
+   "zone035_fan": 1,
+   "zone036_fan": 1,
+   "zone037_fan": 1,
+   "zone038_fan": 1,
+   "zone039_fan": 1,
+   "zone040_fan": 1,
+   "zone041_fan": 1,
+   "zone042_fan": 1,
+   "zone043_fan": 1,
+   "zone044_fan": 1,
+   "zone045_fan": 1,
+   "zone046_fan": 1,
+   "zone047_fan": 1,
+   "zone048_fan": 1,
+   "zone049_fan": 1,
+   "zone051_fan": 1,
+   "zone052_fan": 1,
+   "zone053_fan": 1,
+   "zone054_fan": 1,
+   "zone055_fan": 1,
+   "zone056_fan": 1,
+   "zone057_fan": 1,
+   "zone058_fan": 1,
+   "zone059_fan": 1,
+   "zone061_fan": 1,
+   "zone062_fan": 1,
+   "zone063_fan": 1,
+   "zone064_fan": 1,
+   "zone065_fan": 1,
+   "zone067_fan": 1,
+   "zone068_fan": 1,
+   "zone069_fan": 1,
+   "zone070_fan": 1,
+   "zone071_fan": 1,
+   "zone072_fan": 1,
+   "zone016_hw_valve": 1,
+   "zone017_hw_valve": 1,
+   "zone018_hw_valve": 1,
+   "zone021_hw_valve": 1,
+   "zone022_hw_valve": 1,
+   "zone023_hw_valve": 1,
+   "zone024_hw_valve": 1,
+   "zone025_hw_valve": 1,
+   "zone026_hw_valve": 1,
+   "zone027_hw_valve": 1,
+   "zone028_hw_valve": 1,
+   "zone035_hw_valve": 1,
+   "zone036_hw_valve": 1,
+   "zone037_hw_valve": 1,
+   "zone038_hw_valve": 1,
+   "zone039_hw_valve": 1,
+   "zone040_hw_valve": 1,
+   "zone041_hw_valve": 1,
+   "zone042_hw_valve": 1,
+   "zone043_hw_valve": 1,
+   "zone044_hw_valve": 1,
+   "zone046_hw_valve": 1,
+   "zone047_hw_valve": 1,
+   "zone048_hw_valve": 1,
+   "zone051_hw_valve": 1,
+   "zone052_hw_valve": 1,
+   "zone053_hw_valve": 1,
+   "zone054_hw_valve": 1,
+   "zone055_hw_valve": 1,
+   "zone056_hw_valve": 1,
+   "zone057_hw_valve": 1,
+   "zone058_hw_valve": 1,
+   "zone063_hw_valve": 1,
+   "zone064_hw_valve": 1,
+   "zone065_hw_valve": 1,
+   "zone066_hw_valve": 1,
+   "zone067_hw_valve": 1,
+   "zone068_hw_valve": 2,
+   "zone069_hw_valve": 1,
+   "zone070_hw_valve": 1,
+   "zone071_hw_valve": 1,
+   "zone072_hw_valve": 1,
+   "zone016_Tsp_c": 1,
+   "zone017_Tsp_c": 1,
+   "zone018_Tsp_c": 1,
+   "zone019_Tsp_c": 1,
+   "zone021_Tsp_c": 1,
+   "zone023_Tsp_c": 1,
+   "zone024_Tsp_c": 1,
+   "zone025_Tsp_c": 1,
+   "zone026_Tsp_c": 1,
+   "zone027_Tsp_c": 1,
+   "zone030_Tsp_c": 1,
+   "zone035_Tsp_c": 1,
+   "zone036_Tsp_c": 1,
+   "zone037_Tsp_c": 1,
+   "zone038_Tsp_c": 1,
+   "zone039_Tsp_c": 1,
+   "zone041_Tsp_c": 1,
+   "zone042_Tsp_c": 1,
+   "zone043_Tsp_c": 1,
+   "zone046_Tsp_c": 1,
+   "zone047_Tsp_c": 1,
+   "zone048_Tsp_c": 1,
+   "zone049_Tsp_c": 1,
+   "zone051_Tsp_c": 1,
+   "zone054_Tsp_c": 1,
+   "zone055_Tsp_c": 1,
+   "zone056_Tsp_c": 1,
+   "zone057_Tsp_c": 1,
+   "zone059_Tsp_c": 1,
+   "zone061_Tsp_c": 1,
+   "zone063_Tsp_c": 1,
+   "zone064_Tsp_c": 1,
+   "zone065_Tsp_c": 1,
+   "zone066_Tsp_c": 1,
+   "zone067_Tsp_c": 1,
+   "zone069_Tsp_c": 1,
+   "zone070_Tsp_c": 1,
+   "zone071_Tsp_c": 1,
+   "zone016_Tsp_h": 1,
+   "zone017_Tsp_h": 1,
+   "zone018_Tsp_h": 1,
+   "zone019_Tsp_h": 1,
+   "zone021_Tsp_h": 1,
+   "zone023_Tsp_h": 1,
+   "zone024_Tsp_h": 1,
+   "zone025_Tsp_h": 1,
+   "zone026_Tsp_h": 1,
+   "zone027_Tsp_h": 1,
+   "zone030_Tsp_h": 1,
+   "zone035_Tsp_h": 1,
+   "zone036_Tsp_h": 1,
+   "zone037_Tsp_h": 1,
+   "zone038_Tsp_h": 1,
+   "zone039_Tsp_h": 1,
+   "zone041_Tsp_h": 1,
+   "zone042_Tsp_h": 1,
+   "zone043_Tsp_h": 1,
+   "zone046_Tsp_h": 1,
+   "zone047_Tsp_h": 1,
+   "zone048_Tsp_h": 1,
+   "zone049_Tsp_h": 1,
+   "zone051_Tsp_h": 1,
+   "zone054_Tsp_h": 1,
+   "zone055_Tsp_h": 1,
+   "zone056_Tsp_h": 1,
+   "zone057_Tsp_h": 1,
+   "zone059_Tsp_h": 1,
+   "zone061_Tsp_h": 1,
+   "zone063_Tsp_h": 1,
+   "zone064_Tsp_h": 1,
+   "zone065_Tsp_h": 1,
+   "zone066_Tsp_h": 1,
+   "zone067_Tsp_h": 1,
+   "zone069_Tsp_h": 1,
+   "zone070_Tsp_h": 1,
+   "zone071_Tsp_h": 1,
+   "zone022_co2": 1,
+   "zone028_co2": 1,
+   "zone033_co2": 1,
+   "zone040_co2": 1,
+   "zone044_co2": 1,
+   "zone045_co2": 1,
+   "zone052_co2": 1,
+   "zone058_co2": 1,
+   "zone062_co2": 1,
+   "zone068_co2": 1,
+   "zone072_co2": 1,
+   "sys_T_out": 1,
+   "sys_rh_out": 1,
+   "sys_hvac_kw_N": 1,
+   "sys_hvac_kw_S": 1
+  }
+ },
+ "sample_minutes": 5.0,
+ "year": 2019,
+ "source": "LBNL Building 59 (Luo et al. 2022, Scientific Data; doi:10.7941/D1N33Q, CC0; mirrored at Zenodo 5951008)",
+ "span_note": "calendar year 2019 of a 2018-2020 record, 5-minute means; CO2 from 2019-08-19; RTU and zone points at 1 min, setpoints 5 min, weather and meters 15 min (interpolated)",
+ "units": [
+  "rtu1",
+  "rtu2",
+  "rtu3",
+  "rtu4"
+ ],
+ "zones": [
+  "zone016",
+  "zone017",
+  "zone018",
+  "zone019",
+  "zone021",
+  "zone022",
+  "zone023",
+  "zone024",
+  "zone025",
+  "zone026",
+  "zone027",
+  "zone028",
+  "zone030",
+  "zone032",
+  "zone033",
+  "zone035",
+  "zone036",
+  "zone037",
+  "zone038",
+  "zone039",
+  "zone040",
+  "zone041",
+  "zone042",
+  "zone043",
+  "zone044",
+  "zone045",
+  "zone046",
+  "zone047",
+  "zone048",
+  "zone049",
+  "zone051",
+  "zone052",
+  "zone053",
+  "zone054",
+  "zone055",
+  "zone056",
+  "zone057",
+  "zone058",
+  "zone059",
+  "zone061",
+  "zone062",
+  "zone063",
+  "zone064",
+  "zone065",
+  "zone066",
+  "zone067",
+  "zone068",
+  "zone069",
+  "zone070",
+  "zone071",
+  "zone072"
+ ],
+ "system_points": [
+  "T_out",
+  "solar",
+  "rh_out",
+  "hvac_kw_N",
+  "hvac_kw_S",
+  "wifi_3S",
+  "wifi_4S"
+ ],
+ "entity_note": "candidates unit (every zone and RTU a unit) and zone (RTU points system-wide); a single-system layout (299 roles, ~1,800 types) is not fittable by the Markov-only comparison and was not run",
+ "tags": {
+  "sa_t": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_sa_t": {
+     "const_frac": 0.039,
+     "noise_window": 1,
+     "corr_time": 378,
+     "speed_ratio": 2.305,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "rtu2_sa_t": {
+     "const_frac": 0.03,
+     "noise_window": 1,
+     "corr_time": 125,
+     "speed_ratio": 0.762,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu3_sa_t": {
+     "const_frac": 0.025,
+     "noise_window": 1,
+     "corr_time": 92,
+     "speed_ratio": 0.561,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu4_sa_t": {
+     "const_frac": 0.043,
+     "noise_window": 1,
+     "corr_time": 114,
+     "speed_ratio": 0.695,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 64,
+   "in_degree": 85,
+   "binding_share": 0.64,
+   "loop": null,
+   "loop_votes": {
+    "RESPONDS": 18,
+    "REACTS": 18
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
+  },
+  "sat_sp": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "rtu1_sat_sp": {
+     "const_frac": 0.952,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu2_sat_sp": {
+     "const_frac": 0.952,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu3_sat_sp": {
+     "const_frac": 0.952,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu4_sat_sp": {
+     "const_frac": 0.952,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7ISOLATED \u27e8\u0398\u27e9"
+  },
+  "ma_t": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_ma_t": {
+     "const_frac": 0.048,
+     "noise_window": 1,
+     "corr_time": 106,
+     "speed_ratio": 0.646,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu2_ma_t": {
+     "const_frac": 0.04,
+     "noise_window": 1,
+     "corr_time": 59,
+     "speed_ratio": 0.36,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu3_ma_t": {
+     "const_frac": 0.037,
+     "noise_window": 1,
+     "corr_time": 68,
+     "speed_ratio": 0.415,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu4_ma_t": {
+     "const_frac": 0.062,
+     "noise_window": 1,
+     "corr_time": 74,
+     "speed_ratio": 0.451,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 27,
+   "in_degree": 26,
+   "binding_share": 0.62,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 6,
+    "REACTS": 2
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+  },
+  "ra_t": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_ra_t": {
+     "const_frac": 0.226,
+     "noise_window": 1,
+     "corr_time": 77,
+     "speed_ratio": 0.47,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu2_ra_t": {
+     "const_frac": 0.142,
+     "noise_window": 1,
+     "corr_time": 58,
+     "speed_ratio": 0.354,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu3_ra_t": {
+     "const_frac": 0.106,
+     "noise_window": 1,
+     "corr_time": 74,
+     "speed_ratio": 0.451,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu4_ra_t": {
+     "const_frac": 0.135,
+     "noise_window": 1,
+     "corr_time": 971,
+     "speed_ratio": 5.921,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 17,
+   "in_degree": 15,
+   "binding_share": 0.53,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "REACTS": 2,
+    "RESPONDS": 3
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+  },
+  "oa_t": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_oa_t": {
+     "const_frac": 0.03,
+     "noise_window": 1,
+     "corr_time": 77,
+     "speed_ratio": 0.47,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "rtu2_oa_t": {
+     "const_frac": 0.033,
+     "noise_window": 1,
+     "corr_time": 84,
+     "speed_ratio": 0.512,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu3_oa_t": {
+     "const_frac": 0.044,
+     "noise_window": 1,
+     "corr_time": 90,
+     "speed_ratio": 0.549,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu4_oa_t": {
+     "const_frac": 0.028,
+     "noise_window": 1,
+     "corr_time": 79,
+     "speed_ratio": 0.482,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   },
+   "influence": "LEAD",
+   "locality": "COMMON",
+   "out_degree": 24,
+   "in_degree": 12,
+   "binding_share": 0.25,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 1
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7COMMON\u00b7LEAD \u27e8\u0398\u27e9"
+  },
+  "oa_damper": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_oa_damper": {
+     "const_frac": 0.569,
+     "noise_window": 1,
+     "corr_time": 51,
+     "speed_ratio": 0.311,
+     "saturation": 0.097,
+     "cls": "MID-S"
+    },
+    "rtu2_oa_damper": {
+     "const_frac": 0.4,
+     "noise_window": 1,
+     "corr_time": 33,
+     "speed_ratio": 0.201,
+     "saturation": 0.1,
+     "cls": "MID-S"
+    },
+    "rtu3_oa_damper": {
+     "const_frac": 0.446,
+     "noise_window": 1,
+     "corr_time": 42,
+     "speed_ratio": 0.256,
+     "saturation": 0.127,
+     "cls": "MID-S"
+    },
+    "rtu4_oa_damper": {
+     "const_frac": 0.527,
+     "noise_window": 2,
+     "corr_time": 40,
+     "speed_ratio": 0.244,
+     "saturation": 0.109,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 137,
+   "in_degree": 130,
+   "binding_share": 0.47,
+   "loop": "REACTS",
+   "loop_votes": {
+    "RESPONDS": 24,
+    "REACTS": 37
+   },
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7COMMON\u00b7REACTS"
+  },
+  "oa_flow": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_oa_flow": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 39,
+     "speed_ratio": 0.238,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "rtu2_oa_flow": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 38,
+     "speed_ratio": 0.232,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "rtu3_oa_flow": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 38,
+     "speed_ratio": 0.232,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "rtu4_oa_flow": {
+     "const_frac": 0.0,
+     "noise_window": 1,
+     "corr_time": 38,
+     "speed_ratio": 0.232,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 106,
+   "in_degree": 126,
+   "binding_share": 0.33,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 19,
+    "RESPONDS": 14
+   },
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "MID\u00b7COMMON\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+  },
+  "sa_flow": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "rtu1_sa_flow": {
+     "const_frac": 0.015,
+     "noise_window": 1,
+     "corr_time": 260,
+     "speed_ratio": 1.585,
+     "saturation": 0.015,
+     "cls": "SLOW"
+    },
+    "rtu2_sa_flow": {
+     "const_frac": 0.015,
+     "noise_window": 1,
+     "corr_time": 208,
+     "speed_ratio": 1.268,
+     "saturation": 0.015,
+     "cls": "SLOW"
+    },
+    "rtu3_sa_flow": {
+     "const_frac": 0.015,
+     "noise_window": 1,
+     "corr_time": 306,
+     "speed_ratio": 1.866,
+     "saturation": 0.015,
+     "cls": "SLOW"
+    },
+    "rtu4_sa_flow": {
+     "const_frac": 0.048,
+     "noise_window": 1,
+     "corr_time": 684,
+     "speed_ratio": 4.171,
+     "saturation": 0.047,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 111,
+   "in_degree": 162,
+   "binding_share": 0.47,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 22,
+    "RESPONDS": 20
+   },
+   "dimension": [
+    0,
+    3,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "volume_flow",
+   "full": "SLOW\u00b7COMMON\u00b7REACTS \u27e8L\u00b3 T\u207b\u00b9\u27e9"
+  },
+  "sf_spd": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "rtu1_sf_spd": {
+     "const_frac": 0.024,
+     "noise_window": 1,
+     "corr_time": 238,
+     "speed_ratio": 1.451,
+     "saturation": 0.012,
+     "cls": "SLOW"
+    },
+    "rtu2_sf_spd": {
+     "const_frac": 0.025,
+     "noise_window": 1,
+     "corr_time": 237,
+     "speed_ratio": 1.445,
+     "saturation": 0.013,
+     "cls": "SLOW"
+    },
+    "rtu3_sf_spd": {
+     "const_frac": 0.033,
+     "noise_window": 1,
+     "corr_time": 273,
+     "speed_ratio": 1.665,
+     "saturation": 0.012,
+     "cls": "SLOW"
+    },
+    "rtu4_sf_spd": {
+     "const_frac": 0.043,
+     "noise_window": 1,
+     "corr_time": 531,
+     "speed_ratio": 3.238,
+     "saturation": 0.012,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 129,
+   "in_degree": 156,
+   "binding_share": 0.43,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 33,
+    "REACTS": 21
+   },
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7COMMON\u00b7RESPONDS"
+  },
+  "rf_spd": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "rtu1_rf_spd": {
+     "const_frac": 0.076,
+     "noise_window": 1,
+     "corr_time": 308,
+     "speed_ratio": 1.878,
+     "saturation": 0.121,
+     "cls": "SLOW-S"
+    },
+    "rtu2_rf_spd": {
+     "const_frac": 0.032,
+     "noise_window": 1,
+     "corr_time": 232,
+     "speed_ratio": 1.415,
+     "saturation": 0.012,
+     "cls": "SLOW"
+    },
+    "rtu3_rf_spd": {
+     "const_frac": 0.074,
+     "noise_window": 1,
+     "corr_time": 270,
+     "speed_ratio": 1.646,
+     "saturation": 0.013,
+     "cls": "SLOW"
+    },
+    "rtu4_rf_spd": {
+     "const_frac": 0.061,
+     "noise_window": 1,
+     "corr_time": 600,
+     "speed_ratio": 3.659,
+     "saturation": 0.028,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "COMMON",
+   "out_degree": 146,
+   "in_degree": 189,
+   "binding_share": 0.5,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 41,
+    "RESPONDS": 39
+   },
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7COMMON\u00b7REACTS"
+  },
+  "plenum_p": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "rtu1_plenum_p": {
+     "const_frac": 0.002,
+     "noise_window": 3,
+     "corr_time": 61,
+     "speed_ratio": 0.372,
+     "saturation": 0.002,
+     "cls": "MID"
+    },
+    "rtu2_plenum_p": {
+     "const_frac": 0.137,
+     "noise_window": 5,
+     "corr_time": 91,
+     "speed_ratio": 0.555,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu3_plenum_p": {
+     "const_frac": 0.143,
+     "noise_window": 2,
+     "corr_time": 106,
+     "speed_ratio": 0.646,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "rtu4_plenum_p": {
+     "const_frac": 0.001,
+     "noise_window": 4,
+     "corr_time": 129,
+     "speed_ratio": 0.787,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 115,
+   "in_degree": 137,
+   "binding_share": 0.65,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "REACTS": 28,
+    "RESPONDS": 34
+   },
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+  },
+  "econ_sp": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "rtu1_econ_sp": {
+     "const_frac": 0.983,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu2_econ_sp": {
+     "const_frac": 0.983,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu3_econ_sp": {
+     "const_frac": 0.983,
+     "speed": null,
+     "cls": "SET"
+    },
+    "rtu4_econ_sp": {
+     "const_frac": 0.984,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7ISOLATED \u27e8\u0398\u27e9"
+  },
+  "static_sp": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "rtu3_static_sp": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    1,
+    -1,
+    -2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "pressure",
+   "full": "SET\u00b7ISOLATED \u27e8M L\u207b\u00b9 T\u207b\u00b2\u27e9"
+  },
+  "T": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "zone016_T": {
+     "const_frac": 0.463,
+     "noise_window": 1,
+     "corr_time": 80,
+     "speed_ratio": 0.488,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone017_T": {
+     "const_frac": 0.692,
+     "noise_window": 1,
+     "corr_time": 95,
+     "speed_ratio": 0.579,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone018_T": {
+     "const_frac": 0.673,
+     "noise_window": 1,
+     "corr_time": 155,
+     "speed_ratio": 0.945,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone019_T": {
+     "const_frac": 0.527,
+     "noise_window": 1,
+     "corr_time": 399,
+     "speed_ratio": 2.433,
+     "saturation": 0.022,
+     "cls": "SLOW"
+    },
+    "zone021_T": {
+     "const_frac": 0.608,
+     "noise_window": 1,
+     "corr_time": 702,
+     "speed_ratio": 4.28,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    },
+    "zone022_T": {
+     "const_frac": 0.539,
+     "noise_window": 1,
+     "corr_time": 74,
+     "speed_ratio": 0.451,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone023_T": {
+     "const_frac": 0.497,
+     "noise_window": 1,
+     "corr_time": 77,
+     "speed_ratio": 0.47,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone024_T": {
+     "const_frac": 0.36,
+     "noise_window": 1,
+     "corr_time": 50,
+     "speed_ratio": 0.305,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone025_T": {
+     "const_frac": 0.608,
+     "noise_window": 1,
+     "corr_time": 78,
+     "speed_ratio": 0.476,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone026_T": {
+     "const_frac": 0.495,
+     "noise_window": 1,
+     "corr_time": 66,
+     "speed_ratio": 0.402,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone027_T": {
+     "const_frac": 0.509,
+     "noise_window": 1,
+     "corr_time": 72,
+     "speed_ratio": 0.439,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone028_T": {
+     "const_frac": 0.394,
+     "noise_window": 1,
+     "corr_time": 59,
+     "speed_ratio": 0.36,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone030_T": {
+     "const_frac": 0.837,
+     "noise_window": 1,
+     "corr_time": 618,
+     "speed_ratio": 3.768,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    },
+    "zone032_T": {
+     "const_frac": 0.862,
+     "noise_window": 1,
+     "corr_time": 401,
+     "speed_ratio": 2.445,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    },
+    "zone033_T": {
+     "const_frac": 0.645,
+     "noise_window": 1,
+     "corr_time": 630,
+     "speed_ratio": 3.841,
+     "saturation": 0.002,
+     "cls": "SLOW"
+    },
+    "zone035_T": {
+     "const_frac": 0.647,
+     "noise_window": 1,
+     "corr_time": 120,
+     "speed_ratio": 0.732,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone036_T": {
+     "const_frac": 0.723,
+     "noise_window": 1,
+     "corr_time": 135,
+     "speed_ratio": 0.823,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone037_T": {
+     "const_frac": 0.477,
+     "noise_window": 1,
+     "corr_time": 383,
+     "speed_ratio": 2.335,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone038_T": {
+     "const_frac": 0.591,
+     "noise_window": 1,
+     "corr_time": 384,
+     "speed_ratio": 2.341,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone039_T": {
+     "const_frac": 0.41,
+     "noise_window": 1,
+     "corr_time": 51,
+     "speed_ratio": 0.311,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone040_T": {
+     "const_frac": 0.543,
+     "noise_window": 1,
+     "corr_time": 63,
+     "speed_ratio": 0.384,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone041_T": {
+     "const_frac": 0.371,
+     "noise_window": 1,
+     "corr_time": 45,
+     "speed_ratio": 0.274,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone042_T": {
+     "const_frac": 0.38,
+     "noise_window": 1,
+     "corr_time": 53,
+     "speed_ratio": 0.323,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone043_T": {
+     "const_frac": 0.228,
+     "noise_window": 1,
+     "corr_time": 94,
+     "speed_ratio": 0.573,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone044_T": {
+     "const_frac": 0.473,
+     "noise_window": 1,
+     "corr_time": 48,
+     "speed_ratio": 0.293,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone045_T": {
+     "const_frac": 0.776,
+     "noise_window": 1,
+     "corr_time": 669,
+     "speed_ratio": 4.079,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone046_T": {
+     "const_frac": 0.702,
+     "noise_window": 1,
+     "corr_time": 350,
+     "speed_ratio": 2.134,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone047_T": {
+     "const_frac": 0.599,
+     "noise_window": 1,
+     "corr_time": 92,
+     "speed_ratio": 0.561,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone048_T": {
+     "const_frac": 0.623,
+     "noise_window": 1,
+     "corr_time": 346,
+     "speed_ratio": 2.11,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone049_T": {
+     "const_frac": 0.803,
+     "noise_window": 1,
+     "corr_time": 311,
+     "speed_ratio": 1.896,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    },
+    "zone051_T": {
+     "const_frac": 0.554,
+     "noise_window": 1,
+     "corr_time": 666,
+     "speed_ratio": 4.061,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone052_T": {
+     "const_frac": 0.663,
+     "noise_window": 1,
+     "corr_time": 57,
+     "speed_ratio": 0.348,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone053_T": {
+     "const_frac": 0.518,
+     "noise_window": 1,
+     "corr_time": 47,
+     "speed_ratio": 0.287,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone054_T": {
+     "const_frac": 0.558,
+     "noise_window": 1,
+     "corr_time": 57,
+     "speed_ratio": 0.348,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone055_T": {
+     "const_frac": 0.628,
+     "noise_window": 1,
+     "corr_time": 72,
+     "speed_ratio": 0.439,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone056_T": {
+     "const_frac": 0.544,
+     "noise_window": 1,
+     "corr_time": 62,
+     "speed_ratio": 0.378,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone057_T": {
+     "const_frac": 0.532,
+     "noise_window": 1,
+     "corr_time": 63,
+     "speed_ratio": 0.384,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone058_T": {
+     "const_frac": 0.564,
+     "noise_window": 1,
+     "corr_time": 53,
+     "speed_ratio": 0.323,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone059_T": {
+     "const_frac": 0.859,
+     "noise_window": 1,
+     "corr_time": 1511,
+     "speed_ratio": 9.213,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone061_T": {
+     "const_frac": 0.66,
+     "noise_window": 1,
+     "corr_time": 410,
+     "speed_ratio": 2.5,
+     "saturation": 0.002,
+     "cls": "SLOW"
+    },
+    "zone062_T": {
+     "const_frac": 0.692,
+     "noise_window": 1,
+     "corr_time": 974,
+     "speed_ratio": 5.939,
+     "saturation": 0.0,
+     "cls": "SLOW"
+    },
+    "zone063_T": {
+     "const_frac": 0.666,
+     "noise_window": 1,
+     "corr_time": 104,
+     "speed_ratio": 0.634,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone064_T": {
+     "const_frac": 0.678,
+     "noise_window": 1,
+     "corr_time": 351,
+     "speed_ratio": 2.14,
+     "saturation": 0.001,
+     "cls": "SLOW"
+    },
+    "zone065_T": {
+     "const_frac": 0.617,
+     "noise_window": 1,
+     "corr_time": 102,
+     "speed_ratio": 0.622,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone066_T": {
+     "const_frac": 0.626,
+     "noise_window": 1,
+     "corr_time": 104,
+     "speed_ratio": 0.634,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone067_T": {
+     "const_frac": 0.536,
+     "noise_window": 1,
+     "corr_time": 60,
+     "speed_ratio": 0.366,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone068_T": {
+     "const_frac": 0.626,
+     "noise_window": 1,
+     "corr_time": 63,
+     "speed_ratio": 0.384,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone069_T": {
+     "const_frac": 0.511,
+     "noise_window": 1,
+     "corr_time": 45,
+     "speed_ratio": 0.274,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone070_T": {
+     "const_frac": 0.553,
+     "noise_window": 1,
+     "corr_time": 50,
+     "speed_ratio": 0.305,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone071_T": {
+     "const_frac": 0.493,
+     "noise_window": 1,
+     "corr_time": 49,
+     "speed_ratio": 0.299,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone072_T": {
+     "const_frac": 0.732,
+     "noise_window": 1,
+     "corr_time": 62,
+     "speed_ratio": 0.378,
+     "saturation": 0.001,
+     "cls": "MID"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 79,
+   "in_degree": 98,
+   "binding_share": 0.85,
+   "loop": "RESPONDS",
+   "loop_votes": {
+    "RESPONDS": 11,
+    "REACTS": 7
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LOCAL\u00b7RESPONDS \u27e8\u0398\u27e9"
+  },
+  "fan": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "zone016_fan": {
+     "const_frac": 0.912,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone017_fan": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone018_fan": {
+     "const_frac": 0.998,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone019_fan": {
+     "const_frac": 0.994,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone021_fan": {
+     "const_frac": 0.988,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone023_fan": {
+     "const_frac": 0.96,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone024_fan": {
+     "const_frac": 0.935,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone025_fan": {
+     "const_frac": 0.982,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone026_fan": {
+     "const_frac": 0.977,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone027_fan": {
+     "const_frac": 0.928,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone028_fan": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone030_fan": {
+     "const_frac": 0.979,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone032_fan": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone033_fan": {
+     "const_frac": 0.996,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone035_fan": {
+     "const_frac": 0.998,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone036_fan": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone037_fan": {
+     "const_frac": 0.989,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone038_fan": {
+     "const_frac": 0.94,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone039_fan": {
+     "const_frac": 0.957,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone040_fan": {
+     "const_frac": 0.945,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone041_fan": {
+     "const_frac": 0.924,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone042_fan": {
+     "const_frac": 0.96,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone043_fan": {
+     "const_frac": 0.953,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone044_fan": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone045_fan": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone046_fan": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone047_fan": {
+     "const_frac": 0.996,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone048_fan": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone049_fan": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone051_fan": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone052_fan": {
+     "const_frac": 0.95,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone053_fan": {
+     "const_frac": 0.949,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone054_fan": {
+     "const_frac": 0.981,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone055_fan": {
+     "const_frac": 0.955,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone056_fan": {
+     "const_frac": 0.927,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone057_fan": {
+     "const_frac": 0.921,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone058_fan": {
+     "const_frac": 0.957,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone059_fan": {
+     "const_frac": 0.989,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone061_fan": {
+     "const_frac": 0.992,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone062_fan": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone063_fan": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone064_fan": {
+     "const_frac": 0.948,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone065_fan": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone067_fan": {
+     "const_frac": 0.972,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone068_fan": {
+     "const_frac": 0.968,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone069_fan": {
+     "const_frac": 0.961,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone070_fan": {
+     "const_frac": 0.951,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone071_fan": {
+     "const_frac": 0.908,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone072_fan": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 36,
+   "in_degree": 51,
+   "binding_share": 0.55,
+   "loop": "REACTS",
+   "loop_votes": {
+    "REACTS": 5,
+    "RESPONDS": 1
+   },
+   "dimension": null,
+   "quantity": null,
+   "full": "SET\u00b7LOCAL\u00b7REACTS"
+  },
+  "hw_valve": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "zone016_hw_valve": {
+     "const_frac": 0.951,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone017_hw_valve": {
+     "const_frac": 0.829,
+     "noise_window": 1,
+     "corr_time": 54,
+     "speed_ratio": 0.329,
+     "saturation": 0.649,
+     "cls": "MID-S"
+    },
+    "zone018_hw_valve": {
+     "const_frac": 0.833,
+     "noise_window": 1,
+     "corr_time": 64,
+     "speed_ratio": 0.39,
+     "saturation": 0.691,
+     "cls": "MID-S"
+    },
+    "zone021_hw_valve": {
+     "const_frac": 0.946,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone022_hw_valve": {
+     "const_frac": 0.805,
+     "noise_window": 1,
+     "corr_time": 60,
+     "speed_ratio": 0.366,
+     "saturation": 0.697,
+     "cls": "MID-S"
+    },
+    "zone023_hw_valve": {
+     "const_frac": 0.854,
+     "noise_window": 1,
+     "corr_time": 65,
+     "speed_ratio": 0.396,
+     "saturation": 0.79,
+     "cls": "MID-S"
+    },
+    "zone024_hw_valve": {
+     "const_frac": 0.703,
+     "noise_window": 1,
+     "corr_time": 69,
+     "speed_ratio": 0.421,
+     "saturation": 0.531,
+     "cls": "MID-S"
+    },
+    "zone025_hw_valve": {
+     "const_frac": 0.899,
+     "noise_window": 1,
+     "corr_time": 64,
+     "speed_ratio": 0.39,
+     "saturation": 0.87,
+     "cls": "MID-S"
+    },
+    "zone026_hw_valve": {
+     "const_frac": 0.8,
+     "noise_window": 1,
+     "corr_time": 59,
+     "speed_ratio": 0.36,
+     "saturation": 0.695,
+     "cls": "MID-S"
+    },
+    "zone027_hw_valve": {
+     "const_frac": 0.949,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone028_hw_valve": {
+     "const_frac": 0.736,
+     "noise_window": 1,
+     "corr_time": 47,
+     "speed_ratio": 0.287,
+     "saturation": 0.667,
+     "cls": "MID-S"
+    },
+    "zone035_hw_valve": {
+     "const_frac": 0.921,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone036_hw_valve": {
+     "const_frac": 0.935,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone037_hw_valve": {
+     "const_frac": 0.986,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone038_hw_valve": {
+     "const_frac": 0.956,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone039_hw_valve": {
+     "const_frac": 0.919,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone040_hw_valve": {
+     "const_frac": 0.904,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone041_hw_valve": {
+     "const_frac": 0.75,
+     "noise_window": 1,
+     "corr_time": 73,
+     "speed_ratio": 0.445,
+     "saturation": 0.615,
+     "cls": "MID-S"
+    },
+    "zone042_hw_valve": {
+     "const_frac": 0.91,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone043_hw_valve": {
+     "const_frac": 0.96,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone044_hw_valve": {
+     "const_frac": 0.669,
+     "noise_window": 1,
+     "corr_time": 61,
+     "speed_ratio": 0.372,
+     "saturation": 0.475,
+     "cls": "MID-S"
+    },
+    "zone046_hw_valve": {
+     "const_frac": 0.949,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone047_hw_valve": {
+     "const_frac": 0.8,
+     "noise_window": 1,
+     "corr_time": 80,
+     "speed_ratio": 0.488,
+     "saturation": 0.624,
+     "cls": "MID-S"
+    },
+    "zone048_hw_valve": {
+     "const_frac": 0.714,
+     "noise_window": 1,
+     "corr_time": 77,
+     "speed_ratio": 0.47,
+     "saturation": 0.448,
+     "cls": "MID-S"
+    },
+    "zone051_hw_valve": {
+     "const_frac": 0.98,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone052_hw_valve": {
+     "const_frac": 0.896,
+     "noise_window": 1,
+     "corr_time": 137,
+     "speed_ratio": 0.835,
+     "saturation": 0.779,
+     "cls": "MID-S"
+    },
+    "zone053_hw_valve": {
+     "const_frac": 0.766,
+     "noise_window": 1,
+     "corr_time": 59,
+     "speed_ratio": 0.36,
+     "saturation": 0.667,
+     "cls": "MID-S"
+    },
+    "zone054_hw_valve": {
+     "const_frac": 0.847,
+     "noise_window": 1,
+     "corr_time": 57,
+     "speed_ratio": 0.348,
+     "saturation": 0.713,
+     "cls": "MID-S"
+    },
+    "zone055_hw_valve": {
+     "const_frac": 0.984,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone056_hw_valve": {
+     "const_frac": 0.979,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone057_hw_valve": {
+     "const_frac": 0.991,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone058_hw_valve": {
+     "const_frac": 0.868,
+     "noise_window": 1,
+     "corr_time": 51,
+     "speed_ratio": 0.311,
+     "saturation": 0.793,
+     "cls": "MID-S"
+    },
+    "zone063_hw_valve": {
+     "const_frac": 0.873,
+     "noise_window": 1,
+     "corr_time": 65,
+     "speed_ratio": 0.396,
+     "saturation": 0.822,
+     "cls": "MID-S"
+    },
+    "zone064_hw_valve": {
+     "const_frac": 0.975,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone065_hw_valve": {
+     "const_frac": 0.722,
+     "noise_window": 1,
+     "corr_time": 64,
+     "speed_ratio": 0.39,
+     "saturation": 0.577,
+     "cls": "MID-S"
+    },
+    "zone066_hw_valve": {
+     "const_frac": 0.931,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone067_hw_valve": {
+     "const_frac": 0.727,
+     "noise_window": 1,
+     "corr_time": 58,
+     "speed_ratio": 0.354,
+     "saturation": 0.571,
+     "cls": "MID-S"
+    },
+    "zone068_hw_valve": {
+     "const_frac": 0.98,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone069_hw_valve": {
+     "const_frac": 0.892,
+     "noise_window": 1,
+     "corr_time": 76,
+     "speed_ratio": 0.463,
+     "saturation": 0.867,
+     "cls": "MID-S"
+    },
+    "zone070_hw_valve": {
+     "const_frac": 0.879,
+     "noise_window": 1,
+     "corr_time": 52,
+     "speed_ratio": 0.317,
+     "saturation": 0.823,
+     "cls": "MID-S"
+    },
+    "zone071_hw_valve": {
+     "const_frac": 0.827,
+     "noise_window": 1,
+     "corr_time": 68,
+     "speed_ratio": 0.415,
+     "saturation": 0.733,
+     "cls": "MID-S"
+    },
+    "zone072_hw_valve": {
+     "const_frac": 0.863,
+     "noise_window": 1,
+     "corr_time": 58,
+     "speed_ratio": 0.354,
+     "saturation": 0.63,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 41,
+   "in_degree": 54,
+   "binding_share": 0.89,
+   "loop": null,
+   "loop_votes": {
+    "RESPONDS": 9,
+    "REACTS": 9
+   },
+   "dimension": null,
+   "quantity": null,
+   "full": "MID-S\u00b7LOCAL\u00b7RELAY"
+  },
+  "Tsp_c": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "zone016_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone017_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone018_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone019_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone021_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone023_Tsp_c": {
+     "const_frac": 0.991,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone024_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone025_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone026_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone027_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone030_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone035_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone036_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone037_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone038_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone039_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone041_Tsp_c": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone042_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone043_Tsp_c": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone046_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone047_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone048_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone049_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone051_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone054_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone055_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone056_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone057_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone059_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone061_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone063_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone064_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone065_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone066_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone067_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone069_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone070_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone071_Tsp_c": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "RELAY",
+   "locality": "LOCAL",
+   "out_degree": 26,
+   "in_degree": 41,
+   "binding_share": 0.54,
+   "loop": null,
+   "loop_votes": {
+    "REACTS": 2,
+    "RESPONDS": 2
+   },
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7LOCAL\u00b7RELAY \u27e8\u0398\u27e9"
+  },
+  "Tsp_h": {
+   "cls": "SET",
+   "coarse": "SET",
+   "per_column": {
+    "zone016_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone017_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone018_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone019_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone021_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone023_Tsp_h": {
+     "const_frac": 0.991,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone024_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone025_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone026_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone027_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone030_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone035_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone036_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone037_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone038_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone039_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone041_Tsp_h": {
+     "const_frac": 0.997,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone042_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone043_Tsp_h": {
+     "const_frac": 0.999,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone046_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone047_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone048_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone049_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone051_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone054_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone055_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone056_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone057_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone059_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone061_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone063_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone064_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone065_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone066_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone067_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone069_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone070_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    },
+    "zone071_Tsp_h": {
+     "const_frac": 1.0,
+     "speed": null,
+     "cls": "SET"
+    }
+   },
+   "influence": "LEAD",
+   "locality": "LOCAL",
+   "out_degree": 7,
+   "in_degree": 3,
+   "binding_share": 0.67,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "SET\u00b7LOCAL\u00b7LEAD \u27e8\u0398\u27e9"
+  },
+  "co2": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "zone022_co2": {
+     "const_frac": 0.012,
+     "noise_window": 1,
+     "corr_time": 43,
+     "speed_ratio": 0.262,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone028_co2": {
+     "const_frac": 0.013,
+     "noise_window": 1,
+     "corr_time": 55,
+     "speed_ratio": 0.335,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone033_co2": {
+     "const_frac": 0.013,
+     "noise_window": 1,
+     "corr_time": 54,
+     "speed_ratio": 0.329,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone040_co2": {
+     "const_frac": 0.016,
+     "noise_window": 1,
+     "corr_time": 56,
+     "speed_ratio": 0.341,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone044_co2": {
+     "const_frac": 0.014,
+     "noise_window": 1,
+     "corr_time": 55,
+     "speed_ratio": 0.335,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone045_co2": {
+     "const_frac": 0.015,
+     "noise_window": 1,
+     "corr_time": 41,
+     "speed_ratio": 0.25,
+     "saturation": 0.002,
+     "cls": "MID"
+    },
+    "zone052_co2": {
+     "const_frac": 0.011,
+     "noise_window": 1,
+     "corr_time": 48,
+     "speed_ratio": 0.293,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone058_co2": {
+     "const_frac": 0.017,
+     "noise_window": 1,
+     "corr_time": 42,
+     "speed_ratio": 0.256,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone062_co2": {
+     "const_frac": 0.015,
+     "noise_window": 1,
+     "corr_time": 47,
+     "speed_ratio": 0.287,
+     "saturation": 0.001,
+     "cls": "MID"
+    },
+    "zone068_co2": {
+     "const_frac": 0.014,
+     "noise_window": 1,
+     "corr_time": 59,
+     "speed_ratio": 0.36,
+     "saturation": 0.0,
+     "cls": "MID"
+    },
+    "zone072_co2": {
+     "const_frac": 0.016,
+     "noise_window": 1,
+     "corr_time": 52,
+     "speed_ratio": 0.317,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "MID\u00b7ISOLATED"
+  },
+  "T_out": {
+   "cls": "MID",
+   "coarse": "MID",
+   "per_column": {
+    "sys_T_out": {
+     "const_frac": 0.027,
+     "noise_window": 1,
+     "corr_time": 134,
+     "speed_ratio": 0.817,
+     "saturation": 0.0,
+     "cls": "MID"
+    }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 61,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "quantity": "temperature",
+   "full": "MID\u00b7LEAD \u27e8\u0398\u27e9"
+  },
+  "solar": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "sys_solar": {
+     "const_frac": 0.272,
+     "noise_window": 1,
+     "corr_time": 42,
+     "speed_ratio": 0.256,
+     "saturation": 0.516,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "ISOLATED",
+   "locality": null,
+   "out_degree": 0,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    1,
+    0,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "irradiance",
+   "full": "MID-S\u00b7ISOLATED \u27e8M T\u207b\u00b3\u27e9"
+  },
+  "rh_out": {
+   "cls": "SLOW",
+   "coarse": "SLOW",
+   "per_column": {
+    "sys_rh_out": {
+     "const_frac": 0.054,
+     "noise_window": 1,
+     "corr_time": 349,
+     "speed_ratio": 2.128,
+     "saturation": 0.011,
+     "cls": "SLOW"
+    }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 61,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": null,
+   "quantity": null,
+   "full": "SLOW\u00b7LEAD"
+  },
+  "hvac_kw_N": {
+   "cls": "SLOW-S",
+   "coarse": "SLOW",
+   "per_column": {
+    "sys_hvac_kw_N": {
+     "const_frac": 0.103,
+     "noise_window": 1,
+     "corr_time": 352,
+     "speed_ratio": 2.146,
+     "saturation": 0.118,
+     "cls": "SLOW-S"
+    }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 42,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "SLOW-S\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  },
+  "hvac_kw_S": {
+   "cls": "MID-S",
+   "coarse": "MID",
+   "per_column": {
+    "sys_hvac_kw_S": {
+     "const_frac": 0.194,
+     "noise_window": 1,
+     "corr_time": 110,
+     "speed_ratio": 0.671,
+     "saturation": 0.238,
+     "cls": "MID-S"
+    }
+   },
+   "influence": "LEAD",
+   "locality": null,
+   "out_degree": 56,
+   "in_degree": 0,
+   "binding_share": null,
+   "loop": null,
+   "loop_votes": null,
+   "dimension": [
+    1,
+    2,
+    -3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "quantity": "power",
+   "full": "MID-S\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9"
+  }
+ },
+ "tags_note": "parts of speech (3.14): clock prefix at 5-minute means relative to H; place prefix from the v1 library; dimension suffix from the point units (\u00b0F temperatures <\u0398>, cfm flows, in. w.c. pressures, % positions and speeds, kW, W/m\u00b2)"
+}

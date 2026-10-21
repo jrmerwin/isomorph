@@ -1,5 +1,5 @@
 {
- "method_version": 6,
+ "method_version": 7,
  "profile": "v1",
  "seed": 0,
  "dataset": "tclab",
@@ -58,6 +58,9 @@
   "types": 12,
   "n_entities": 2,
   "period": null,
+  "period_slow": null,
+  "period_fast": null,
+  "resolution_delta": 0.08333333333333333,
   "signal_floor": 5,
   "min_count": 3,
   "lag_edges": [
@@ -111,8 +114,8 @@
    "deterministic": null
   },
   "logistic unselected contexts": {
-   "all": 1.9558364960539774,
-   "non_deterministic": 1.9558364960539774,
+   "all": 1.9558364960539778,
+   "non_deterministic": 1.9558364960539778,
    "deterministic": null
   }
  },
@@ -134,7 +137,8 @@
    "lift_ok": 0,
    "null_passed": 0,
    "admitted": 0,
-   "returns": 0
+   "returns": 0,
+   "returns_resolved": 0
   },
   "candidates": 48,
   "nulls_run": [
@@ -170,6 +174,23 @@
   "precision": 0.0,
   "n_mechanisms": 3,
   "n_found": 0
+ },
+ "admission": {
+  "days": 0.32,
+  "slow_periods": null,
+  "horizons": 22.4,
+  "test_horizons": 5.6,
+  "admitted": false,
+  "by": null
+ },
+ "loop_roles": {
+  "returns": 0,
+  "resolved": 0,
+  "unresolved": 0,
+  "roles": {},
+  "votes": {},
+  "dimension_check": null,
+  "flowsheet_check": null
  },
  "transfer": "not measured (collection step)",
  "lineage": "not measured (collection step)",

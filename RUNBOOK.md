@@ -98,6 +98,41 @@ single-process apart from numpy's own threading.
    human call.
 3. **The loop-aware place tag — specified 2026-10-21 as METHOD 3.16 (v7).** See the round below.
 
+## The v7 round — status (Mac, 2026-10-21)
+
+Done in work order; deviations from the brief are marked *dev.*
+
+1. **Loop roles (3.16)** — built in `mine/syntax.py` (`leg_gaps`, `loop_verdict`, `loop_tags`), the tag replaces
+   `RELAY` in `pos.place_of` / `full_tag` / chain shapes, +1 graded in `align_roles`, cards carry a **Loop roles**
+   block with both checks. Expected vs found: TEP's `underflow_valve` lands on REACTS (9 votes to 7) but `cw_flow` on
+   RESPONDS (25 to 16); HAI's `LCV01D` on RESPONDS and `LIT01` on REACTS — both expectations inverted at the role
+   level. The flowsheet check is at chance on TEP (24/44) and inverted on HAI (7/21); the dimension check is below
+   chance on both (REACTS dimensionless 0.25 / 0.27). On TEP the gaps are multiples of the 3-min sample, so medians
+   tie and 19 returns are unresolved. **The checks pass on Building 59** (flowsheet 35/56 = 0.63; RESPONDS
+   dimensioned 4/5), where the economizer loop reads `REACTS → RESPONDS → REACTS`. Nothing fixed by hand.
+2. **Fine-grid period (3.4)** — `nulls.period_estimate_fine` (FFT acf at δ out to 1,000 δ), `period_fast` /
+   `period_slow` on cards and sidecars, the cycle null at each. Buildings, TEP, HAI, battery, Building 59: `none`
+   on the fine grid, as expected. *dev.* PhysioNet also `none`: the pooled rate of 18 subjects breathing at 18
+   rates has acf peaks of 0.13–0.15 at 1.5–4.5 s against the 0.2 threshold; a per-entity period is the open item.
+3. **Admission in horizons (section 6)** — `pipeline.run` computes days / slow periods / H / test H and the card
+   states the clause. PhysioNet admitted (19,419 H at 0.25 s); HAI **not admitted under the rule** (178 H, 15.3 d),
+   kept as the standing provisional member and so flagged; TCLab out (22 H); Building 59 admitted (365 d, 641 H).
+4. **PhysioNet at 0.25 s** — `CARD_physionet_slp_v2.md`: 22 fragments, **beats baselines** (+0.19 over triviality),
+   respiration spelled breath by breath, RESP → SBP/DBP and HR → SBP found, RSA spelled HR → RESP by lead; **no
+   baroreflex return** (SBP → HR absent as a pair, not hidden by the clock any more).
+5. **Bump to 7** — buildings reproduce the v6 reference exactly (calibration passed, then re-recorded); every card
+   regenerated, `tag_datasets.py` with loop tags, matrix v7 seed 0 (docs/MATRIX.md), `isomorph lineage`.
+6. **Lineage checks** — (a) the two PhysioNet rows were two mappings (HR ↔ purge_valve vs HR ↔ SIT02) whose confirmed
+   sets differ by one fragment each way: equal counts by coincidence. (b) LINEAGE.md now states the running-order
+   direction and counts same-role and cross-role shapes apart; of the shapes present in every taxon under v6 all
+   three were same-role, and under v7 (five taxa) none is present in every taxon.
+7. **Dataset 8, Building 59** — fetched from the Zenodo mirror (Dryad's file streams refuse unauthenticated
+   downloads; CC0), year 2019 at 5-min means, entity `unit` by 3.1 (55 units) over `zone`; *dev.* no `sys` candidate
+   (299 roles → ~1,800 types, the Markov-only comparison segfaults on the vocabulary-squared feature map: open item).
+   1,285 fragments, 1,044 chains, 299 returns, recovery 9/11, no gain over triviality (50 thermostatic zones are 50
+   alternations). Shares 104 cross-role shapes with TEP and 128 with HAI; the shape tree pairs it with TEP.
+   Cells A → 59, B′ → 59, 59 ↔ TEP, 59 ↔ HAI in docs/MATRIX.md. Next: Fingrid grid frequency (⟨T⁻¹⟩).
+
 ## The v7 round (October 2026) — the brief for the Mac
 
 Read METHOD.md 3.16, the v7 note in 3.4, and section 6 before touching code; they are the spec, this is the order of work.
