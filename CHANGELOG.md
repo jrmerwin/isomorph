@@ -457,3 +457,16 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   explain it); Building 59 → TEP 71.1, TEP → Building 59 25.0, HAI → Building 59 8.0, A → 59 0.7, B′ → 59 −1.3;
   Fingrid: HAI → Fingrid 5.9, Building 59 → Fingrid 7.1, Fingrid → TEP 3.2, the rest ≤ 2.
 - Shell lessons kept: a second-chain with `set -- $pair` under zsh runs with empty arguments (bash scripts now).
+
+## v9 (2026-10-21) — specified here, collection-only, implementation on the Mac
+
+- 3.12 marginal control: the source model reduced to its type marginals through the learned mapping, mixed by
+  the same procedure; the structure cell is the learned cell net of the larger of the derangement and marginal
+  controls. Motivated by v8: cells into TEP stood under derangements (PhysioNet → TEP 61.9 bit-H through 4 types,
+  zero-shot 6.63 vs 8.73), and a derangement preserves the source marginals on the mapped types.
+- 3.12 diagonal: each receiver taught by itself from a disjoint stretch (TEP days 120–240; Building 59 2018;
+  Fingrid adjacent year; buildings seed 1; battery other cells); off-diagonal cells also as share of the
+  receiver's ceiling.
+- Section 6: Fingrid recorded as dataset 9; dataset 10 is the first negative control (a cluster trace), with its
+  prediction declared before it runs. Cards unchanged; CARD_RULES_VERSION stays 8.
+- A view, no version: `isomorph brief` — the structural map of one system for a machine reader.

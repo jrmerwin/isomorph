@@ -24,7 +24,7 @@ recorded in [docs/RESULTS_session_2026-10-18.md](docs/RESULTS_session_2026-10-18
 
 ## Status
 
-Method **v7** implemented, **v8** specified (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v6). The collection's lineage — returns, the character matrix, similarity trees and the inheritance graph over four taxa — is in [docs/LINEAGE.md](docs/LINEAGE.md).
+Method **v8** implemented, **v9** specified (collection-only) (integer versions; amendments are logged in `CHANGELOG.md`; cards valid from v6). The collection's lineage — returns, the character matrix, similarity trees and the inheritance graph over four taxa — is in [docs/LINEAGE.md](docs/LINEAGE.md).
 
 | # | dataset | library vs triviality / best baseline (bits per event, test split) | claim |
 | --- | --- | --- | --- |

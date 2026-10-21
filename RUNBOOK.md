@@ -56,6 +56,42 @@ The choice stage runs the two or three scheme trials of a role in forked workers
 min(3, cores)); expect roughly a 2–3× speed-up over the figures above. Pipeline and transfer steps are
 single-process apart from numpy's own threading.
 
+
+## The v9 round (October 2026) — the brief for the Mac
+
+Collection-only: METHOD.md 3.12 (v9 paragraph) and section 6 rows 9–10. No card changes, no bump of
+CARD_RULES_VERSION; METHOD_VERSION to 9 and the matrix regenerated. The question the round answers is whether
+the cells into TEP (PhysioNet → TEP 61.9, Building 59 → TEP 71.1, HAI → TEP 48.6 bit-H) are motif structure.
+
+1. **Marginal control (3.12).** In `transfer/apply.py`, beside the derangements: the source model reduced to its
+   type marginals through the learned mapping — per mapped receiver type, the translated source frequency and
+   nothing lagged — mixed with the receiver's own model by the same per-fragment procedure (one feature per mapped
+   type). `cell_marginal_bit_horizons`; the **structure** cell = learned − max(derangement, marginal); MATRIX.md
+   gains the two columns. Prediction, declared: PhysioNet → TEP's structure cell falls below 10 bit-H; TEP ↔ HAI
+   and TEP ↔ Building 59 keep most of theirs.
+2. **The diagonal (3.12).** `isomorph transfer --self datasets/<name> --source-stretch <spec>`: fit the source
+   pipeline on the disjoint stretch (TEP: days 120–240 of the 1-year file — days 240–365 remain untouched and the
+   card says so; Building 59: 2018; Fingrid: the adjacent year; buildings: generator seed 1; battery: the other
+   FY08Q4-era cells, B0029–B0032 or whichever the archive holds) and apply it to the receiver through the identity
+   mapping, controls as for any cell. `collection/matrix.json` gets the diagonal entries; every off-diagonal cell
+   also reports `share_of_ceiling = structure / diagonal_structure`. HAI and PhysioNet `not measured`.
+3. **Dataset 10, negative control one.** Alibaba cluster-trace-v2018 `machine_usage.csv` (public on GitHub /
+   Aliyun OSS; ~2 GB): 1-minute means over a subsample of ~200 machines as units, roles cpu_util, mem_util,
+   net_in, net_out, disk_io — all dimensionless, so every role is unsuffixed and the dimension constraint maps
+   nothing hard. Fallback: Google clusterdata-2011-2 machine-level usage at 5 min (`gsutil`, large). Admission by
+   horizons. Run it as a source into every receiver and as a receiver from every source. **Declared:** structure
+   into TEP ≈ 0 (below 5 bit-H). If it is not, stop and report; nothing else gets added until the cell is
+   understood.
+4. **`isomorph brief datasets/<name>`** — a view, not a rule: the system's structural map for a machine reader.
+   One JSON and one markdown per dataset: identity (entity, H, periods, admission, claim with its numbers);
+   vocabulary (every role with `full_tag`); couplings (validated fragments as prior → target with lag class,
+   lift, confirmation n, binding evidence, used/unused); loops (returns with both loop-rule verdicts, unpromoted);
+   absences (silent roles, roles never a target, keyed pairs not found, all above the signal floor); regimes;
+   and the matrix row (cells in, cells out, share of ceiling where measured, nearest taxa by shape). A short
+   epistemics header once: lifts are odds, absence is informative only above the floor, `no gain` means found but
+   already carried by the trivial model. No prose beyond that header.
+5. CHANGELOG `## v9 implemented`; MATRIX.md v9 table with structure and share-of-ceiling columns; LINEAGE.md
+   regenerated with the seventh taxon and the negative control marked as such in every view.
 ## The next round (October 2026)
 
 1. **Robustness of the cross-kind cells — done 2026-10-20.** Seeds 0–4 of TEP ↔ HAI under v5 are in the matrix:
