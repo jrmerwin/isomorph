@@ -145,5 +145,5 @@ def unit_gaps(df, layout, min_hours=1.0):
         edges = np.flatnonzero(np.diff(np.r_[0, miss.astype(int), 0]))
         for s, e in zip(edges[::2], edges[1::2]):
             if (e - s) * SAMPLE_MIN >= min_hours * 60:
-                out.append((ent, float(df.minute.values[s]), float(df.minute.values[e - 1] + SAMPLE_MIN), "all points of the unit missing"))
+                out.append((ent, float(df.minute.values[s]), float(min(df.minute.values[e - 1] + SAMPLE_MIN, df.minute.values[-1] + 1)), "all points of the unit missing"))   # inside the observation window (ends at t.max() + 1)
     return out

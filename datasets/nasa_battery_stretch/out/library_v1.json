@@ -1,0 +1,705 @@
+{
+ "chains": [],
+ "fragments": [
+  {
+   "prior": "T:trough",
+   "lag": "m",
+   "target": "V:upq50",
+   "count": 42,
+   "lift": 5.67828947368421,
+   "lift_conf": 8.359322033898305,
+   "null_max": {
+    "circular": 32,
+    "cycle": 41,
+    "rewire": 17
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:downq10",
+   "lag": "m",
+   "target": "I:upq10",
+   "count": 47,
+   "lift": 5.339137645107794,
+   "lift_conf": 6.4401709401709395,
+   "null_max": {
+    "circular": 21,
+    "cycle": 30,
+    "rewire": 22
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq80",
+   "lag": "s",
+   "target": "V:downq80",
+   "count": 101,
+   "lift": 4.066118131060828,
+   "lift_conf": 3.9135250680139912,
+   "null_max": {
+    "circular": 45,
+    "cycle": 78,
+    "rewire": 33
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:upq10",
+   "lag": "m",
+   "target": "V:downq20",
+   "count": 22,
+   "lift": 5.567733990147784,
+   "lift_conf": 5.504464285714286,
+   "null_max": {
+    "circular": 18,
+    "cycle": 14,
+    "rewire": 13
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:upq90",
+   "lag": "m",
+   "target": "V:upq50",
+   "count": 22,
+   "lift": 5.0233333333333325,
+   "lift_conf": 5.0233333333333325,
+   "null_max": {
+    "circular": 17,
+    "cycle": 19,
+    "rewire": 8
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "m",
+   "target": "I:downq90",
+   "count": 33,
+   "lift": 4.014305445935281,
+   "lift_conf": 5.167456268221575,
+   "null_max": {
+    "circular": 15,
+    "cycle": 18,
+    "rewire": 10
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:downq10",
+   "lag": "m",
+   "target": "V:downq20",
+   "count": 26,
+   "lift": 4.272121535181237,
+   "lift_conf": 5.081043956043956,
+   "null_max": {
+    "circular": 24,
+    "cycle": 20,
+    "rewire": 15
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "m",
+   "target": "T:peak",
+   "count": 57,
+   "lift": 3.3764592841700694,
+   "lift_conf": 3.1727595385980476,
+   "null_max": {
+    "circular": 48,
+    "cycle": 47,
+    "rewire": 17
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:upq90",
+   "lag": "s",
+   "target": "T:trough",
+   "count": 16,
+   "lift": 4.9013664596273285,
+   "lift_conf": 4.948494983277592,
+   "null_max": {
+    "circular": 8,
+    "cycle": 7,
+    "rewire": 5
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:downq90",
+   "lag": "m",
+   "target": "T:peak",
+   "count": 38,
+   "lift": 3.452763448784082,
+   "lift_conf": 3.9979366249078847,
+   "null_max": {
+    "circular": 19,
+    "cycle": 15,
+    "rewire": 13
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:downq90",
+   "lag": "s",
+   "target": "V:upq80",
+   "count": 18,
+   "lift": 3.073535521395929,
+   "lift_conf": 3.660031430068098,
+   "null_max": {
+    "circular": 6,
+    "cycle": 14,
+    "rewire": 5
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "l",
+   "target": "V:upq80",
+   "count": 204,
+   "lift": 1.5958430879917775,
+   "lift_conf": 1.8354188956598594,
+   "null_max": {
+    "circular": 121,
+    "cycle": 169,
+    "rewire": 91
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq20",
+   "lag": "l",
+   "target": "V:upq80",
+   "count": 191,
+   "lift": 1.5815972921787484,
+   "lift_conf": 1.784107016300496,
+   "null_max": {
+    "circular": 186,
+    "cycle": 177,
+    "rewire": 99
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq50",
+   "lag": "l",
+   "target": "V:downq80",
+   "count": 196,
+   "lift": 1.5332610061097471,
+   "lift_conf": 1.7589431083406988,
+   "null_max": {
+    "circular": 162,
+    "cycle": 173,
+    "rewire": 91
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:downq90",
+   "lag": "l",
+   "target": "V:downq80",
+   "count": 140,
+   "lift": 1.6122163070888205,
+   "lift_conf": 1.8314903449414093,
+   "null_max": {
+    "circular": 116,
+    "cycle": 104,
+    "rewire": 73
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq20",
+   "lag": "l",
+   "target": "V:downq80",
+   "count": 183,
+   "lift": 1.515352379417335,
+   "lift_conf": 1.67487597448618,
+   "null_max": {
+    "circular": 139,
+    "cycle": 126,
+    "rewire": 100
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:upq90",
+   "lag": "l",
+   "target": "V:downq80",
+   "count": 161,
+   "lift": 1.5331556997219649,
+   "lift_conf": 1.63944969065451,
+   "null_max": {
+    "circular": 143,
+    "cycle": 122,
+    "rewire": 82
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "I:upq90",
+   "lag": "l",
+   "target": "V:upq80",
+   "count": 161,
+   "lift": 1.5331556997219649,
+   "lift_conf": 1.6896369260827093,
+   "null_max": {
+    "circular": 117,
+    "cycle": 127,
+    "rewire": 76
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  },
+  {
+   "prior": "V:upq20",
+   "lag": "l",
+   "target": "V:upq50",
+   "count": 44,
+   "lift": 1.5120401337792642,
+   "lift_conf": 1.813235294117647,
+   "null_max": {
+    "circular": 42,
+    "cycle": 34,
+    "rewire": 18
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "nasa_battery_stretch",
+   "confirmed_in": [],
+   "failed_in": []
+  }
+ ],
+ "compositions": [
+  {
+   "priors": [
+    [
+     "T:trough",
+     "m"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:upq50",
+   "count": 47
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:upq80",
+   "count": 193
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "s"
+    ],
+    [
+     "V:upq50",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 146
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "s"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 107
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 184
+  },
+  {
+   "priors": [
+    [
+     "I:upq10",
+     "m"
+    ],
+    [
+     "I:downq10",
+     "m"
+    ]
+   ],
+   "target": "V:downq20",
+   "count": 19
+  },
+  {
+   "priors": [
+    [
+     "T:trough",
+     "m"
+    ],
+    [
+     "I:upq90",
+     "m"
+    ]
+   ],
+   "target": "V:upq50",
+   "count": 23
+  },
+  {
+   "priors": [
+    [
+     "I:upq90",
+     "m"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:upq50",
+   "count": 19
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "m"
+    ],
+    [
+     "I:downq90",
+     "m"
+    ]
+   ],
+   "target": "T:peak",
+   "count": 60
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 142
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "l"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 221
+  },
+  {
+   "priors": [
+    [
+     "V:upq20",
+     "l"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 168
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:upq80",
+   "count": 226
+  },
+  {
+   "priors": [
+    [
+     "V:upq20",
+     "l"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:upq80",
+   "count": 172
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "s"
+    ],
+    [
+     "I:downq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 102
+  },
+  {
+   "priors": [
+    [
+     "V:upq80",
+     "s"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 104
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "I:downq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 219
+  },
+  {
+   "priors": [
+    [
+     "V:upq50",
+     "l"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:downq80",
+   "count": 219
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "s"
+    ],
+    [
+     "V:upq20",
+     "l"
+    ]
+   ],
+   "target": "V:upq80",
+   "count": 24
+  },
+  {
+   "priors": [
+    [
+     "I:downq90",
+     "s"
+    ],
+    [
+     "I:upq90",
+     "l"
+    ]
+   ],
+   "target": "V:upq80",
+   "count": 29
+  }
+ ]
+}

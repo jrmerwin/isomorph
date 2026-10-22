@@ -470,3 +470,35 @@ Method version is an integer (METHOD.md section 7); every card states the versio
 - Section 6: Fingrid recorded as dataset 9; dataset 10 is the first negative control (a cluster trace), with its
   prediction declared before it runs. Cards unchanged; CARD_RULES_VERSION stays 8.
 - A view, no version: `isomorph brief` — the structural map of one system for a machine reader.
+
+## v9 implemented (2026-10-21, Mac) — and the collection paused by its own rule
+- 3.12 marginal control: `apply.marginal_through_mapping` — the source's type frequencies through the learned mapping,
+  mixed by the same λ per curve point; `cell_marginal_bit_horizons`; **structure** = learned − max(derangement,
+  marginal) (`cell_structure_bit_horizons`, `larger_control`). The lineage's transfer distance uses structure.
+- 3.12 the diagonal: `isomorph transfer --self <dataset> --source-stretch <stretch>` (`matrix.transfer_self`): the
+  receiver's own pipeline on a disjoint stretch applied through the identity mapping, controls as for any cell;
+  `annotate_ceilings` writes `share_of_ceiling` on every off-diagonal cell after every transfer. Stretches
+  (`scripts/make_stretch.py`, choices reused, thresholds the stretch's own): TEP days 120–240 (285 fragments), Building
+  59 year 2018 (1,761), buildings A/B′ under generator seed 1 (110 / 147), battery cells B0025–28 (19; 5.7 days), Fingrid
+  the year *after* (2025-07 .. 2026-07, 54 fragments) — *dev.* the year before has FCR-N for four months and aFRR for
+  one, since those series begin in spring 2024. Diagonal structure: TEP 177.6, Building 59 116.8, A 235.8, B′ 92.1,
+  Fingrid 135.9, battery 2.6; HAI and PhysioNet not measured.
+- Dataset 10, the negative control: Alibaba cluster-trace-v2018 machine_usage (OSS mirror, 1.77 GB; 200-machine
+  subsample by `scripts/subsample_alibaba.py`), 1-min means, machine as the only entity candidate (990 roles do not
+  fit a single system); 86 fragments, 13 returns, no gain; docs/CARD_alibaba_2018_v1.md. Run both ways against every
+  receiver and source.
+- `isomorph brief` (`collect/brief.py`): collection/brief_<name>.json and docs/BRIEF_<name>.md for all nine datasets.
+- METHOD_VERSION 9; CARD_RULES_VERSION stays 8; matrix regenerated (14 pairs + 8 with the negative control + 6 diagonals),
+  lineage with the negative control flagged, briefs.
+- **Predictions against outcomes.** PhysioNet → TEP structure 62.4 bit-H (declared < 10): fails. **Alibaba → TEP
+  structure 51.2 bit-H, share of ceiling 0.29 (declared ≈ 0, < 5): fails — the stop condition of section 6.** The
+  cell decomposed: TEP's own learning model sits above TEP's own unigram at 8 of 9 curve points (5.2–5.4 bits
+  against 5.09; Building 59's at 9 of 9, own 5.99 at 200 H against 5.84), so any smooth prior over the receiver's
+  classes improves it and neither the deranged nor the flattened prior removes the whole effect; HAI → TEP's marginal
+  control (110.9) exceeds its learned cell (89.5), structure −21.4. The cells into TEP and Building 59 are
+  receiver-side regularisation. The instrument fault, for the fix: a receiver's own curve must be no worse than its
+  own unigram at every point (candidates in docs/MATRIX.md v9). Nothing is added to the collection until it is.
+- Code found on the way: `brief.py` handled a string `symbolization` field (the buildings); `unit_gaps` clips a
+  trailing gap to the observation end; a chain's `pgrep -f` matched its own command line and a wait had an `exit`
+  inside its condition (both chains re-launched); the Fingrid pager exec'd without `__file__` wrote to the home
+  directory (moved).

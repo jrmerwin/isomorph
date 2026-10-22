@@ -6,6 +6,10 @@
       run datasets/building_a and datasets/building_b under both profiles and compare to collection/calibration_reference.json
   isomorph transfer <dataset_A> <dataset_B> [--profile v1] [--seed 0] [--direction both|ab|ba]
       both pipelines (cached state reused), alignment, the ordered cells -> collection/matrix.json, cell card
+  isomorph transfer --self <dataset> --source-stretch <stretch_dir>
+      the diagonal (3.12, v9): the receiver taught by its own disjoint stretch through the identity mapping
+  isomorph brief <dataset_dir>
+      a view, not a rule: the system's structural map -> collection/brief_<name>.json, docs/BRIEF_<name>.md
   isomorph lineage
       the collection step (3.13): shape inventory, character matrix, similarity trees, inheritance graph
       -> collection/lineage.json, docs/LINEAGE.md
@@ -23,7 +27,9 @@ def main(argv=None):
     sub = p.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run"); r.add_argument("dataset_dir"); r.add_argument("--profile", default="v1"); r.add_argument("--seed", type=int, default=0)
     sub.add_parser("calibrate")
-    t = sub.add_parser("transfer"); t.add_argument("dataset_a"); t.add_argument("dataset_b"); t.add_argument("--profile", default="v1"); t.add_argument("--seed", type=int, default=0); t.add_argument("--direction", default="both", choices=["both", "ab", "ba"])
+    t = sub.add_parser("transfer"); t.add_argument("dataset_a"); t.add_argument("dataset_b", nargs="?", default=None); t.add_argument("--profile", default="v1"); t.add_argument("--seed", type=int, default=0); t.add_argument("--direction", default="both", choices=["both", "ab", "ba"])
+    t.add_argument("--self", dest="self_", action="store_true", help="the diagonal (3.12, v9): dataset_a taught by its own disjoint stretch"); t.add_argument("--source-stretch", default=None, help="the stretch dataset directory, e.g. datasets/tennessee_eastman_stretch")
+    br = sub.add_parser("brief"); br.add_argument("dataset_dir")
     b = sub.add_parser("bundle"); b.add_argument("--out", default=None)
     sub.add_parser("lineage")
     a = p.parse_args(argv)
@@ -50,6 +56,17 @@ def main(argv=None):
     elif a.cmd == "lineage":
         from .collect.lineage import build
         build()
+    elif a.cmd == "brief":
+        from .collect.brief import build_brief
+        build_brief(a.dataset_dir)
+    elif a.cmd == "transfer" and a.self_:
+        from .collect.matrix import transfer_self, cell_markdown
+        if not a.source_stretch: sys.exit("--self needs --source-stretch <stretch dataset dir>")
+        rec = transfer_self(a.dataset_a, a.source_stretch, a.profile, a.seed)
+        md = cell_markdown(rec)
+        os.makedirs("collection", exist_ok=True)
+        open(os.path.join("collection", f"transfer_{rec['B']}_self_{a.profile}.md"), "w").write(md)
+        print(md)
     elif a.cmd == "transfer":
         from .collect.matrix import transfer_pair, cell_markdown
         rec = transfer_pair(a.dataset_a, a.dataset_b, a.profile, a.seed, direction=a.direction)

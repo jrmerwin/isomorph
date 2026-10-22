@@ -1,0 +1,1194 @@
+{
+ "time_unit": "minute",
+ "entity_key": "unit",
+ "period": "auto",
+ "system_wide_types": [
+  "T_out:downq20",
+  "T_out:downq50",
+  "T_out:downq80",
+  "T_out:upq20",
+  "T_out:upq50",
+  "T_out:upq80",
+  "hvac_kw_N:downq10",
+  "hvac_kw_N:downq90",
+  "hvac_kw_N:upq10",
+  "hvac_kw_N:upq90",
+  "hvac_kw_S:downq20",
+  "hvac_kw_S:downq50",
+  "hvac_kw_S:downq80",
+  "hvac_kw_S:upq20",
+  "hvac_kw_S:upq50",
+  "hvac_kw_S:upq80",
+  "rh_out:downq20",
+  "rh_out:downq50",
+  "rh_out:downq80",
+  "rh_out:upq20",
+  "rh_out:upq50",
+  "rh_out:upq80"
+ ],
+ "tie_rule": "canonical",
+ "kind": "real office building (LBNL Building 59), stretch 2018",
+ "origin": "scripts/make_stretch.py building_59",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "sa_t": "q20_50_80",
+   "sat_sp": "q10_90",
+   "ma_t": "dsign",
+   "ra_t": "dsign",
+   "oa_t": "dsign",
+   "oa_damper": "q10_90",
+   "oa_flow": "q20_50_80",
+   "sa_flow": "q20_50_80",
+   "sf_spd": "q20_50_80",
+   "rf_spd": "q20_50_80",
+   "plenum_p": "q20_50_80",
+   "econ_sp": "q20_50_80",
+   "T": "q20_50_80",
+   "fan": "q10_90",
+   "hw_valve": "q10_90",
+   "Tsp_c": "q20_50_80",
+   "Tsp_h": "q20_50_80",
+   "T_out": "q20_50_80",
+   "solar": null,
+   "rh_out": "q20_50_80",
+   "hvac_kw_N": "q10_90",
+   "hvac_kw_S": "q20_50_80",
+   "wifi_3S": null,
+   "wifi_4S": null
+  },
+  "thresholds": {
+   "sa_t": {
+    "rtu1_sa_t": [
+     67.18,
+     68.04,
+     68.76
+    ],
+    "rtu2_sa_t": [
+     64.42,
+     65.46,
+     68.18
+    ],
+    "rtu3_sa_t": [
+     63.8,
+     64.04,
+     64.52
+    ],
+    "rtu4_sa_t": [
+     67.32,
+     67.92,
+     68.38
+    ]
+   },
+   "sat_sp": {
+    "rtu1_sat_sp": [
+     67.729,
+     69.0
+    ],
+    "rtu2_sat_sp": [
+     64.0,
+     68.0
+    ],
+    "rtu3_sat_sp": [
+     64.0,
+     65.594
+    ],
+    "rtu4_sat_sp": [
+     67.617,
+     68.0
+    ]
+   },
+   "oa_damper": {
+    "rtu1_oa_damper": [
+     28.0,
+     56.96
+    ],
+    "rtu2_oa_damper": [
+     28.0,
+     100.0
+    ],
+    "rtu3_oa_damper": [
+     28.0,
+     100.0
+    ],
+    "rtu4_oa_damper": [
+     28.0,
+     62.257
+    ]
+   },
+   "oa_flow": {
+    "rtu1_oa_flow": [
+     5768.196,
+     7149.698,
+     8890.027
+    ],
+    "rtu2_oa_flow": [
+     4654.474,
+     5924.475,
+     7545.826
+    ],
+    "rtu3_oa_flow": [
+     5608.483,
+     7054.131,
+     8894.041
+    ],
+    "rtu4_oa_flow": [
+     6260.429,
+     7783.896,
+     9719.178
+    ]
+   },
+   "sa_flow": {
+    "rtu1_sa_flow": [
+     13749.091,
+     14900.015,
+     15759.795
+    ],
+    "rtu2_sa_flow": [
+     13457.912,
+     14610.369,
+     15454.666
+    ],
+    "rtu3_sa_flow": [
+     12796.688,
+     13856.566,
+     14606.591
+    ],
+    "rtu4_sa_flow": [
+     8778.639,
+     9444.076,
+     9952.466
+    ]
+   },
+   "sf_spd": {
+    "rtu1_sf_spd": [
+     73.273,
+     77.5,
+     82.18
+    ],
+    "rtu2_sf_spd": [
+     73.365,
+     78.44,
+     83.06
+    ],
+    "rtu3_sf_spd": [
+     72.794,
+     77.28,
+     81.94
+    ],
+    "rtu4_sf_spd": [
+     72.034,
+     77.58,
+     82.28
+    ]
+   },
+   "rf_spd": {
+    "rtu1_rf_spd": [
+     59.96,
+     62.287,
+     67.88
+    ],
+    "rtu2_rf_spd": [
+     55.682,
+     56.833,
+     63.113
+    ],
+    "rtu3_rf_spd": [
+     51.325,
+     53.5,
+     59.78
+    ],
+    "rtu4_rf_spd": [
+     70.22,
+     74.491,
+     77.69
+    ]
+   },
+   "plenum_p": {
+    "rtu1_plenum_p": [
+     0.027,
+     0.029,
+     0.034
+    ],
+    "rtu2_plenum_p": [
+     0.04,
+     0.042,
+     0.046
+    ],
+    "rtu3_plenum_p": [
+     0.038,
+     0.039,
+     0.048
+    ],
+    "rtu4_plenum_p": [
+     0.041,
+     0.041,
+     0.048
+    ]
+   },
+   "econ_sp": {
+    "rtu1_econ_sp": [
+     68.0,
+     68.0,
+     69.0
+    ],
+    "rtu2_econ_sp": [
+     64.0,
+     66.786,
+     68.0
+    ],
+    "rtu3_econ_sp": [
+     64.0,
+     64.0,
+     66.0
+    ],
+    "rtu4_econ_sp": [
+     68.0,
+     68.0,
+     68.0
+    ]
+   },
+   "T": {
+    "zone016_T": [
+     69.8,
+     70.92,
+     72.259
+    ],
+    "zone017_T": [
+     69.3,
+     70.1,
+     70.8
+    ],
+    "zone018_T": [
+     68.1,
+     69.04,
+     69.9
+    ],
+    "zone019_T": [
+     69.3,
+     70.6,
+     72.46
+    ],
+    "zone021_T": [
+     68.1,
+     70.4,
+     71.8
+    ],
+    "zone022_T": [
+     69.04,
+     70.0,
+     71.2
+    ],
+    "zone023_T": [
+     68.2,
+     69.0,
+     70.2
+    ],
+    "zone024_T": [
+     69.1,
+     70.1,
+     71.26
+    ],
+    "zone025_T": [
+     67.72,
+     68.88,
+     70.02
+    ],
+    "zone026_T": [
+     67.9,
+     69.1,
+     70.34
+    ],
+    "zone027_T": [
+     69.8,
+     70.2,
+     71.234
+    ],
+    "zone028_T": [
+     69.2,
+     70.02,
+     71.9
+    ],
+    "zone030_T": [
+     69.7,
+     70.26,
+     71.0
+    ],
+    "zone032_T": [
+     68.66,
+     69.4,
+     70.7
+    ],
+    "zone033_T": [
+     67.14,
+     68.12,
+     69.2
+    ],
+    "zone035_T": [
+     67.5,
+     68.4,
+     69.6
+    ],
+    "zone036_T": [
+     70.2,
+     71.1,
+     71.78
+    ],
+    "zone037_T": [
+     69.9,
+     71.6,
+     73.0
+    ],
+    "zone038_T": [
+     70.2,
+     72.2,
+     73.88
+    ],
+    "zone039_T": [
+     67.982,
+     69.6,
+     71.9
+    ],
+    "zone040_T": [
+     70.7,
+     72.6,
+     74.1
+    ],
+    "zone041_T": [
+     70.06,
+     71.544,
+     72.56
+    ],
+    "zone042_T": [
+     69.4,
+     71.5,
+     73.514
+    ],
+    "zone043_T": [
+     69.298,
+     70.972,
+     72.5
+    ],
+    "zone044_T": [
+     69.0,
+     70.729,
+     71.5
+    ],
+    "zone045_T": [
+     70.0,
+     70.54,
+     71.7
+    ],
+    "zone046_T": [
+     69.6,
+     70.6,
+     71.3
+    ],
+    "zone047_T": [
+     69.5,
+     70.4,
+     71.2
+    ],
+    "zone048_T": [
+     69.7,
+     70.7,
+     71.128
+    ],
+    "zone049_T": [
+     70.7,
+     71.7,
+     72.5
+    ],
+    "zone051_T": [
+     68.16,
+     70.1,
+     71.1
+    ],
+    "zone052_T": [
+     68.7,
+     70.0,
+     71.2
+    ],
+    "zone053_T": [
+     69.98,
+     71.0,
+     71.9
+    ],
+    "zone054_T": [
+     69.1,
+     70.5,
+     71.5
+    ],
+    "zone055_T": [
+     68.1,
+     69.0,
+     70.2
+    ],
+    "zone056_T": [
+     67.6,
+     68.7,
+     70.3
+    ],
+    "zone057_T": [
+     69.1,
+     70.2,
+     71.5
+    ],
+    "zone058_T": [
+     68.92,
+     70.6,
+     72.5
+    ],
+    "zone059_T": [
+     70.22,
+     70.9,
+     71.4
+    ],
+    "zone061_T": [
+     68.1,
+     68.8,
+     70.16
+    ],
+    "zone062_T": [
+     69.4,
+     69.918,
+     71.2
+    ],
+    "zone063_T": [
+     70.7,
+     71.5,
+     72.3
+    ],
+    "zone064_T": [
+     71.9,
+     72.7,
+     73.4
+    ],
+    "zone065_T": [
+     69.9,
+     70.5,
+     71.5
+    ],
+    "zone066_T": [
+     70.5,
+     72.1,
+     73.78
+    ],
+    "zone067_T": [
+     70.2,
+     71.148,
+     72.7
+    ],
+    "zone068_T": [
+     71.52,
+     73.24,
+     75.1
+    ],
+    "zone069_T": [
+     70.32,
+     71.6,
+     73.1
+    ],
+    "zone070_T": [
+     69.3,
+     70.3,
+     71.6
+    ],
+    "zone071_T": [
+     69.0,
+     69.98,
+     71.3
+    ],
+    "zone072_T": [
+     70.0,
+     71.0,
+     71.7
+    ]
+   },
+   "fan": {
+    "zone016_fan": [
+     20.0,
+     20.0
+    ],
+    "zone017_fan": [
+     20.0,
+     20.0
+    ],
+    "zone018_fan": [
+     20.0,
+     20.0
+    ],
+    "zone021_fan": [
+     20.0,
+     20.0
+    ],
+    "zone023_fan": [
+     20.0,
+     20.0
+    ],
+    "zone024_fan": [
+     20.0,
+     27.4
+    ],
+    "zone025_fan": [
+     20.0,
+     20.0
+    ],
+    "zone026_fan": [
+     24.0,
+     24.0
+    ],
+    "zone027_fan": [
+     20.0,
+     34.0
+    ],
+    "zone028_fan": [
+     45.0,
+     45.0
+    ],
+    "zone030_fan": [
+     31.0,
+     31.0
+    ],
+    "zone032_fan": [
+     31.0,
+     31.0
+    ],
+    "zone033_fan": [
+     20.0,
+     20.0
+    ],
+    "zone035_fan": [
+     20.0,
+     20.0
+    ],
+    "zone036_fan": [
+     20.0,
+     20.0
+    ],
+    "zone037_fan": [
+     20.0,
+     45.0
+    ],
+    "zone038_fan": [
+     20.0,
+     20.0
+    ],
+    "zone039_fan": [
+     20.0,
+     44.0
+    ],
+    "zone040_fan": [
+     0.0,
+     55.0
+    ],
+    "zone041_fan": [
+     20.0,
+     20.0
+    ],
+    "zone042_fan": [
+     20.0,
+     56.066
+    ],
+    "zone043_fan": [
+     20.0,
+     20.0
+    ],
+    "zone044_fan": [
+     33.0,
+     33.0
+    ],
+    "zone045_fan": [
+     47.0,
+     47.0
+    ],
+    "zone046_fan": [
+     20.0,
+     20.0
+    ],
+    "zone047_fan": [
+     20.0,
+     20.0
+    ],
+    "zone048_fan": [
+     20.0,
+     20.0
+    ],
+    "zone051_fan": [
+     20.0,
+     20.0
+    ],
+    "zone052_fan": [
+     20.0,
+     54.0
+    ],
+    "zone053_fan": [
+     20.0,
+     25.708
+    ],
+    "zone054_fan": [
+     20.0,
+     20.0
+    ],
+    "zone055_fan": [
+     20.0,
+     20.0
+    ],
+    "zone056_fan": [
+     20.0,
+     30.0
+    ],
+    "zone057_fan": [
+     20.0,
+     36.0
+    ],
+    "zone058_fan": [
+     20.0,
+     65.0
+    ],
+    "zone059_fan": [
+     31.0,
+     31.0
+    ],
+    "zone061_fan": [
+     20.0,
+     65.0
+    ],
+    "zone062_fan": [
+     25.0,
+     64.2
+    ],
+    "zone063_fan": [
+     20.0,
+     20.0
+    ],
+    "zone064_fan": [
+     20.0,
+     50.0
+    ],
+    "zone065_fan": [
+     25.0,
+     25.0
+    ],
+    "zone067_fan": [
+     20.0,
+     45.0
+    ],
+    "zone068_fan": [
+     20.0,
+     70.0
+    ],
+    "zone069_fan": [
+     20.0,
+     49.0
+    ],
+    "zone070_fan": [
+     20.0,
+     49.0
+    ],
+    "zone071_fan": [
+     20.0,
+     50.0
+    ],
+    "zone072_fan": [
+     40.0,
+     40.0
+    ]
+   },
+   "hw_valve": {
+    "zone016_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone017_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone018_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone021_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone022_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone023_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone024_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone025_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone026_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone027_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone028_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone035_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone036_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone037_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone038_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone039_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone040_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone041_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone042_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone043_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone044_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone045_hw_valve": [
+     0.0,
+     6.664
+    ],
+    "zone046_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone047_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone048_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone051_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone052_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone053_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone054_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone055_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone056_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone057_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone058_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone063_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone064_hw_valve": [
+     0.0,
+     0.0
+    ],
+    "zone065_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone066_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone067_hw_valve": [
+     0.0,
+     74.0
+    ],
+    "zone068_hw_valve": [
+     0.0,
+     36.201
+    ],
+    "zone069_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone070_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone071_hw_valve": [
+     0.0,
+     100.0
+    ],
+    "zone072_hw_valve": [
+     0.0,
+     100.0
+    ]
+   },
+   "Tsp_c": {
+    "zone018_Tsp_c": [
+     73.0,
+     75.0,
+     75.0
+    ],
+    "zone021_Tsp_c": [
+     75.0,
+     75.0,
+     75.0
+    ],
+    "zone023_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone054_Tsp_c": [
+     73.0,
+     73.0,
+     73.0
+    ],
+    "zone055_Tsp_c": [
+     71.0,
+     71.0,
+     71.0
+    ],
+    "zone056_Tsp_c": [
+     71.0,
+     71.0,
+     71.0
+    ],
+    "zone061_Tsp_c": [
+     69.0,
+     69.0,
+     70.0
+    ]
+   },
+   "Tsp_h": {
+    "zone018_Tsp_h": [
+     70.0,
+     72.0,
+     72.0
+    ],
+    "zone021_Tsp_h": [
+     72.0,
+     72.0,
+     72.0
+    ],
+    "zone023_Tsp_h": [
+     70.0,
+     70.0,
+     70.0
+    ],
+    "zone054_Tsp_h": [
+     69.0,
+     69.0,
+     69.0
+    ],
+    "zone055_Tsp_h": [
+     67.0,
+     67.0,
+     67.0
+    ],
+    "zone056_Tsp_h": [
+     67.0,
+     67.0,
+     67.0
+    ],
+    "zone057_Tsp_h": [
+     67.0,
+     67.0,
+     67.0
+    ],
+    "zone061_Tsp_h": [
+     64.0,
+     64.0,
+     65.0
+    ]
+   },
+   "T_out": {
+    "sys_T_out": [
+     10.247,
+     12.863,
+     17.04
+    ]
+   },
+   "rh_out": {
+    "sys_rh_out": [
+     50.55,
+     72.38,
+     88.2
+    ]
+   },
+   "hvac_kw_N": {
+    "sys_hvac_kw_N": [
+     22.167,
+     47.5
+    ]
+   },
+   "hvac_kw_S": {
+    "sys_hvac_kw_S": [
+     16.694,
+     20.933,
+     27.3
+    ]
+   }
+  },
+  "noise_windows": {
+   "rtu1_sa_t": 1,
+   "rtu2_sa_t": 1,
+   "rtu3_sa_t": 1,
+   "rtu4_sa_t": 1,
+   "rtu1_sat_sp": 1,
+   "rtu2_sat_sp": 1,
+   "rtu3_sat_sp": 1,
+   "rtu4_sat_sp": 1,
+   "rtu1_ma_t": 1,
+   "rtu2_ma_t": 1,
+   "rtu3_ma_t": 1,
+   "rtu4_ma_t": 1,
+   "rtu1_ra_t": 1,
+   "rtu2_ra_t": 1,
+   "rtu3_ra_t": 1,
+   "rtu4_ra_t": 1,
+   "rtu1_oa_t": 1,
+   "rtu2_oa_t": 1,
+   "rtu3_oa_t": 1,
+   "rtu4_oa_t": 1,
+   "rtu1_oa_damper": 2,
+   "rtu2_oa_damper": 1,
+   "rtu3_oa_damper": 1,
+   "rtu4_oa_damper": 2,
+   "rtu1_oa_flow": 1,
+   "rtu2_oa_flow": 1,
+   "rtu3_oa_flow": 1,
+   "rtu4_oa_flow": 1,
+   "rtu1_sa_flow": 1,
+   "rtu2_sa_flow": 1,
+   "rtu3_sa_flow": 1,
+   "rtu4_sa_flow": 1,
+   "rtu1_sf_spd": 1,
+   "rtu2_sf_spd": 1,
+   "rtu3_sf_spd": 1,
+   "rtu4_sf_spd": 1,
+   "rtu1_rf_spd": 2,
+   "rtu2_rf_spd": 3,
+   "rtu3_rf_spd": 2,
+   "rtu4_rf_spd": 2,
+   "rtu1_plenum_p": 9,
+   "rtu2_plenum_p": 8,
+   "rtu3_plenum_p": 5,
+   "rtu4_plenum_p": 8,
+   "rtu1_econ_sp": 1,
+   "rtu2_econ_sp": 1,
+   "rtu3_econ_sp": 1,
+   "rtu4_econ_sp": 1,
+   "zone016_T": 1,
+   "zone017_T": 1,
+   "zone018_T": 1,
+   "zone019_T": 1,
+   "zone021_T": 1,
+   "zone022_T": 1,
+   "zone023_T": 1,
+   "zone024_T": 1,
+   "zone025_T": 1,
+   "zone026_T": 1,
+   "zone027_T": 1,
+   "zone028_T": 1,
+   "zone030_T": 1,
+   "zone032_T": 1,
+   "zone033_T": 1,
+   "zone035_T": 1,
+   "zone036_T": 1,
+   "zone037_T": 1,
+   "zone038_T": 1,
+   "zone039_T": 1,
+   "zone040_T": 1,
+   "zone041_T": 1,
+   "zone042_T": 1,
+   "zone043_T": 1,
+   "zone044_T": 1,
+   "zone045_T": 1,
+   "zone046_T": 1,
+   "zone047_T": 1,
+   "zone048_T": 1,
+   "zone049_T": 1,
+   "zone051_T": 1,
+   "zone052_T": 1,
+   "zone053_T": 1,
+   "zone054_T": 1,
+   "zone055_T": 1,
+   "zone056_T": 1,
+   "zone057_T": 1,
+   "zone058_T": 1,
+   "zone059_T": 1,
+   "zone061_T": 1,
+   "zone062_T": 1,
+   "zone063_T": 1,
+   "zone064_T": 1,
+   "zone065_T": 1,
+   "zone066_T": 1,
+   "zone067_T": 1,
+   "zone068_T": 1,
+   "zone069_T": 1,
+   "zone070_T": 1,
+   "zone071_T": 1,
+   "zone072_T": 1,
+   "zone016_fan": 1,
+   "zone017_fan": 1,
+   "zone018_fan": 1,
+   "zone021_fan": 1,
+   "zone023_fan": 1,
+   "zone024_fan": 1,
+   "zone025_fan": 1,
+   "zone026_fan": 1,
+   "zone027_fan": 1,
+   "zone028_fan": 1,
+   "zone030_fan": 1,
+   "zone032_fan": 1,
+   "zone033_fan": 1,
+   "zone035_fan": 1,
+   "zone036_fan": 1,
+   "zone037_fan": 1,
+   "zone038_fan": 1,
+   "zone039_fan": 1,
+   "zone040_fan": 1,
+   "zone041_fan": 1,
+   "zone042_fan": 1,
+   "zone043_fan": 1,
+   "zone044_fan": 1,
+   "zone045_fan": 1,
+   "zone046_fan": 1,
+   "zone047_fan": 1,
+   "zone048_fan": 1,
+   "zone051_fan": 1,
+   "zone052_fan": 1,
+   "zone053_fan": 1,
+   "zone054_fan": 1,
+   "zone055_fan": 1,
+   "zone056_fan": 1,
+   "zone057_fan": 1,
+   "zone058_fan": 1,
+   "zone059_fan": 1,
+   "zone061_fan": 1,
+   "zone062_fan": 1,
+   "zone063_fan": 1,
+   "zone064_fan": 1,
+   "zone065_fan": 1,
+   "zone067_fan": 1,
+   "zone068_fan": 1,
+   "zone069_fan": 1,
+   "zone070_fan": 1,
+   "zone071_fan": 1,
+   "zone072_fan": 1,
+   "zone016_hw_valve": 1,
+   "zone017_hw_valve": 1,
+   "zone018_hw_valve": 1,
+   "zone021_hw_valve": 1,
+   "zone022_hw_valve": 1,
+   "zone023_hw_valve": 1,
+   "zone024_hw_valve": 1,
+   "zone025_hw_valve": 1,
+   "zone026_hw_valve": 1,
+   "zone027_hw_valve": 1,
+   "zone028_hw_valve": 1,
+   "zone035_hw_valve": 1,
+   "zone036_hw_valve": 1,
+   "zone037_hw_valve": 1,
+   "zone038_hw_valve": 1,
+   "zone039_hw_valve": 1,
+   "zone040_hw_valve": 1,
+   "zone041_hw_valve": 1,
+   "zone042_hw_valve": 1,
+   "zone043_hw_valve": 1,
+   "zone044_hw_valve": 1,
+   "zone045_hw_valve": 1,
+   "zone046_hw_valve": 1,
+   "zone047_hw_valve": 1,
+   "zone048_hw_valve": 1,
+   "zone051_hw_valve": 1,
+   "zone052_hw_valve": 1,
+   "zone053_hw_valve": 1,
+   "zone054_hw_valve": 1,
+   "zone055_hw_valve": 1,
+   "zone056_hw_valve": 1,
+   "zone057_hw_valve": 1,
+   "zone058_hw_valve": 1,
+   "zone063_hw_valve": 1,
+   "zone064_hw_valve": 1,
+   "zone065_hw_valve": 1,
+   "zone066_hw_valve": 1,
+   "zone067_hw_valve": 1,
+   "zone068_hw_valve": 1,
+   "zone069_hw_valve": 1,
+   "zone070_hw_valve": 1,
+   "zone071_hw_valve": 1,
+   "zone072_hw_valve": 1,
+   "zone018_Tsp_c": 1,
+   "zone021_Tsp_c": 1,
+   "zone023_Tsp_c": 1,
+   "zone054_Tsp_c": 1,
+   "zone055_Tsp_c": 1,
+   "zone056_Tsp_c": 1,
+   "zone061_Tsp_c": 1,
+   "zone018_Tsp_h": 1,
+   "zone021_Tsp_h": 1,
+   "zone023_Tsp_h": 1,
+   "zone054_Tsp_h": 1,
+   "zone055_Tsp_h": 1,
+   "zone056_Tsp_h": 1,
+   "zone057_Tsp_h": 1,
+   "zone061_Tsp_h": 1,
+   "sys_T_out": 1,
+   "sys_rh_out": 1,
+   "sys_hvac_kw_N": 1,
+   "sys_hvac_kw_S": 1
+  }
+ },
+ "sample_minutes": 5.0,
+ "year": 2018,
+ "stretch_of": "building_59",
+ "span_note": "calendar year 2018 (the diagonal's source stretch); setpoints from 2018-09-15, no CO2"
+}

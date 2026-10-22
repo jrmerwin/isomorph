@@ -1,4 +1,4 @@
-# Lineage — the collection step (METHOD 3.13), method v8
+# Lineage — the collection step (METHOD 3.13), method v9
 
 Characters are tagged shapes (3.14, 3.15); taxa are the admitted datasets whose libraries carry them: TEP, HAI, battery, PhysioNet, building_59, Fingrid.
 The buildings are synthetic and untagged (3.14) and TCLab is withdrawn; both are inventoried for the record and are not taxa. A leaf marked provisional is below the admission line and flagged in every view.
@@ -43,6 +43,7 @@ Return place signatures (end → middle → end, from the place prefix):
 | PhysioNet | admitted (v7: by horizons, 19,419 H) | v8 | 22 (22) | 12 | 3 | 3 | 0 | 0 | 3.136 |
 | building_59 | admitted (365 days) | v8 | 1285 (1285) | 720 | 1044 | 589 | 299 | 209 | 2.760 |
 | Fingrid | admitted (365 days) | v8 | 71 (71) | 62 | 15 | 12 | 3 | 3 | 1.615 |
+| Alibaba (neg. control) | negative control (admitted by horizons if so; flagged as a negative control in every view) | v9 | 86 (86) | 48 | 18 | 5 | 13 | 12 | 2.635 |
 
 ## 3. The character matrix (shape × dataset)
 
@@ -148,16 +149,16 @@ Cross-role fragment shapes shared by PhysioNet and building_59 (3):
 | building_59 | 0.775 | 0.841 | 0.963 | 0.985 | 0.000 | 1.000 |
 | Fingrid | 1.000 | 0.964 | 1.000 | 1.000 | 1.000 | 0.000 |
 
-**transfer_net** — `(nasa_battery:0.353,(physionet_slp:0.290,(fingrid:0.132,(hai:0.022,(tennessee_eastman:0.010,building_59:0.010):0.022):0.132):0.290):0.353);`
+**transfer_net** — `(nasa_battery:0.488,((tennessee_eastman:0.016,physionet_slp:0.016):0.395,(fingrid:0.176,(hai:0.042,building_59:0.042):0.176):0.395):0.488);`
 
 | | TEP | HAI | battery | PhysioNet | building_59 | Fingrid |
 | --- | --- | --- | --- | --- | --- | --- |
-| TEP | 0.000 | 0.031 | 0.182 | 0.031 | 0.020 | 0.360 |
-| HAI | 0.031 | 0.000 | 0.876 | 0.287 | 0.055 | 0.216 |
-| battery | 0.182 | 0.876 | 0.000 | 0.988 | 1.000 | 0.481 |
-| PhysioNet | 0.031 | 0.287 | 0.988 | 0.000 | 1.000 | 1.000 |
-| building_59 | 0.020 | 0.055 | 1.000 | 1.000 | 0.000 | 0.214 |
-| Fingrid | 0.360 | 0.216 | 0.481 | 1.000 | 0.214 | 0.000 |
+| TEP | 0.000 | 1.000 | 1.000 | 0.031 | 0.075 | 1.000 |
+| HAI | 1.000 | 0.000 | 0.893 | 0.669 | 0.085 | 0.216 |
+| battery | 1.000 | 0.893 | 0.000 | 0.987 | 1.000 | 1.000 |
+| PhysioNet | 0.031 | 0.669 | 0.987 | 0.000 | 1.000 | 1.000 |
+| building_59 | 0.075 | 0.085 | 1.000 | 1.000 | 0.000 | 0.489 |
+| Fingrid | 1.000 | 0.216 | 1.000 | 1.000 | 0.489 | 0.000 |
 
 Shape distances: Jaccard over fragment shapes (1 − shared / union), Bray–Curtis over shape counts. Transfer distance: 1 / (1 + symmetrised net cell in bit-horizons) of the current version; a pair without a controlled cell is at 1.
 
@@ -169,10 +170,10 @@ Inheritance is directed by **running order**: a shape belongs to the dataset tha
 | --- | --- | --- | --- | --- | --- |
 | TEP → building_59 | 152 | 1 | 428 | 79 | 349 |
 | TEP → HAI | 143 | 1 | 377 | 81 | 296 |
-| TEP → PhysioNet | 4 | 0 | 0 | 0 | 0 |
 | TEP → battery | 7 | 0 | 39 | 10 | 29 |
-| HAI → building_59 | 119 | 1 | 966 | 112 | 854 |
+| TEP → PhysioNet | 4 | 0 | 0 | 0 | 0 |
 | HAI → Fingrid | 37 | 0 | 33 | 10 | 23 |
+| HAI → building_59 | 119 | 1 | 966 | 112 | 854 |
 | HAI → battery | 3 | 0 | 15 | 4 | 11 |
 | battery → building_59 | 20 | 1 | 0 | 0 | 0 |
 | PhysioNet → building_59 | 1 | 0 | 0 | 0 | 0 |

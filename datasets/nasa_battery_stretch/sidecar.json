@@ -1,0 +1,82 @@
+{
+ "time_unit": "minute (compressed)",
+ "entity_key": "cell",
+ "period": "auto",
+ "system_wide_types": [],
+ "tie_rule": "canonical",
+ "kind": "real battery test bed (NASA PCoE), stretch B0025-28",
+ "origin": "scripts/make_stretch.py nasa_battery",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "V": "q20_50_80",
+   "I": "q10_90",
+   "T": "dsign"
+  },
+  "thresholds": {
+   "V": {
+    "B0025_V": [
+     3.369,
+     4.086,
+     4.206
+    ],
+    "B0026_V": [
+     3.389,
+     4.092,
+     4.199
+    ],
+    "B0027_V": [
+     3.369,
+     4.143,
+     4.212
+    ],
+    "B0028_V": [
+     3.674,
+     4.109,
+     4.19
+    ]
+   },
+   "I": {
+    "B0025_I": [
+     -2.013,
+     1.511
+    ],
+    "B0026_I": [
+     -2.013,
+     1.514
+    ],
+    "B0027_I": [
+     -1.987,
+     1.491
+    ],
+    "B0028_I": [
+     -1.002,
+     1.498
+    ]
+   }
+  },
+  "noise_windows": {
+   "B0025_V": 1,
+   "B0026_V": 1,
+   "B0027_V": 1,
+   "B0028_V": 1,
+   "B0025_I": 1,
+   "B0026_I": 1,
+   "B0027_I": 1,
+   "B0028_I": 1,
+   "B0025_T": 1,
+   "B0026_T": 1,
+   "B0027_T": 1,
+   "B0028_T": 1
+  }
+ },
+ "sample_minutes": 1.0,
+ "stretch_of": "nasa_battery",
+ "cells": [
+  "B0025",
+  "B0026",
+  "B0027",
+  "B0028"
+ ],
+ "span_note": "archive group 2 (B0025-B0028), the diagonal's source stretch"
+}

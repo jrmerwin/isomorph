@@ -1,0 +1,1667 @@
+{
+ "epistemics": "Lifts are odds ratios on the proposal split (3.6-3.8), confirmed on the confirmation split; absence is informative only above the signal floor (3.5); `no gain` means found but already carried by the trivial alternation model (3.11); loop-rule verdicts are recorded, not promoted (3.16); cells are bit-horizons net of the larger of two controls, with share of the receiver's ceiling where a diagonal exists (3.12).",
+ "identity": {
+  "dataset": "fingrid",
+  "kind": "real power system (Nordic synchronous area, Fingrid)",
+  "method_version": 8,
+  "card_rules_version": 8,
+  "entity": "grid",
+  "n_entities": 1,
+  "horizon_minutes": 90.0,
+  "lag_edges_minutes": [
+   9.321697517861576,
+   28.96468153816889,
+   90.0
+  ],
+  "period_slow": null,
+  "period_fast": 14.97478692077291,
+  "admission": {
+   "days": 364.98,
+   "slow_periods": null,
+   "horizons": 5839.7,
+   "test_horizons": 1459.9,
+   "admitted": true,
+   "by": "days"
+  },
+  "claim": {
+   "claim": "no gain",
+   "library_bits": 1.6147093059369069,
+   "triviality_bits": 1.6029018858811097,
+   "best_baseline_bits": 2.5884873432631155,
+   "gain_over_triviality": -0.011807420055797158,
+   "gain_over_best_baseline": 0.9737780373262086
+  },
+  "events": 79367,
+  "types": 16,
+  "signal_floor": 584,
+  "standing": "admitted (365 days)"
+ },
+ "vocabulary": {
+  "afrr_down": {
+   "full_tag": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3\u27e9",
+   "dimension": "power",
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 2
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
+   },
+   "scheme": "dsign"
+  },
+  "afrr_up": {
+   "full_tag": "MID-S\u00b7COMMON\u00b7RELAY \u27e8M L\u00b2 T\u207b\u00b3\u27e9",
+   "dimension": "power",
+   "loop_tags": {
+    "timing": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 3
+     }
+    },
+    "determinism": {
+     "tag": "RESPONDS",
+     "votes": {
+      "RESPONDS": 2
+     }
+    }
+   },
+   "scheme": "q20_50_80"
+  },
+  "f": {
+   "full_tag": "MID\u00b7COMMON\u00b7RELAY \u27e8T\u207b\u00b9\u27e9",
+   "dimension": "frequency",
+   "loop_tags": {
+    "timing": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    },
+    "determinism": {
+     "tag": "REACTS",
+     "votes": {
+      "REACTS": 1
+     }
+    }
+   },
+   "scheme": "dsign"
+  },
+  "fcrn_down": {
+   "full_tag": "MID-S\u00b7COMMON\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9",
+   "dimension": "power",
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "scheme": "dsign"
+  },
+  "fcrn_up": {
+   "full_tag": "MID-S\u00b7COMMON\u00b7LEAD \u27e8M L\u00b2 T\u207b\u00b3\u27e9",
+   "dimension": "power",
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "scheme": "dsign"
+  },
+  "net_ie": {
+   "full_tag": "SLOW\u00b7ISOLATED \u27e8M L\u00b2 T\u207b\u00b3\u27e9",
+   "dimension": "power",
+   "loop_tags": {
+    "timing": {
+     "tag": null,
+     "votes": null
+    },
+    "determinism": {
+     "tag": null,
+     "votes": null
+    }
+   },
+   "scheme": "dsign"
+  }
+ },
+ "couplings": [
+  {
+   "prior": "fcrn_down:trough",
+   "lag": "s",
+   "target": "f:peak",
+   "lift": 9.671,
+   "lift_conf": 10.093,
+   "count": 1311,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -s-> MID.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_down:peak",
+   "lag": "s",
+   "target": "f:trough",
+   "lift": 9.657,
+   "lift_conf": 9.962,
+   "count": 1319,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -s-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_up:peak",
+   "lag": "s",
+   "target": "f:trough",
+   "lift": 7.646,
+   "lift_conf": 9.219,
+   "count": 801,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -s-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_up:trough",
+   "lag": "s",
+   "target": "f:peak",
+   "lift": 7.332,
+   "lift_conf": 9.323,
+   "count": 861,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -s-> MID.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq80",
+   "lag": "m",
+   "target": "afrr_up:downq80",
+   "lift": 5.868,
+   "lift_conf": 6.196,
+   "count": 680,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q80 -m-> MID-S.down.q80 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "f:trough",
+   "lag": "s",
+   "target": "afrr_down:peak",
+   "lift": 4.221,
+   "lift_conf": 4.074,
+   "count": 1089,
+   "binding_evidence": null,
+   "shape": "MID.trough -s-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq80",
+   "lag": "s",
+   "target": "afrr_down:peak",
+   "lift": 4.518,
+   "lift_conf": 4.586,
+   "count": 457,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q80 -s-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_down:trough",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 3.465,
+   "lift_conf": 3.777,
+   "count": 1365,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.up.q20",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "s",
+   "target": "afrr_down:trough",
+   "lift": 3.464,
+   "lift_conf": 3.609,
+   "count": 1148,
+   "binding_evidence": null,
+   "shape": "MID.peak -s-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "m",
+   "target": "afrr_down:peak",
+   "lift": 3.404,
+   "lift_conf": 3.435,
+   "count": 1216,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -m-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq20",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 3.523,
+   "lift_conf": 3.856,
+   "count": 922,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q20 -m-> MID-S.up.q20 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "afrr_down:trough",
+   "lag": "m",
+   "target": "afrr_up:upq50",
+   "lift": 3.197,
+   "lift_conf": 3.403,
+   "count": 1327,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.up.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "m",
+   "target": "afrr_down:peak",
+   "lift": 3.086,
+   "lift_conf": 3.067,
+   "count": 1111,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -m-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "s",
+   "target": "fcrn_down:peak",
+   "lift": 3.169,
+   "lift_conf": 3.306,
+   "count": 795,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -s-> MID-S.peak",
+   "confirmed_in": [
+    "nasa_battery"
+   ],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_down:peak",
+   "lag": "m",
+   "target": "afrr_down:peak",
+   "lift": 2.721,
+   "lift_conf": 2.773,
+   "count": 1387,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "s",
+   "target": "afrr_up:upq80",
+   "lift": 3.239,
+   "lift_conf": 3.154,
+   "count": 380,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -s-> MID-S.up.q80 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "afrr_up:downq20",
+   "lag": "m",
+   "target": "afrr_up:upq50",
+   "lift": 2.842,
+   "lift_conf": 3.143,
+   "count": 784,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q20 -m-> MID-S.up.q50 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq50",
+   "lag": "m",
+   "target": "afrr_up:upq50",
+   "lift": 2.778,
+   "lift_conf": 2.924,
+   "count": 844,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q50 -m-> MID-S.up.q50 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "afrr_down:peak",
+   "lag": "m",
+   "target": "afrr_up:downq80",
+   "lift": 2.834,
+   "lift_conf": 2.952,
+   "count": 709,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.down.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq80",
+   "lag": "s",
+   "target": "afrr_up:downq50",
+   "lift": 3.213,
+   "lift_conf": 2.692,
+   "count": 305,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q80 -s-> MID-S.down.q50 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "s",
+   "target": "fcrn_down:peak",
+   "lift": 2.741,
+   "lift_conf": 2.79,
+   "count": 706,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -s-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq80",
+   "lag": "m",
+   "target": "afrr_up:downq20",
+   "lift": 2.779,
+   "lift_conf": 2.951,
+   "count": 616,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q80 -m-> MID-S.down.q20 [same role]",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "s",
+   "target": "afrr_up:upq80",
+   "lift": 2.971,
+   "lift_conf": 3.395,
+   "count": 403,
+   "binding_evidence": null,
+   "shape": "MID.trough -s-> MID-S.up.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_up:peak",
+   "lag": "m",
+   "target": "f:trough",
+   "lift": 2.306,
+   "lift_conf": 2.351,
+   "count": 2244,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_up:peak",
+   "lag": "m",
+   "target": "afrr_up:upq50",
+   "lift": 2.452,
+   "lift_conf": 2.919,
+   "count": 1288,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.up.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_down:peak",
+   "lag": "m",
+   "target": "afrr_up:upq80",
+   "lift": 2.642,
+   "lift_conf": 2.745,
+   "count": 708,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.up.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "m",
+   "target": "afrr_up:upq80",
+   "lift": 2.769,
+   "lift_conf": 2.741,
+   "count": 524,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -m-> MID-S.up.q80 [same role]",
+   "confirmed_in": [
+    "hai"
+   ],
+   "failed_in": [
+    "tennessee_eastman"
+   ]
+  },
+  {
+   "prior": "fcrn_up:peak",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 2.414,
+   "lift_conf": 2.845,
+   "count": 1203,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.up.q20",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq50",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 2.571,
+   "lift_conf": 2.88,
+   "count": 741,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q50 -m-> MID-S.up.q20 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "m",
+   "target": "afrr_up:upq80",
+   "lift": 2.721,
+   "lift_conf": 2.657,
+   "count": 511,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -m-> MID-S.up.q80 [same role]",
+   "confirmed_in": [
+    "building_59"
+   ],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq80",
+   "lag": "s",
+   "target": "f:trough",
+   "lift": 2.819,
+   "lift_conf": 2.702,
+   "count": 375,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q80 -s-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "s",
+   "target": "afrr_up:downq20",
+   "lift": 2.616,
+   "lift_conf": 3.034,
+   "count": 584,
+   "binding_evidence": null,
+   "shape": "MID.peak -s-> MID-S.down.q20",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "s",
+   "target": "afrr_down:peak",
+   "lift": 2.608,
+   "lift_conf": 2.906,
+   "count": 582,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -s-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq80",
+   "lag": "m",
+   "target": "afrr_up:downq50",
+   "lift": 2.589,
+   "lift_conf": 2.881,
+   "count": 605,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q80 -m-> MID-S.down.q50 [same role]",
+   "confirmed_in": [
+    "hai"
+   ],
+   "failed_in": [
+    "tennessee_eastman"
+   ]
+  },
+  {
+   "prior": "fcrn_up:trough",
+   "lag": "m",
+   "target": "f:peak",
+   "lift": 2.15,
+   "lift_conf": 2.02,
+   "count": 2197,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "s",
+   "target": "afrr_up:downq50",
+   "lift": 2.549,
+   "lift_conf": 2.94,
+   "count": 600,
+   "binding_evidence": null,
+   "shape": "MID.peak -s-> MID-S.down.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "m",
+   "target": "fcrn_down:trough",
+   "lift": 2.209,
+   "lift_conf": 2.235,
+   "count": 1600,
+   "binding_evidence": null,
+   "shape": "MID.trough -m-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "m",
+   "target": "afrr_up:downq80",
+   "lift": 2.361,
+   "lift_conf": 2.308,
+   "count": 779,
+   "binding_evidence": null,
+   "shape": "MID.trough -m-> MID-S.down.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "m",
+   "target": "fcrn_down:peak",
+   "lift": 2.104,
+   "lift_conf": 2.104,
+   "count": 1746,
+   "binding_evidence": null,
+   "shape": "MID.peak -m-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_down:trough",
+   "lag": "m",
+   "target": "afrr_down:trough",
+   "lift": 2.113,
+   "lift_conf": 2.24,
+   "count": 1394,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_up:peak",
+   "lag": "m",
+   "target": "afrr_up:upq80",
+   "lift": 2.18,
+   "lift_conf": 2.423,
+   "count": 848,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.up.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq80",
+   "lag": "s",
+   "target": "f:peak",
+   "lift": 2.395,
+   "lift_conf": 2.415,
+   "count": 421,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q80 -s-> MID.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "s",
+   "target": "fcrn_up:peak",
+   "lift": 2.076,
+   "lift_conf": 1.69,
+   "count": 965,
+   "binding_evidence": null,
+   "shape": "MID.peak -s-> MID-S.peak",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 2.059,
+   "lift_conf": 2.259,
+   "count": 997,
+   "binding_evidence": null,
+   "shape": "MID.peak -m-> MID-S.up.q20",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "fcrn_down:peak",
+   "lag": "m",
+   "target": "f:trough",
+   "lift": 1.926,
+   "lift_conf": 1.85,
+   "count": 1291,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "m",
+   "target": "afrr_up:upq50",
+   "lift": 1.94,
+   "lift_conf": 2.04,
+   "count": 990,
+   "binding_evidence": null,
+   "shape": "MID.peak -m-> MID-S.up.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "m",
+   "target": "f:peak",
+   "lift": 1.792,
+   "lift_conf": 1.868,
+   "count": 1479,
+   "binding_evidence": null,
+   "shape": "MID.trough -m-> MID.peak [same role]",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_down:peak",
+   "lag": "m",
+   "target": "f:peak",
+   "lift": 1.848,
+   "lift_conf": 1.919,
+   "count": 1157,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:peak",
+   "lag": "m",
+   "target": "f:trough",
+   "lift": 1.749,
+   "lift_conf": 1.773,
+   "count": 1653,
+   "binding_evidence": null,
+   "shape": "MID.peak -m-> MID.trough [same role]",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "m",
+   "target": "fcrn_up:trough",
+   "lift": 1.758,
+   "lift_conf": 1.8,
+   "count": 1548,
+   "binding_evidence": null,
+   "shape": "MID.trough -m-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_up:trough",
+   "lag": "m",
+   "target": "afrr_down:trough",
+   "lift": 1.769,
+   "lift_conf": 2.155,
+   "count": 1374,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_down:peak",
+   "lag": "m",
+   "target": "afrr_up:downq50",
+   "lift": 1.965,
+   "lift_conf": 2.135,
+   "count": 664,
+   "binding_evidence": null,
+   "shape": "MID-S.peak -m-> MID-S.down.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "f:trough",
+   "lag": "s",
+   "target": "fcrn_up:trough",
+   "lift": 1.901,
+   "lift_conf": 1.52,
+   "count": 688,
+   "binding_evidence": null,
+   "shape": "MID.trough -s-> MID-S.trough",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_down:trough",
+   "lag": "m",
+   "target": "f:trough",
+   "lift": 1.718,
+   "lift_conf": 1.83,
+   "count": 1321,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_down:trough",
+   "lag": "m",
+   "target": "afrr_up:upq20",
+   "lift": 1.829,
+   "lift_conf": 2.026,
+   "count": 813,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.up.q20",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "s",
+   "target": "afrr_up:upq80",
+   "lift": 2.197,
+   "lift_conf": 1.978,
+   "count": 251,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -s-> MID-S.up.q80 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "building_59"
+   ],
+   "failed_in": [
+    "hai",
+    "nasa_battery"
+   ]
+  },
+  {
+   "prior": "afrr_down:trough",
+   "lag": "m",
+   "target": "afrr_up:upq80",
+   "lift": 1.903,
+   "lift_conf": 1.613,
+   "count": 585,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.up.q80",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_down:trough",
+   "lag": "l",
+   "target": "afrr_down:peak",
+   "lift": 1.549,
+   "lift_conf": 1.584,
+   "count": 2493,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -l-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "fcrn_down:trough",
+   "lag": "m",
+   "target": "afrr_up:downq50",
+   "lift": 1.775,
+   "lift_conf": 1.957,
+   "count": 832,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -m-> MID-S.down.q50",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_down:trough",
+   "lag": "l",
+   "target": "afrr_down:peak",
+   "lift": 1.529,
+   "lift_conf": 1.575,
+   "count": 2128,
+   "binding_evidence": null,
+   "shape": "MID-S.trough -l-> MID-S.peak [same role]",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq20",
+   "lag": "l",
+   "target": "afrr_down:peak",
+   "lift": 1.556,
+   "lift_conf": 1.587,
+   "count": 1656,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q20 -l-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "s",
+   "target": "f:trough",
+   "lift": 1.827,
+   "lift_conf": 1.805,
+   "count": 536,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -s-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "s",
+   "target": "f:trough",
+   "lift": 1.763,
+   "lift_conf": 1.778,
+   "count": 504,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -s-> MID.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "l",
+   "target": "afrr_up:downq20",
+   "lift": 1.559,
+   "lift_conf": 1.688,
+   "count": 1075,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -l-> MID-S.down.q20 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai",
+    "nasa_battery",
+    "building_59"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "l",
+   "target": "afrr_up:downq80",
+   "lift": 1.594,
+   "lift_conf": 1.543,
+   "count": 858,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -l-> MID-S.down.q80 [same role]",
+   "confirmed_in": [
+    "building_59"
+   ],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai",
+    "nasa_battery"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq80",
+   "lag": "l",
+   "target": "afrr_up:downq50",
+   "lift": 1.566,
+   "lift_conf": 1.642,
+   "count": 963,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q80 -l-> MID-S.down.q50 [same role]",
+   "confirmed_in": [
+    "hai"
+   ],
+   "failed_in": [
+    "tennessee_eastman"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "s",
+   "target": "afrr_down:peak",
+   "lift": 1.794,
+   "lift_conf": 2.003,
+   "count": 390,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -s-> MID-S.peak",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq50",
+   "lag": "l",
+   "target": "afrr_up:downq20",
+   "lift": 1.518,
+   "lift_conf": 1.655,
+   "count": 1127,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q50 -l-> MID-S.down.q20 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman",
+    "hai"
+   ],
+   "failed_in": []
+  },
+  {
+   "prior": "afrr_up:upq20",
+   "lag": "l",
+   "target": "afrr_up:downq50",
+   "lift": 1.514,
+   "lift_conf": 1.661,
+   "count": 1101,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q20 -l-> MID-S.down.q50 [same role]",
+   "confirmed_in": [
+    "tennessee_eastman"
+   ],
+   "failed_in": [
+    "hai"
+   ]
+  },
+  {
+   "prior": "afrr_up:upq80",
+   "lag": "l",
+   "target": "afrr_up:downq20",
+   "lift": 1.544,
+   "lift_conf": 1.655,
+   "count": 900,
+   "binding_evidence": null,
+   "shape": "MID-S.up.q80 -l-> MID-S.down.q20 [same role]",
+   "confirmed_in": [
+    "hai",
+    "building_59"
+   ],
+   "failed_in": [
+    "tennessee_eastman",
+    "nasa_battery"
+   ]
+  },
+  {
+   "prior": "afrr_up:downq80",
+   "lag": "m",
+   "target": "afrr_down:trough",
+   "lift": 1.538,
+   "lift_conf": 1.678,
+   "count": 506,
+   "binding_evidence": null,
+   "shape": "MID-S.down.q80 -m-> MID-S.trough",
+   "confirmed_in": [],
+   "failed_in": [
+    "tennessee_eastman",
+    "hai"
+   ]
+  }
+ ],
+ "loops": [
+  {
+   "a": "afrr_up:upq80",
+   "l1": "s",
+   "b": "f:trough",
+   "l2": "m",
+   "c": "afrr_up:downq80",
+   "count": 202,
+   "cond_lift": 2.46,
+   "shape": "MID-S\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.trough -m-> MID-S\u00b7RELAY.down.q80 [return]",
+   "verdict_timing": "Y reacts",
+   "g1": 6.0,
+   "g2": 24.0,
+   "verdict_determinism": "Y reacts",
+   "p1": 0.26062846580406657,
+   "p2": 0.08898876404494382,
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq80",
+   "l1": "s",
+   "b": "afrr_down:peak",
+   "l2": "m",
+   "c": "afrr_up:downq80",
+   "count": 226,
+   "cond_lift": 2.243,
+   "shape": "MID-S\u00b7RELAY.up.q80 -s-> MID-S\u00b7RELAY.peak -m-> MID-S\u00b7RELAY.down.q80 [return]",
+   "verdict_timing": "Y reacts",
+   "g1": 3.0,
+   "g2": 15.0,
+   "verdict_determinism": "Y reacts",
+   "p1": 0.3364140480591497,
+   "p2": 0.11384976525821597,
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq20",
+   "l1": "s",
+   "b": "afrr_down:peak",
+   "l2": "m",
+   "c": "afrr_up:downq50",
+   "count": 173,
+   "cond_lift": 1.716,
+   "shape": "MID-S\u00b7RELAY.up.q20 -s-> MID-S\u00b7RELAY.peak -m-> MID-S\u00b7RELAY.down.q50 [return]",
+   "verdict_timing": "Y reacts",
+   "g1": 3.0,
+   "g2": 15.0,
+   "verdict_determinism": "unresolved",
+   "p1": 0.14691046658259774,
+   "p2": 0.11120892018779342,
+   "used": true
+  }
+ ],
+ "chains": [
+  {
+   "a": "afrr_up:upq50",
+   "l1": "s",
+   "b": "afrr_up:upq80",
+   "l2": "s",
+   "c": "f:trough",
+   "count": 171,
+   "cond_lift": 3.327,
+   "shape": "MID-S\u00b7RELAY.up.q50 -s-> MID-S\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.trough",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq20",
+   "l1": "s",
+   "b": "afrr_up:upq80",
+   "l2": "s",
+   "c": "f:trough",
+   "count": 139,
+   "cond_lift": 3.454,
+   "shape": "MID-S\u00b7RELAY.up.q20 -s-> MID-S\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.trough",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq50",
+   "l1": "s",
+   "b": "fcrn_down:peak",
+   "l2": "m",
+   "c": "afrr_down:peak",
+   "count": 576,
+   "cond_lift": 1.854,
+   "shape": "MID-S\u00b7RELAY.up.q50 -s-> MID-S\u00b7LEAD.peak -m-> MID-S\u00b7RELAY.peak",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq20",
+   "l1": "s",
+   "b": "fcrn_down:peak",
+   "l2": "m",
+   "c": "afrr_down:peak",
+   "count": 677,
+   "cond_lift": 1.727,
+   "shape": "MID-S\u00b7RELAY.up.q20 -s-> MID-S\u00b7LEAD.peak -m-> MID-S\u00b7RELAY.peak",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq50",
+   "l1": "s",
+   "b": "fcrn_down:peak",
+   "l2": "m",
+   "c": "afrr_up:upq80",
+   "count": 269,
+   "cond_lift": 1.696,
+   "shape": "MID-S\u00b7RELAY.up.q50 -s-> MID-S\u00b7LEAD.peak -m-> MID-S\u00b7RELAY.up.q80",
+   "used": true
+  },
+  {
+   "a": "f:trough",
+   "l1": "s",
+   "b": "afrr_up:upq80",
+   "l2": "s",
+   "c": "afrr_down:peak",
+   "count": 168,
+   "cond_lift": 1.754,
+   "shape": "MID\u00b7RELAY.trough -s-> MID-S\u00b7RELAY.up.q80 -s-> MID-S\u00b7RELAY.peak",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq20",
+   "l1": "s",
+   "b": "fcrn_down:peak",
+   "l2": "m",
+   "c": "afrr_up:upq80",
+   "count": 306,
+   "cond_lift": 1.529,
+   "shape": "MID-S\u00b7RELAY.up.q20 -s-> MID-S\u00b7LEAD.peak -m-> MID-S\u00b7RELAY.up.q80",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq80",
+   "l1": "s",
+   "b": "f:trough",
+   "l2": "s",
+   "c": "afrr_down:peak",
+   "count": 131,
+   "cond_lift": 1.785,
+   "shape": "MID-S\u00b7RELAY.up.q80 -s-> MID\u00b7RELAY.trough -s-> MID-S\u00b7RELAY.peak",
+   "used": true
+  },
+  {
+   "a": "afrr_up:downq80",
+   "l1": "s",
+   "b": "f:peak",
+   "l2": "s",
+   "c": "afrr_up:downq50",
+   "count": 141,
+   "cond_lift": 1.758,
+   "shape": "MID-S\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.peak -s-> MID-S\u00b7RELAY.down.q50",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq20",
+   "l1": "m",
+   "b": "afrr_up:upq80",
+   "l2": "s",
+   "c": "afrr_down:peak",
+   "count": 263,
+   "cond_lift": 1.517,
+   "shape": "MID-S\u00b7RELAY.up.q20 -m-> MID-S\u00b7RELAY.up.q80 -s-> MID-S\u00b7RELAY.peak",
+   "used": true
+  },
+  {
+   "a": "afrr_up:upq50",
+   "l1": "s",
+   "b": "f:trough",
+   "l2": "s",
+   "c": "afrr_up:upq80",
+   "count": 88,
+   "cond_lift": 1.77,
+   "shape": "MID-S\u00b7RELAY.up.q50 -s-> MID\u00b7RELAY.trough -s-> MID-S\u00b7RELAY.up.q80",
+   "used": true
+  },
+  {
+   "a": "afrr_up:downq80",
+   "l1": "s",
+   "b": "f:peak",
+   "l2": "s",
+   "c": "afrr_up:downq20",
+   "count": 120,
+   "cond_lift": 1.537,
+   "shape": "MID-S\u00b7RELAY.down.q80 -s-> MID\u00b7RELAY.peak -s-> MID-S\u00b7RELAY.down.q20",
+   "used": true
+  }
+ ],
+ "absences": {
+  "silent_roles": [],
+  "roles_never_a_target": [
+   "net_ie"
+  ],
+  "keyed_pairs_not_found": [
+   {
+    "cause": "net_ie",
+    "effect": "f",
+    "note": "a change in net import/export -> area imbalance -> frequency"
+   }
+  ],
+  "signal_floor": 584,
+  "note": "absence is informative only for pairs whose support would exceed the signal floor"
+ },
+ "regimes": null,
+ "matrix_row": {
+  "cells_in": [
+   {
+    "source": "fingrid_stretch (diagonal)",
+    "structure_bit_horizons": 135.88019660330588,
+    "net_bit_horizons": 159.28463458583144,
+    "raw_bit_horizons": 92.8314864138282,
+    "marginal_bit_horizons": -43.04871018947768,
+    "derangement_bit_horizons": -66.45314817200322,
+    "larger_control": "marginal",
+    "share_of_ceiling": null,
+    "types_mapped": "16/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": false
+   },
+   {
+    "source": "tennessee_eastman",
+    "structure_bit_horizons": 0.3543285063618278,
+    "net_bit_horizons": 0.3543285063618278,
+    "raw_bit_horizons": 18.354858371267948,
+    "marginal_bit_horizons": 10.887071842266726,
+    "derangement_bit_horizons": 18.00052986490612,
+    "larger_control": "derangement",
+    "share_of_ceiling": 0.002607653765737981,
+    "types_mapped": "16/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": false
+   },
+   {
+    "source": "hai",
+    "structure_bit_horizons": 5.933812870977103,
+    "net_bit_horizons": 5.933812870977103,
+    "raw_bit_horizons": 21.7197327327971,
+    "marginal_bit_horizons": 12.427571544530142,
+    "derangement_bit_horizons": 15.785919861819998,
+    "larger_control": "derangement",
+    "share_of_ceiling": 0.04366944572725719,
+    "types_mapped": "16/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": false
+   },
+   {
+    "source": "nasa_battery",
+    "structure_bit_horizons": -1.7290352466743322,
+    "net_bit_horizons": 2.1083935015338398,
+    "raw_bit_horizons": 11.168698475631917,
+    "marginal_bit_horizons": 12.89773372230625,
+    "derangement_bit_horizons": 9.060304974098077,
+    "larger_control": "marginal",
+    "share_of_ceiling": -0.012724703745624885,
+    "types_mapped": "8/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": true
+   },
+   {
+    "source": "building_59",
+    "structure_bit_horizons": 3.9826698966205782,
+    "net_bit_horizons": 7.07885214816211,
+    "raw_bit_horizons": 15.240095738699377,
+    "marginal_bit_horizons": 11.2574258420788,
+    "derangement_bit_horizons": 8.161243590537268,
+    "larger_control": "marginal",
+    "share_of_ceiling": 0.0293101570072624,
+    "types_mapped": "10/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": true
+   },
+   {
+    "source": "alibaba_2018",
+    "structure_bit_horizons": -1.504009675421905,
+    "net_bit_horizons": -1.504009675421905,
+    "raw_bit_horizons": 11.267273236896312,
+    "marginal_bit_horizons": 7.099588765919803,
+    "derangement_bit_horizons": 12.771282912318217,
+    "larger_control": "derangement",
+    "share_of_ceiling": -0.01106864512282663,
+    "types_mapped": "6/16",
+    "short": false,
+    "uncontrolled": false,
+    "damage": true
+   }
+  ],
+  "cells_out": [
+   {
+    "receiver": "tennessee_eastman",
+    "structure_bit_horizons": -8.096104841148218,
+    "net_bit_horizons": 3.2046946858979553,
+    "raw_bit_horizons": 35.26560032777845,
+    "marginal_bit_horizons": 43.36170516892667,
+    "derangement_bit_horizons": 32.060905641880495,
+    "larger_control": "marginal",
+    "share_of_ceiling": -0.04558153586932641,
+    "types_mapped": "10/40",
+    "short": false,
+    "uncontrolled": false,
+    "damage": true
+   },
+   {
+    "receiver": "hai",
+    "structure_bit_horizons": 1.3043178567711706,
+    "net_bit_horizons": 1.3043178567711706,
+    "raw_bit_horizons": 34.38965486233712,
+    "marginal_bit_horizons": 30.336924721693237,
+    "derangement_bit_horizons": 33.08533700556595,
+    "larger_control": "derangement",
+    "share_of_ceiling": null,
+    "types_mapped": "10/168",
+    "short": true,
+    "uncontrolled": false,
+    "damage": true
+   },
+   {
+    "receiver": "nasa_battery",
+    "structure_bit_horizons": 0.04534861842076365,
+    "net_bit_horizons": 0.04534861842076365,
+    "raw_bit_horizons": -0.22265212922767907,
+    "marginal_bit_horizons": -0.3081504218903339,
+    "derangement_bit_horizons": -0.2680007476484427,
+    "larger_control": "derangement",
+    "share_of_ceiling": 0.017443931348950066,
+    "types_mapped": "6/12",
+    "short": true,
+    "uncontrolled": false,
+    "damage": true
+   },
+   {
+    "receiver": "building_59",
+    "structure_bit_horizons": -1.8901034700204775,
+    "net_bit_horizons": 0.20021043580864273,
+    "raw_bit_horizons": 108.17908211975961,
+    "marginal_bit_horizons": 110.06918558978009,
+    "derangement_bit_horizons": 107.97887168395097,
+    "larger_control": "marginal",
+    "share_of_ceiling": -0.016188711202796354,
+    "types_mapped": "10/89",
+    "short": false,
+    "uncontrolled": false,
+    "damage": false
+   },
+   {
+    "receiver": "alibaba_2018",
+    "structure_bit_horizons": 1.8685468685371607,
+    "net_bit_horizons": 1.9555389276591981,
+    "raw_bit_horizons": 1.5595709817939447,
+    "marginal_bit_horizons": -0.30897588674321597,
+    "derangement_bit_horizons": -0.3959679458652534,
+    "larger_control": "marginal",
+    "share_of_ceiling": null,
+    "types_mapped": "6/27",
+    "short": false,
+    "uncontrolled": false,
+    "damage": true
+   }
+  ],
+  "nearest_taxa": {
+   "shape_jaccard": [
+    [
+     "hai",
+     0.967
+    ],
+    [
+     "tennessee_eastman",
+     1.0
+    ],
+    [
+     "nasa_battery",
+     1.0
+    ]
+   ],
+   "shape_bray_curtis": [
+    [
+     "hai",
+     0.964
+    ],
+    [
+     "tennessee_eastman",
+     1.0
+    ],
+    [
+     "nasa_battery",
+     1.0
+    ]
+   ],
+   "transfer_net": [
+    [
+     "hai",
+     0.216
+    ],
+    [
+     "building_59",
+     0.489
+    ],
+    [
+     "tennessee_eastman",
+     1.0
+    ]
+   ]
+  }
+ }
+}

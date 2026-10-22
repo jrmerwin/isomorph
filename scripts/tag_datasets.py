@@ -60,7 +60,7 @@ if __name__ == "__main__":
     d = os.path.join(ROOT, "datasets/hai")
     df, bounds, files = HL.load_files(sorted(glob.glob(os.path.join(d, "raw/*.csv.gz"))))
     write_tags(d, tag_layout(df, HL.process_layout(df), horizon_samples(d, HL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; dimension suffix from the technical details", HL.DIMENSION)
-    import tclab_layout as TL, battery_layout as BL, physionet_slp_layout as PL, building_59_layout as B59, fingrid_layout as FG
+    import tclab_layout as TL, battery_layout as BL, physionet_slp_layout as PL, building_59_layout as B59, fingrid_layout as FG, alibaba_layout as AL
     d = os.path.join(ROOT, "datasets/tclab")
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, bounds, files = TL.load_files(os.path.join(d, "raw"))
@@ -81,3 +81,7 @@ if __name__ == "__main__":
     if os.path.isdir(os.path.join(d, "raw")) and os.path.exists(os.path.join(d, "events.csv")):
         df, span = FG.load_year(os.path.join(d, "raw"))
         write_tags(d, tag_layout(df, FG.grid_layout(df), horizon_samples(d, FG.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 3-minute samples relative to H; place prefix from the v1 library; dimension suffix: frequency <T⁻¹>, reserves and net transfer <M L² T⁻³>", FG.DIMENSION)
+    d = os.path.join(ROOT, "datasets/alibaba_2018")
+    if os.path.exists(os.path.join(d, "raw/machine_usage_sub200.csv")) and os.path.exists(os.path.join(d, "events.csv")):
+        df, machines = AL.load(os.path.join(d, "raw"))
+        write_tags(d, tag_layout(df, AL.machine_layout(df, machines), horizon_samples(d, AL.SAMPLE_MIN)), "parts of speech (3.14): clock prefix at 1-minute means relative to H; place prefix from the v1 library; every role dimensionless (negative control)", AL.DIMENSION)

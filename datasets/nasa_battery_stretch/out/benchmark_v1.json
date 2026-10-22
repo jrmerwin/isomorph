@@ -1,0 +1,267 @@
+{
+ "method_version": 9,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "nasa_battery_stretch",
+ "identity": {
+  "kind": "real battery test bed (NASA PCoE), stretch B0025-28",
+  "origin": "scripts/make_stretch.py nasa_battery",
+  "time_unit": "minute (compressed)",
+  "span": [
+   1.0,
+   8272.0
+  ],
+  "entity_key": "cell",
+  "entities": [
+   "B0025",
+   "B0026",
+   "B0027",
+   "B0028"
+  ],
+  "symbolization": {
+   "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+   "choice": {
+    "V": "q20_50_80",
+    "I": "q10_90",
+    "T": "dsign"
+   },
+   "thresholds": {
+    "V": {
+     "B0025_V": [
+      3.369,
+      4.086,
+      4.206
+     ],
+     "B0026_V": [
+      3.389,
+      4.092,
+      4.199
+     ],
+     "B0027_V": [
+      3.369,
+      4.143,
+      4.212
+     ],
+     "B0028_V": [
+      3.674,
+      4.109,
+      4.19
+     ]
+    },
+    "I": {
+     "B0025_I": [
+      -2.013,
+      1.511
+     ],
+     "B0026_I": [
+      -2.013,
+      1.514
+     ],
+     "B0027_I": [
+      -1.987,
+      1.491
+     ],
+     "B0028_I": [
+      -1.002,
+      1.498
+     ]
+    }
+   },
+   "noise_windows": {
+    "B0025_V": 1,
+    "B0026_V": 1,
+    "B0027_V": 1,
+    "B0028_V": 1,
+    "B0025_I": 1,
+    "B0026_I": 1,
+    "B0027_I": 1,
+    "B0028_I": 1,
+    "B0025_T": 1,
+    "B0026_T": 1,
+    "B0027_T": 1,
+    "B0028_T": 1
+   }
+  }
+ },
+ "scale": {
+  "events": 2352,
+  "events_per_day": 409.4885745375408,
+  "types": 12,
+  "n_entities": 4,
+  "period": 288.67684804924795,
+  "period_slow": 288.67684804924795,
+  "period_fast": null,
+  "resolution_delta": 1.0,
+  "signal_floor": 38,
+  "min_count": 3,
+  "lag_edges": [
+   5.932104979342898,
+   35.18986948594481,
+   208.75
+  ],
+  "events_dropped_for_gaps": 174,
+  "test_events": 551,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.214694751769738,
+   "non_deterministic": 3.214694751769738,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 1.6712626249128852,
+   "non_deterministic": 1.6712626249128852,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 1.0947865319698764,
+   "non_deterministic": 1.0947865319698764,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 1.0462375796521122,
+   "non_deterministic": 1.0462375796521122,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 1.5075217191359098,
+   "non_deterministic": 1.5075217191359098,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 1.1452329568733806,
+   "non_deterministic": 1.1452329568733806,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 0.9160496453740208,
+   "non_deterministic": 0.9160496453740208,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.0420889637492319,
+   "non_deterministic": 1.0420889637492319,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 0.9160496453740222,
+   "non_deterministic": 0.9160496453740222,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": -0.1260393183752111,
+  "over_best_baseline": 0.004148615902880293,
+  "best_baseline_bits": 1.0462375796521122,
+  "claim": "no gain"
+ },
+ "library": {
+  "fragments": 19,
+  "fragments_used": 13,
+  "compositions_kept": 20,
+  "chains": 0,
+  "chains_used": 0,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 21,
+   "lift_ok": 1,
+   "null_passed": 1,
+   "admitted": 0,
+   "returns": 0,
+   "returns_resolved": 0
+  },
+  "candidates": 218,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.30526315789473685,
+   "cycle": 0.3368421052631579,
+   "rewire": 0.8842105263157894
+  },
+  "trivial_pairs": [
+   [
+    "I:downq10",
+    "I:upq10"
+   ],
+   [
+    "I:downq90",
+    "I:upq90"
+   ],
+   [
+    "T:peak",
+    "T:trough"
+   ],
+   [
+    "V:downq20",
+    "V:downq50"
+   ],
+   [
+    "V:downq20",
+    "V:upq20"
+   ],
+   [
+    "V:downq20",
+    "V:upq50"
+   ],
+   [
+    "V:downq50",
+    "V:upq20"
+   ],
+   [
+    "V:downq50",
+    "V:upq50"
+   ],
+   [
+    "V:downq80",
+    "V:upq80"
+   ],
+   [
+    "V:upq20",
+    "V:upq50"
+   ]
+  ],
+  "chatty_share": 0.47368421052631576
+ },
+ "recovery": {
+  "recall": 1.0,
+  "precision": 0.5263157894736842,
+  "n_mechanisms": 3,
+  "n_found": 3
+ },
+ "admission": {
+  "days": 5.74,
+  "slow_periods": 28.7,
+  "horizons": 39.6,
+  "test_horizons": 9.9,
+  "admitted": true,
+  "by": "slow periods"
+ },
+ "loop_roles": {
+  "returns": 0,
+  "rules": {
+   "timing": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   },
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   }
+  }
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 1.5
+}

@@ -130,7 +130,17 @@ def observed_training_time(B, lo, c_hi, n_grid=2000):
     return grid, total / max(len(ents), 1)
 
 
-def transfer(modelA, B, mapping, toksB, min_count=5, horizons=K.LEARNING_CURVE_HORIZONS, rng=None, n_controls=K.N_CONTROL_MAPPINGS, tagsB=None):
+def marginal_through_mapping(marginalA, rows_B, mapping, toksB):
+    """3.12 (v9), the marginal control: the source model reduced to its type frequencies through the learned mapping —
+    per mapped receiver type the translated source frequency and nothing lagged; unmapped types as in proba_through_mapping."""
+    P = np.full((len(rows_B), len(toksB)), 1e-3)
+    for j, t in enumerate(toksB):
+        a = mapping.get(t)
+        if a is not None and a in marginalA: P[:, j] = max(marginalA[a], 1e-9)
+    return P / P.sum(1, keepdims=True)
+
+
+def transfer(modelA, B, mapping, toksB, min_count=5, horizons=K.LEARNING_CURVE_HORIZONS, rng=None, n_controls=K.N_CONTROL_MAPPINGS, tagsB=None, marginalA=None):
     """B: dict from pipeline.run's second return (streams, lags, bounds, gaps, obs, gap_mode, rows_test, vocab).
     v8 (3.12): the learned-mapping learning curve on the receiver's observed training time at 1 ... 200 of its
     recurrence horizons H, the same for `n_controls` derangement controls (same lambda per point, median), and the
@@ -141,17 +151,19 @@ def transfer(modelA, B, mapping, toksB, min_count=5, horizons=K.LEARNING_CURVE_H
     P_A = proba_through_mapping(modelA, rows_test, mapping, toksB)
     controls, cinfo = permuted_mappings(mapping, rng, n_controls, tagsB)
     P_C = [proba_through_mapping(modelA, rows_test, m, toksB) for m in controls]
+    P_M = marginal_through_mapping(marginalA, rows_test, mapping, toksB) if marginalA else None   # v9: the marginal control
     unshared = np.array([mapping.get(r["tok"]) is None for r in rows_test])
     b0 = bits_of(P_A, rows_test, toksB)
     out = dict(zero_shot=dict(all=float(b0.mean()), shared=float(b0[~unshared].mean()) if (~unshared).any() else None,
                               unshared=float(b0[unshared].mean()) if unshared.any() else None,
-                              control=float(np.median([bits_of(P, rows_test, toksB).mean() for P in P_C])) if P_C else None),
+                              control=float(np.median([bits_of(P, rows_test, toksB).mean() for P in P_C])) if P_C else None,
+                              marginal=float(bits_of(P_M, rows_test, toksB).mean()) if P_M is not None else None),
                curve=[], horizon_minutes=H, control=cinfo, uncontrolled=cinfo["uncontrolled"])
     grid, observed = observed_training_time(B, lo, c_hi)
     T_obs = float(observed[-1])                       # observed training time, minutes
     out["observed_training_horizons"] = T_obs / H; out["short"] = bool(T_obs < horizons[-1] * H)
     if T_obs < 1.0 * H:
-        out.update(cell_bit_horizons=None, cell_control_bit_horizons=None, cell_net_bit_horizons=None, damage=False,
+        out.update(cell_bit_horizons=None, cell_control_bit_horizons=None, cell_net_bit_horizons=None, cell_marginal_bit_horizons=None, cell_structure_bit_horizons=None, damage=False,
                    note=f"receiver has {T_obs / H:.2f} observed training horizons; the curve needs at least 1")
         return out
     points = [k for k in horizons if k * H <= T_obs]
@@ -178,8 +190,9 @@ def transfer(modelA, B, mapping, toksB, min_count=5, horizons=K.LEARNING_CURVE_H
         P_own = Model(fm).fit(rows_tr).proba(rows_test)
         b_own = bits_of(P_own, rows_test, toksB); b_mix = bits_of(lam * P_A + (1 - lam) * P_own, rows_test, toksB)
         b_ctl = [bits_of(lam * P + (1 - lam) * P_own, rows_test, toksB).mean() for P in P_C]
+        b_mar = float(bits_of(lam * P_M + (1 - lam) * P_own, rows_test, toksB).mean()) if P_M is not None else None
         out["curve"].append(dict(horizons=float(k), minutes=t_k - lo, lam=lam, own=float(b_own.mean()), mixed=float(b_mix.mean()),
-                                 mixed_control=float(np.median(b_ctl)) if b_ctl else None,
+                                 mixed_control=float(np.median(b_ctl)) if b_ctl else None, mixed_marginal=b_mar,
                                  own_shared=float(b_own[~unshared].mean()), mixed_shared=float(b_mix[~unshared].mean()),
                                  own_unshared=float(b_own[unshared].mean()) if unshared.any() else None,
                                  mixed_unshared=float(b_mix[unshared].mean()) if unshared.any() else None))
@@ -190,6 +203,12 @@ def transfer(modelA, B, mapping, toksB, min_count=5, horizons=K.LEARNING_CURVE_H
         yc = [c["own"] - c["mixed_control"] for c in pts]
         out["cell_control_bit_horizons"] = float(np.trapezoid(yc, xs)) if len(xs) > 1 else 0.0
         out["cell_net_bit_horizons"] = None if cinfo["uncontrolled"] else out["cell_bit_horizons"] - out["cell_control_bit_horizons"]
+    if P_M is not None:   # v9: marginal control and the structure cell = learned net of the larger control
+        ym = [c["own"] - c["mixed_marginal"] for c in pts]
+        out["cell_marginal_bit_horizons"] = float(np.trapezoid(ym, xs)) if len(xs) > 1 else 0.0
+        larger = max([v for v in (out.get("cell_control_bit_horizons"), out["cell_marginal_bit_horizons"]) if v is not None] or [None]) if not cinfo["uncontrolled"] else out["cell_marginal_bit_horizons"]
+        out["cell_structure_bit_horizons"] = None if larger is None else out["cell_bit_horizons"] - larger
+        out["larger_control"] = ("marginal" if (cinfo["uncontrolled"] or out["cell_marginal_bit_horizons"] >= (out.get("cell_control_bit_horizons") or -1e9)) else "derangement")
     out["damage"] = any((c["mixed_unshared"] or 0) > (c["own_unshared"] or 0) + 1e-9 for c in pts if c["own_unshared"] is not None)
     return out
 

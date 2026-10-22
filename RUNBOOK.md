@@ -57,6 +57,26 @@ min(3, cores)); expect roughly a 2–3× speed-up over the figures above. Pipeli
 single-process apart from numpy's own threading.
 
 
+## The v9 round — status (Mac, 2026-10-21): built, run, and stopped by item 3
+
+1. **Marginal control** — built; structure cells and the larger control on every cell card and in MATRIX.md v9.
+   Prediction: PhysioNet → TEP structure **62.4** (declared < 10) — fails; TEP → HAI 8.7 and TEP → Building 59 11.2
+   keep part of theirs (v8 nets 13.7 and 25.0); HAI → TEP's marginal control exceeds its learned cell (structure −21.4).
+2. **The diagonal** — built (`--self --source-stretch`; `scripts/make_stretch.py`; ceilings annotated on every cell).
+   *dev.* Fingrid's stretch is the year after (the year before lacks the reserve series); the battery's other cells
+   give a 5.7-day stretch and a ceiling of 2.6. Shares of ceiling into TEP: PhysioNet 0.35, Alibaba 0.29, Building 59
+   0.08; into Building 59: TEP 0.10.
+3. **Negative control** — Alibaba 2018 machine usage, 200 machines, ingested (machine the only fittable entity),
+   carded, run both ways everywhere. **Into TEP: structure 51.2 bit-H, 29% of TEP's ceiling (declared ≈ 0).** Stopped
+   here as the brief says. The cell decomposed (MATRIX.md v9): TEP's own curve model is above its own unigram at 8
+   of 9 points, Building 59's at 9 of 9; every smooth prior helps such a receiver and the controls remove only part
+   of it. The fix is to the receiver's own baseline (3.12): no worse than its own unigram at every point. Three
+   candidate repairs are listed in MATRIX.md; which one is a method decision.
+4. **`isomorph brief`** — built; nine briefs in docs/BRIEF_*.md.
+5. CHANGELOG `## v9 implemented`; MATRIX.md v9; LINEAGE.md with the negative control flagged.
+
+Nothing further is queued. The dataset after 10 waits on the receiver-baseline repair.
+
 ## The v9 round (October 2026) — the brief for the Mac
 
 Collection-only: METHOD.md 3.12 (v9 paragraph) and section 6 rows 9–10. No card changes, no bump of

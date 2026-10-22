@@ -1,0 +1,61 @@
+{
+ "mechanisms": [
+  {
+   "cause": "hw_valve",
+   "effect": "T",
+   "note": "zone hot-water valve -> zone temperature (heating)"
+  },
+  {
+   "cause": "fan",
+   "effect": "T",
+   "note": "zone terminal fan speed -> zone temperature (supply air delivered)"
+  },
+  {
+   "cause": "Tsp_h",
+   "effect": "hw_valve",
+   "note": "heating setpoint -> valve (zone loop)"
+  },
+  {
+   "cause": "Tsp_c",
+   "effect": "fan",
+   "note": "cooling setpoint -> terminal fan (zone loop)"
+  },
+  {
+   "cause": "oa_damper",
+   "effect": "ma_t",
+   "note": "outdoor-air damper -> mixed-air temperature"
+  },
+  {
+   "cause": "oa_damper",
+   "effect": "oa_flow",
+   "note": "outdoor-air damper -> outdoor-air flow"
+  },
+  {
+   "cause": "sf_spd",
+   "effect": "sa_flow",
+   "note": "supply fan speed -> supply airflow"
+  },
+  {
+   "cause": "sf_spd",
+   "effect": "plenum_p",
+   "note": "supply fan speed -> underfloor plenum pressure"
+  },
+  {
+   "cause": "static_sp",
+   "effect": "sf_spd",
+   "note": "static-pressure setpoint -> supply fan speed (AHU loop)"
+  },
+  {
+   "cause": "sat_sp",
+   "effect": "sa_t",
+   "note": "supply-air temperature setpoint -> supply-air temperature (AHU loop)"
+  },
+  {
+   "cause": "ma_t",
+   "effect": "sa_t",
+   "note": "mixed-air temperature -> supply-air temperature"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "cause -> effect pairs true by construction of a packaged-RTU building with underfloor terminals (Brick model and point names)"
+}

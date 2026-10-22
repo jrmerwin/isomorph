@@ -1,0 +1,44 @@
+{
+ "time_unit": "minute",
+ "entity_key": "grid",
+ "period": "auto",
+ "system_wide_types": [],
+ "tie_rule": "canonical",
+ "kind": "real power system (Nordic synchronous area, Fingrid), stretch 2025-26",
+ "origin": "scripts/make_stretch.py fingrid",
+ "symbolization": {
+  "rule": "total confirmation bits with faithfulness and noise floors (METHOD 3.2, v1)",
+  "choice": {
+   "f": "dsign",
+   "fcrn_down": "dsign",
+   "fcrn_up": "dsign",
+   "afrr_up": "q20_50_80",
+   "afrr_down": "dsign",
+   "net_ie": "dsign"
+  },
+  "thresholds": {
+   "afrr_up": {
+    "grid_afrr_up": [
+     0.0,
+     4.129,
+     44.053
+    ]
+   }
+  },
+  "noise_windows": {
+   "grid_f": 1,
+   "grid_fcrn_down": 2,
+   "grid_fcrn_up": 3,
+   "grid_afrr_up": 2,
+   "grid_afrr_down": 2,
+   "grid_net_ie": 1
+  }
+ },
+ "sample_minutes": 3.0,
+ "span": {
+  "start": "2025-07-01 00:00:00+00:00",
+  "end": "2026-06-28 19:15:00+00:00"
+ },
+ "stretch_of": "fingrid",
+ "span_note": "2025-07-01 .. 2026-07-01, the adjacent year AFTER the receiver year (the diagonal's source stretch): the year before has FCR-N activations for four months and aFRR for one, since those series begin in spring 2024"
+}

@@ -1,0 +1,240 @@
+{
+ "method_version": 9,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "building_a_stretch",
+ "identity": {
+  "kind": "synthetic",
+  "origin": "datasets/building_a/raw/simulate_building.py seed 1 (stretch)",
+  "time_unit": "minute",
+  "span": [
+   52.0,
+   86396.0
+  ],
+  "entity_key": "zone",
+  "entities": [
+   "A",
+   "B",
+   "C"
+  ],
+  "symbolization": "fixed thresholds matched to control bands (session default)"
+ },
+ "scale": {
+  "events": 11217,
+  "events_per_day": 187.0712498841842,
+  "types": 20,
+  "n_entities": 3,
+  "period": 1440.0,
+  "period_slow": 1440.0,
+  "period_fast": null,
+  "resolution_delta": 1.0,
+  "signal_floor": 26,
+  "min_count": 3,
+  "lag_edges": [
+   4.983277467062981,
+   24.833054313737644,
+   123.75
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 2739,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.7306020824188657,
+   "non_deterministic": 3.7306020824188657,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.459210375040816,
+   "non_deterministic": 2.459210375040816,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.143939138149967,
+   "non_deterministic": 2.143939138149967,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 2.1826018946091406,
+   "non_deterministic": 2.1826018946091406,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 2.0480774737904,
+   "non_deterministic": 2.0480774737904,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 2.062956853840787,
+   "non_deterministic": 2.062956853840787,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 1.5909224456388023,
+   "non_deterministic": 1.5909224456388023,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.4806808667431326,
+   "non_deterministic": 1.4806808667431326,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.4578485658333238,
+   "non_deterministic": 1.4578485658333238,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.11024157889566966,
+  "over_best_baseline": 0.5673966070472674,
+  "best_baseline_bits": 2.0480774737904,
+  "claim": "beats baselines"
+ },
+ "library": {
+  "fragments": 110,
+  "fragments_used": 51,
+  "compositions_kept": 297,
+  "chains": 26,
+  "chains_used": 0,
+  "returns": 7,
+  "chain_search": {
+   "candidates": 659,
+   "lift_ok": 55,
+   "null_passed": 54,
+   "admitted": 26,
+   "returns": 7,
+   "returns_resolved": 6
+  },
+  "candidates": 895,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.5661538461538461,
+   "cycle": 0.5138461538461538,
+   "rewire": 0.3476923076923077
+  },
+  "trivial_pairs": [
+   [
+    "CO2:down700",
+    "CO2:up700"
+   ],
+   [
+    "CO2:down900",
+    "CO2:up900"
+   ],
+   [
+    "RH:down50",
+    "RH:up50"
+   ],
+   [
+    "RH:down70",
+    "RH:up70"
+   ],
+   [
+    "T:down20",
+    "T:up20"
+   ],
+   [
+    "T:down23",
+    "T:up23"
+   ],
+   [
+    "heater:off",
+    "heater:on"
+   ],
+   [
+    "vent:off",
+    "vent:on"
+   ],
+   [
+    "window:off",
+    "window:on"
+   ]
+  ],
+  "chatty_share": 0.1
+ },
+ "recovery": {
+  "recall": 0.8333333333333334,
+  "precision": 0.12727272727272726,
+  "n_mechanisms": 12,
+  "n_found": 10
+ },
+ "admission": {
+  "days": 59.96,
+  "slow_periods": 60.0,
+  "horizons": 697.7,
+  "test_horizons": 174.4,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 7,
+  "rules": {
+   "timing": {
+    "resolved": 6,
+    "unresolved": 1,
+    "roles": {
+     "RH": "REACTS",
+     "vent": "RESPONDS",
+     "window": "RESPONDS",
+     "T": "REACTS",
+     "CO2": "REACTS"
+    },
+    "votes": {
+     "RH": {
+      "REACTS": 2
+     },
+     "vent": {
+      "RESPONDS": 3,
+      "REACTS": 2
+     },
+     "window": {
+      "RESPONDS": 3
+     },
+     "T": {
+      "REACTS": 1
+     },
+     "CO2": {
+      "REACTS": 1
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": null
+   },
+   "determinism": {
+    "resolved": 6,
+    "unresolved": 1,
+    "roles": {
+     "vent": "REACTS",
+     "RH": "RESPONDS",
+     "window": "RESPONDS",
+     "CO2": "REACTS"
+    },
+    "votes": {
+     "vent": {
+      "REACTS": 4
+     },
+     "RH": {
+      "RESPONDS": 2
+     },
+     "window": {
+      "RESPONDS": 4
+     },
+     "CO2": {
+      "REACTS": 2
+     }
+    },
+    "dimension_check": null,
+    "flowsheet_check": null
+   }
+  }
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 7.0
+}

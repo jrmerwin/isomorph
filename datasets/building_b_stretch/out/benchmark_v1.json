@@ -1,0 +1,199 @@
+{
+ "method_version": 9,
+ "profile": "v1",
+ "seed": 0,
+ "dataset": "building_b_stretch",
+ "identity": {
+  "kind": "synthetic",
+  "origin": "datasets/building_b/raw/building_sim.py CFG_B seed 1 (stretch), names scrambled as the receiver",
+  "time_unit": "minute",
+  "span": [
+   14.0,
+   86399.0
+  ],
+  "entity_key": "zone (scrambled)",
+  "entities": [
+   "u1",
+   "u2",
+   "u3",
+   "u4"
+  ],
+  "symbolization": "fixed thresholds matched to its own control bands"
+ },
+ "scale": {
+  "events": 21058,
+  "events_per_day": 351.0276089598889,
+  "types": 22,
+  "n_entities": 4,
+  "period": 1440.0,
+  "period_slow": 1440.0,
+  "period_fast": null,
+  "resolution_delta": 1.0,
+  "signal_floor": 31,
+  "min_count": 3,
+  "lag_edges": [
+   5.852904783818088,
+   34.25649440844066,
+   200.5
+  ],
+  "events_dropped_for_gaps": 0,
+  "test_events": 4818,
+  "deterministic_types": []
+ },
+ "headline_bits": {
+  "unigram": {
+   "all": 3.687858753068843,
+   "non_deterministic": 3.687858753068843,
+   "deterministic": null
+  },
+  "markov-1": {
+   "all": 2.5282541413451596,
+   "non_deterministic": 2.5282541413451596,
+   "deterministic": null
+  },
+  "markov-2": {
+   "all": 2.090727670611131,
+   "non_deterministic": 2.090727670611131,
+   "deterministic": null
+  },
+  "markov-3": {
+   "all": 1.9495767010807767,
+   "non_deterministic": 1.9495767010807767,
+   "deterministic": null
+  },
+  "hawkes-like decay features": {
+   "all": 1.8502071829037858,
+   "non_deterministic": 1.8502071829037858,
+   "deterministic": null
+  },
+  "logistic markov features": {
+   "all": 2.0818652459151568,
+   "non_deterministic": 2.0818652459151568,
+   "deterministic": null
+  },
+  "logistic triviality library": {
+   "all": 1.5333348178300958,
+   "non_deterministic": 1.5333348178300958,
+   "deterministic": null
+  },
+  "logistic library": {
+   "all": 1.4036688385369562,
+   "non_deterministic": 1.4036688385369562,
+   "deterministic": null
+  },
+  "logistic unselected contexts": {
+   "all": 1.3868262536506308,
+   "non_deterministic": 1.3868262536506308,
+   "deterministic": null
+  }
+ },
+ "gain": {
+  "over_triviality": 0.1296659792931396,
+  "over_best_baseline": 0.4465383443668296,
+  "best_baseline_bits": 1.8502071829037858,
+  "claim": "beats baselines"
+ },
+ "library": {
+  "fragments": 147,
+  "fragments_used": 62,
+  "compositions_kept": 503,
+  "chains": 69,
+  "chains_used": 0,
+  "returns": 0,
+  "chain_search": {
+   "candidates": 966,
+   "lift_ok": 111,
+   "null_passed": 111,
+   "admitted": 69,
+   "returns": 0,
+   "returns_resolved": 0
+  },
+  "candidates": 1430,
+  "nulls_run": [
+   "circular",
+   "cycle",
+   "rewire"
+  ],
+  "null_survival": {
+   "circular": 0.5779816513761468,
+   "cycle": 0.5275229357798165,
+   "rewire": 0.42660550458715596
+  },
+  "trivial_pairs": [
+   [
+    "x00",
+    "x04"
+   ],
+   [
+    "x02",
+    "x24"
+   ],
+   [
+    "x05",
+    "x17"
+   ],
+   [
+    "x09",
+    "x18"
+   ],
+   [
+    "x12",
+    "x14"
+   ],
+   [
+    "x13",
+    "x25"
+   ],
+   [
+    "x15",
+    "x22"
+   ],
+   [
+    "x19",
+    "x27"
+   ],
+   [
+    "x23",
+    "x30"
+   ],
+   [
+    "x26",
+    "x28"
+   ]
+  ],
+  "chatty_share": 0.11564625850340136
+ },
+ "recovery": "not measured",
+ "admission": {
+  "days": 59.99,
+  "slow_periods": 60.0,
+  "horizons": 430.8,
+  "test_horizons": 107.7,
+  "admitted": true,
+  "by": "days"
+ },
+ "loop_roles": {
+  "returns": 0,
+  "rules": {
+   "timing": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   },
+   "determinism": {
+    "resolved": 0,
+    "unresolved": 0,
+    "roles": {},
+    "votes": {},
+    "dimension_check": null,
+    "flowsheet_check": null
+   }
+  }
+ },
+ "transfer": "not measured (collection step)",
+ "lineage": "not measured (collection step)",
+ "elapsed_s": 17.8
+}

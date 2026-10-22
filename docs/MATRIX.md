@@ -1,9 +1,131 @@
-# Transfer matrix — methods v3 to v8, profile v1 (2026-10-19 to 2026-10-21)
+# Transfer matrix — methods v3 to v9, profile v1 (2026-10-19 to 2026-10-21)
 
 Cells are **net bit-days**: the area between the receiver's own learning curve and the curve of its model
 mixed with the translated source model, minus the same area for the source model sent through a permuted
 mapping (3.12, v3). The control removes what any smooth foreign model gives a data-starved receiver —
 regularisation — and leaves what the correspondence gives.
+
+## v9 (2026-10-21): the marginal control, the diagonal, the negative control — and the stop
+
+Collection-only (cards at v8). Every cell now carries three numbers: the learned cell, the derangement cell and the
+**marginal** cell (the source reduced to its type frequencies through the mapping); **structure** = learned − the
+larger control; **share** = structure / the receiver's ceiling, the structure cell of its own diagonal.
+
+### The two declared predictions
+
+| prediction (RUNBOOK v9) | declared | found | verdict |
+| --- | --- | --- | --- |
+| PhysioNet → TEP structure | below 10 bit-H | **62.4** (raw 81.8, derangement 19.4, marginal 7.1) | fails |
+| Alibaba (negative control) → TEP structure | ≈ 0, below 5 bit-H | **51.2** (raw 124.4, derangement 43.8, marginal 73.2); share of ceiling 0.29; 30 of 40 types through P ↔ cpu, cw_flow ↔ net_in, cw_out ↔ mem, feed ↔ net_out, underflow_valve ↔ disk_io | **fails — stop** |
+
+Section 6's closing rule applies: a cluster trace with no regulator in it teaches TEP a third of what TEP teaches
+itself. The cells into TEP are not motif structure, and nothing is added to the collection until the instrument is
+fixed. What the cell is made of is below.
+
+### The diagonals (ceilings)
+
+| receiver | stretch | raw | derangement | marginal | **structure** | types | |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Building 59 | building_59_stretch | 569.0 | 417.5 | 452.2 | **116.8** | 74/89 |  |
+| building A | building_a_stretch | 126.3 | -260.5 | -109.4 | **235.8** | 20/20 |  |
+| building B′ | building_b_stretch | 44.2 | -105.8 | -47.9 | **92.1** | 22/22 |  |
+| Fingrid | fingrid_stretch | 92.8 | -66.5 | -43.0 | **135.9** | 16/16 |  |
+| battery | nasa_battery_stretch | 0.8 | -2.1 | -1.8 | **2.6** | 12/12 | short |
+| TEP | tennessee_eastman_stretch | 291.4 | -57.6 | 113.8 | **177.6** | 40/40 |  |
+
+HAI and PhysioNet have no disjoint stretch (`not measured`). The battery's other cells (B0025–28) hold 5.7 days and
+19 fragments: a ceiling of 2.6 bit-H, which makes its shares of 0.16–0.17 numbers about a short stretch. Fingrid's
+stretch is the year *after* the receiver year (the year before has the reserve series for four months and one).
+
+### The cells
+
+| source → receiver | zero-shot learned / derangement / marginal | raw | derangement | marginal | net | **structure** | share of ceiling | types | flags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TEP → Alibaba (NC) | 5.36 / 7.40 / 6.17 | 5.4 | -1.2 | 0.8 | 6.6 | **4.6** | — | 27/27 |  |
+| Building 59 → Alibaba (NC) | 5.46 / 7.66 / 5.27 | 2.6 | -1.4 | 0.0 | 4.0 | **2.6** | — | 27/27 |  |
+| HAI → Alibaba (NC) | 5.13 / 5.85 / 5.22 | 2.9 | 0.3 | 0.8 | 2.6 | **2.1** | — | 25/27 | damage |
+| Fingrid → Alibaba (NC) | 6.00 / 6.60 / 6.85 | 1.6 | -0.4 | -0.3 | 2.0 | **1.9** | — | 6/27 | damage |
+| building A → Alibaba (NC) | 7.43 / 7.03 / 6.34 | -0.2 | 0.0 | -0.0 | -0.2 | **-0.2** | — | 21/27 | damage |
+| battery → Alibaba (NC) | 7.49 / 7.65 / 7.13 | 0.9 | 0.9 | 1.6 | 0.0 | **-0.7** | — | 9/27 | damage |
+| building B′ → Alibaba (NC) | 7.47 / 7.96 / 5.19 | 0.4 | 0.3 | 1.5 | 0.2 | **-1.0** | — | 27/27 |  |
+| PhysioNet → Alibaba (NC) | 4.75 / 4.75 / 4.75 | 1.2 | 1.2 | 1.2 | — | **0.0** | — | 0/27 | uncontrolled |
+| TEP → Building 59 | 7.62 / 8.35 / 7.90 | 143.6 | 118.6 | 132.5 | 25.0 | **11.2** | 0.10 | 89/89 |  |
+| HAI → Building 59 | 7.32 / 7.63 / 7.04 | 129.7 | 121.7 | 125.3 | 8.0 | **4.4** | 0.04 | 85/89 | damage |
+| Alibaba (NC) → Building 59 | 8.48 / 9.05 / 8.54 | 117.3 | 113.0 | 112.5 | 4.3 | **4.3** | 0.04 | 16/89 |  |
+| building A → Building 59 | 8.45 / 8.50 / 8.47 | 118.6 | 118.0 | 119.6 | 0.7 | **-0.9** | -0.01 | 22/89 |  |
+| Fingrid → Building 59 | 8.99 / 9.12 / 8.62 | 108.2 | 108.0 | 110.1 | 0.2 | **-1.9** | -0.02 | 10/89 |  |
+| building B′ → Building 59 | 8.87 / 8.89 / 8.66 | 119.2 | 120.5 | 123.7 | -1.3 | **-4.5** | -0.04 | 26/89 |  |
+| Alibaba (NC) → building A | 5.63 / 9.23 / 6.05 | 22.7 | 17.2 | 23.8 | 5.5 | **-1.1** | -0.00 | 8/20 |  |
+| Building 59 → building A | 6.13 / 6.69 / 4.95 | 20.9 | 16.3 | 22.8 | 4.6 | **-1.9** | -0.01 | 12/20 | damage |
+| Alibaba (NC) → building B′ | 7.21 / 10.67 / 4.75 | 12.2 | 7.7 | 12.5 | 4.5 | **-0.3** | -0.00 | 21/22 | damage |
+| Building 59 → building B′ | 7.14 / 7.87 / 5.18 | 11.3 | 10.9 | 12.4 | 0.3 | **-1.1** | -0.01 | 22/22 |  |
+| HAI → Fingrid | 4.54 / 4.86 / 4.42 | 21.7 | 15.8 | 12.4 | 5.9 | **5.9** | 0.04 | 16/16 |  |
+| Building 59 → Fingrid | 6.29 / 6.78 / 5.39 | 15.2 | 8.2 | 11.3 | 7.1 | **4.0** | 0.03 | 10/16 | damage |
+| TEP → Fingrid | 4.21 / 4.25 / 5.22 | 18.4 | 18.0 | 10.9 | 0.4 | **0.4** | 0.00 | 16/16 |  |
+| Alibaba (NC) → Fingrid | 4.05 / 4.10 / 4.98 | 11.3 | 12.8 | 7.1 | -1.5 | **-1.5** | -0.01 | 6/16 | damage |
+| battery → Fingrid | 7.13 / 7.37 / 6.49 | 11.2 | 9.1 | 12.9 | 2.1 | **-1.7** | -0.01 | 8/16 | damage |
+| Building 59 → HAI | 8.45 / 10.13 / 8.51 | 49.5 | 23.3 | 32.3 | 26.3 | **17.3** | — | 95/168 | short, damage |
+| TEP → HAI | 7.63 / 9.01 / 8.08 | 39.9 | 26.2 | 31.2 | 13.7 | **8.7** | — | 142/168 | short, damage |
+| Alibaba (NC) → HAI | 8.73 / 9.59 / 8.85 | 36.5 | 30.1 | 31.8 | 6.4 | **4.7** | — | 30/168 | short, damage |
+| Fingrid → HAI | 8.23 / 8.50 / 8.80 | 34.4 | 33.1 | 30.3 | 1.3 | **1.3** | — | 10/168 | short, damage |
+| PhysioNet → HAI | 7.54 / 8.26 / 7.66 | 37.8 | 32.8 | 36.8 | 5.0 | **1.0** | — | 4/168 | short, damage |
+| battery → HAI | 9.47 / 9.44 / 9.44 | 29.7 | 29.6 | 29.5 | 0.2 | **0.2** | — | 10/168 | short |
+| Alibaba (NC) → battery | 3.81 / 6.44 / 4.61 | 0.2 | -0.4 | -0.3 | 0.5 | **0.4** | 0.17 | 10/12 | short, damage |
+| TEP → battery | 3.68 / 5.42 / 4.26 | 0.2 | -0.3 | -0.3 | 0.5 | **0.4** | 0.16 | 12/12 | short |
+| HAI → battery | 4.72 / 4.81 / 3.96 | -0.3 | -0.4 | -0.3 | 0.1 | **0.1** | 0.03 | 12/12 | short |
+| Fingrid → battery | 6.28 / 6.43 / 5.96 | -0.2 | -0.3 | -0.3 | 0.0 | **0.0** | 0.02 | 6/12 | short, damage |
+| PhysioNet → battery | 6.76 / 6.80 / 7.70 | -0.3 | -0.3 | -0.3 | 0.0 | **0.0** | 0.01 | 2/12 | short, damage |
+| TEP → PhysioNet | 5.38 / 5.35 / 5.40 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | — | 10/10 |  |
+| HAI → PhysioNet | 7.00 / 6.78 / 3.68 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | — | 10/10 |  |
+| battery → PhysioNet | 4.43 / 4.43 / 3.90 | 0.0 | 0.0 | 0.0 | 0.0 | **0.0** | — | 2/10 |  |
+| Alibaba (NC) → PhysioNet | 3.32 / 3.32 / 3.32 | 0.0 | 0.0 | 0.0 | — | **0.0** | — | 0/10 | uncontrolled |
+| PhysioNet → TEP | 6.62 / 8.72 / 9.18 | 81.8 | 19.4 | 7.1 | 62.4 | **62.4** | 0.35 | 4/40 | damage |
+| Alibaba (NC) → TEP | 7.76 / 9.57 / 7.21 | 124.4 | 43.8 | 73.2 | 80.6 | **51.2** | 0.29 | 30/40 | damage |
+| Building 59 → TEP | 7.35 / 9.01 / 6.77 | 104.0 | 32.9 | 90.6 | 71.1 | **13.4** | 0.08 | 32/40 | damage |
+| battery → TEP | 8.77 / 9.03 / 8.29 | 26.8 | 18.4 | 33.5 | 8.5 | **-6.7** | -0.04 | 6/40 | damage |
+| Fingrid → TEP | 8.80 / 8.65 / 8.28 | 35.3 | 32.1 | 43.4 | 3.2 | **-8.1** | -0.05 | 10/40 | damage |
+| HAI → TEP | 6.63 / 8.47 / 5.63 | 89.5 | 40.9 | 110.9 | 48.6 | **-21.4** | -0.12 | 34/40 | damage |
+
+### What the cell into TEP is made of
+
+The receiver's *own* learning curve is the baseline every cell is measured against, and on the two receivers where
+foreign sources score high it is worse than the receiver's own unigram for most of the curve:
+
+| receiver | full-data unigram (bits) | own model at 1 H … 200 H | curve points with own > unigram | own deficit above the unigram (bit-H) |
+| --- | --- | --- | --- | --- |
+| Building 59 | 5.843 | 27.6 … 5.99 | **9 of 9** | 176.0 |
+| TEP | 5.087 | 6.95 … 4.57 | **8 of 9** | 35.3 |
+| HAI | 6.859 | 14.1 … 3.71 | 4 of 9 | 23.3 |
+| building A | 4.376 | 22.8 … 2.05 | 4 of 9 | 19.5 |
+| Fingrid | 3.783 | 11.1 … 2.04 | 4 of 9 | 13.3 |
+| building B′ | 3.832 | 16.0 … 1.36 | 2 of 9 | 11.3 |
+| Alibaba | 4.168 | 5.20 … 2.48 | 3 of 9 | 1.5 |
+| battery | 3.506 | 2.52 … 0.83 | 0 of 9 | 0.0 |
+
+TEP's own model — the logistic model over Markov features and own contexts, 40 classes, a fixed C — sits at 5.2–5.4
+bits from 3 H to 100 H against a unigram of 5.09, and reaches 4.57 only at 200 H. Any smooth mixture improves it:
+TEP's own stretch takes it to 3.6–3.8 (the ceiling, 177.6), the cluster trace to 4.6–4.8, the cluster trace's
+*marginals* alone to 4.8–5.1. The derangement and the marginal control each remove part of that regularisation and
+neither removes it all, because a deranged or flattened foreign model is still a smooth prior over 40 classes and
+the receiver's own model is not. HAI → TEP shows the same thing from the other side: its marginal control (110.9)
+exceeds its learned cell (89.5), so its structure is **−21.4** — HAI's type frequencies help TEP more than HAI's
+lagged structure does.
+
+The instrument fault, stated for the fix: **a receiver's own curve must be no worse than its own unigram at every
+point.** Until it is, every cell into a receiver with a deficit is partly a measurement of that deficit, and a
+negative control reports it faithfully. Candidate repairs, all method questions: regularise the receiver's own
+model toward its own unigram by the same 2-fold choice that sets λ; choose C per curve point the same way; or
+report every cell net of a *self-unigram* control (the receiver's own type frequencies mixed by the same procedure),
+which would be the receiver-side counterpart of the marginal control. The battery, whose own model is below its
+unigram at every point, is the receiver on which the cells can already be read; its structure cells are 0.0–0.4.
+
+### Everywhere else
+
+Building 59 as a receiver: TEP 11.2, HAI 4.4, Alibaba 4.3, A −0.9, Fingrid −1.9, B′ −4.5 (shares 0.10, 0.04, 0.04
+and below) — the negative control sits with HAI. Into Fingrid: HAI 5.9, Building 59 4.0, TEP 0.4, the rest ≤ 0.
+Into HAI (short): Building 59 17.3, TEP 8.7, Alibaba 4.7. Into Alibaba: TEP 4.6, Building 59 2.6, HAI 2.1. Into
+PhysioNet and the battery: at zero. With structure cells the transfer tree pairs (TEP, PhysioNet) and
+(HAI, Building 59) with Fingrid next and the battery outermost; the shape trees are unchanged.
 
 ## v8 (2026-10-21): derangement controls, the curve in receiver horizons — seed 0; datasets 1–9
 

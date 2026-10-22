@@ -34,6 +34,7 @@ RUNNING_ORDER = [
     ("physionet_slp", "admitted (v7: by horizons, 19,419 H)"),
     ("building_59", "admitted (365 days)"),
     ("fingrid", "admitted (365 days)"),
+    ("alibaba_2018", "negative control (admitted by horizons if so; flagged as a negative control in every view)"),
 ]
 
 
@@ -79,10 +80,10 @@ def transfer_distance(taxa, version=f"v{K.METHOD_VERSION}"):
     M = json.load(open(MATRIX)).get(version, {}) if os.path.exists(MATRIX) else {}
     net = {}
     for rec in M.values():
-        if rec.get("seed") != 0: continue
+        if rec.get("seed") != 0 or rec.get("diagonal"): continue
         a, b = rec["A"], rec["B"]
-        vals = [rec[d].get("cell_net_bit_horizons") for d in ("A_to_B", "B_to_A")
-                if d in rec and rec[d].get("cell_net_bit_horizons") is not None and not rec[d].get("uncontrolled")]   # v8: uncontrolled cells excluded
+        vals = [rec[d].get("cell_structure_bit_horizons", rec[d].get("cell_net_bit_horizons")) for d in ("A_to_B", "B_to_A")
+                if d in rec and rec[d].get("cell_structure_bit_horizons", rec[d].get("cell_net_bit_horizons")) is not None and not rec[d].get("uncontrolled")]   # v9: structure cells; diagonals excluded
         if vals: net[frozenset((a, b))] = float(np.mean(vals))
     D = np.ones((len(taxa), len(taxa)))
     for i, a in enumerate(taxa):
@@ -182,7 +183,7 @@ def build(log=print, write_libraries=True):
     M = json.load(open(MATRIX)).get(f"v{K.METHOD_VERSION}", {}) if os.path.exists(MATRIX) else {}
     cells = {}
     for rec in M.values():
-        if rec.get("seed") != 0: continue
+        if rec.get("seed") != 0 or rec.get("diagonal"): continue
         if "A_to_B" in rec: cells[(rec["A"], rec["B"])] = rec["A_to_B"]["mapping"]
         if "B_to_A" in rec: cells[(rec["B"], rec["A"])] = rec["B_to_A"]["mapping"]
     lineage, edges = inheritance(taxa, libs, cells)
@@ -202,7 +203,7 @@ def build(log=print, write_libraries=True):
 
 def markdown(out, inv, libs):
     taxa = out["taxa"]; L = []
-    short = {"tennessee_eastman": "TEP", "hai": "HAI", "nasa_battery": "battery", "tclab": "TCLab", "building_a": "building A", "building_b": "building B′", "physionet_slp": "PhysioNet", "fingrid": "Fingrid"}
+    short = {"tennessee_eastman": "TEP", "hai": "HAI", "nasa_battery": "battery", "tclab": "TCLab", "building_a": "building A", "building_b": "building B′", "physionet_slp": "PhysioNet", "fingrid": "Fingrid", "alibaba_2018": "Alibaba (neg. control)"}
     nm = lambda d: short.get(d, d)
     L += [f"# Lineage — the collection step (METHOD 3.13), method v{out['method_version']}", "",
           "Characters are tagged shapes (3.14, 3.15); taxa are the admitted datasets whose libraries carry them: " + ", ".join(nm(d) for d in taxa) + ".",

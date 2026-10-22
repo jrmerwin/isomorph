@@ -1,0 +1,4618 @@
+{
+ "chains": [
+  {
+   "a": "cpu:upq80",
+   "l1": "s",
+   "b": "disk_io:upq80",
+   "l2": "s",
+   "c": "cpu:downq80",
+   "count": 174,
+   "cond_lift": 4.318247070185055,
+   "count_conf": 111,
+   "cond_lift_conf": 3.219223468507334,
+   "null_max": 41,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 5705,
+    "n_BC": 473,
+    "n_AB": 486
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 2.0,
+   "g2": 2.0,
+   "verdict": "unresolved",
+   "p1": 0.09731084776663627,
+   "p2": 0.11305037683458945,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "cpu:upq80",
+   "l1": "m",
+   "b": "mem:downq50",
+   "l2": "s",
+   "c": "cpu:downq80",
+   "count": 300,
+   "cond_lift": 2.5148614609571793,
+   "count_conf": 185,
+   "cond_lift_conf": 2.7685103735330086,
+   "null_max": 99,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 9984,
+    "n_BC": 794,
+    "n_AB": 1500
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -m-> SLOW\u00b7RELAY.down.q50 -s-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 6.0,
+   "g2": 1.0,
+   "verdict": "X reacts",
+   "p1": 0.11114360924246856,
+   "p2": 0.0910394265232975,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "disk_io:upq80",
+   "l1": "s",
+   "b": "cpu:downq80",
+   "l2": "m",
+   "c": "disk_io:downq80",
+   "count": 188,
+   "cond_lift": 2.6129828753484667,
+   "count_conf": 105,
+   "cond_lift_conf": 2.516346134693146,
+   "null_max": 34,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 15705,
+    "n_BC": 1458,
+    "n_AB": 775
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.down.q80 -m-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 2.0,
+   "g2": 7.0,
+   "verdict": "Y reacts",
+   "p1": 0.11305037683458945,
+   "p2": 0.0855064935064935,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "disk_io:downq20",
+   "l1": "s",
+   "b": "cpu:downq20",
+   "l2": "m",
+   "c": "disk_io:upq20",
+   "count": 282,
+   "cond_lift": 2.365068258820673,
+   "count_conf": 209,
+   "cond_lift_conf": 2.135188266650959,
+   "null_max": 55,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 22798,
+    "n_BC": 1805,
+    "n_AB": 1506
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -s-> SLOW\u00b7RELAY.down.q20 -m-> SLOW\u00b7RELAY.up.q20 [return]",
+   "g1": 2.0,
+   "g2": 7.0,
+   "verdict": "Y reacts",
+   "p1": 0.1947698174884228,
+   "p2": 0.08504225905785233,
+   "verdict_determinism": "Y reacts"
+  },
+  {
+   "a": "disk_io:upq80",
+   "l1": "m",
+   "b": "cpu:downq80",
+   "l2": "s",
+   "c": "disk_io:downq80",
+   "count": 231,
+   "cond_lift": 2.4186095045018186,
+   "count_conf": 111,
+   "cond_lift_conf": 2.151370069256248,
+   "null_max": 47,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 7375,
+    "n_BC": 651,
+    "n_AB": 1082
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -m-> SLOW\u00b7RELAY.down.q80 -s-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 7.0,
+   "g2": 2.0,
+   "verdict": "X reacts",
+   "p1": 0.10882449785973,
+   "p2": 0.10616261004660797,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "disk_io:downq20",
+   "l1": "m",
+   "b": "cpu:upq20",
+   "l2": "s",
+   "c": "disk_io:upq20",
+   "count": 360,
+   "cond_lift": 2.0397963733650415,
+   "count_conf": 285,
+   "cond_lift_conf": 1.9889392016612828,
+   "null_max": 66,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 10979,
+    "n_BC": 1152,
+    "n_AB": 1682
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -m-> SLOW\u00b7RELAY.up.q20 -s-> SLOW\u00b7RELAY.up.q20 [return]",
+   "g1": 7.0,
+   "g2": 2.0,
+   "verdict": "X reacts",
+   "p1": 0.1530891197375615,
+   "p2": 0.10855489736878358,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "mem:upq20",
+   "l1": "m",
+   "b": "cpu:downq80",
+   "l2": "s",
+   "c": "mem:downq20",
+   "count": 231,
+   "cond_lift": 2.2023207021054634,
+   "count_conf": 70,
+   "cond_lift_conf": 2.9062254759677923,
+   "null_max": 43,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 7375,
+    "n_BC": 851,
+    "n_AB": 909
+   },
+   "shape": "SLOW\u00b7RELAY.up.q20 -m-> SLOW\u00b7RELAY.down.q80 -s-> SLOW\u00b7RELAY.down.q20 [return]",
+   "g1": 6.0,
+   "g2": 2.0,
+   "verdict": "X reacts",
+   "p1": 0.07712672079068125,
+   "p2": 0.07845675815639565,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "disk_io:upq80",
+   "l1": "m",
+   "b": "cpu:downq80",
+   "l2": "m",
+   "c": "disk_io:downq80",
+   "count": 453,
+   "cond_lift": 1.9432644512294053,
+   "count_conf": 171,
+   "cond_lift_conf": 1.8130989271499687,
+   "null_max": 142,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 15705,
+    "n_BC": 1458,
+    "n_AB": 2511
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -m-> SLOW\u00b7RELAY.down.q80 -m-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 6.0,
+   "g2": 6.0,
+   "verdict": "unresolved",
+   "p1": 0.10882449785973,
+   "p2": 0.0855064935064935,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "cpu:downq20",
+   "l1": "s",
+   "b": "disk_io:downq20",
+   "l2": "m",
+   "c": "cpu:upq20",
+   "count": 440,
+   "cond_lift": 1.9126662487455006,
+   "count_conf": 297,
+   "cond_lift_conf": 1.58759936871639,
+   "null_max": 95,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 14770,
+    "n_BC": 1987,
+    "n_AB": 1710
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -s-> SLOW\u00b7RELAY.down.q20 -m-> SLOW\u00b7RELAY.up.q20 [return]",
+   "g1": 2.0,
+   "g2": 7.0,
+   "verdict": "Y reacts",
+   "p1": 0.14695539515084213,
+   "p2": 0.1530891197375615,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "disk_io:downq20",
+   "l1": "m",
+   "b": "cpu:downq20",
+   "l2": "m",
+   "c": "disk_io:upq20",
+   "count": 357,
+   "cond_lift": 1.9244891661730643,
+   "count_conf": 295,
+   "cond_lift_conf": 1.8520361112459347,
+   "null_max": 127,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 22798,
+    "n_BC": 1805,
+    "n_AB": 2343
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -m-> SLOW\u00b7RELAY.down.q20 -m-> SLOW\u00b7RELAY.up.q20 [return]",
+   "g1": 6.0,
+   "g2": 7.0,
+   "verdict": "unresolved",
+   "p1": 0.10752688172043011,
+   "p2": 0.08504225905785233,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "cpu:upq80",
+   "l1": "s",
+   "b": "disk_io:upq80",
+   "l2": "m",
+   "c": "cpu:downq80",
+   "count": 220,
+   "cond_lift": 2.0302613810281187,
+   "count_conf": 122,
+   "cond_lift_conf": 1.6223894419497713,
+   "null_max": 61,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 15376,
+    "n_BC": 1418,
+    "n_AB": 1175
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.up.q80 -m-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 2.0,
+   "g2": 6.0,
+   "verdict": "Y reacts",
+   "p1": 0.09731084776663627,
+   "p2": 0.10882449785973,
+   "verdict_determinism": "unresolved"
+  },
+  {
+   "a": "cpu:upq80",
+   "l1": "m",
+   "b": "disk_io:upq80",
+   "l2": "s",
+   "c": "cpu:downq80",
+   "count": 149,
+   "cond_lift": 2.175708603576164,
+   "count_conf": 119,
+   "cond_lift_conf": 2.2021507744256037,
+   "null_max": 38,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 5705,
+    "n_BC": 473,
+    "n_AB": 826
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -m-> SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 5.0,
+   "g2": 2.0,
+   "verdict": "X reacts",
+   "p1": 0.062298917812225796,
+   "p2": 0.11305037683458945,
+   "verdict_determinism": "X reacts"
+  },
+  {
+   "a": "disk_io:downq50",
+   "l1": "s",
+   "b": "cpu:downq20",
+   "l2": "s",
+   "c": "disk_io:downq20",
+   "count": 139,
+   "cond_lift": 2.18381775333857,
+   "count_conf": 112,
+   "cond_lift_conf": 2.5320133559838323,
+   "null_max": 33,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 7840,
+    "n_BC": 1064,
+    "n_AB": 469
+   },
+   "shape": "SLOW\u00b7RELAY.down.q50 -s-> SLOW\u00b7RELAY.down.q20 -s-> SLOW\u00b7RELAY.down.q20",
+   "g1": null,
+   "g2": null,
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
+  },
+  {
+   "a": "cpu:downq20",
+   "l1": "s",
+   "b": "disk_io:downq50",
+   "l2": "s",
+   "c": "disk_io:downq20",
+   "count": 152,
+   "cond_lift": 1.8278104191147666,
+   "count_conf": 81,
+   "cond_lift_conf": 1.8367276568494912,
+   "null_max": 29,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 7675,
+    "n_BC": 1150,
+    "n_AB": 555
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -s-> SLOW\u00b7RELAY.down.q50 -s-> SLOW\u00b7RELAY.down.q20",
+   "g1": null,
+   "g2": null,
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
+  },
+  {
+   "a": "mem:downq50",
+   "l1": "s",
+   "b": "cpu:downq80",
+   "l2": "s",
+   "c": "mem:downq20",
+   "count": 107,
+   "cond_lift": 1.8435217134326822,
+   "count_conf": 50,
+   "cond_lift_conf": 2.2439920048342863,
+   "null_max": 48,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 7375,
+    "n_BC": 851,
+    "n_AB": 503
+   },
+   "shape": "SLOW\u00b7RELAY.down.q50 -s-> SLOW\u00b7RELAY.down.q80 -s-> SLOW\u00b7RELAY.down.q20",
+   "g1": null,
+   "g2": null,
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
+  },
+  {
+   "a": "mem:downq20",
+   "l1": "s",
+   "b": "cpu:downq80",
+   "l2": "s",
+   "c": "cpu:upq80",
+   "count": 64,
+   "cond_lift": 1.7796814671814671,
+   "count_conf": 24,
+   "cond_lift_conf": 1.7896200185356812,
+   "null_max": 56,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 7375,
+    "n_BC": 1024,
+    "n_AB": 259
+   },
+   "shape": "SLOW\u00b7RELAY.down.q20 -s-> SLOW\u00b7RELAY.down.q80 -s-> SLOW\u00b7RELAY.up.q80",
+   "g1": null,
+   "g2": null,
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
+  },
+  {
+   "a": "mem:upq20",
+   "l1": "s",
+   "b": "cpu:upq80",
+   "l2": "s",
+   "c": "mem:upq50",
+   "count": 77,
+   "cond_lift": 1.5020123336579032,
+   "count_conf": 35,
+   "cond_lift_conf": 1.6490572520723277,
+   "null_max": 23,
+   "is_return": false,
+   "used": true,
+   "link_counts": {
+    "n_B": 7212,
+    "n_BC": 948,
+    "n_AB": 390
+   },
+   "shape": "SLOW\u00b7RELAY.up.q20 -s-> SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.up.q50",
+   "g1": null,
+   "g2": null,
+   "verdict": null,
+   "p1": null,
+   "p2": null,
+   "verdict_determinism": null
+  },
+  {
+   "a": "disk_io:upq80",
+   "l1": "s",
+   "b": "cpu:downq80",
+   "l2": "s",
+   "c": "disk_io:downq80",
+   "count": 46,
+   "cond_lift": 1.579155611413676,
+   "count_conf": 33,
+   "cond_lift_conf": 1.6802373104812132,
+   "null_max": 19,
+   "is_return": true,
+   "used": true,
+   "link_counts": {
+    "n_B": 7375,
+    "n_BC": 651,
+    "n_AB": 330
+   },
+   "shape": "SLOW\u00b7RELAY.up.q80 -s-> SLOW\u00b7RELAY.down.q80 -s-> SLOW\u00b7RELAY.down.q80 [return]",
+   "g1": 2.0,
+   "g2": 2.0,
+   "verdict": "unresolved",
+   "p1": 0.11305037683458945,
+   "p2": 0.10616261004660797,
+   "verdict_determinism": "unresolved"
+  }
+ ],
+ "fragments": [
+  {
+   "prior": "cpu:upq80",
+   "lag": "s",
+   "target": "cpu:downq80",
+   "count": 2012,
+   "lift": 6.05471334405107,
+   "lift_conf": 5.336741340430835,
+   "null_max": {
+    "circular": 604,
+    "cycle": 742,
+    "rewire": 573
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "mem:downq20",
+   "lag": "m",
+   "target": "mem:upq20",
+   "count": 3593,
+   "lift": 5.170689068436562,
+   "lift_conf": 5.8397665253868265,
+   "null_max": {
+    "circular": 1209,
+    "cycle": 741,
+    "rewire": 1035
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "m",
+   "target": "cpu:downq80",
+   "count": 4192,
+   "lift": 4.996666429791914,
+   "lift_conf": 5.6812678201600875,
+   "null_max": {
+    "circular": 1401,
+    "cycle": 1370,
+    "rewire": 1718
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "m",
+   "target": "disk_io:upq20",
+   "count": 3311,
+   "lift": 5.033795627026203,
+   "lift_conf": 5.24445718233561,
+   "null_max": {
+    "circular": 1339,
+    "cycle": 835,
+    "rewire": 1152
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "mem:upq80",
+   "lag": "m",
+   "target": "mem:downq80",
+   "count": 6348,
+   "lift": 4.6533481383015225,
+   "lift_conf": 5.1964083349695,
+   "null_max": {
+    "circular": 1502,
+    "cycle": 1679,
+    "rewire": 2335
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "m",
+   "target": "disk_io:downq80",
+   "count": 3129,
+   "lift": 4.8885969128684,
+   "lift_conf": 4.271407484049429,
+   "null_max": {
+    "circular": 980,
+    "cycle": 822,
+    "rewire": 1164
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "m",
+   "target": "cpu:upq20",
+   "count": 6372,
+   "lift": 4.425617227189281,
+   "lift_conf": 4.197404322070051,
+   "null_max": {
+    "circular": 2264,
+    "cycle": 2027,
+    "rewire": 2699
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "s",
+   "target": "cpu:upq20",
+   "count": 2385,
+   "lift": 4.816894692859165,
+   "lift_conf": 3.8918665368061345,
+   "null_max": {
+    "circular": 1365,
+    "cycle": 1233,
+    "rewire": 721
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "mem:downq80",
+   "lag": "s",
+   "target": "mem:downq50",
+   "count": 3147,
+   "lift": 4.477990396853648,
+   "lift_conf": 3.669388074292876,
+   "null_max": {
+    "circular": 758,
+    "cycle": 878,
+    "rewire": 1452
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "mem:upq80",
+   "lag": "s",
+   "target": "mem:downq80",
+   "count": 1879,
+   "lift": 4.445875114202028,
+   "lift_conf": 4.916721381499583,
+   "null_max": {
+    "circular": 665,
+    "cycle": 678,
+    "rewire": 682
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "mem:upq20",
+   "lag": "m",
+   "target": "mem:downq20",
+   "count": 2928,
+   "lift": 3.988716091358294,
+   "lift_conf": 3.622995882418156,
+   "null_max": {
+    "circular": 1419,
+    "cycle": 828,
+    "rewire": 904
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -m-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "m",
+   "target": "cpu:upq80",
+   "count": 2867,
+   "lift": 3.9667569452259417,
+   "lift_conf": 4.402300780790207,
+   "null_max": {
+    "circular": 1619,
+    "cycle": 1375,
+    "rewire": 1455
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -m-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "mem:upq50",
+   "lag": "s",
+   "target": "mem:upq80",
+   "count": 2368,
+   "lift": 3.940937350216152,
+   "lift_conf": 4.415395944602244,
+   "null_max": {
+    "circular": 911,
+    "cycle": 784,
+    "rewire": 1209
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "mem:downq20",
+   "lag": "s",
+   "target": "mem:upq20",
+   "count": 1070,
+   "lift": 4.318971384752423,
+   "lift_conf": 5.850641323385684,
+   "null_max": {
+    "circular": 506,
+    "cycle": 426,
+    "rewire": 221
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "mem:upq50",
+   "lag": "m",
+   "target": "mem:downq50",
+   "count": 6014,
+   "lift": 3.067035776901419,
+   "lift_conf": 3.036778776372404,
+   "null_max": {
+    "circular": 2468,
+    "cycle": 1983,
+    "rewire": 2530
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -m-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "mem:downq50",
+   "lag": "s",
+   "target": "mem:downq20",
+   "count": 1578,
+   "lift": 3.6210859013836028,
+   "lift_conf": 2.5538335422674954,
+   "null_max": {
+    "circular": 676,
+    "cycle": 580,
+    "rewire": 904
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "m",
+   "target": "cpu:downq20",
+   "count": 4608,
+   "lift": 2.979549715994024,
+   "lift_conf": 3.8738410493680755,
+   "null_max": {
+    "circular": 2138,
+    "cycle": 2138,
+    "rewire": 2203
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -m-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "mem:downq50",
+   "lag": "m",
+   "target": "mem:upq50",
+   "count": 4984,
+   "lift": 2.8476828869157873,
+   "lift_conf": 3.663324734147019,
+   "null_max": {
+    "circular": 2210,
+    "cycle": 1879,
+    "rewire": 1976
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -m-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "m",
+   "target": "cpu:downq50",
+   "count": 7790,
+   "lift": 2.7048646367918256,
+   "lift_conf": 2.3883945828688242,
+   "null_max": {
+    "circular": 3073,
+    "cycle": 2749,
+    "rewire": 3428
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -m-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:downq50",
+   "lag": "s",
+   "target": "disk_io:downq20",
+   "count": 1150,
+   "lift": 3.4387000617375056,
+   "lift_conf": 3.362393968898416,
+   "null_max": {
+    "circular": 469,
+    "cycle": 471,
+    "rewire": 662
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "s",
+   "target": "cpu:downq50",
+   "count": 3143,
+   "lift": 2.766672663688717,
+   "lift_conf": 2.390021591130719,
+   "null_max": {
+    "circular": 1452,
+    "cycle": 1273,
+    "rewire": 1008
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:downq50",
+   "lag": "m",
+   "target": "disk_io:upq50",
+   "count": 2993,
+   "lift": 2.7371209741211313,
+   "lift_conf": 2.288378092219598,
+   "null_max": {
+    "circular": 1783,
+    "cycle": 1289,
+    "rewire": 1202
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -m-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:downq80",
+   "lag": "m",
+   "target": "disk_io:upq80",
+   "count": 1917,
+   "lift": 2.8951543966906867,
+   "lift_conf": 3.117992665419337,
+   "null_max": {
+    "circular": 874,
+    "cycle": 844,
+    "rewire": 905
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -m-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "s",
+   "target": "disk_io:downq20",
+   "count": 1064,
+   "lift": 3.1145865621296376,
+   "lift_conf": 3.372565360826155,
+   "null_max": {
+    "circular": 799,
+    "cycle": 642,
+    "rewire": 781
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.down.q20"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "s",
+   "target": "disk_io:upq20",
+   "count": 740,
+   "lift": 3.2196951571813455,
+   "lift_conf": 2.997288788696037,
+   "null_max": {
+    "circular": 517,
+    "cycle": 449,
+    "rewire": 321
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "cpu:downq50",
+   "lag": "m",
+   "target": "cpu:upq50",
+   "count": 6149,
+   "lift": 2.4209592808857976,
+   "lift_conf": 2.465788842785502,
+   "null_max": {
+    "circular": 2781,
+    "cycle": 2717,
+    "rewire": 2918
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -m-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "s",
+   "target": "cpu:upq80",
+   "count": 1024,
+   "lift": 3.01705877413078,
+   "lift_conf": 3.735955103643683,
+   "null_max": {
+    "circular": 504,
+    "cycle": 797,
+    "rewire": 417
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "s",
+   "target": "cpu:upq50",
+   "count": 2440,
+   "lift": 2.6737496906238594,
+   "lift_conf": 1.594380527899323,
+   "null_max": {
+    "circular": 1014,
+    "cycle": 960,
+    "rewire": 1546
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "mem:downq80",
+   "lag": "m",
+   "target": "mem:upq80",
+   "count": 3055,
+   "lift": 2.5975113561813887,
+   "lift_conf": 3.643990105157577,
+   "null_max": {
+    "circular": 1655,
+    "cycle": 1502,
+    "rewire": 1422
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -m-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "disk_io:upq20",
+   "lag": "m",
+   "target": "disk_io:downq20",
+   "count": 2072,
+   "lift": 2.6708346732921204,
+   "lift_conf": 3.1379348560086147,
+   "null_max": {
+    "circular": 1675,
+    "cycle": 878,
+    "rewire": 860
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -m-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "disk_io:upq50",
+   "lag": "m",
+   "target": "disk_io:downq50",
+   "count": 2908,
+   "lift": 2.5498992377996865,
+   "lift_conf": 3.2320189296010606,
+   "null_max": {
+    "circular": 1879,
+    "cycle": 1257,
+    "rewire": 1039
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -m-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "s",
+   "target": "cpu:downq20",
+   "count": 911,
+   "lift": 2.8090013262597004,
+   "lift_conf": 3.0994817508010883,
+   "null_max": {
+    "circular": 725,
+    "cycle": 665,
+    "rewire": 711
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.down.q20"
+  },
+  {
+   "prior": "disk_io:upq20",
+   "lag": "s",
+   "target": "disk_io:upq50",
+   "count": 1102,
+   "lift": 2.6985976188587917,
+   "lift_conf": 2.2957828524391566,
+   "null_max": {
+    "circular": 467,
+    "cycle": 472,
+    "rewire": 669
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "l",
+   "target": "disk_io:downq80",
+   "count": 4161,
+   "lift": 2.2429822733091,
+   "lift_conf": 2.017103106069792,
+   "null_max": {
+    "circular": 2243,
+    "cycle": 2262,
+    "rewire": 2718
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -l-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "disk_io:upq20",
+   "lag": "s",
+   "target": "cpu:upq20",
+   "count": 1236,
+   "lift": 2.6018363257314028,
+   "lift_conf": 3.0790463835604798,
+   "null_max": {
+    "circular": 538,
+    "cycle": 578,
+    "rewire": 878
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q20"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "s",
+   "target": "mem:downq20",
+   "count": 851,
+   "lift": 2.6436498734842404,
+   "lift_conf": 1.7974911468381611,
+   "null_max": {
+    "circular": 448,
+    "cycle": 530,
+    "rewire": 550
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.down.q20"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "s",
+   "target": "cpu:upq80",
+   "count": 711,
+   "lift": 2.7080694043228104,
+   "lift_conf": 3.2494835526591737,
+   "null_max": {
+    "circular": 515,
+    "cycle": 417,
+    "rewire": 515
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "mem:upq20",
+   "lag": "s",
+   "target": "mem:downq20",
+   "count": 766,
+   "lift": 2.5983886726272747,
+   "lift_conf": 2.676911347692674,
+   "null_max": {
+    "circular": 574,
+    "cycle": 381,
+    "rewire": 172
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "mem:upq20",
+   "lag": "s",
+   "target": "mem:upq50",
+   "count": 1115,
+   "lift": 2.4450016405650197,
+   "lift_conf": 2.6092174292407755,
+   "null_max": {
+    "circular": 587,
+    "cycle": 654,
+    "rewire": 840
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "cpu:downq50",
+   "lag": "s",
+   "target": "cpu:downq20",
+   "count": 1766,
+   "lift": 2.2932151909109675,
+   "lift_conf": 2.2483258813236677,
+   "null_max": {
+    "circular": 941,
+    "cycle": 1034,
+    "rewire": 1295
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "disk_io:downq80",
+   "lag": "m",
+   "target": "disk_io:downq50",
+   "count": 1940,
+   "lift": 2.234200530675204,
+   "lift_conf": 1.752981089899064,
+   "null_max": {
+    "circular": 1595,
+    "cycle": 915,
+    "rewire": 1026
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -m-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "s",
+   "target": "disk_io:upq20",
+   "count": 1152,
+   "lift": 2.3561698138162153,
+   "lift_conf": 2.4376217416023698,
+   "null_max": {
+    "circular": 597,
+    "cycle": 800,
+    "rewire": 839
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q20"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "m",
+   "target": "disk_io:downq80",
+   "count": 1458,
+   "lift": 2.230188744250679,
+   "lift_conf": 2.0540978754044885,
+   "null_max": {
+    "circular": 1177,
+    "cycle": 946,
+    "rewire": 959
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -m-> SLOW.down.q80"
+  },
+  {
+   "prior": "disk_io:downq50",
+   "lag": "m",
+   "target": "disk_io:downq20",
+   "count": 1884,
+   "lift": 2.146609994374973,
+   "lift_conf": 3.05280117987834,
+   "null_max": {
+    "circular": 824,
+    "cycle": 830,
+    "rewire": 917
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -m-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "m",
+   "target": "cpu:upq20",
+   "count": 1987,
+   "lift": 2.130159890563355,
+   "lift_conf": 2.4240365116322833,
+   "null_max": {
+    "circular": 1235,
+    "cycle": 1315,
+    "rewire": 1461
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.up.q20"
+  },
+  {
+   "prior": "cpu:downq50",
+   "lag": "s",
+   "target": "cpu:upq50",
+   "count": 2053,
+   "lift": 2.015437522755742,
+   "lift_conf": 2.273131498709684,
+   "null_max": {
+    "circular": 1295,
+    "cycle": 1514,
+    "rewire": 784
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "l",
+   "target": "disk_io:upq20",
+   "count": 3602,
+   "lift": 1.8590517629494345,
+   "lift_conf": 2.227636646992055,
+   "null_max": {
+    "circular": 2829,
+    "cycle": 2471,
+    "rewire": 2579
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -l-> SLOW.up.q20 [same role]"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "s",
+   "target": "cpu:upq80",
+   "count": 1325,
+   "lift": 2.108945891088189,
+   "lift_conf": 2.3002869941417385,
+   "null_max": {
+    "circular": 715,
+    "cycle": 854,
+    "rewire": 830
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.up.q80 [same role]"
+  },
+  {
+   "prior": "disk_io:upq20",
+   "lag": "m",
+   "target": "disk_io:upq50",
+   "count": 1930,
+   "lift": 1.9967771158848535,
+   "lift_conf": 2.203583512353976,
+   "null_max": {
+    "circular": 884,
+    "cycle": 912,
+    "rewire": 1031
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -m-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "s",
+   "target": "mem:upq80",
+   "count": 1284,
+   "lift": 2.0999128181974163,
+   "lift_conf": 2.57497465677584,
+   "null_max": {
+    "circular": 734,
+    "cycle": 843,
+    "rewire": 900
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "l",
+   "target": "disk_io:downq80",
+   "count": 2837,
+   "lift": 1.8708291251952236,
+   "lift_conf": 1.6455368775841743,
+   "null_max": {
+    "circular": 2383,
+    "cycle": 2283,
+    "rewire": 2399
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -l-> SLOW.down.q80"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "m",
+   "target": "cpu:downq80",
+   "count": 1418,
+   "lift": 2.001493521948634,
+   "lift_conf": 2.3618265492043515,
+   "null_max": {
+    "circular": 883,
+    "cycle": 876,
+    "rewire": 957
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.down.q80"
+  },
+  {
+   "prior": "mem:upq50",
+   "lag": "s",
+   "target": "mem:downq50",
+   "count": 1444,
+   "lift": 1.980450506091211,
+   "lift_conf": 2.039282561505562,
+   "null_max": {
+    "circular": 1018,
+    "cycle": 1096,
+    "rewire": 477
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.down.q50 [same role]"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "s",
+   "target": "disk_io:upq80",
+   "count": 654,
+   "lift": 2.187687708916862,
+   "lift_conf": 2.34760244234153,
+   "null_max": {
+    "circular": 524,
+    "cycle": 520,
+    "rewire": 500
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "s",
+   "target": "disk_io:downq80",
+   "count": 651,
+   "lift": 2.1205132977820047,
+   "lift_conf": 2.550313815962669,
+   "null_max": {
+    "circular": 466,
+    "cycle": 566,
+    "rewire": 563
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.down.q80"
+  },
+  {
+   "prior": "mem:downq50",
+   "lag": "s",
+   "target": "mem:upq50",
+   "count": 1285,
+   "lift": 1.9061799586318686,
+   "lift_conf": 3.1319379711081936,
+   "null_max": {
+    "circular": 1127,
+    "cycle": 988,
+    "rewire": 402
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.up.q50 [same role]"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "s",
+   "target": "cpu:downq20",
+   "count": 1303,
+   "lift": 1.8886394498676884,
+   "lift_conf": 3.8474036330342454,
+   "null_max": {
+    "circular": 1197,
+    "cycle": 1130,
+    "rewire": 441
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.down.q20 [same role]"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "s",
+   "target": "mem:upq50",
+   "count": 948,
+   "lift": 1.946784873267596,
+   "lift_conf": 2.0149907462636696,
+   "null_max": {
+    "circular": 621,
+    "cycle": 827,
+    "rewire": 674
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.up.q50"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "m",
+   "target": "disk_io:upq20",
+   "count": 1805,
+   "lift": 1.7778591474782242,
+   "lift_conf": 1.9096407869113239,
+   "null_max": {
+    "circular": 1646,
+    "cycle": 1372,
+    "rewire": 1304
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.up.q20"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "l",
+   "target": "cpu:upq20",
+   "count": 4328,
+   "lift": 1.5751175244345974,
+   "lift_conf": 1.788271860727286,
+   "null_max": {
+    "circular": 3128,
+    "cycle": 3244,
+    "rewire": 3282
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -l-> SLOW.up.q20"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "l",
+   "target": "cpu:downq80",
+   "count": 3300,
+   "lift": 1.607094287222674,
+   "lift_conf": 1.8837178657677567,
+   "null_max": {
+    "circular": 2215,
+    "cycle": 2431,
+    "rewire": 2560
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -l-> SLOW.down.q80"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "s",
+   "target": "mem:upq80",
+   "count": 1366,
+   "lift": 1.7966084817677348,
+   "lift_conf": 2.1491100208192053,
+   "null_max": {
+    "circular": 913,
+    "cycle": 997,
+    "rewire": 1043
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "mem:upq50",
+   "lag": "m",
+   "target": "mem:downq80",
+   "count": 2647,
+   "lift": 1.6357481821495423,
+   "lift_conf": 1.8580344830086153,
+   "null_max": {
+    "circular": 1635,
+    "cycle": 1661,
+    "rewire": 2125
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -m-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "cpu:downq50",
+   "lag": "s",
+   "target": "mem:downq50",
+   "count": 1456,
+   "lift": 1.7580290719078717,
+   "lift_conf": 1.617311573512896,
+   "null_max": {
+    "circular": 968,
+    "cycle": 1096,
+    "rewire": 1155
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q50"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "s",
+   "target": "mem:upq80",
+   "count": 760,
+   "lift": 1.8921558297126768,
+   "lift_conf": 2.9298502903323906,
+   "null_max": {
+    "circular": 465,
+    "cycle": 511,
+    "rewire": 577
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "cpu:downq50",
+   "lag": "s",
+   "target": "disk_io:downq50",
+   "count": 1178,
+   "lift": 1.7683412412485846,
+   "lift_conf": 1.8509458349704995,
+   "null_max": {
+    "circular": 864,
+    "cycle": 825,
+    "rewire": 884
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q50"
+  },
+  {
+   "prior": "cpu:downq80",
+   "lag": "s",
+   "target": "mem:downq50",
+   "count": 913,
+   "lift": 1.8318366595454343,
+   "lift_conf": 2.3333668112776538,
+   "null_max": {
+    "circular": 666,
+    "cycle": 690,
+    "rewire": 692
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.down.q50"
+  },
+  {
+   "prior": "cpu:upq20",
+   "lag": "l",
+   "target": "disk_io:downq20",
+   "count": 3146,
+   "lift": 1.535993937290409,
+   "lift_conf": 1.9395273464692804,
+   "null_max": {
+    "circular": 2375,
+    "cycle": 2553,
+    "rewire": 2768
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -l-> SLOW.down.q20"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "l",
+   "target": "disk_io:upq20",
+   "count": 3251,
+   "lift": 1.5262455210235761,
+   "lift_conf": 2.094892700309279,
+   "null_max": {
+    "circular": 2749,
+    "cycle": 2630,
+    "rewire": 2887
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -l-> SLOW.up.q20"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "m",
+   "target": "disk_io:downq20",
+   "count": 1654,
+   "lift": 1.6649975397812804,
+   "lift_conf": 2.3576590175715544,
+   "null_max": {
+    "circular": 1338,
+    "cycle": 1191,
+    "rewire": 1093
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.down.q20"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "m",
+   "target": "cpu:upq80",
+   "count": 1227,
+   "lift": 1.7339917665070688,
+   "lift_conf": 2.185809258818977,
+   "null_max": {
+    "circular": 847,
+    "cycle": 971,
+    "rewire": 871
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.up.q80"
+  },
+  {
+   "prior": "mem:downq20",
+   "lag": "s",
+   "target": "cpu:downq80",
+   "count": 500,
+   "lift": 1.909809737023841,
+   "lift_conf": 1.6670927510428195,
+   "null_max": {
+    "circular": 482,
+    "cycle": 395,
+    "rewire": 389
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.down.q80"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "s",
+   "target": "disk_io:upq50",
+   "count": 1225,
+   "lift": 1.6528356686995727,
+   "lift_conf": 1.8286575859769236,
+   "null_max": {
+    "circular": 879,
+    "cycle": 909,
+    "rewire": 908
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.up.q50"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "m",
+   "target": "mem:downq50",
+   "count": 1913,
+   "lift": 1.5546431531133913,
+   "lift_conf": 1.6446083427147118,
+   "null_max": {
+    "circular": 1146,
+    "cycle": 1217,
+    "rewire": 1321
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.down.q50"
+  },
+  {
+   "prior": "mem:downq50",
+   "lag": "s",
+   "target": "cpu:downq80",
+   "count": 794,
+   "lift": 1.7259859589465052,
+   "lift_conf": 1.9758357613945834,
+   "null_max": {
+    "circular": 639,
+    "cycle": 616,
+    "rewire": 585
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q80"
+  },
+  {
+   "prior": "disk_io:downq20",
+   "lag": "m",
+   "target": "cpu:downq20",
+   "count": 1464,
+   "lift": 1.577349773499233,
+   "lift_conf": 1.7111358007655906,
+   "null_max": {
+    "circular": 1404,
+    "cycle": 1263,
+    "rewire": 1104
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -m-> SLOW.down.q20"
+  },
+  {
+   "prior": "cpu:downq20",
+   "lag": "s",
+   "target": "disk_io:downq50",
+   "count": 739,
+   "lift": 1.7340534363630353,
+   "lift_conf": 1.5492108499323207,
+   "null_max": {
+    "circular": 605,
+    "cycle": 620,
+    "rewire": 557
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q20 -s-> SLOW.down.q50"
+  },
+  {
+   "prior": "disk_io:downq80",
+   "lag": "s",
+   "target": "cpu:downq80",
+   "count": 516,
+   "lift": 1.8185755393624694,
+   "lift_conf": 2.4439552884993834,
+   "null_max": {
+    "circular": 497,
+    "cycle": 454,
+    "rewire": 468
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q80 -s-> SLOW.down.q80"
+  },
+  {
+   "prior": "cpu:upq80",
+   "lag": "m",
+   "target": "disk_io:upq80",
+   "count": 1184,
+   "lift": 1.5687464434041456,
+   "lift_conf": 1.5029474613349267,
+   "null_max": {
+    "circular": 897,
+    "cycle": 922,
+    "rewire": 927
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -m-> SLOW.up.q80"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "s",
+   "target": "cpu:downq80",
+   "count": 473,
+   "lift": 1.7993962881293448,
+   "lift_conf": 2.453541129586908,
+   "null_max": {
+    "circular": 421,
+    "cycle": 433,
+    "rewire": 408
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.down.q80"
+  },
+  {
+   "prior": "cpu:upq50",
+   "lag": "s",
+   "target": "mem:upq50",
+   "count": 1405,
+   "lift": 1.524212041924144,
+   "lift_conf": 1.7799730068578095,
+   "null_max": {
+    "circular": 991,
+    "cycle": 1129,
+    "rewire": 1070
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q50 -s-> SLOW.up.q50"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "s",
+   "target": "disk_io:downq80",
+   "count": 431,
+   "lift": 1.8148622105443721,
+   "lift_conf": 1.6008788699970349,
+   "null_max": {
+    "circular": 332,
+    "cycle": 386,
+    "rewire": 229
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.down.q80 [same role]"
+  },
+  {
+   "prior": "mem:upq20",
+   "lag": "s",
+   "target": "cpu:upq80",
+   "count": 540,
+   "lift": 1.7373148909407607,
+   "lift_conf": 1.8644953745134243,
+   "null_max": {
+    "circular": 435,
+    "cycle": 433,
+    "rewire": 463
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -s-> SLOW.up.q80"
+  },
+  {
+   "prior": "mem:upq20",
+   "lag": "m",
+   "target": "cpu:downq80",
+   "count": 1169,
+   "lift": 1.5085561902990252,
+   "lift_conf": 1.6738872257540611,
+   "null_max": {
+    "circular": 893,
+    "cycle": 763,
+    "rewire": 839
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q20 -m-> SLOW.down.q80"
+  },
+  {
+   "prior": "disk_io:downq50",
+   "lag": "s",
+   "target": "cpu:downq20",
+   "count": 751,
+   "lift": 1.5571447261611875,
+   "lift_conf": 1.9320594164618285,
+   "null_max": {
+    "circular": 710,
+    "cycle": 616,
+    "rewire": 639
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.down.q50 -s-> SLOW.down.q20"
+  },
+  {
+   "prior": "disk_io:upq80",
+   "lag": "s",
+   "target": "mem:downq80",
+   "count": 523,
+   "lift": 1.6437324163482463,
+   "lift_conf": 1.927442918078798,
+   "null_max": {
+    "circular": 450,
+    "cycle": 506,
+    "rewire": 441
+   },
+   "nulls_survived": [
+    "circular",
+    "cycle",
+    "rewire"
+   ],
+   "binding_evidence": true,
+   "first_validated_in": "alibaba_2018",
+   "confirmed_in": [],
+   "failed_in": [],
+   "shape": "SLOW.up.q80 -s-> SLOW.down.q80"
+  }
+ ],
+ "compositions": [
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "m"
+    ],
+    [
+     "disk_io:downq20",
+     "l"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 3390
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 590
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 326
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "l"
+    ],
+    [
+     "cpu:downq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 2984
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "m"
+    ],
+    [
+     "cpu:upq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 1179
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq50",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 175
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 939
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 1294
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "l"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 1052
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "m"
+    ],
+    [
+     "cpu:upq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 1018
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "m"
+    ],
+    [
+     "disk_io:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 794
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "l"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 1220
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 265
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "m"
+    ],
+    [
+     "disk_io:downq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 597
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "m"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 714
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 169
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "m"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 1827
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 455
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 833
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 76
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq20",
+   "count": 296
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 188
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq80",
+     "m"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 257
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 1552
+  },
+  {
+   "priors": [
+    [
+     "mem:downq20",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 35
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 561
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "cpu:downq80",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 1100
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "l"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 2011
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 303
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 426
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 489
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 82
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "mem:downq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 273
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "mem:downq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 217
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "l"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 849
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "s"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 480
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 845
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 970
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 451
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq80",
+   "count": 455
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 1110
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "l"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 1216
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 743
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "m"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 963
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq50",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 410
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 720
+  },
+  {
+   "priors": [
+    [
+     "mem:upq80",
+     "m"
+    ],
+    [
+     "mem:upq50",
+     "m"
+    ]
+   ],
+   "target": "mem:downq80",
+   "count": 2854
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "s"
+    ],
+    [
+     "mem:upq50",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 1425
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "s"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 637
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "m"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 878
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 537
+  },
+  {
+   "priors": [
+    [
+     "mem:upq20",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 276
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 274
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 580
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "cpu:upq80",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 2294
+  },
+  {
+   "priors": [
+    [
+     "mem:upq80",
+     "s"
+    ],
+    [
+     "mem:upq50",
+     "m"
+    ]
+   ],
+   "target": "mem:downq80",
+   "count": 1459
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "l"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 419
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 184
+  },
+  {
+   "priors": [
+    [
+     "mem:upq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq80",
+   "count": 471
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq80",
+   "count": 282
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "cpu:downq80",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 680
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 237
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 315
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "l"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 372
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 602
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "m"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 113
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 1053
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 294
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq50",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 123
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "cpu:upq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 633
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 255
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "m"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 606
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 813
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "m"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq50",
+   "count": 442
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 460
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "disk_io:upq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 406
+  },
+  {
+   "priors": [
+    [
+     "mem:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 632
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 897
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "disk_io:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 222
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "l"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 1129
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 1776
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 737
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "mem:downq80",
+     "m"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 544
+  },
+  {
+   "priors": [
+    [
+     "mem:upq20",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 293
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 410
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "m"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq50",
+   "count": 426
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "m"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 218
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 235
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 1174
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 74
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 418
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 99
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq80",
+   "count": 281
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "m"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 671
+  },
+  {
+   "priors": [
+    [
+     "mem:downq20",
+     "s"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 167
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "m"
+    ],
+    [
+     "disk_io:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 308
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "s"
+    ],
+    [
+     "cpu:upq20",
+     "l"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 597
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "m"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 634
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq50",
+     "m"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 414
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq50",
+   "count": 178
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "l"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 152
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "s"
+    ],
+    [
+     "disk_io:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 152
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "m"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq50",
+   "count": 340
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 247
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 72
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 245
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "disk_io:downq50",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 348
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq20",
+   "count": 106
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 255
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 48
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq80",
+     "m"
+    ],
+    [
+     "cpu:downq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 145
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:upq20",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 542
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq20",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:upq20",
+   "count": 481
+  },
+  {
+   "priors": [
+    [
+     "mem:upq20",
+     "m"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq20",
+   "count": 342
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "m"
+    ],
+    [
+     "disk_io:upq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:upq50",
+   "count": 31
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 366
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq20",
+     "s"
+    ],
+    [
+     "disk_io:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 54
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "disk_io:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 108
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 174
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "s"
+    ],
+    [
+     "cpu:downq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 219
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "m"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 129
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 95
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 107
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 148
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "s"
+    ],
+    [
+     "disk_io:downq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq20",
+   "count": 182
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 136
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 56
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq50",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 103
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 191
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "mem:downq20",
+   "count": 44
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 69
+  },
+  {
+   "priors": [
+    [
+     "mem:downq20",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "m"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 219
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq50",
+     "s"
+    ],
+    [
+     "cpu:downq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 73
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 108
+  },
+  {
+   "priors": [
+    [
+     "mem:upq20",
+     "m"
+    ],
+    [
+     "mem:downq50",
+     "s"
+    ]
+   ],
+   "target": "mem:downq20",
+   "count": 273
+  },
+  {
+   "priors": [
+    [
+     "mem:upq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:downq80",
+   "count": 131
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "m"
+    ],
+    [
+     "mem:downq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 129
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 126
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "cpu:upq50",
+     "s"
+    ]
+   ],
+   "target": "mem:upq50",
+   "count": 94
+  },
+  {
+   "priors": [
+    [
+     "mem:upq50",
+     "s"
+    ],
+    [
+     "cpu:downq50",
+     "s"
+    ]
+   ],
+   "target": "mem:downq50",
+   "count": 88
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "m"
+    ],
+    [
+     "disk_io:upq20",
+     "s"
+    ]
+   ],
+   "target": "disk_io:upq50",
+   "count": 76
+  },
+  {
+   "priors": [
+    [
+     "mem:downq20",
+     "s"
+    ],
+    [
+     "disk_io:downq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 33
+  },
+  {
+   "priors": [
+    [
+     "disk_io:downq50",
+     "s"
+    ],
+    [
+     "disk_io:upq20",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 71
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq80",
+     "s"
+    ],
+    [
+     "mem:downq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 49
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq50",
+     "m"
+    ],
+    [
+     "disk_io:downq80",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq50",
+   "count": 14
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 41
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "mem:upq20",
+     "s"
+    ]
+   ],
+   "target": "cpu:upq80",
+   "count": 29
+  },
+  {
+   "priors": [
+    [
+     "cpu:downq80",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "disk_io:downq80",
+   "count": 37
+  },
+  {
+   "priors": [
+    [
+     "mem:downq50",
+     "s"
+    ],
+    [
+     "disk_io:upq80",
+     "s"
+    ]
+   ],
+   "target": "cpu:downq80",
+   "count": 72
+  },
+  {
+   "priors": [
+    [
+     "disk_io:upq20",
+     "m"
+    ],
+    [
+     "disk_io:downq50",
+     "m"
+    ]
+   ],
+   "target": "disk_io:downq20",
+   "count": 19
+  },
+  {
+   "priors": [
+    [
+     "cpu:upq20",
+     "s"
+    ],
+    [
+     "cpu:upq80",
+     "s"
+    ]
+   ],
+   "target": "mem:upq80",
+   "count": 7
+  }
+ ],
+ "shape_counts": {
+  "SLOW.up.q80 -s-> SLOW.down.q80 [same role]": 3,
+  "SLOW.down.q20 -m-> SLOW.up.q20 [same role]": 3,
+  "SLOW.up.q80 -m-> SLOW.down.q80 [same role]": 3,
+  "SLOW.down.q20 -s-> SLOW.up.q20 [same role]": 3,
+  "SLOW.up.q20 -m-> SLOW.down.q20 [same role]": 3,
+  "SLOW.down.q80 -m-> SLOW.up.q80 [same role]": 3,
+  "SLOW.up.q50 -m-> SLOW.down.q50 [same role]": 3,
+  "SLOW.down.q50 -s-> SLOW.down.q20 [same role]": 3,
+  "SLOW.down.q50 -m-> SLOW.up.q50 [same role]": 3,
+  "SLOW.up.q20 -s-> SLOW.up.q50 [same role]": 3,
+  "SLOW.up.q80 -s-> SLOW.up.q80": 3,
+  "SLOW.up.q50 -s-> SLOW.up.q80 [same role]": 2,
+  "SLOW.up.q50 -s-> SLOW.down.q50 [same role]": 2,
+  "SLOW.down.q20 -s-> SLOW.down.q20": 2,
+  "SLOW.up.q20 -s-> SLOW.up.q20": 2,
+  "SLOW.up.q20 -s-> SLOW.down.q20 [same role]": 2,
+  "SLOW.down.q20 -m-> SLOW.up.q20": 2,
+  "SLOW.down.q50 -s-> SLOW.up.q50 [same role]": 2,
+  "SLOW.up.q20 -s-> SLOW.up.q80": 2,
+  "SLOW.up.q80 -l-> SLOW.down.q80": 2,
+  "SLOW.down.q80 -s-> SLOW.down.q80": 2,
+  "SLOW.down.q20 -l-> SLOW.up.q20": 2,
+  "SLOW.down.q50 -s-> SLOW.down.q50": 2,
+  "SLOW.down.q20 -m-> SLOW.down.q20": 2,
+  "SLOW.up.q80 -m-> SLOW.up.q80": 2,
+  "SLOW.up.q50 -s-> SLOW.up.q50": 2,
+  "SLOW.up.q80 -s-> SLOW.down.q80": 2,
+  "SLOW.down.q80 -s-> SLOW.down.q50 [same role]": 1,
+  "SLOW.down.q80 -s-> SLOW.up.q80 [same role]": 1,
+  "SLOW.up.q80 -l-> SLOW.down.q80 [same role]": 1,
+  "SLOW.down.q80 -s-> SLOW.down.q20": 1,
+  "SLOW.down.q80 -m-> SLOW.down.q50 [same role]": 1,
+  "SLOW.down.q80 -m-> SLOW.down.q80": 1,
+  "SLOW.down.q50 -m-> SLOW.down.q20 [same role]": 1,
+  "SLOW.down.q20 -l-> SLOW.up.q20 [same role]": 1,
+  "SLOW.up.q20 -m-> SLOW.up.q50 [same role]": 1,
+  "SLOW.up.q80 -m-> SLOW.down.q80": 1,
+  "SLOW.up.q80 -s-> SLOW.up.q50": 1,
+  "SLOW.up.q50 -s-> SLOW.up.q80": 1,
+  "SLOW.up.q50 -m-> SLOW.down.q80 [same role]": 1,
+  "SLOW.down.q80 -s-> SLOW.down.q50": 1,
+  "SLOW.up.q20 -l-> SLOW.down.q20": 1,
+  "SLOW.down.q20 -s-> SLOW.down.q80": 1,
+  "SLOW.up.q80 -m-> SLOW.down.q50": 1,
+  "SLOW.down.q50 -s-> SLOW.down.q80": 1,
+  "SLOW.down.q20 -s-> SLOW.down.q50": 1,
+  "SLOW.up.q20 -m-> SLOW.down.q80": 1,
+  "SLOW.down.q50 -s-> SLOW.down.q20": 1
+ }
+}

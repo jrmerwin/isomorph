@@ -1,0 +1,21 @@
+{
+ "mechanisms": [
+  {
+   "cause": "I",
+   "effect": "V",
+   "note": "current step -> terminal voltage (ohmic drop plus polarisation)"
+  },
+  {
+   "cause": "I",
+   "effect": "T",
+   "note": "current -> cell temperature (resistive heating)"
+  },
+  {
+   "cause": "V",
+   "effect": "I",
+   "note": "voltage reaching 4.2 V -> current taper (constant-voltage phase of a charge)"
+  }
+ ],
+ "match": "role_prefix",
+ "note": "current -> voltage and current -> temperature are true by construction of the protocol; voltage -> current holds in the constant-voltage phase of every charge"
+}
