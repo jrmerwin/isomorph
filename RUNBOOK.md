@@ -44,6 +44,35 @@ calibration, choice logs). Raw data and `out/state_*.pkl` caches are ignored on 
 
 If you would rather hand over a file: `isomorph bundle` writes `results_<date>.zip` with the same set.
 
+
+## The v10 round (October 2026) — the brief for the Mac: fix the receiver, then re-test
+
+The decision among the three repairs in MATRIX.md is the second one, made general: **C chosen at every logistic fit**
+(METHOD 3.9, v10). The first repair (shrink toward the unigram) is its strong end — intercept-only is in the grid —
+and the third (the self-unigram control) is kept as a check that should read ≈ 0, not as the fix. The collection
+stays paused until step 4 passes.
+
+1. **`score/model.py`**: `LogisticModel.fit` chooses C from {0.01, 0.03, 0.1, 0.3, 1, 3} ∪ {intercept-only} by 2-fold
+   on day parity of its own training events (the same split `apply.transfer` uses for λ), held-out bits deciding,
+   ties to the stronger side; record `chosen_C` on the model and in every json that reports a fit. Applies to the
+   headline library model, the logistic baselines (Markov-features, Hawkes-like, triviality, unselected contexts),
+   every learning-curve point, the mixed model and every control. The 2-fold is on training data only; the test split
+   is touched once, as before.
+2. **Bump** METHOD_VERSION and CARD_RULES_VERSION to 10. Buildings first: the headline will move (C was 0.5 everywhere);
+   re-record the calibration reference with the reason in CHANGELOG, then every card. Where a claim changes
+   (beats baselines ↔ no gain), the card's v10 block says so in one line with both numbers.
+3. **`transfer/apply.py`**: the self-unigram control as a column; the `receiver-unfit` flag when own > unigram at any
+   curve point; flagged cells stay in MATRIX.md and leave the trees and the shares. Regenerate the whole matrix,
+   diagonals included, and the lineage.
+4. **Re-test the declared predictions, in this order, and stop at the first failure:** (a) every receiver's own curve
+   at or below its unigram at every point; (b) self-unigram control below 2 bit-H on every receiver; (c) Alibaba → TEP
+   structure below 5 bit-H; (d) PhysioNet → TEP structure below 10. Write the four results in MATRIX.md as a table
+   next to the v9 one. If (c) fails with (a) and (b) passing, the fault is no longer the receiver and the next
+   suspect is the alignment matching marginals — report, do not fix.
+5. If all four pass, the pause lifts and what is left in the matrix is the first set of cells that can be read as
+   structure. Report them without adjectives, with their shares of ceiling, and note which pairs survive: the
+   expectation is TEP ↔ HAI and TEP ↔ Building 59 at something, the battery and Fingrid near zero, and the negative
+   control at zero everywhere.
 ## What takes time
 
 | step | TEP (120 d, 3 min) | HAI (15 d, 1 min) |

@@ -502,3 +502,14 @@ Method version is an integer (METHOD.md section 7); every card states the versio
   trailing gap to the observation end; a chain's `pgrep -f` matched its own command line and a wait had an `exit`
   inside its condition (both chains re-launched); the Fingrid pager exec'd without `__file__` wrote to the home
   directory (moved).
+
+## v10 (2026-10-21) — specified here, implementation on the Mac
+
+- 3.9: regularisation chosen at every logistic fit by 2-fold on day parity from C ∈ {0.01 … 3} with intercept-only
+  (the unigram) as the strong end; chosen C recorded. Motivated by v9: the receiver's own learning curve sat above
+  its unigram on TEP (8 of 9 points) and Building 59 (9 of 9), and the negative control (Alibaba cluster trace)
+  taught TEP 51.2 bit-H, 29% of TEP's own ceiling, failing its declared prediction and pausing the collection.
+- 3.12: the self-unigram control as a check (≈ 0 expected) and the `receiver-unfit` flag (cell kept in the table,
+  out of trees and shares).
+- Cards regenerate (CARD_RULES_VERSION 10); the calibration reference is re-recorded. The pause lifts only when the
+  four declared predictions in RUNBOOK.md (v10 round, step 4) hold.
